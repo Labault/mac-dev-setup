@@ -13,3 +13,6 @@
 
 .tmp/
 *.log
+
+# Private Zsh configuration
+configs/zsh/local.zsh
