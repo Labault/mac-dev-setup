@@ -60,6 +60,10 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 * [tokei source code statistics](docs/cli/tokei.md)
 * [tree directory structure viewer](docs/cli/tree.md)
 
+### Remote access
+
+* [SSH keys, macOS Keychain, and GitHub authentication](docs/ssh/ssh.md)
+
 ### Editors
 
 * [Visual Studio Code setup and extensions](docs/vscode/vscode.md)
