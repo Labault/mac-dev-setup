@@ -19,10 +19,6 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 * [dust disk usage analyzer](docs/cli/dust.md)
 
-* [Run GitHub Actions locally with act](docs/act/act.md)
-
-* [OrbStack container runtime](docs/orbstack/orbstack.md)
-
 * [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
 
 * [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
