@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [Run GitHub Actions locally with act](docs/act/act.md)
+
 * [OrbStack container runtime](docs/orbstack/orbstack.md)
 
 * [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
