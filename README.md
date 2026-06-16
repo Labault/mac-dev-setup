@@ -9,6 +9,16 @@ Every component is reviewed, tested, and understood before becoming part of the 
 > [!WARNING]
 > This project is under active development. The repository will grow progressively as each configuration is tested and accepted.
 
+## Compatibility
+
+This setup is developed and manually validated on an Apple Silicon Mac.
+
+Apple Silicon is the primary supported architecture for version 0.1.0. Homebrew is expected under `/opt/homebrew`, and the documented configurations have been tested in that environment.
+
+Intel-based Macs are supported on a best-effort basis. Some configurations include fallbacks for the Intel Homebrew prefix `/usr/local`, but the complete setup has not been manually validated on Intel hardware.
+
+Other operating systems, including Linux and Windows, are outside the scope of this repository. GitHub Actions may use Linux runners for repository validation, but the documented local development environment targets macOS.
+
 ## Available documentation
 
 * [lychee documentation link validation](docs/quality/lychee.md)
