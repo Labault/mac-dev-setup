@@ -11,10 +11,6 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
-* [Beekeeper Studio database client](docs/beekeeper-studio/beekeeper-studio.md)
-
-* [Pearcleaner application uninstaller](docs/pearcleaner/pearcleaner.md)
-
 * [Run GitHub Actions locally with act](docs/act/act.md)
 
 * [OrbStack container runtime](docs/orbstack/orbstack.md)
