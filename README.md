@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [lychee documentation link validation](docs/quality/lychee.md)
+
 * [markdownlint-cli2 Markdown validation](docs/quality/markdownlint-cli2.md)
 
 * [editorconfig-checker repository formatting validation](docs/quality/editorconfig-checker.md)
