@@ -57,6 +57,9 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 
+  # macOS icon styling.
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
