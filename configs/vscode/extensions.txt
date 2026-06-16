@@ -1,0 +1,10 @@
+bmewburn.vscode-intelephense-client
+christian-kohler.path-intellisense
+eamodio.gitlens
+github.vscode-github-actions
+mehedidracula.php-namespace-resolver
+mikestead.dotenv
+redhat.vscode-yaml
+sanderronde.phpstan-vscode
+whatwedo.twig
+xdebug.php-debug
