@@ -74,3 +74,7 @@ The Brewfile's dependencies are satisfied.
 - `codexbar`: displays Codex and Claude usage information in the macOS menu bar.
 - `jordanbaird-ice`: organizes and hides menu bar items.
 - `stats`: displays system metrics directly in the menu bar.
+
+### Security
+
+- `keeweb`: manages KeePass-compatible password databases in the KDBX format.
