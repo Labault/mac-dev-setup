@@ -35,6 +35,7 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 ### Git, quality, and security
 
 * [editorconfig-checker repository formatting validation](docs/quality/editorconfig-checker.md)
+* [Git workflow configuration](docs/git/git.md)
 * [Git Delta readable Git diffs](docs/git/git-delta.md)
 * [Gitleaks secret detection and repository scanning](docs/security/gitleaks.md)
 * [lychee documentation link validation](docs/quality/lychee.md)
