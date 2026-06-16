@@ -37,3 +37,5 @@ cask "keeweb"
 cask "orbstack"
 cask "pearcleaner"
 cask "stats"
+
+cask "visual-studio-code"
