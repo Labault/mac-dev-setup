@@ -24,3 +24,27 @@ The public Zsh configuration is split across a small set of focused files:
 - `configs/zsh/.p10k.zsh` contains the curated Powerlevel10k configuration.
 
 Machine-specific or sensitive shell configuration is intentionally kept outside the repository.
+
+## Installation
+
+Copy or link the public configuration files to their expected locations:
+
+```bash
+cp configs/zsh/.zprofile "$HOME/.zprofile"
+cp configs/zsh/.zshrc "$HOME/.zshrc"
+cp configs/zsh/.zsh_plugins.txt "$HOME/.zsh_plugins.txt"
+cp configs/zsh/.p10k.zsh "$HOME/.p10k.zsh"
+
+mkdir -p "$HOME/.shell"
+cp configs/zsh/alias.sh "$HOME/.shell/alias.sh"
+```
+
+The configuration expects Homebrew and Antidote to be installed before starting a new shell session.
+
+Private or machine-specific settings should be stored in:
+
+```text
+~/.shell/local.zsh
+```
+
+This file is optional and must not be committed to the repository.
