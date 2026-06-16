@@ -68,6 +68,7 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 ### Editors
 
 * [Visual Studio Code setup and extensions](docs/vscode/vscode.md)
+* [Warp terminal setup and configuration](docs/warp/warp.md)
 
 ### Database
 

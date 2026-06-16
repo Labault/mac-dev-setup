@@ -39,3 +39,5 @@ cask "pearcleaner"
 cask "stats"
 
 cask "visual-studio-code"
+
+cask "warp"
