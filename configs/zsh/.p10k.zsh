@@ -30,6 +30,12 @@
     context
   )
 
+  # Core visual settings.
+  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
+  typeset -g POWERLEVEL9K_ICON_PADDING=none
+  typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
+  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
