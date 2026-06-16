@@ -1,5 +1,6 @@
 tap "symfony-cli/tap"
 
+brew "actionlint"
 brew "antidote"
 brew "autojump"
 brew "bat"
