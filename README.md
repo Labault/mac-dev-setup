@@ -54,6 +54,7 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 * [Actionlint GitHub Actions workflow validation](docs/github-actions/actionlint.md)
 * [Act local GitHub Actions execution](docs/github-actions/act.md)
+* [CI repository quality workflow](docs/github-actions/ci.md)
 
 ### Containers and Docker
 
