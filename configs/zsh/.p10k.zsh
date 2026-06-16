@@ -87,6 +87,10 @@
   typeset -g POWERLEVEL9K_DIR_HYPERLINK=false
   typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v3
 
+  # Git status styling.
+  typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
