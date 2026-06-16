@@ -84,3 +84,25 @@ Antidote is loaded from the Homebrew prefix:
 `$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh`
 
 If Antidote or the plugin list cannot be loaded, the configuration prints a warning to standard error instead of silently failing.
+
+## Antidote
+
+Antidote is used as the Zsh plugin manager.
+
+It is installed through Homebrew and loaded from:
+
+`$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh`
+
+The plugin definitions are stored separately in:
+
+`$HOME/.zsh_plugins.txt`
+
+This file is generated from the repository version located at:
+
+`configs/zsh/.zsh_plugins.txt`
+
+Keeping the plugin list outside `.zshrc` makes the configuration easier to review, maintain, and update.
+
+When both Antidote and the plugin list are readable, `.zshrc` loads them with:
+
+`antidote load "$ANTIDOTE_PLUGINS"`
