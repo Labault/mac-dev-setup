@@ -63,11 +63,22 @@ The Brewfile's dependencies are satisfied.
 
 ### Development utilities
 
+- `act`: executes GitHub Actions workflows locally using a container runtime.
+- `actionlint`: validates GitHub Actions workflow files and expressions.
 - `gh`: provides the GitHub CLI for repository, pull request, issue, and workflow operations.
 - `glances`: provides detailed system monitoring from the terminal, including remote sessions.
+- `gitleaks`: detects secrets, credentials, and sensitive values in repositories.
+- `hadolint`: analyzes Dockerfiles for common mistakes and unsafe patterns.
+- `pre-commit`: manages repository hooks that run checks before commits.
+- `shellcheck`: detects errors and unsafe patterns in shell scripts.
 - `uv`: installs and runs Python-based command-line tools in isolated environments.
 
 ## Casks
+
+### Development
+
+- `beekeeper-studio`: provides a graphical client for browsing and administering SQL databases.
+- `orbstack`: provides the local Docker-compatible container runtime and Linux virtualization environment.
 
 ### Menu bar and monitoring
 
@@ -78,6 +89,10 @@ The Brewfile's dependencies are satisfied.
 ### Security
 
 - `keeweb`: manages KeePass-compatible password databases in the KDBX format.
+
+### macOS maintenance
+
+- `pearcleaner`: removes macOS applications and helps identify related leftover files.
 
 ## Maintenance
 
