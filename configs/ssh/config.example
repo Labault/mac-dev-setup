@@ -1,0 +1,11 @@
+# OrbStack SSH integration.
+# Keep this include before any Host block.
+Include ~/.orbstack/ssh/config
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentitiesOnly yes
