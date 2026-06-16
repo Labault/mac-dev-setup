@@ -228,6 +228,11 @@
   typeset -g POWERLEVEL9K_PHPENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PHPENV_SHOW_SYSTEM=true
 
+  # Global prompt behavior.
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+  typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
