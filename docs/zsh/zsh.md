@@ -126,3 +126,25 @@ The loading order is intentional.
 Oh My Zsh compatibility and libraries are loaded first, followed by Oh My Zsh plugins and interactive helpers. Powerlevel10k is loaded before syntax highlighting.
 
 `zsh-syntax-highlighting` must remain last so it can correctly hook into the final Zsh configuration.
+
+## Public and private aliases
+
+Public aliases are stored in:
+
+`configs/zsh/alias.sh`
+
+They are copied to:
+
+`$HOME/.shell/alias.sh`
+
+The public alias file should contain only reusable aliases that are safe to share in the repository.
+
+The current public alias is:
+
+`alias ll="lsd -la"`
+
+Private aliases, machine-specific commands, local paths, tokens, and other personal shell settings must be stored in:
+
+`$HOME/.shell/local.zsh`
+
+This file is optional, loaded automatically by `.zshrc` when readable, and must remain outside version control.
