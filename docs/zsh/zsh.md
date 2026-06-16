@@ -64,3 +64,23 @@ It also loads OrbStack shell integration when the following file is available:
 `$HOME/.orbstack/shell/init.zsh`
 
 The Homebrew detection keeps the configuration portable across both Apple Silicon and Intel Macs, while OrbStack integration remains optional.
+
+## Interactive shell configuration
+
+The `configs/zsh/.zshrc` file configures each interactive Zsh session.
+
+It loads the shell environment in the following order:
+
+1. Powerlevel10k instant prompt;
+2. Antidote and the curated plugin list;
+3. public aliases from `$HOME/.shell/alias.sh`;
+4. private or machine-specific settings from `$HOME/.shell/local.zsh`;
+5. the Powerlevel10k configuration from `$HOME/.p10k.zsh`.
+
+Each optional file is loaded only when it exists and is readable.
+
+Antidote is loaded from the Homebrew prefix:
+
+`$HOMEBREW_PREFIX/opt/antidote/share/antidote/antidote.zsh`
+
+If Antidote or the plugin list cannot be loaded, the configuration prints a warning to standard error instead of silently failing.
