@@ -53,3 +53,10 @@ The Brewfile's dependencies are satisfied.
 - `lsd`: provides a modern and more visual alternative to `ls`.
 - `terminal-notifier`: sends macOS notifications from terminal commands and scripts.
 - `tldr`: provides concise, example-driven command documentation.
+
+### PHP and Symfony
+
+- `php`: provides the PHP runtime used by local Symfony projects.
+- `composer`: manages PHP project dependencies.
+- `symfony-cli/tap/symfony-cli`: provides the Symfony CLI for local development and project tooling.
+- `libpq`: provides PostgreSQL client libraries and command-line tools without installing the full PostgreSQL server.
