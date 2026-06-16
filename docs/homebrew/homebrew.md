@@ -99,3 +99,19 @@ Remove outdated package versions and cached downloads:
 ```bash
 brew cleanup
 ```
+
+## Rollback
+
+Remove a formula with:
+
+```bash
+brew uninstall <formula>
+```
+
+Remove a cask with:
+
+```bash
+brew uninstall --cask <cask>
+```
+
+After uninstalling a package, remove its entry from the Brewfile and run the verification command again.
