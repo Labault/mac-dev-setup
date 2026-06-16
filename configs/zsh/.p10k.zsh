@@ -60,6 +60,14 @@
   # macOS icon styling.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
 
+  # Directory styling.
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=103
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
