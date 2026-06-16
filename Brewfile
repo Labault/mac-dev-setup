@@ -11,3 +11,4 @@ brew "php"
 brew "terminal-notifier"
 brew "tldr"
 brew "uv"
+brew "symfony-cli/tap/symfony-cli", trusted: true
