@@ -87,3 +87,9 @@ Update Homebrew metadata and installed packages:
 brew update
 brew upgrade
 ```
+
+Check the Homebrew installation for potential problems:
+
+```bash
+brew doctor
+```
