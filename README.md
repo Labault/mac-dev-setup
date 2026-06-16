@@ -25,6 +25,7 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
 * [Pearcleaner macOS application uninstaller](docs/macos/pearcleaner.md)
+* [macOS development defaults](docs/macos/macos-defaults.md)
 
 ### Shell
 
