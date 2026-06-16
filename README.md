@@ -21,3 +21,4 @@ Every component is reviewed, tested, and understood before becoming part of the 
 * [Hadolint Dockerfile analysis](docs/docker/hadolint.md)
 * [OrbStack local containers and Linux virtualization](docs/containers/orbstack.md)
 * [Beekeeper Studio database client](docs/database/beekeeper-studio.md)
+* [Pearcleaner macOS application uninstaller](docs/macos/pearcleaner.md)
