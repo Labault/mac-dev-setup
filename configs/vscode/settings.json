@@ -1,0 +1,12 @@
+{
+  "editor.inlineSuggest.enabled": true,
+  "explorer.autoReveal": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "files.autoSave": "afterDelay",
+  "git.closeDiffOnOperation": true,
+  "git.fetchOnPull": true,
+  "git.pruneOnFetch": true,
+  "workbench.startupEditor": "none"
+}

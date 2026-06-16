@@ -1,0 +1,5 @@
+anthropic.claude-code
+avaly.restore-git-branch-tabs-improved
+hogashi.crontab-syntax-highlight
+mechatroner.rainbow-csv
+monokai.theme-monokai-pro-vscode

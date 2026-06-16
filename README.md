@@ -60,6 +60,10 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 * [tokei source code statistics](docs/cli/tokei.md)
 * [tree directory structure viewer](docs/cli/tree.md)
 
+### Editors
+
+* [Visual Studio Code setup and extensions](docs/vscode/vscode.md)
+
 ### Database
 
 * [Beekeeper Studio database client](docs/database/beekeeper-studio.md)
