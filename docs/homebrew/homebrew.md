@@ -66,3 +66,11 @@ The Brewfile's dependencies are satisfied.
 - `gh`: provides the GitHub CLI for repository, pull request, issue, and workflow operations.
 - `glances`: provides detailed system monitoring from the terminal, including remote sessions.
 - `uv`: installs and runs Python-based command-line tools in isolated environments.
+
+## Casks
+
+### Menu bar and monitoring
+
+- `codexbar`: displays Codex and Claude usage information in the macOS menu bar.
+- `jordanbaird-ice`: organizes and hides menu bar items.
+- `stats`: displays system metrics directly in the menu bar.
