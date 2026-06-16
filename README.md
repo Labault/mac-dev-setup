@@ -8,3 +8,7 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 > [!WARNING]
 > This project is under active development. The repository will grow progressively as each configuration is tested and accepted.
+
+## Available documentation
+
+* [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
