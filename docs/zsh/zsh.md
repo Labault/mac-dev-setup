@@ -148,3 +148,45 @@ Private aliases, machine-specific commands, local paths, tokens, and other perso
 `$HOME/.shell/local.zsh`
 
 This file is optional, loaded automatically by `.zshrc` when readable, and must remain outside version control.
+
+## Testing
+
+Run the following checks after installing or updating the Zsh configuration.
+
+Check the login-shell environment:
+
+```bash
+zsh -lic 'printf "HOMEBREW_PREFIX=%s\n" "$HOMEBREW_PREFIX"; printf "PATH=%s\n" "$PATH"'
+```
+
+Check that the interactive configuration loads without errors:
+
+```bash
+zsh -ic 'echo "Zsh configuration loaded successfully"'
+```
+
+Check that Antidote is available:
+
+```bash
+zsh -ic 'type antidote'
+```
+
+Check that the public alias is loaded:
+
+```bash
+zsh -ic 'alias ll'
+```
+
+Check that the curated plugins are active:
+
+```bash
+zsh -ic 'type _zsh_autosuggest_start; type _zsh_highlight'
+```
+
+Check that Powerlevel10k is loaded:
+
+```bash
+zsh -ic 'typeset -p POWERLEVEL9K_MODE'
+```
+
+A final cold-start test should also be performed by closing the terminal application completely, reopening it, and confirming that the prompt and shell configuration load correctly.
