@@ -12,17 +12,11 @@ Every component is reviewed, tested, and understood before becoming part of the 
 ## Available documentation
 
 * [ctop container monitoring dashboard](docs/containers/ctop.md)
-
 * [tokei source code statistics](docs/cli/tokei.md)
-
 * [tree directory structure viewer](docs/cli/tree.md)
-
 * [duf filesystem usage viewer](docs/cli/duf.md)
-
 * [dust disk usage analyzer](docs/cli/dust.md)
-
 * [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
-
 * [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
 * [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)

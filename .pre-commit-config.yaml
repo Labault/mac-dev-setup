@@ -22,8 +22,6 @@ repos:
         language: system
         types: [markdown]
 
-  - repo: local
-    hooks:
       - id: lychee
         name: lychee
         entry: lychee
@@ -33,8 +31,6 @@ repos:
           - README.md
           - docs/**/*.md
 
-  - repo: local
-    hooks:
       - id: editorconfig-checker
         name: editorconfig-checker
         entry: editorconfig-checker
