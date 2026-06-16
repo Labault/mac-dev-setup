@@ -29,3 +29,17 @@ brew bundle install --file=Brewfile
 ```
 
 Homebrew skips packages that are already installed.
+
+## Verify the setup
+
+Check whether all dependencies declared in the Brewfile are already installed:
+
+```bash
+brew bundle check --file=Brewfile
+```
+
+A successful setup returns:
+
+```text
+The Brewfile's dependencies are satisfied.
+```
