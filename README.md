@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [ctop container monitoring dashboard](docs/containers/ctop.md)
+
 * [tokei source code statistics](docs/cli/tokei.md)
 
 * [tree directory structure viewer](docs/cli/tree.md)
