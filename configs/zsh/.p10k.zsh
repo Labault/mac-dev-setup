@@ -68,6 +68,16 @@
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
 
+  # Directory anchor files.
+  local anchor_files=(
+    .git
+    .php-version
+    .shorten_folder_marker
+    composer.json
+  )
+
+  typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
+
   (( ! $+functions[p10k] )) || p10k reload
 }
 
