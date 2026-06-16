@@ -21,3 +21,14 @@ repos:
         entry: markdownlint-cli2
         language: system
         types: [markdown]
+
+  - repo: local
+    hooks:
+      - id: lychee
+        name: lychee
+        entry: lychee
+        language: system
+        pass_filenames: false
+        args:
+          - README.md
+          - docs/**/*.md
