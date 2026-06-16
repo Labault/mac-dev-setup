@@ -60,3 +60,9 @@ The Brewfile's dependencies are satisfied.
 - `composer`: manages PHP project dependencies.
 - `symfony-cli/tap/symfony-cli`: provides the Symfony CLI for local development and project tooling.
 - `libpq`: provides PostgreSQL client libraries and command-line tools without installing the full PostgreSQL server.
+
+### Development utilities
+
+- `gh`: provides the GitHub CLI for repository, pull request, issue, and workflow operations.
+- `glances`: provides detailed system monitoring from the terminal, including remote sessions.
+- `uv`: installs and runs Python-based command-line tools in isolated environments.
