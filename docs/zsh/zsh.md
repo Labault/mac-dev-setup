@@ -106,3 +106,23 @@ Keeping the plugin list outside `.zshrc` makes the configuration easier to revie
 When both Antidote and the plugin list are readable, `.zshrc` loads them with:
 
 `antidote load "$ANTIDOTE_PLUGINS"`
+
+## Plugins
+
+The curated plugin list is stored in `configs/zsh/.zsh_plugins.txt`.
+
+It currently includes:
+
+- Oh My Zsh compatibility through `getantidote/use-omz`;
+- Oh My Zsh libraries through `ohmyzsh/ohmyzsh path:lib`;
+- the `autojump`, `command-not-found`, and `git` Oh My Zsh plugins;
+- `zsh-autosuggestions`;
+- `alias-tips`;
+- Powerlevel10k;
+- `zsh-syntax-highlighting`.
+
+The loading order is intentional.
+
+Oh My Zsh compatibility and libraries are loaded first, followed by Oh My Zsh plugins and interactive helpers. Powerlevel10k is loaded before syntax highlighting.
+
+`zsh-syntax-highlighting` must remain last so it can correctly hook into the final Zsh configuration.
