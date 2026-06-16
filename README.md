@@ -13,3 +13,4 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 * [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
 * [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
+* [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
