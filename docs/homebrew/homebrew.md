@@ -78,3 +78,12 @@ The Brewfile's dependencies are satisfied.
 ### Security
 
 - `keeweb`: manages KeePass-compatible password databases in the KDBX format.
+
+## Maintenance
+
+Update Homebrew metadata and installed packages:
+
+```bash
+brew update
+brew upgrade
+```
