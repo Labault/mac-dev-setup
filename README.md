@@ -15,3 +15,4 @@ Every component is reviewed, tested, and understood before becoming part of the 
 * [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
 * [Gitleaks secret detection and repository scanning](docs/security/gitleaks.md)
+* [ShellCheck shell script analysis](docs/shell/shellcheck.md)
