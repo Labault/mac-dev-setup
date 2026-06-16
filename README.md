@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [duf filesystem usage viewer](docs/cli/duf.md)
+
 * [dust disk usage analyzer](docs/cli/dust.md)
 
 * [Run GitHub Actions locally with act](docs/act/act.md)
