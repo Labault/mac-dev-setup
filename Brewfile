@@ -2,6 +2,7 @@ tap "symfony-cli/tap"
 
 brew "antidote"
 brew "autojump"
+brew "bat"
 brew "composer"
 brew "gh"
 brew "glances"
