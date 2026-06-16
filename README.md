@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [git-delta readable Git diffs](docs/git/git-delta.md)
+
 * [bat syntax-aware file viewer](docs/cli/bat.md)
 
 * [ctop container monitoring dashboard](docs/containers/ctop.md)
