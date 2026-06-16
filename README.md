@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [editorconfig-checker repository formatting validation](docs/quality/editorconfig-checker.md)
+
 * [git-delta readable Git diffs](docs/git/git-delta.md)
 
 * [bat syntax-aware file viewer](docs/cli/bat.md)
