@@ -93,3 +93,9 @@ Check the Homebrew installation for potential problems:
 ```bash
 brew doctor
 ```
+
+Remove outdated package versions and cached downloads:
+
+```bash
+brew cleanup
+```
