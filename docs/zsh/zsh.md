@@ -190,3 +190,29 @@ zsh -ic 'typeset -p POWERLEVEL9K_MODE'
 ```
 
 A final cold-start test should also be performed by closing the terminal application completely, reopening it, and confirming that the prompt and shell configuration load correctly.
+
+## Rollback
+
+Before replacing an existing Zsh configuration, create backups of the current files:
+
+```bash
+cp "$HOME/.zprofile" "$HOME/.zprofile.backup" 2>/dev/null || true
+cp "$HOME/.zshrc" "$HOME/.zshrc.backup" 2>/dev/null || true
+cp "$HOME/.zsh_plugins.txt" "$HOME/.zsh_plugins.txt.backup" 2>/dev/null || true
+cp "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.backup" 2>/dev/null || true
+cp "$HOME/.shell/alias.sh" "$HOME/.shell/alias.sh.backup" 2>/dev/null || true
+```
+
+To restore the previous configuration, move the backup files back to their original locations:
+
+```bash
+[[ -f "$HOME/.zprofile.backup" ]] && mv "$HOME/.zprofile.backup" "$HOME/.zprofile"
+[[ -f "$HOME/.zshrc.backup" ]] && mv "$HOME/.zshrc.backup" "$HOME/.zshrc"
+[[ -f "$HOME/.zsh_plugins.txt.backup" ]] && mv "$HOME/.zsh_plugins.txt.backup" "$HOME/.zsh_plugins.txt"
+[[ -f "$HOME/.p10k.zsh.backup" ]] && mv "$HOME/.p10k.zsh.backup" "$HOME/.p10k.zsh"
+[[ -f "$HOME/.shell/alias.sh.backup" ]] && mv "$HOME/.shell/alias.sh.backup" "$HOME/.shell/alias.sh"
+```
+
+Only restore files whose backup exists. Review machine-specific settings in `$HOME/.shell/local.zsh` separately, because this file is not managed by the repository.
+
+After restoring the files, close the terminal application completely and reopen it to perform a cold-start test.
