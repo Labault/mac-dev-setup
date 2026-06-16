@@ -17,3 +17,4 @@ Every component is reviewed, tested, and understood before becoming part of the 
 * [Gitleaks secret detection and repository scanning](docs/security/gitleaks.md)
 * [ShellCheck shell script analysis](docs/shell/shellcheck.md)
 * [Actionlint GitHub Actions workflow validation](docs/github-actions/actionlint.md)
+* [Hadolint Dockerfile analysis](docs/docker/hadolint.md)
