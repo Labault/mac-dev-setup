@@ -43,3 +43,13 @@ A successful setup returns:
 ```text
 The Brewfile's dependencies are satisfied.
 ```
+
+## Formulae
+
+### Shell and terminal
+
+- `antidote`: manages Zsh plugins.
+- `autojump`: provides fast navigation to frequently used directories.
+- `lsd`: provides a modern and more visual alternative to `ls`.
+- `terminal-notifier`: sends macOS notifications from terminal commands and scripts.
+- `tldr`: provides concise, example-driven command documentation.
