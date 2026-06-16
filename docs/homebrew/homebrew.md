@@ -19,3 +19,13 @@ Install Homebrew using the official installer:
 ```
 
 On Apple Silicon Macs, Homebrew is installed under `/opt/homebrew`.
+
+## Install the curated packages
+
+From the repository root, install the accepted formulae and casks with:
+
+```bash
+brew bundle install --file=Brewfile
+```
+
+Homebrew skips packages that are already installed.
