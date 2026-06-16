@@ -23,5 +23,6 @@ brew "symfony-cli/tap/symfony-cli", trusted: true
 cask "beekeeper-studio"
 cask "codexbar"
 cask "jordanbaird-ice"
+cask "orbstack"
 cask "keeweb"
 cask "stats"
