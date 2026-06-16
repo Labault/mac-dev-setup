@@ -21,30 +21,45 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 ## Available documentation
 
-* [lychee documentation link validation](docs/quality/lychee.md)
+### Package management and macOS
 
-* [markdownlint-cli2 Markdown validation](docs/quality/markdownlint-cli2.md)
+* [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
+* [Pearcleaner macOS application uninstaller](docs/macos/pearcleaner.md)
+
+### Shell
+
+* [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
+* [ShellCheck shell script analysis](docs/shell/shellcheck.md)
+* [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
+
+### Git, quality, and security
 
 * [editorconfig-checker repository formatting validation](docs/quality/editorconfig-checker.md)
-
-* [git-delta readable Git diffs](docs/git/git-delta.md)
-
-* [bat syntax-aware file viewer](docs/cli/bat.md)
-
-* [ctop container monitoring dashboard](docs/containers/ctop.md)
-* [tokei source code statistics](docs/cli/tokei.md)
-* [tree directory structure viewer](docs/cli/tree.md)
-* [duf filesystem usage viewer](docs/cli/duf.md)
-* [dust disk usage analyzer](docs/cli/dust.md)
-* [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
-* [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
-* [Powerlevel10k setup and rollback](docs/zsh/powerlevel10k.md)
-* [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
+* [Git Delta readable Git diffs](docs/git/git-delta.md)
 * [Gitleaks secret detection and repository scanning](docs/security/gitleaks.md)
-* [ShellCheck shell script analysis](docs/shell/shellcheck.md)
+* [lychee documentation link validation](docs/quality/lychee.md)
+* [markdownlint-cli2 Markdown validation](docs/quality/markdownlint-cli2.md)
+* [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
+
+### GitHub Actions
+
 * [Actionlint GitHub Actions workflow validation](docs/github-actions/actionlint.md)
 * [Act local GitHub Actions execution](docs/github-actions/act.md)
+
+### Containers and Docker
+
+* [ctop container monitoring dashboard](docs/containers/ctop.md)
 * [Hadolint Dockerfile analysis](docs/docker/hadolint.md)
 * [OrbStack local containers and Linux virtualization](docs/containers/orbstack.md)
+
+### Command-line utilities
+
+* [bat syntax-aware file viewer](docs/cli/bat.md)
+* [duf filesystem usage viewer](docs/cli/duf.md)
+* [dust disk usage analyzer](docs/cli/dust.md)
+* [tokei source code statistics](docs/cli/tokei.md)
+* [tree directory structure viewer](docs/cli/tree.md)
+
+### Database
+
 * [Beekeeper Studio database client](docs/database/beekeeper-studio.md)
-* [Pearcleaner macOS application uninstaller](docs/macos/pearcleaner.md)
