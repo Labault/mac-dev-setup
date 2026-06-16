@@ -21,6 +21,10 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 ## Available documentation
 
+### Setup
+
+* [Global setup script](docs/setup/setup.md)
+
 ### Package management and macOS
 
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
