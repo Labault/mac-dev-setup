@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [dust disk usage analyzer](docs/cli/dust.md)
+
 * [Run GitHub Actions locally with act](docs/act/act.md)
 
 * [OrbStack container runtime](docs/orbstack/orbstack.md)
