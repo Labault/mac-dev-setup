@@ -23,20 +23,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-          cache: pip
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "stable"
 
       - name: Install system validation tools
         run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            ca-certificates \
+            curl \
+            golang-go
+
+          curl -fsSL https://deb.nodesource.com/setup_22.x \
+            | sudo -E bash -
+
+          sudo apt-get install --yes nodejs
+
           python -m pip install --upgrade pip
           python -m pip install pre-commit
 
@@ -51,11 +51,18 @@ jobs:
 
           sudo install actionlint /usr/local/bin/actionlint
 
-          sudo snap install lychee
+          curl -sSfL \
+            https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz \
+            -o /tmp/lychee.tar.gz
 
-      - name: Add Go binaries to PATH
-        run: echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+          mkdir -p /tmp/lychee
+          tar -xzf /tmp/lychee.tar.gz -C /tmp/lychee
 
+          sudo install \
+            "$(find /tmp/lychee -type f -name lychee -print -quit)" \
+            /usr/local/bin/lychee
+
+                    echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
       - name: Cache pre-commit environments
         uses: actions/cache@v4
         with:
