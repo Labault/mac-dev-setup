@@ -48,3 +48,19 @@ Private or machine-specific settings should be stored in:
 ```
 
 This file is optional and must not be committed to the repository.
+
+## Zsh profile
+
+The `configs/zsh/.zprofile` file prepares the login-shell environment before the interactive Zsh configuration is loaded.
+
+It performs three tasks:
+
+- initializes Homebrew on Apple Silicon through `/opt/homebrew/bin/brew`;
+- falls back to `/usr/local/bin/brew` for Intel-based Macs;
+- prepends `$HOME/.local/bin` to `PATH` when the directory exists.
+
+It also loads OrbStack shell integration when the following file is available:
+
+`$HOME/.orbstack/shell/init.zsh`
+
+The Homebrew detection keeps the configuration portable across both Apple Silicon and Intel Macs, while OrbStack integration remains optional.
