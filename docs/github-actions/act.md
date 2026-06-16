@@ -30,6 +30,27 @@ Before running Act, verify that the container engine is available:
 docker info
 ```
 
+OrbStack exposes its Docker API through a user-specific Unix socket. Some tools, including Act, do not automatically resolve the active Docker context.
+
+The following environment variable is therefore declared in `~/.zshrc`:
+
+```bash
+export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+```
+
+Reload the shell configuration after adding or changing this value:
+
+```bash
+source ~/.zshrc
+```
+
+Verify the resolved socket:
+
+```bash
+echo "$DOCKER_HOST"
+docker info
+```
+
 ## Verify the installation
 
 Check that Act is available:
@@ -116,6 +137,22 @@ On first execution, Act may ask which image size should be used. Smaller images 
 
 The selected image can be changed later through Act configuration.
 
+For Apple Silicon Macs, this setup uses the `linux/amd64` architecture to remain close to GitHub-hosted Ubuntu runners.
+
+The global Act configuration is stored in:
+
+```text
+~/Library/Application Support/act/actrc
+```
+
+It contains:
+
+```text
+--container-architecture linux/amd64
+```
+
+The medium runner image is used because the micro image does not contain enough system tools for workflows using commands such as `apt-get` or `sudo`.
+
 ## Limitations
 
 Act does not provide a perfect reproduction of GitHub-hosted runners.
@@ -147,15 +184,27 @@ act
 
 ## Project integration
 
-Act is included in the curated environment before the repository contains its first workflow.
-
-It should be tested against a real workflow once files are added under:
+The repository contains a CI workflow under:
 
 ```text
-.github/workflows/
+.github/workflows/ci.yml
 ```
 
-Project-specific Act configuration should only be committed when concrete runner or environment requirements appear.
+List the detected jobs:
+
+```bash
+act --list
+```
+
+Run the repository quality job locally:
+
+```bash
+act push --job quality
+```
+
+This command has been validated with OrbStack on an Apple Silicon Mac.
+
+Project-specific Act configuration should only be committed when requirements are specific to this repository. The Docker socket and architecture settings remain machine-level configuration.
 
 ## Rollback
 

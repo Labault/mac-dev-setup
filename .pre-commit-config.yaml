@@ -36,3 +36,10 @@ repos:
         entry: editorconfig-checker
         language: system
         pass_filenames: false
+
+      - id: actionlint
+        name: actionlint
+        entry: actionlint
+        language: system
+        files: ^\.github/workflows/.*\.ya?ml$
+        pass_filenames: false

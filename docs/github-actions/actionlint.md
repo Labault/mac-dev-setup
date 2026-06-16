@@ -74,25 +74,39 @@ This provides additional validation for steps such as:
 
 ## Workflow availability
 
-Actionlint is included in the curated environment even when a repository does not yet contain GitHub Actions workflows.
+The repository contains a GitHub Actions workflow under:
 
-It should be integrated into `pre-commit` once workflow files are added to the repository.
+```text
+.github/workflows/ci.yml
+```
 
-Until then, validation can be run manually with:
+Validate all workflows manually from the repository root:
 
 ```bash
 actionlint
 ```
 
+A successful validation produces no output and returns a zero exit status.
+
 ## Pre-commit integration
 
-The future pre-commit hook should target files under:
+Actionlint is integrated into the local `pre-commit` configuration.
+
+The hook targets workflow files under:
 
 ```text
 .github/workflows/
 ```
 
-Homebrew manages the Actionlint executable, while `pre-commit` will control when validation is executed.
+Run the hook directly with:
+
+```bash
+pre-commit run actionlint --all-files
+```
+
+Homebrew manages the Actionlint executable, while `pre-commit` controls when validation is executed.
+
+Because ShellCheck is also installed, Actionlint can analyze shell commands embedded in workflow steps.
 
 ## Rollback
 
