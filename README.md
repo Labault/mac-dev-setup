@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [OrbStack container runtime](docs/orbstack/orbstack.md)
+
 * [Pre-commit and Gitleaks](docs/pre-commit/pre-commit.md)
 
 * [Zsh setup, plugins, testing, and rollback](docs/zsh/zsh.md)
