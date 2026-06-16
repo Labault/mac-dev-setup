@@ -16,3 +16,4 @@ Every component is reviewed, tested, and understood before becoming part of the 
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
 * [Gitleaks secret detection and repository scanning](docs/security/gitleaks.md)
 * [ShellCheck shell script analysis](docs/shell/shellcheck.md)
+* [Actionlint GitHub Actions workflow validation](docs/github-actions/actionlint.md)
