@@ -15,3 +15,4 @@ brew "symfony-cli/tap/symfony-cli", trusted: true
 
 cask "codexbar"
 cask "jordanbaird-ice"
+cask "keeweb"
