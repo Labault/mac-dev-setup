@@ -11,6 +11,8 @@ Every component is reviewed, tested, and understood before becoming part of the 
 
 ## Available documentation
 
+* [tree directory structure viewer](docs/cli/tree.md)
+
 * [duf filesystem usage viewer](docs/cli/duf.md)
 
 * [dust disk usage analyzer](docs/cli/dust.md)
