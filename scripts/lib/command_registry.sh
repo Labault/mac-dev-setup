@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# shellcheck source=scripts/lib/command_metadata.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/command_metadata.sh"
+
 COMMAND_REGISTRY_FIELD_SEPARATOR="$(printf '\t')"
 
 command_registry_record() {
@@ -10,21 +13,11 @@ command_registry_record() {
   printf '%s\t%s\t%s\n' "$command_name" "$command_path" "$command_description"
 }
 
-command_registry_description() {
+command_registry_filename_name() {
   command_path="$1"
 
-  awk '
-    /^#[[:space:]]*Description:[[:space:]]*/ {
-      sub(/^#[[:space:]]*Description:[[:space:]]*/, "")
-      print
-      exit
-    }
-    /^#[[:space:]]*@description[[:space:]]+/ {
-      sub(/^#[[:space:]]*@description[[:space:]]+/, "")
-      print
-      exit
-    }
-  ' "$command_path"
+  command_file="$(basename "$command_path")"
+  printf '%s\n' "${command_file%.*}"
 }
 
 command_registry_build() {
@@ -39,9 +32,14 @@ command_registry_build() {
       continue
     fi
 
-    command_file="$(basename "$command_path")"
-    command_name="${command_file%.*}"
-    command_description="$(command_registry_description "$command_path")"
+    command_name="$(command_registry_filename_name "$command_path")"
+    command_metadata="$(command_metadata_parse "$command_path")"
+    metadata_name="$(command_metadata_name_from_record "$command_metadata")"
+    command_description="$(command_metadata_description_from_record "$command_metadata")"
+
+    if [ -n "$metadata_name" ]; then
+      command_name="$metadata_name"
+    fi
 
     command_registry_record "$command_name" "$command_path" "$command_description"
   done
