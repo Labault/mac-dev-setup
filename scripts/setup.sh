@@ -8,14 +8,22 @@ set -e
 PROFILE=${PROFILE:-full}
 DRY_RUN=${DRY_RUN:-false}
 
-echo "🚀 Mac Dev Setup - Bootstrap starting..."
-echo "📦 Profile: $PROFILE"
+# ----------------------------
+# CONTEXT
+# ----------------------------
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# shellcheck source=scripts/lib/logging.sh
+source "$SCRIPT_DIR/lib/logging.sh"
+
+info "Mac Dev Setup - Bootstrap starting"
+info "Profile: $PROFILE"
 
 # ----------------------------
 # DRY RUN (MUST BE FIRST)
 # ----------------------------
 if [ "$DRY_RUN" = "true" ]; then
-  echo "🧪 Dry run mode activated - nothing will be executed"
+  info "Dry run mode activated - nothing will be executed"
   exit 0
 fi
 
@@ -28,15 +36,10 @@ LOG_FILE="logs/setup.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ----------------------------
-# CONTEXT
-# ----------------------------
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# ----------------------------
 # PROFILE LOGIC
 # ----------------------------
 if [ "$PROFILE" = "minimal" ]; then
-  echo "⚙️ Minimal install mode"
+  info "Minimal install mode"
 fi
 
 # ----------------------------
@@ -49,17 +52,17 @@ bash "$SCRIPT_DIR/zsh.sh"
 # ----------------------------
 # POST VALIDATION
 # ----------------------------
-echo "🔍 Post install validation..."
+info "Post install validation"
 
-command -v brew >/dev/null && echo "✔ brew ok"
-command -v git >/dev/null && echo "✔ git ok"
-command -v zsh >/dev/null && echo "✔ zsh ok"
+command -v brew >/dev/null && success "brew ok"
+command -v git >/dev/null && success "git ok"
+command -v zsh >/dev/null && success "zsh ok"
 
 # ----------------------------
 # CI MODE
 # ----------------------------
 if [ "$CI" = "true" ]; then
-  echo "🤖 Running in CI mode"
+  info "Running in CI mode"
 fi
 
-echo "✅ Mac Dev Setup completed successfully!"
+success "Mac Dev Setup completed successfully"
