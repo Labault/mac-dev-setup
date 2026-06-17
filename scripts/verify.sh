@@ -39,4 +39,7 @@ fi
 
 echo "✔ No forbidden tools detected"
 
+echo "🔐 Running hardening layer..."
+./scripts/hardening.sh
+
 echo "✅ All checks passed!"
