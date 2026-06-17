@@ -16,3 +16,4 @@
 
 # Private Zsh configuration
 configs/zsh/local.zsh
+node_modules/
