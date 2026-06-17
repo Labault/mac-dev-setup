@@ -88,3 +88,9 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 Security vulnerabilities should not be reported through public issues.
 
 See the [security policy](SECURITY.md) for the supported scope and private reporting instructions.
+
+## Contributing
+
+Contributions are welcome when they match the curated scope of the repository.
+
+See the [contribution guidelines](CONTRIBUTING.md) before opening an issue or pull request.
