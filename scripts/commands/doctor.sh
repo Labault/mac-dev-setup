@@ -31,6 +31,20 @@ parse_args() {
   done
 }
 
+DOCTOR_STATUS=0
+
+check_command() {
+  command_name="$1"
+  label="$2"
+
+  if command -v "$command_name" >/dev/null; then
+    success "$label installed"
+  else
+    error "$label missing"
+    DOCTOR_STATUS=1
+  fi
+}
+
 main() {
   parse_args "$@"
 
@@ -42,23 +56,9 @@ main() {
 
   log_section "Tools"
 
-  if command -v brew >/dev/null; then
-    success "brew installed"
-  else
-    error "brew missing"
-  fi
-
-  if command -v git >/dev/null; then
-    success "git installed"
-  else
-    error "git missing"
-  fi
-
-  if command -v zsh >/dev/null; then
-    success "zsh installed"
-  else
-    error "zsh missing"
-  fi
+  check_command brew "brew"
+  check_command git "git"
+  check_command zsh "zsh"
 
   log_section "Homebrew"
 
@@ -72,14 +72,17 @@ main() {
 
   log_section "mac CLI"
 
-  if command -v mac >/dev/null; then
-    success "mac CLI OK"
-  else
-    error "mac CLI missing"
-  fi
+  check_command mac "mac CLI"
 
   log_line ""
-  success "Doctor done"
+
+  if [ "$DOCTOR_STATUS" -eq 0 ]; then
+    success "Doctor done"
+  else
+    error "Doctor found problems"
+  fi
+
+  return "$DOCTOR_STATUS"
 }
 
 main "$@"
