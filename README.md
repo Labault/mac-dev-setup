@@ -82,3 +82,9 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 ### Database
 
 * [Beekeeper Studio database client](docs/database/beekeeper-studio.md)
+
+## Security
+
+Security vulnerabilities should not be reported through public issues.
+
+See the [security policy](SECURITY.md) for the supported scope and private reporting instructions.
