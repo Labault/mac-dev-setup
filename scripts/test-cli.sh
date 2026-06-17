@@ -57,6 +57,18 @@ if grep -Eq 'mkdir -p logs|"logs/setup\.log"' "$REPO_DIR/scripts/setup.sh"; then
   exit 1
 fi
 
+(
+  # shellcheck source=scripts/lib/profiles.sh
+  source "$REPO_DIR/scripts/lib/profiles.sh"
+  if ! profile_name_is_valid full; then exit 1; fi
+  if profile_name_is_valid "../etc"; then exit 1; fi
+  if ! profile_validate "$REPO_DIR" minimal; then exit 1; fi
+  if profile_validate "$REPO_DIR" no-such-profile; then exit 1; fi
+) || {
+  printf 'Profile validation contract failed.\n' >&2
+  exit 1
+}
+
 uninstall_home="$(mktemp -d)"
 cp "$REPO_DIR/configs/zsh/.zprofile" "$uninstall_home/.zprofile"
 printf 'unmanaged content\n' >"$uninstall_home/.zshrc"
