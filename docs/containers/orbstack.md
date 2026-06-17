@@ -12,11 +12,7 @@ OrbStack is installed through Homebrew Cask:
 brew install --cask orbstack
 ```
 
-It is also declared in `profiles/full/Brewfile`:
-
-```bash
-brew bundle install --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 ## Launch OrbStack
 

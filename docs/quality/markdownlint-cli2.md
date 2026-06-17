@@ -12,11 +12,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install markdownlint-cli2 directly:
 
@@ -176,14 +172,6 @@ markdownlint-cli2 README.md
 
 If a configuration change is not applied, confirm that
 `.markdownlint-cli2.yaml` exists at the repository root.
-
-## Updates
-
-Update markdownlint-cli2 through Homebrew:
-
-```bash
-brew upgrade markdownlint-cli2
-```
 
 After an update, rerun the complete documentation check because new rules or
 rule behavior may be introduced.

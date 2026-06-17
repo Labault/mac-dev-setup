@@ -10,11 +10,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install duf directly:
 
@@ -106,14 +102,6 @@ If a volume is missing, verify that it is currently mounted in Finder or with:
 
 ```bash
 mount
-```
-
-## Updates
-
-Update duf through Homebrew:
-
-```bash
-brew upgrade duf
 ```
 
 ## Rollback
