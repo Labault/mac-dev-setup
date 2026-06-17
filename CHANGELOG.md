@@ -8,7 +8,57 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
-## 1.0.0 - 2026-06-17
+### Added
+
+- `mac` command-line interface with a modular, auto-discovered command
+  architecture (setup, doctor, update, uninstall) and dynamic help built from a
+  command registry.
+- Official `install.sh` bootstrap that clones the repository, manages the `mac`
+  symlink, and safely manages the shell PATH block.
+- Self-update mechanism (`mac update`) using a temporary worktree and
+  fast-forward-only updates with rollback.
+- Full uninstall command (`mac uninstall`) with `--remove-config` and
+  `--remove-install-dir`, removing only managed files that match the versioned
+  copies (now covering all managed Zsh dotfiles).
+- Setup profiles system (`full` and `minimal`) with profile-aware Brewfiles and
+  dynamic profile validation.
+- Generated Zsh completion for `mac`, built from the command registry and
+  verified in CI.
+- Structured logging helpers and unified error handling across the CLI.
+- CLI smoke tests (`npm test`) and commit linting through commitlint.
+
+### Changed
+
+- Homebrew setup split into profile Brewfiles; the root `Brewfile` is now a
+  compatibility symlink to `profiles/full/Brewfile`.
+- Git configuration relies solely on the managed `include.path`, with no direct
+  writes to the global config.
+- macOS CI consolidated into a single gate, and commits are linted with
+  commitlint across the pull request range.
+- `mac setup` writes its log to a user-level location instead of the current
+  working directory.
+
+### Fixed
+
+- `mac setup --help` and `mac doctor --help` print usage instead of failing or
+  silently running diagnostics.
+- `mac doctor` exits non-zero when a required tool is missing.
+- Setup no longer regenerates the versioned completion file and no longer fails
+  when completion is not yet active in the current shell.
+
+## 0.4.1 - 2026-06-17
+
+### Added
+
+- macOS bootstrap system with split Brewfiles and validation scripts.
+- Fast, optimized CI pipeline.
+- Standardized gitmoji commit conventions with commitlint and husky.
+
+### Fixed
+
+- Stabilized the Homebrew install flow and hardening order in CI.
+
+## 0.2.0 - 2026-06-17
 
 ### Added
 
@@ -43,8 +93,6 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 - Added private vulnerability reporting guidance.
 - Added automated secret detection and repository security checks to CI.
-
-For the complete release criteria, see [version 1.0.0 release criteria](docs/releases/v1.0.0.md).
 
 ## 0.1.0 - 2026-06-16
 
