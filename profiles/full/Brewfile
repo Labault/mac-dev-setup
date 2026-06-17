@@ -78,8 +78,6 @@ cask "beekeeper-studio"
 cask "codexbar"
 # Menu bar manager
 cask "jordanbaird-ice"
-# Keyboard customiser
-cask "karabiner-elements"
 # Password manager compatible with KeePass
 cask "keeweb"
 # Replacement for Docker Desktop
