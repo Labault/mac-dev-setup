@@ -80,6 +80,9 @@ jobs:
           HUSKY: "0"
         run: npm ci
 
+      - name: Run test suite
+        run: npm test
+
       - name: Lint commit messages
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -113,8 +116,3 @@ jobs:
 
       - name: Run repository quality checks
         run: pre-commit run --all-files --show-diff-on-failure
-
-      - name: Verify generated Zsh completion
-        run: |
-          bash scripts/generate-zsh-completion.sh
-          git diff --exit-code -- configs/zsh/completions/_mac

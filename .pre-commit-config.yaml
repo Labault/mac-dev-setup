@@ -14,6 +14,13 @@ repos:
     hooks:
       - id: gitleaks
 
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        args: [-x]
+        files: ^(scripts/.*\.sh|install\.sh)$
+
   - repo: local
     hooks:
       - id: markdownlint-cli2

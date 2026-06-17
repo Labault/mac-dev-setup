@@ -4,6 +4,11 @@ This document describes the release workflow for Mac Dev Setup.
 
 The project uses semantic versioning where applicable and maintains notable changes in the root `CHANGELOG.md` file.
 
+Releases are performed **manually** by following the steps below. There is no
+automated release bot: the repository's gitmoji-first commit convention does not
+map cleanly onto conventional-commit release automation, so the changelog,
+version bump, tag, and GitHub release are prepared by a maintainer.
+
 ## Release preparation
 
 Before starting a release:
