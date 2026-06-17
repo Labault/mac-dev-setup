@@ -21,7 +21,7 @@ source "$SCRIPT_DIR/lib/profiles.sh"
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 print_usage() {
-  log_line "Usage: scripts/setup.sh [--profile full|minimal] [--dry-run]"
+  log_line "Usage: scripts/setup.sh [--profile <profile>] [--dry-run]"
   log_line "Profiles: $(profile_list "$REPO_DIR")"
 }
 
