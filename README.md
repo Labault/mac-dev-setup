@@ -120,6 +120,17 @@ Remove the installed checkout when it matches `~/.mac-dev-setup`:
 mac uninstall --remove-install-dir
 ```
 
+### Optional commands
+
+These commands apply opt-in changes and are not run by `mac setup`:
+
+```bash
+mac defaults   # apply curated macOS Finder/Dock/keyboard defaults
+mac keyboard   # install the Francais OSS Mac keyboard layout
+mac vscode     # install the curated VS Code extensions
+mac vscode --with-optional
+```
+
 ## Managed Files
 
 MacDevSetup may manage these user-level files:
