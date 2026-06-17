@@ -83,6 +83,10 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 * [Beekeeper Studio database client](docs/database/beekeeper-studio.md)
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for notable changes and release history.
+
 ## Security
 
 Security vulnerabilities should not be reported through public issues.
