@@ -181,6 +181,10 @@ remove_git_include() {
 
 remove_config() {
   remove_git_include
+  remove_if_identical "$REPO_DIR/configs/zsh/.zprofile" "$HOME/.zprofile" ".zprofile"
+  remove_if_identical "$REPO_DIR/configs/zsh/.zshrc" "$HOME/.zshrc" ".zshrc"
+  remove_if_identical "$REPO_DIR/configs/zsh/.zsh_plugins.txt" "$HOME/.zsh_plugins.txt" ".zsh_plugins.txt"
+  remove_if_identical "$REPO_DIR/configs/zsh/.p10k.zsh" "$HOME/.p10k.zsh" "p10k config"
   remove_if_identical "$REPO_DIR/configs/zsh/alias.sh" "$HOME/.shell/alias.sh" "zsh aliases"
   remove_if_identical "$REPO_DIR/configs/zsh/completions/_mac" "$HOME/.zsh/completions/_mac" "zsh completion"
 }
