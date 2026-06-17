@@ -56,6 +56,10 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 * [Act local GitHub Actions execution](docs/github-actions/act.md)
 * [CI repository quality workflow](docs/github-actions/ci.md)
 
+### Releases
+
+* [Release process](docs/releases/release-process.md)
+
 ### Containers and Docker
 
 * [ctop container monitoring dashboard](docs/containers/ctop.md)
