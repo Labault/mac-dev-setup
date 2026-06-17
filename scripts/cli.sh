@@ -9,6 +9,9 @@ if [ -z "$REAL_PATH" ]; then
 fi
 REPO_DIR="$(cd "$(dirname "$REAL_PATH")/.." && pwd)"
 
+# shellcheck source=scripts/lib/logging.sh
+source "$REPO_DIR/scripts/lib/logging.sh"
+
 print_usage() {
   echo "Usage: mac setup [--profile full|minimal] [--dry-run]"
   echo "       mac doctor"
@@ -41,8 +44,8 @@ run_setup() {
         shift
         ;;
       *)
-        echo "Unknown option: $1" >&2
-        echo "Usage: mac setup [--profile full|minimal] [--dry-run]" >&2
+        error "Unknown option: $1"
+        print_usage >&2
         exit 1
         ;;
     esac
@@ -51,20 +54,33 @@ run_setup() {
   case "$PROFILE" in
     full|minimal) ;;
     *)
-      echo "Invalid profile: $PROFILE" >&2
-      echo "Usage: mac setup [--profile full|minimal] [--dry-run]" >&2
+      error "Invalid profile: $PROFILE"
+      print_usage >&2
       exit 1
       ;;
   esac
 
-  PROFILE="$PROFILE" DRY_RUN="$DRY_RUN" bash "$REPO_DIR/scripts/setup.sh"
+  if ! PROFILE="$PROFILE" DRY_RUN="$DRY_RUN" bash "$REPO_DIR/scripts/setup.sh"; then
+    error "Setup failed"
+    exit 1
+  fi
 }
 
 run_command_script() {
   command_name="$1"
   shift
 
-  bash "$REPO_DIR/scripts/commands/$command_name.sh" "$@"
+  command_script="$REPO_DIR/scripts/commands/$command_name.sh"
+
+  if [ ! -f "$command_script" ]; then
+    error "Command script not found: $command_name"
+    exit 1
+  fi
+
+  if ! bash "$command_script" "$@"; then
+    error "Command failed: $command_name"
+    exit 1
+  fi
 }
 
 execute_command() {
@@ -85,7 +101,11 @@ execute_command() {
       print_help
       ;;
     *)
+      if [ -n "$command_name" ]; then
+        error "Unknown command: $command_name"
+      fi
       print_usage
+      exit 1
       ;;
   esac
 }

@@ -2,32 +2,55 @@
 
 set -e
 
-echo "🩺 Mac Doctor - System diagnostics"
-echo "----------------------------------"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-echo ""
-echo "🖥 System"
-echo "OS: $(sw_vers -productName) $(sw_vers -productVersion)"
-echo "Arch: $(uname -m)"
+# shellcheck source=scripts/lib/logging.sh
+source "$REPO_DIR/scripts/lib/logging.sh"
 
-echo ""
-echo "🧰 Tools"
+info "Mac Doctor - System diagnostics"
 
-command -v brew >/dev/null && echo "✔ brew installed" || echo "❌ brew missing"
-command -v git >/dev/null && echo "✔ git installed" || echo "❌ git missing"
-command -v zsh >/dev/null && echo "✔ zsh installed" || echo "❌ zsh missing"
+printf '\nSystem\n'
+printf 'OS: %s %s\n' "$(sw_vers -productName)" "$(sw_vers -productVersion)"
+printf 'Arch: %s\n' "$(uname -m)"
 
-echo ""
-echo "🍺 Homebrew"
+printf '\nTools\n'
 
 if command -v brew >/dev/null; then
-  brew doctor >/dev/null 2>&1 && echo "✔ brew OK" || echo "⚠ brew warnings"
+  success "brew installed"
+else
+  error "brew missing"
 fi
 
-echo ""
-echo "⚡ mac CLI"
+if command -v git >/dev/null; then
+  success "git installed"
+else
+  error "git missing"
+fi
 
-command -v mac >/dev/null && echo "✔ mac CLI OK" || echo "❌ mac CLI missing"
+if command -v zsh >/dev/null; then
+  success "zsh installed"
+else
+  error "zsh missing"
+fi
 
-echo ""
-echo "✅ Doctor done"
+printf '\nHomebrew\n'
+
+if command -v brew >/dev/null; then
+  if brew doctor >/dev/null 2>&1; then
+    success "brew OK"
+  else
+    warn "brew warnings"
+  fi
+fi
+
+printf '\nmac CLI\n'
+
+if command -v mac >/dev/null; then
+  success "mac CLI OK"
+else
+  error "mac CLI missing"
+fi
+
+printf '\n'
+success "Doctor done"
