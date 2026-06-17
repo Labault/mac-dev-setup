@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"no tests yet\"",
+    "test": "bash scripts/test-cli.sh",
     "prepare": "husky"
   },
   "repository": {
