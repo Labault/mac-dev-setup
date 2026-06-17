@@ -44,6 +44,10 @@ main() {
         DRY_RUN="true"
         shift
         ;;
+      --help|-h)
+        print_usage
+        exit 0
+        ;;
       *)
         error "Unknown option: $1"
         print_usage >&2
