@@ -10,13 +10,24 @@ source "$REPO_DIR/scripts/lib/command_registry.sh"
 
 COMMANDS_DIR="$REPO_DIR/scripts/commands"
 COMPLETION_FILE="$REPO_DIR/configs/zsh/completions/_mac"
+TEMP_COMPLETION_FILE=""
+
+cleanup() {
+  if [ -n "$TEMP_COMPLETION_FILE" ] && [ -f "$TEMP_COMPLETION_FILE" ]; then
+    rm -f "$TEMP_COMPLETION_FILE"
+  fi
+}
+
+trap cleanup EXIT
 
 zsh_quote() {
   value="$1"
   printf "'%s'" "$(printf '%s' "$value" | sed "s/'/'\\\\''/g")"
 }
 
-write_completion() {
+write_completion_content() {
+  completion_file="$1"
+
   {
     printf '%s\n' '#compdef mac'
     printf '%s\n' ''
@@ -56,10 +67,25 @@ write_completion() {
     printf '%s\n' '}'
     printf '%s\n' ''
     printf '%s\n' '_mac "$@"'
-  } > "$COMPLETION_FILE"
+  } > "$completion_file"
+}
+
+write_completion() {
+  TEMP_COMPLETION_FILE="$(mktemp "${COMPLETION_FILE}.XXXXXX")"
+
+  write_completion_content "$TEMP_COMPLETION_FILE"
+
+  if [ -f "$COMPLETION_FILE" ] && cmp -s "$TEMP_COMPLETION_FILE" "$COMPLETION_FILE"; then
+    rm -f "$TEMP_COMPLETION_FILE"
+    TEMP_COMPLETION_FILE=""
+    printf 'Completion already up to date: %s\n' "$COMPLETION_FILE"
+    return 0
+  fi
+
+  mv "$TEMP_COMPLETION_FILE" "$COMPLETION_FILE"
+  TEMP_COMPLETION_FILE=""
+  printf 'Generated %s\n' "$COMPLETION_FILE"
 }
 
 mkdir -p "$(dirname "$COMPLETION_FILE")"
 write_completion
-
-printf 'Generated %s\n' "$COMPLETION_FILE"
