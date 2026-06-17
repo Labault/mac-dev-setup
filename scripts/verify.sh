@@ -40,16 +40,7 @@ done
 
 echo "✔ Profile Brewfiles satisfied"
 
-# ----------------------------
-# Check forbidden tools
-# ----------------------------
-if grep -Rq "orbctl" "$REPO_DIR/profiles"; then
-  echo "❌ Forbidden tool detected: orbctl"
-  exit 1
-fi
-
-echo "✔ No forbidden tools detected"
-
+# Forbidden-tool policy (including orbctl) is owned by the hardening layer.
 echo "🔐 Running hardening layer..."
 bash "$SCRIPT_DIR/hardening.sh"
 
