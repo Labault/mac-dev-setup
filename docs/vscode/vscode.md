@@ -54,13 +54,19 @@ They cover the main PHP and Symfony development workflow:
 - DotEnv syntax support
 - YAML validation and completion
 
-Install them with:
+Install them with the CLI:
+
+~~~bash
+mac vscode
+~~~
+
+Or run the script directly:
 
 ~~~bash
 ./scripts/install-vscode-extensions.sh
 ~~~
 
-The script is idempotent and skips extensions that are already installed.
+The command is idempotent and skips extensions that are already installed.
 
 ## Optional extensions
 
@@ -73,6 +79,12 @@ configs/vscode/extensions-optional.txt
 They include personal, visual, AI-assisted, and specialized workflow extensions.
 
 Install both recommended and optional extensions with:
+
+~~~bash
+mac vscode --with-optional
+~~~
+
+Or run the script directly:
 
 ~~~bash
 ./scripts/install-vscode-extensions.sh --with-optional
