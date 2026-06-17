@@ -11,27 +11,35 @@ REPO_DIR="$(cd "$(dirname "$REAL_PATH")/.." && pwd)"
 
 # shellcheck source=scripts/lib/logging.sh
 source "$REPO_DIR/scripts/lib/logging.sh"
+# shellcheck source=scripts/lib/command_discovery.sh
+source "$REPO_DIR/scripts/lib/command_discovery.sh"
+
+COMMANDS_DIR="$REPO_DIR/scripts/commands"
 
 print_usage() {
-  log_line "Usage: mac setup [--profile full|minimal] [--dry-run]"
-  log_line "       mac doctor"
+  log_line "Usage: mac <command> [options]"
+  log_line "Run 'mac help' to list available commands."
 }
 
 print_help() {
   log_line "mac CLI"
   log_line ""
   log_line "Commands:"
-  log_line "  setup   Install mac dev environment"
-  log_line "  doctor  Diagnose system"
+
+  if ! discover_commands "$COMMANDS_DIR" | while IFS=: read -r command_name _command_script; do
+    log_line "  $command_name"
+  done; then
+    return 1
+  fi
 }
 
 run_command_script() {
   command_name="$1"
   shift
 
-  command_script="$REPO_DIR/scripts/commands/$command_name.sh"
+  command_script="$(command_script_path "$COMMANDS_DIR" "$command_name")"
 
-  if [ ! -f "$command_script" ]; then
+  if [ -z "$command_script" ]; then
     error "Command script not found: $command_name"
     exit 1
   fi
@@ -47,13 +55,15 @@ execute_command() {
   fi
 
   case "$command_name" in
-    setup|doctor)
-      run_command_script "$command_name" "$@"
-      ;;
     help|--help|-h)
       print_help
       ;;
     *)
+      if command_exists "$COMMANDS_DIR" "$command_name"; then
+        run_command_script "$command_name" "$@"
+        return
+      fi
+
       if [ -n "$command_name" ]; then
         error "Unknown command: $command_name"
       fi
