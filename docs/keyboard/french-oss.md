@@ -52,7 +52,13 @@ The layout contains adaptations for the internal Apple keyboard, including corre
 
 ## Installation
 
-Install the layout with:
+Install the layout with the CLI:
+
+~~~bash
+mac keyboard
+~~~
+
+Or run the script directly:
 
 ~~~bash
 ./scripts/install-keyboard-layout.sh

@@ -97,24 +97,6 @@ cask "visual-studio-code"
 # Rust-based terminal
 cask "warp"
 
-# Editor extensions
-
-vscode "anthropic.claude-code"
-vscode "avaly.restore-git-branch-tabs-improved"
-vscode "bmewburn.vscode-intelephense-client"
-vscode "christian-kohler.path-intellisense"
-vscode "eamodio.gitlens"
-vscode "github.vscode-github-actions"
-vscode "hogashi.crontab-syntax-highlight"
-vscode "mechatroner.rainbow-csv"
-vscode "mehedidracula.php-namespace-resolver"
-vscode "mikestead.dotenv"
-vscode "monokai.theme-monokai-pro-vscode"
-vscode "redhat.vscode-yaml"
-vscode "sanderronde.phpstan-vscode"
-vscode "whatwedo.twig"
-vscode "xdebug.php-debug"
-
 # Runtime-managed tools
 
 uv "claude-monitor"
