@@ -1,0 +1,62 @@
+name: macOS CI - Bootstrap Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  macos-bootstrap:
+    runs-on: macos-latest
+
+    steps:
+      # ----------------------------
+      # Checkout
+      # ----------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ----------------------------
+      # Ensure Homebrew exists
+      # ----------------------------
+      - name: Check Homebrew
+        run: |
+          if ! command -v brew >/dev/null 2>&1; then
+            echo "Homebrew not found (unexpected on macOS runner)"
+            exit 1
+          fi
+
+      # ----------------------------
+      # Make scripts executable
+      # ----------------------------
+      - name: Prepare scripts
+        run: chmod +x scripts/*.sh
+
+      # ----------------------------
+      # Run bootstrap (MAIN TEST)
+      # ----------------------------
+      - name: Run setup script
+        run: |
+          ./scripts/setup.sh
+
+      # ----------------------------
+      # Validate Brewfile
+      # ----------------------------
+      - name: Validate Brewfile
+        run: |
+          brew bundle check --file=brew/Brewfile
+
+      - name: Run bootstrap (real test)
+        run: |
+          chmod +x scripts/*.sh
+          ./scripts/setup.sh
+
+      - name: Re-run bootstrap (idempotence check)
+        run: |
+          ./scripts/setup.sh
+
+      - name: Validate Brew state
+        run: |
+          brew list
+          brew bundle check --file=brew/Brewfile

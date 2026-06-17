@@ -8,4 +8,10 @@ lint-commits:
 	npx commitlint --from HEAD~1 --to HEAD --verbose
 
 setup:
-	bash scripts/setup.sh
+	bash scripts/cli.sh setup --profile=full
+
+setup-dev:
+	bash scripts/cli.sh setup --profile=minimal
+
+dry-run:
+	bash scripts/cli.sh setup --dry-run
