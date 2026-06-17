@@ -21,6 +21,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Reject committed local artifacts
+        run: |
+          if git ls-files \
+            | grep -E '(^|/)\.DS_Store$|(^|/)logs/|\.log$'; then
+            echo "Local artifacts (.DS_Store, logs/, *.log) must not be committed."
+            exit 1
+          fi
+          echo "No committed local artifacts."
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
