@@ -218,7 +218,6 @@ brew info <tool>   # description, homepage, and version
 | OrbStack | Fast Docker Desktop replacement | [docs/containers/orbstack.md](docs/containers/orbstack.md) |
 | Beekeeper Studio | SQL editor / database manager | [docs/database/beekeeper-studio.md](docs/database/beekeeper-studio.md) |
 | Pearcleaner | Cleanly uninstall apps | [docs/macos/pearcleaner.md](docs/macos/pearcleaner.md) |
-| Karabiner-Elements | Keyboard customizer | `brew info karabiner-elements` |
 | Stats / Ice | Menu-bar system monitor / manager | `brew info stats` |
 | KeeWeb | KeePass-compatible password manager | `brew info keeweb` |
 
