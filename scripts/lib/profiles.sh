@@ -27,9 +27,12 @@ profile_exists() {
 profile_name_is_valid() {
   profile="$1"
 
+  # Accept any profile that ships a directory under profiles/, but keep the
+  # name to a safe charset so it can never escape the profiles directory.
   case "$profile" in
-    full|minimal) return 0 ;;
-    *) return 1 ;;
+    "") return 1 ;;
+    *[!a-zA-Z0-9_-]*) return 1 ;;
+    *) return 0 ;;
   esac
 }
 
