@@ -6,7 +6,12 @@ The goal is not to reproduce every package currently installed on a machine, but
 
 ## Brewfile
 
-The root `Brewfile` contains only packages that have been manually reviewed, tested, and accepted for this setup.
+`profiles/full/Brewfile` contains the complete package inventory that has been
+manually reviewed, tested, and accepted for this setup.
+
+The root `Brewfile` is a compatibility link to `profiles/full/Brewfile`, so
+existing `brew bundle --file=Brewfile` commands continue to work without
+duplicating the inventory.
 
 It intentionally excludes packages that may still be installed locally but are no longer considered part of the curated environment.
 
@@ -129,4 +134,5 @@ Remove a cask with:
 brew uninstall --cask <cask>
 ```
 
-After uninstalling a package, remove its entry from the Brewfile and run the verification command again.
+After uninstalling a package, remove its entry from `profiles/full/Brewfile`
+and run the verification command again.
