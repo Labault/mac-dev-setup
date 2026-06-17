@@ -22,15 +22,39 @@ print_usage() {
 }
 
 print_help() {
+  command_records="$(command_registry_build "$COMMANDS_DIR")"
+
   log_line "mac CLI"
+  log_line ""
+  log_line "Usage:"
+  log_line "  mac <command> [options]"
   log_line ""
   log_line "Commands:"
 
-  if ! discover_commands "$COMMANDS_DIR" | while IFS=: read -r command_name _command_script; do
-    log_line "  $command_name"
-  done; then
-    return 1
+  if [ -z "$command_records" ]; then
+    log_line "  No commands available."
+    return 0
   fi
+
+  printf '%s\n' "$command_records" | awk -F "$COMMAND_REGISTRY_FIELD_SEPARATOR" '
+    {
+      commands[NR] = $1
+      descriptions[NR] = $3
+
+      if (length($1) > max_command_length) {
+        max_command_length = length($1)
+      }
+    }
+    END {
+      for (i = 1; i <= NR; i++) {
+        if (descriptions[i] == "") {
+          printf "  %s\n", commands[i]
+        } else {
+          printf "  %-*s  %s\n", max_command_length, commands[i], descriptions[i]
+        }
+      }
+    }
+  '
 }
 
 run_command_script() {
