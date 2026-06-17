@@ -1,25 +1,26 @@
-# Global setup script
+# Setup command
 
-The repository provides a single entry point for applying the supported setup steps:
+The supported entry point for applying the macOS development environment is:
 
-~~~text
-scripts/setup.sh
+~~~bash
+mac setup
 ~~~
 
-The script coordinates the existing installation and configuration scripts without replacing their individual documentation.
+The CLI delegates to `scripts/setup.sh`, which keeps the same options for direct
+maintenance use.
 
 ## Usage
 
-Display the available options:
+Display the available CLI commands:
 
 ~~~bash
-./scripts/setup.sh --help
+mac help
 ~~~
 
-Run every supported step:
+Install or reapply the default setup:
 
 ~~~bash
-./scripts/setup.sh --all
+mac setup
 ~~~
 
 ## Profiles
@@ -39,59 +40,76 @@ Use the minimal profile for a smaller command-line setup:
 mac setup --profile minimal
 ~~~
 
+Preview the setup without changing the machine:
+
+~~~bash
+mac setup --profile minimal --dry-run
+~~~
+
 Profiles are defined under:
 
 ~~~text
 profiles/<name>/Brewfile
 ~~~
 
-To add a new profile, create a new directory under `profiles/` and add a
-`Brewfile`. The CLI discovers profile names from that directory.
-
-Run only selected steps:
-
-~~~bash
-./scripts/setup.sh --homebrew
-./scripts/setup.sh --vscode
-./scripts/setup.sh --keyboard
-./scripts/setup.sh --macos
-./scripts/setup.sh --warp
-~~~
-
-Several options can be combined:
-
-~~~bash
-./scripts/setup.sh --homebrew --vscode --warp
-~~~
+To add a new profile, create a new directory under `profiles/`, add a
+`Brewfile`, and allow it in `scripts/lib/profiles.sh`.
 
 ## Supported steps
 
 ### Homebrew
 
 ~~~bash
-./scripts/setup.sh --homebrew
+mac setup --profile full
 ~~~
 
-Installs the dependencies declared in the repository `Brewfile`.
+Installs the dependencies declared by the selected profile Brewfile.
 
-### Visual Studio Code
+### Git
 
 ~~~bash
-./scripts/setup.sh --vscode
+mac setup
 ~~~
 
-Installs the recommended VS Code extensions listed in:
+Adds the repository Git configuration as a managed global include.
+
+### Zsh
+
+~~~bash
+mac setup
+~~~
+
+Applies the curated Zsh files and installs the generated `mac` completion.
+
+## Optional tools
+
+Some versioned assets are intentionally installed by dedicated scripts instead
+of the default `mac setup` flow.
+
+### Visual Studio Code extensions
+
+Install the recommended extensions listed in:
 
 ~~~text
 configs/vscode/extensions.txt
 ~~~
 
-Optional extensions remain excluded from the global setup.
+with:
+
+~~~bash
+./scripts/install-vscode-extensions.sh
+~~~
+
+Optional extensions remain explicit:
+
+~~~bash
+./scripts/install-vscode-extensions.sh --with-optional
+~~~
 
 ### French OSS keyboard layout
 
 ~~~bash
-./scripts/setup.sh --keyboard
+./scripts/install-keyboard-layout.sh
 ~~~
 
 Installs the versioned French OSS keyboard layout bundle.
@@ -103,27 +121,24 @@ A logout and login are still required before macOS reloads the layout.
 ### macOS defaults
 
 ~~~bash
-./scripts/setup.sh --macos
+./scripts/apply-macos-defaults.sh
 ~~~
 
 Applies the curated Finder, Dock, screenshot, keyboard, and text-substitution preferences.
 
 ### Warp
 
+The versioned Warp configuration is stored at:
+
+~~~text
+configs/warp/settings.toml
+~~~
+
+Install it manually after reviewing the file:
+
 ~~~bash
-./scripts/setup.sh --warp
-~~~
-
-Copies the versioned Warp configuration to:
-
-~~~text
-~/.warp/settings.toml
-~~~
-
-An existing configuration is backed up first under:
-
-~~~text
-~/Documents/Backups/warp
+mkdir -p "$HOME/.warp"
+cp configs/warp/settings.toml "$HOME/.warp/settings.toml"
 ~~~
 
 Warp should be restarted after applying the configuration.
@@ -150,10 +165,10 @@ Display its help output:
 ./scripts/setup.sh --help
 ~~~
 
-Test an idempotent step:
+Test the dry-run path:
 
 ~~~bash
-./scripts/setup.sh --vscode
+./scripts/setup.sh --profile minimal --dry-run
 ~~~
 
 ## Rollback

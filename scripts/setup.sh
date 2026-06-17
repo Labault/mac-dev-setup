@@ -19,6 +19,52 @@ source "$SCRIPT_DIR/lib/logging.sh"
 source "$SCRIPT_DIR/lib/profiles.sh"
 
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+print_usage() {
+  log_line "Usage: scripts/setup.sh [--profile <profile>] [--dry-run]"
+  log_line "Profiles: $(profile_list "$REPO_DIR")"
+}
+
+parse_args() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      --profile)
+        PROFILE="${2:-}"
+        if [ -z "$PROFILE" ] || [ "${PROFILE#--}" != "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
+        shift 2
+        ;;
+      --profile=*)
+        PROFILE="${1#*=}"
+        if [ -z "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
+        shift
+        ;;
+      --dry-run)
+        DRY_RUN="true"
+        shift
+        ;;
+      --help|-h)
+        print_usage
+        exit 0
+        ;;
+      *)
+        error "Unknown option: $1"
+        print_usage >&2
+        exit 1
+        ;;
+    esac
+  done
+}
+
+parse_args "$@"
+
 PROFILE="${PROFILE:-$(profile_default)}"
 BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
 
@@ -43,10 +89,14 @@ fi
 # ----------------------------
 # LOGS
 # ----------------------------
-mkdir -p logs
-LOG_FILE="logs/setup.log"
+# Use an absolute, user-level location so the log never lands in whatever
+# directory the user happened to run "mac setup" from.
+LOG_DIR="${MAC_DEV_SETUP_LOG_DIR:-$HOME/Library/Logs/mac-dev-setup}"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/setup.log"
 
 exec > >(tee -a "$LOG_FILE") 2>&1
+info "Logging to $LOG_FILE"
 
 # ----------------------------
 # EXECUTION

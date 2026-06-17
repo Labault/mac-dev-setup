@@ -162,7 +162,8 @@ git config --global --includes --get-regexp \
 Remove the include from the global Git configuration:
 
 ~~~bash
-git config --global --unset-all include.path
+git config --global --fixed-value --unset-all include.path \
+  "$HOME/Documents/Projects/mac-dev-setup/configs/git/.gitconfig"
 ~~~
 
 Review the global configuration afterward:

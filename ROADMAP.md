@@ -1,26 +1,28 @@
 # Roadmap
 
-## v0.3.x — Stable foundation
+## Current foundation
 
-- Brewfile architecture
-- bootstrap system
-- CI validation
-- hardening checks
+- Profile-based Brewfile architecture
+- `mac` CLI setup, doctor, update, and uninstall commands
+- Repository quality validation through `pre-commit`
+- macOS CI validation and hardening checks
 
-## v0.4.0 — Smart layer
+## Next - Smart Layer
 
 - machine audit system
 - missing tools detection
 - Brewfile drift analysis
 
-## v0.5.0 — Automation
+## Later - Automation
 
 - auto-update Brewfile
 - dependency health check
 - cleanup suggestions
 
-## v1.0.0 — Stable OSS release (released 2026-06-17)
+## Stable OSS Release
 
-- fully documented system
-- community contributions
-- cross-machine reproducibility
+- complete release checklist
+- green GitHub Actions on `main`
+- published `v1.0.0` tag and GitHub release
+- community contribution path
+- cross-machine reproducibility notes
