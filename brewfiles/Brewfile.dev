@@ -1,0 +1,4 @@
+brew "shellcheck"
+brew "hadolint"
+brew "actionlint"
+brew "act"
