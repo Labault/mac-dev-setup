@@ -1,4 +1,5 @@
 #!/bin/bash
+# Description: Run system diagnostics for the macOS development setup.
 
 set -e
 
