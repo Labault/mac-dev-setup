@@ -15,7 +15,9 @@ setup() {
   SEED="$WORK/seed"
   CLONE="$WORK/clone"
 
-  git init -q --bare "$REMOTE"
+  # Pin the bare repo's default branch so it matches the pushed branch
+  # regardless of the runner's init.defaultBranch.
+  git init -q --bare -b main "$REMOTE"
 
   mkdir -p "$SEED"
   cp -R "$REPO_DIR/scripts" "$SEED/scripts"
