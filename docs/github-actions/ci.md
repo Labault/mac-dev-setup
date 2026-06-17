@@ -78,6 +78,20 @@ The current workflow validates:
 - EditorConfig compliance;
 - GitHub Actions workflow syntax.
 
+It also verifies that the generated Zsh completion committed at
+`configs/zsh/completions/_mac` is up to date.
+
+## macOS workflows
+
+Additional macOS workflows validate platform-specific behavior:
+
+- `.github/workflows/brewfile.yml` installs the full Homebrew profile and runs
+  verification plus hardening checks.
+- `.github/workflows/ci-macos.yml` checks the setup CLI contract, installs the
+  full profile once, applies setup once, and validates the resulting Brew state.
+- `.github/workflows/hardening.yml` runs the hardening gate on a macOS runner
+  without reinstalling Homebrew.
+
 ## Pre-commit cache
 
 GitHub Actions caches pre-commit environments under:

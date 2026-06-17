@@ -2,7 +2,9 @@
 
 set -euo pipefail
 
-SOURCE_DIR="configs/keyboard/Francais-OSS-Mac.bundle"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+SOURCE_DIR="$REPO_DIR/configs/keyboard/Francais-OSS-Mac.bundle"
 TARGET_DIR="$HOME/Library/Keyboard Layouts/Francais-OSS-Mac.bundle"
 
 if [[ ! -d "$SOURCE_DIR" ]]; then

@@ -10,11 +10,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install tree directly:
 
@@ -139,14 +135,6 @@ If the output is too large, reduce the depth or exclude additional directories:
 tree -L 2 -I '.git|vendor|node_modules|var|cache'
 ```
 
-## Updates
-
-Update tree through Homebrew:
-
-```bash
-brew upgrade tree
-```
-
 ## Rollback
 
 Remove tree with Homebrew:
@@ -155,4 +143,4 @@ Remove tree with Homebrew:
 brew uninstall tree
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.

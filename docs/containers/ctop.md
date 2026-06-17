@@ -12,11 +12,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install ctop directly:
 
@@ -152,14 +148,6 @@ ctop can expose container management actions from its interface.
 Before stopping, restarting, or removing a container, verify that it does not
 contain important transient work or production data.
 
-## Updates
-
-Update ctop through Homebrew:
-
-```bash
-brew upgrade ctop
-```
-
 ## Rollback
 
 Remove ctop with Homebrew:
@@ -168,5 +156,5 @@ Remove ctop with Homebrew:
 brew uninstall ctop
 ```
 
-Then remove its entry from the root `Brewfile` and remove any related shell
+Then remove its entry from `profiles/full/Brewfile` and remove any related shell
 alias.
