@@ -65,9 +65,9 @@ Setup:
 maintenance.
 
 `full` installs the complete curated developer environment, including language
-tooling, quality tools, GUI applications, VS Code extensions, and
-container/database utilities. The root `Brewfile` is a compatibility link to
-`profiles/full/Brewfile`.
+tooling, quality tools, GUI applications, and container/database utilities. The
+root `Brewfile` is a compatibility link to `profiles/full/Brewfile`. VS Code
+extensions are managed separately and installed with `mac vscode`.
 
 ## CLI Usage
 
@@ -118,6 +118,17 @@ Remove the installed checkout when it matches `~/.mac-dev-setup`:
 
 ```bash
 mac uninstall --remove-install-dir
+```
+
+### Optional commands
+
+These commands apply opt-in changes and are not run by `mac setup`:
+
+```bash
+mac defaults   # apply curated macOS Finder/Dock/keyboard defaults
+mac keyboard   # install the Francais OSS Mac keyboard layout
+mac vscode     # install the curated VS Code extensions
+mac vscode --with-optional
 ```
 
 ## Managed Files

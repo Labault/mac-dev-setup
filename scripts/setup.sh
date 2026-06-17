@@ -95,30 +95,41 @@ LOG_DIR="${MAC_DEV_SETUP_LOG_DIR:-$HOME/Library/Logs/mac-dev-setup}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/setup.log"
 
-exec > >(tee -a "$LOG_FILE") 2>&1
-info "Logging to $LOG_FILE"
+check_tool() {
+  # Report a tool without letting a missing one abort setup under "set -e".
+  if command -v "$1" >/dev/null; then
+    success "$1 ok"
+  else
+    warn "$1 not found after setup"
+  fi
+}
 
-# ----------------------------
-# EXECUTION
-# ----------------------------
-PROFILE="$PROFILE" bash "$SCRIPT_DIR/brew.sh"
-bash "$SCRIPT_DIR/git.sh"
-bash "$SCRIPT_DIR/zsh.sh"
+run_setup() {
+  info "Logging to $LOG_FILE"
 
-# ----------------------------
-# POST VALIDATION
-# ----------------------------
-info "Post install validation"
+  # ----------------------------
+  # EXECUTION
+  # ----------------------------
+  PROFILE="$PROFILE" bash "$SCRIPT_DIR/brew.sh"
+  bash "$SCRIPT_DIR/git.sh"
+  bash "$SCRIPT_DIR/zsh.sh"
 
-command -v brew >/dev/null && success "brew ok"
-command -v git >/dev/null && success "git ok"
-command -v zsh >/dev/null && success "zsh ok"
+  # ----------------------------
+  # POST VALIDATION
+  # ----------------------------
+  info "Post install validation"
+  check_tool brew
+  check_tool git
+  check_tool zsh
 
-# ----------------------------
-# CI MODE
-# ----------------------------
-if [ "$CI" = "true" ]; then
-  info "Running in CI mode"
-fi
+  if [ "$CI" = "true" ]; then
+    info "Running in CI mode"
+  fi
 
-success "Mac Dev Setup completed successfully"
+  success "Mac Dev Setup completed successfully"
+}
+
+# Pipe through tee so the full transcript is captured reliably, and propagate
+# the real exit status of the setup work (not tee's) via PIPESTATUS.
+run_setup 2>&1 | tee -a "$LOG_FILE"
+exit "${PIPESTATUS[0]}"

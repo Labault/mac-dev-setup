@@ -73,7 +73,13 @@ Validate it with ShellCheck:
 shellcheck scripts/apply-macos-defaults.sh
 ~~~
 
-Apply the configuration:
+Apply the configuration with the CLI:
+
+~~~bash
+mac defaults
+~~~
+
+Or run the script directly:
 
 ~~~bash
 ./scripts/apply-macos-defaults.sh
