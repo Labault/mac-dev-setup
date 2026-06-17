@@ -1,0 +1,8 @@
+brew "git"
+brew "wget"
+brew "curl"
+brew "jq"
+brew "tree"
+brew "openssl"
+brew "antidote"
+brew "gitleaks"
