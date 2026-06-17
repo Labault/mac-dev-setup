@@ -40,6 +40,23 @@ fi
 assert_contains "$(cat /tmp/mac-dev-setup-cli-test.out)" "mac update"
 rm -f /tmp/mac-dev-setup-cli-test.out
 
+log_test_dir="$(mktemp -d)"
+(
+  cd "$log_test_dir"
+  bash "$REPO_DIR/scripts/setup.sh" --profile minimal --dry-run >/dev/null
+)
+if [ -e "$log_test_dir/logs" ]; then
+  printf 'setup.sh must not create a logs directory in the current directory.\n' >&2
+  rm -rf "$log_test_dir"
+  exit 1
+fi
+rm -rf "$log_test_dir"
+
+if grep -Eq 'mkdir -p logs|"logs/setup\.log"' "$REPO_DIR/scripts/setup.sh"; then
+  printf 'setup.sh must use an absolute log path, not a relative logs/ directory.\n' >&2
+  exit 1
+fi
+
 doctor_bin="$(mktemp -d)"
 for bootstrap_tool in bash dirname; do
   ln -s "$(command -v "$bootstrap_tool")" "$doctor_bin/$bootstrap_tool"

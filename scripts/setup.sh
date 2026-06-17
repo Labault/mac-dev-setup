@@ -89,10 +89,14 @@ fi
 # ----------------------------
 # LOGS
 # ----------------------------
-mkdir -p logs
-LOG_FILE="logs/setup.log"
+# Use an absolute, user-level location so the log never lands in whatever
+# directory the user happened to run "mac setup" from.
+LOG_DIR="${MAC_DEV_SETUP_LOG_DIR:-$HOME/Library/Logs/mac-dev-setup}"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/setup.log"
 
 exec > >(tee -a "$LOG_FILE") 2>&1
+info "Logging to $LOG_FILE"
 
 # ----------------------------
 # EXECUTION
