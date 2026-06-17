@@ -40,6 +40,24 @@ fi
 assert_contains "$(cat /tmp/mac-dev-setup-cli-test.out)" "mac update"
 rm -f /tmp/mac-dev-setup-cli-test.out
 
+doctor_bin="$(mktemp -d)"
+for bootstrap_tool in bash dirname; do
+  ln -s "$(command -v "$bootstrap_tool")" "$doctor_bin/$bootstrap_tool"
+done
+for stub in sw_vers uname brew git zsh; do
+  printf '#!/bin/sh\nexit 0\n' >"$doctor_bin/$stub"
+  chmod +x "$doctor_bin/$stub"
+done
+# mac is intentionally absent so the diagnostic must report a failure.
+if PATH="$doctor_bin" bash "$REPO_DIR/scripts/commands/doctor.sh" >/tmp/mac-dev-setup-doctor.out 2>&1; then
+  printf 'Expected doctor to exit non-zero when a required tool is missing.\n' >&2
+  rm -rf "$doctor_bin" /tmp/mac-dev-setup-doctor.out
+  exit 1
+fi
+assert_contains "$(cat /tmp/mac-dev-setup-doctor.out)" "mac CLI missing"
+assert_contains "$(cat /tmp/mac-dev-setup-doctor.out)" "Doctor found problems"
+rm -rf "$doctor_bin" /tmp/mac-dev-setup-doctor.out
+
 bash "$REPO_DIR/scripts/generate-zsh-completion.sh" >/dev/null
 git -C "$REPO_DIR" diff --exit-code -- configs/zsh/completions/_mac >/dev/null
 
