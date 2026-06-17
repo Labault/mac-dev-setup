@@ -12,7 +12,7 @@ ShellCheck is installed through Homebrew:
 brew install shellcheck
 ```
 
-It is also declared in the root `Brewfile`:
+It is also declared in `profiles/full/Brewfile`:
 
 ```bash
 brew bundle install --file=Brewfile
@@ -109,6 +109,6 @@ Remove ShellCheck with:
 brew uninstall shellcheck
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Any related pre-commit hook must also be removed separately.

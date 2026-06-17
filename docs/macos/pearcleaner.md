@@ -12,7 +12,7 @@ Pearcleaner is installed through Homebrew Cask:
 brew install --cask pearcleaner
 ```
 
-It is also declared in the root `Brewfile`:
+It is also declared in `profiles/full/Brewfile`:
 
 ```bash
 brew bundle install --file=Brewfile
@@ -137,6 +137,6 @@ Remove Pearcleaner with:
 brew uninstall --cask pearcleaner
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Removing Pearcleaner does not restore applications or files that were previously deleted with it.
