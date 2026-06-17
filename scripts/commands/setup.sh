@@ -8,19 +8,27 @@ REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 # shellcheck source=scripts/lib/logging.sh
 source "$REPO_DIR/scripts/lib/logging.sh"
+# shellcheck source=scripts/lib/profiles.sh
+source "$REPO_DIR/scripts/lib/profiles.sh"
 
 print_usage() {
-  log_line "Usage: mac setup [--profile full|minimal] [--dry-run]"
+  log_line "Usage: mac setup [--profile <name>] [--dry-run]"
+  log_line "Profiles: $(profile_list "$REPO_DIR")"
 }
 
 main() {
-  PROFILE="full"
+  PROFILE="$(profile_default)"
   DRY_RUN="false"
 
   while [ "$#" -gt 0 ]; do
     case "$1" in
       --profile)
         PROFILE="${2:-}"
+        if [ -z "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
         shift 2
         ;;
       --profile=*)
@@ -39,14 +47,11 @@ main() {
     esac
   done
 
-  case "$PROFILE" in
-    full|minimal) ;;
-    *)
-      error "Invalid profile: $PROFILE"
-      print_usage >&2
-      exit 1
-      ;;
-  esac
+  if ! profile_validate "$REPO_DIR" "$PROFILE"; then
+    error "Invalid profile: $PROFILE"
+    print_usage >&2
+    exit 1
+  fi
 
   if PROFILE="$PROFILE" DRY_RUN="$DRY_RUN" bash "$REPO_DIR/scripts/setup.sh"; then
     return 0

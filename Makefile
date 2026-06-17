@@ -1,5 +1,5 @@
 brew:
-	brew bundle --file=brew/Brewfile
+	PROFILE=full bash scripts/brew.sh
 
 install:
 	npm install

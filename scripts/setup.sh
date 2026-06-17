@@ -5,7 +5,7 @@ set -e
 # ----------------------------
 # CONTEXT (FROM CLI)
 # ----------------------------
-PROFILE=${PROFILE:-full}
+PROFILE=${PROFILE:-}
 DRY_RUN=${DRY_RUN:-false}
 
 # ----------------------------
@@ -15,9 +15,22 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=scripts/lib/logging.sh
 source "$SCRIPT_DIR/lib/logging.sh"
+# shellcheck source=scripts/lib/profiles.sh
+source "$SCRIPT_DIR/lib/profiles.sh"
+
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROFILE="${PROFILE:-$(profile_default)}"
+BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
+
+if ! profile_validate "$REPO_DIR" "$PROFILE"; then
+  error "Invalid profile: $PROFILE"
+  info "Available profiles: $(profile_list "$REPO_DIR")"
+  exit 1
+fi
 
 info "Mac Dev Setup - Bootstrap starting"
 info "Profile: $PROFILE"
+info "Brewfile: $BREWFILE"
 
 # ----------------------------
 # DRY RUN (MUST BE FIRST)
@@ -36,16 +49,9 @@ LOG_FILE="logs/setup.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ----------------------------
-# PROFILE LOGIC
-# ----------------------------
-if [ "$PROFILE" = "minimal" ]; then
-  info "Minimal install mode"
-fi
-
-# ----------------------------
 # EXECUTION
 # ----------------------------
-bash "$SCRIPT_DIR/brew.sh"
+PROFILE="$PROFILE" bash "$SCRIPT_DIR/brew.sh"
 bash "$SCRIPT_DIR/git.sh"
 bash "$SCRIPT_DIR/zsh.sh"
 

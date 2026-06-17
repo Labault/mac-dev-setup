@@ -20,7 +20,7 @@ jobs:
         with:
           path: |
             ~/Library/Caches/Homebrew
-          key: brew-${{ runner.os }}-${{ hashFiles('brewfiles/**') }}
+          key: brew-${{ runner.os }}-${{ hashFiles('profiles/**/Brewfile') }}
 
       # ----------------------------
       # Ensure Homebrew
@@ -41,16 +41,10 @@ jobs:
           brew analytics off
 
       # ----------------------------
-      # Install Brewfiles (CLEAN FIX)
+      # Install profile Brewfile
       # ----------------------------
-      - name: Install base
-        run: brew bundle --file=brewfiles/Brewfile.base
-
-      - name: Install dev
-        run: brew bundle --file=brewfiles/Brewfile.dev
-
-      - name: Install casks
-        run: brew bundle --file=brewfiles/Brewfile.casks
+      - name: Install full profile
+        run: brew bundle --file=profiles/full/Brewfile
 
       # ----------------------------
       # Verify (always after install)

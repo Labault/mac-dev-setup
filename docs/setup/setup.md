@@ -22,6 +22,32 @@ Run every supported step:
 ./scripts/setup.sh --all
 ~~~
 
+## Profiles
+
+Installation profiles select the Homebrew tools installed during setup.
+
+The default profile is `full`:
+
+~~~bash
+mac setup
+mac setup --profile full
+~~~
+
+Use the minimal profile for a smaller command-line setup:
+
+~~~bash
+mac setup --profile minimal
+~~~
+
+Profiles are defined under:
+
+~~~text
+profiles/<name>/Brewfile
+~~~
+
+To add a new profile, create a new directory under `profiles/` and add a
+`Brewfile`. The CLI discovers profile names from that directory.
+
 Run only selected steps:
 
 ~~~bash

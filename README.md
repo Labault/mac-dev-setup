@@ -45,6 +45,15 @@ curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.
 
 ## ⚙️ What it installs
 
+The setup command supports installation profiles:
+
+```bash
+mac setup --profile full
+mac setup --profile minimal
+```
+
+The default profile is `full`.
+
 ### Core system tools
 
 - git
@@ -87,10 +96,11 @@ Run security hardening:
 brew/
   Brewfile
 
-brewfiles/
-  Brewfile.base
-  Brewfile.dev
-  Brewfile.casks
+profiles/
+  full/
+    Brewfile
+  minimal/
+    Brewfile
 
 scripts/
   bootstrap.sh
