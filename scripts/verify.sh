@@ -51,6 +51,6 @@ fi
 echo "✔ No forbidden tools detected"
 
 echo "🔐 Running hardening layer..."
-./scripts/hardening.sh
+bash "$SCRIPT_DIR/hardening.sh"
 
 echo "✅ All checks passed!"
