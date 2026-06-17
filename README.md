@@ -146,4 +146,4 @@ Detailed tool documentation is available in [`docs`](docs). Start with:
 
 ## License
 
-See [`package.json`](package.json) for package metadata.
+MacDevSetup is released under the MIT License. See [`LICENSE`](LICENSE) for details.
