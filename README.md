@@ -139,6 +139,7 @@ maintain custom Zsh configuration.
 Detailed tool documentation is available in [`docs`](docs). Start with:
 
 - [`docs/setup/setup.md`](docs/setup/setup.md)
+- [`docs/troubleshooting/troubleshooting.md`](docs/troubleshooting/troubleshooting.md)
 - [`docs/homebrew/homebrew.md`](docs/homebrew/homebrew.md)
 - [`docs/zsh/zsh.md`](docs/zsh/zsh.md)
 - [`docs/git/git.md`](docs/git/git.md)
