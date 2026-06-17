@@ -13,11 +13,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install editorconfig-checker directly:
 
@@ -169,14 +165,6 @@ git diff
 
 If a file is intentionally exceptional, prefer adding a precise
 `.editorconfig` section instead of disabling checks globally.
-
-## Updates
-
-Update editorconfig-checker through Homebrew:
-
-```bash
-brew upgrade editorconfig-checker
-```
 
 ## Rollback
 

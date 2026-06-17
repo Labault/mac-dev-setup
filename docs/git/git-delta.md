@@ -12,11 +12,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install delta directly:
 
@@ -202,14 +198,6 @@ Disable the configured pager temporarily:
 
 ```bash
 GIT_PAGER=cat git diff
-```
-
-## Updates
-
-Update delta through Homebrew:
-
-```bash
-brew upgrade git-delta
 ```
 
 ## Rollback

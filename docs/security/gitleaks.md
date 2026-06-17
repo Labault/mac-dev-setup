@@ -12,11 +12,7 @@ Gitleaks is installed through Homebrew:
 brew install gitleaks
 ```
 
-It is also declared in `profiles/full/Brewfile`, so it can be installed with the rest of the curated environment:
-
-```bash
-brew bundle install --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 ## Verify the installation
 
