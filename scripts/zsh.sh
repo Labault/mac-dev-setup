@@ -67,8 +67,10 @@ if command -v zsh >/dev/null; then
   if ZDOTDIR="$HOME" zsh -ic '[[ "${_comps[mac]:-}" == "_mac" ]]' >/dev/null 2>&1; then
     success "mac zsh completion registered"
   else
-    error "mac zsh completion could not be registered"
-    exit 1
+    # Non-fatal: a successful install must not fail just because completions
+    # have not been compiled in this shell yet. They load in a new session
+    # once compinit picks up ~/.zsh/completions.
+    warn "mac zsh completion not active yet; it should load in a new shell session"
   fi
 fi
 
