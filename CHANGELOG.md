@@ -25,7 +25,10 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Generated Zsh completion for `mac`, built from the command registry and
   verified in CI.
 - Structured logging helpers and unified error handling across the CLI.
-- CLI smoke tests (`npm test`) and commit linting through commitlint.
+- Opt-in `mac defaults`, `mac keyboard` and `mac vscode` commands wrapping the
+  macOS defaults, keyboard layout and VS Code extension scripts.
+- A bats test suite covering the libraries, CLI, update and install flows, run
+  via `npm test` in CI.
 
 ### Changed
 
@@ -35,16 +38,20 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   writes to the global config.
 - macOS CI consolidated into a single gate, and commits are linted with
   commitlint across the pull request range.
+- Shell scripts are linted with shellcheck in CI.
 - `mac setup` writes its log to a user-level location instead of the current
   working directory.
+- Releases are performed manually following the documented process; the
+  unreliable release-please workflow was removed.
 
 ### Fixed
 
 - `mac setup --help` and `mac doctor --help` print usage instead of failing or
   silently running diagnostics.
 - `mac doctor` exits non-zero when a required tool is missing.
-- Setup no longer regenerates the versioned completion file and no longer fails
-  when completion is not yet active in the current shell.
+- Setup no longer regenerates the versioned completion file, no longer fails
+  when completion is not yet active in the current shell, and reports a reliable
+  exit status.
 
 ## 0.4.1 - 2026-06-17
 
