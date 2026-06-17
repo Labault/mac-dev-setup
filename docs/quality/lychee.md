@@ -12,11 +12,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install lychee directly:
 
@@ -192,14 +188,6 @@ command -v lychee
 
 When a remote site fails temporarily, rerun the check before changing the
 documentation.
-
-## Updates
-
-Update lychee through Homebrew:
-
-```bash
-brew upgrade lychee
-```
 
 After an update, rerun the complete link check because HTTP handling or default
 behavior may change.
