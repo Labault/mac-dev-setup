@@ -1,4 +1,5 @@
 #!/bin/bash
+# Description: Install and configure the macOS development setup.
 
 set -e
 
