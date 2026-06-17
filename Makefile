@@ -15,3 +15,6 @@ setup-dev:
 
 dry-run:
 	bash scripts/cli.sh setup --dry-run
+
+completion:
+	bash scripts/generate-zsh-completion.sh

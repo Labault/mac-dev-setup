@@ -21,6 +21,10 @@ if [ -f "$ZSH_CONFIG_DIR/.p10k.zsh" ]; then
   success "p10k config applied"
 fi
 
+if [ -x "$REPO_DIR/scripts/generate-zsh-completion.sh" ]; then
+  bash "$REPO_DIR/scripts/generate-zsh-completion.sh"
+fi
+
 if [ -d "$ZSH_CONFIG_DIR/completions" ]; then
   mkdir -p ~/.zsh/completions
   cp "$ZSH_CONFIG_DIR"/completions/* ~/.zsh/completions/
