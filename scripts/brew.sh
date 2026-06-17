@@ -2,24 +2,29 @@
 
 set -e
 
-echo "🍺 [BREW] Setup starting..."
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# shellcheck source=scripts/lib/logging.sh
+source "$SCRIPT_DIR/lib/logging.sh"
+
+info "[BREW] Setup starting"
 
 # Install Homebrew if needed
 if ! command -v brew >/dev/null 2>&1; then
-  echo "Installing Homebrew..."
+  info "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-echo "Updating Homebrew..."
+info "Updating Homebrew"
 brew update
 
-echo "Installing Brewfile dependencies..."
+info "Installing Brewfile dependencies"
 
 if [ -f "brew/Brewfile" ]; then
   brew bundle check --file=brew/Brewfile || brew bundle --file=brew/Brewfile
 else
-  echo "ERROR: brew/Brewfile not found"
+  error "brew/Brewfile not found"
   exit 1
 fi
 
-echo "🍺 [BREW] Done"
+success "[BREW] Done"

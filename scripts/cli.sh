@@ -13,16 +13,16 @@ REPO_DIR="$(cd "$(dirname "$REAL_PATH")/.." && pwd)"
 source "$REPO_DIR/scripts/lib/logging.sh"
 
 print_usage() {
-  echo "Usage: mac setup [--profile full|minimal] [--dry-run]"
-  echo "       mac doctor"
+  log_line "Usage: mac setup [--profile full|minimal] [--dry-run]"
+  log_line "       mac doctor"
 }
 
 print_help() {
-  echo "mac CLI"
-  echo ""
-  echo "Commands:"
-  echo "  setup   Install mac dev environment"
-  echo "  doctor  Diagnose system"
+  log_line "mac CLI"
+  log_line ""
+  log_line "Commands:"
+  log_line "  setup   Install mac dev environment"
+  log_line "  doctor  Diagnose system"
 }
 
 run_setup() {

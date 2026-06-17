@@ -10,11 +10,11 @@ source "$REPO_DIR/scripts/lib/logging.sh"
 
 info "Mac Doctor - System diagnostics"
 
-printf '\nSystem\n'
-printf 'OS: %s %s\n' "$(sw_vers -productName)" "$(sw_vers -productVersion)"
-printf 'Arch: %s\n' "$(uname -m)"
+log_section "System"
+log_line "OS: $(sw_vers -productName) $(sw_vers -productVersion)"
+log_line "Arch: $(uname -m)"
 
-printf '\nTools\n'
+log_section "Tools"
 
 if command -v brew >/dev/null; then
   success "brew installed"
@@ -34,7 +34,7 @@ else
   error "zsh missing"
 fi
 
-printf '\nHomebrew\n'
+log_section "Homebrew"
 
 if command -v brew >/dev/null; then
   if brew doctor >/dev/null 2>&1; then
@@ -44,7 +44,7 @@ if command -v brew >/dev/null; then
   fi
 fi
 
-printf '\nmac CLI\n'
+log_section "mac CLI"
 
 if command -v mac >/dev/null; then
   success "mac CLI OK"
@@ -52,5 +52,5 @@ else
   error "mac CLI missing"
 fi
 
-printf '\n'
+log_line ""
 success "Doctor done"
