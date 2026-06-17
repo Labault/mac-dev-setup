@@ -9,10 +9,22 @@ fi
 # Oh My Zsh, plugins, and Powerlevel10k through Antidote
 # ---------------------------------------------------------------------------
 
-ANTIDOTE_SCRIPT="${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
+if [[ -z "${HOMEBREW_PREFIX:-}" ]]; then
+  if [[ -x "/opt/homebrew/bin/brew" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+  elif [[ -x "/usr/local/bin/brew" ]]; then
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+fi
+
+ANTIDOTE_SCRIPT="${HOMEBREW_PREFIX:-}/opt/antidote/share/antidote/antidote.zsh"
 ANTIDOTE_PLUGINS="${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 
-fpath=("$HOME/.zsh/completions" $fpath)
+typeset -U fpath
+ZSH_COMPLETION_DIR="${ZDOTDIR:-$HOME}/.zsh/completions"
+if [[ -d "$ZSH_COMPLETION_DIR" ]]; then
+  fpath=("$ZSH_COMPLETION_DIR" "${fpath[@]}")
+fi
 
 if [[ -r "$ANTIDOTE_SCRIPT" && -r "$ANTIDOTE_PLUGINS" ]]; then
   source "$ANTIDOTE_SCRIPT"
@@ -22,9 +34,13 @@ else
 fi
 
 autoload -Uz compinit
-compinit -i
-autoload -Uz _mac
-compdef _mac mac
+if (( ! $+_comps )) || ! whence -w compdef >/dev/null 2>&1; then
+  compinit -i
+fi
+if [[ -r "$ZSH_COMPLETION_DIR/_mac" && "${_comps[mac]:-}" != "_mac" ]]; then
+  autoload -Uz _mac
+  compdef _mac mac
+fi
 setopt auto_list
 zstyle ':completion:*' menu select
 
