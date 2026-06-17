@@ -149,4 +149,4 @@ Remove tokei with Homebrew:
 brew uninstall tokei
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.

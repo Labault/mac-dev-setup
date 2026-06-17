@@ -168,5 +168,5 @@ Remove ctop with Homebrew:
 brew uninstall ctop
 ```
 
-Then remove its entry from the root `Brewfile` and remove any related shell
+Then remove its entry from `profiles/full/Brewfile` and remove any related shell
 alias.
