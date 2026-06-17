@@ -84,6 +84,9 @@ Run security hardening:
 
 ## 🧱 Architecture
 
+brew/
+  Brewfile
+
 brewfiles/
   Brewfile.base
   Brewfile.dev

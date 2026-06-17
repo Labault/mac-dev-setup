@@ -71,7 +71,7 @@ done
 
 if [[ "$run_homebrew" == true ]]; then
   printf '\n==> Installing Homebrew dependencies\n'
-  brew bundle --file="$ROOT_DIR/Brewfile"
+  brew bundle --file="$ROOT_DIR/brew/Brewfile"
 fi
 
 if [[ "$run_vscode" == true ]]; then
