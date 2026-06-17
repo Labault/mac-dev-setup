@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -64,8 +66,33 @@ jobs:
 
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
-      - name: Check commit format
-        run: bash scripts/check-commit.sh
+      - name: Install Node dependencies
+        env:
+          HUSKY: "0"
+        run: npm ci
+
+      - name: Lint commit messages
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_AFTER_SHA: ${{ github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            from="$PR_BASE_SHA"
+            to="$PR_HEAD_SHA"
+          else
+            from="$PUSH_BEFORE_SHA"
+            to="$PUSH_AFTER_SHA"
+          fi
+
+          # First push of a branch reports an all-zero "before" SHA; fall back
+          # to the repository root so the range stays valid.
+          if printf '%s' "$from" | grep -Eq '^0+$'; then
+            from="$(git rev-list --max-parents=0 "$to" | tail -1)"
+          fi
+
+          npx --no -- commitlint --from "$from" --to "$to" --verbose
 
       - name: Cache pre-commit environments
         uses: actions/cache@v4
