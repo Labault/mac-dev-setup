@@ -1,6 +1,6 @@
 # MacDevSetup
 
-Production-ready macOS development setup managed through a small `mac` CLI.
+Curated macOS development setup managed through a small `mac` CLI.
 
 MacDevSetup installs a curated Homebrew environment, applies Git and Zsh
 configuration, and provides repeatable commands for setup, diagnostics, updates,
@@ -31,7 +31,7 @@ installed:
 mac help
 ```
 
-## Set Up Your Mac
+## Setup
 
 Install the default development environment:
 
@@ -52,7 +52,7 @@ Preview a setup command without changing your system:
 mac setup --profile minimal --dry-run
 ```
 
-During setup, MacDevSetup:
+Setup:
 
 - installs Homebrew if it is missing;
 - installs packages from the selected profile;
@@ -64,9 +64,10 @@ During setup, MacDevSetup:
 `minimal` installs the core command-line environment for shell, Git, and project
 maintenance.
 
-`full` installs everything in the curated developer environment, including
-language tooling, quality tools, GUI applications, VS Code extensions, and
-container/database utilities.
+`full` installs the complete curated developer environment, including language
+tooling, quality tools, GUI applications, VS Code extensions, and
+container/database utilities. The root `Brewfile` is a compatibility link to
+`profiles/full/Brewfile`.
 
 ## CLI Usage
 
@@ -131,14 +132,16 @@ MacDevSetup may manage these user-level files:
 - `~/.zsh/completions/_mac`
 - global Git `include.path`
 
-Review or back up existing shell files before running `mac setup` if you already
-maintain custom Zsh configuration.
+Existing shell files are backed up before replacement when they differ from the
+versioned files. Backups are written under
+`~/Documents/Backups/mac-dev-setup/zsh`.
 
 ## Documentation
 
 Detailed tool documentation is available in [`docs`](docs). Start with:
 
 - [`docs/setup/setup.md`](docs/setup/setup.md)
+- [`docs/architecture/current-architecture.md`](docs/architecture/current-architecture.md)
 - [`docs/troubleshooting/troubleshooting.md`](docs/troubleshooting/troubleshooting.md)
 - [`docs/homebrew/homebrew.md`](docs/homebrew/homebrew.md)
 - [`docs/zsh/zsh.md`](docs/zsh/zsh.md)
