@@ -1,125 +1,148 @@
 # MacDevSetup
 
-![macOS](https://img.shields.io/badge/macOS-dev_environment-blue)
-![status](https://img.shields.io/badge/status-stable-green)
-![brew](https://img.shields.io/badge/homebrew-based-orange)
+Production-ready macOS development setup managed through a small `mac` CLI.
 
-A curated macOS development environment built step by step, with real-world validation.
-This repository documents tools, configurations, and workflows used on a daily developer machine (Apple Silicon).
-Every change is tested and intentionally chosen.
+MacDevSetup installs a curated Homebrew environment, applies Git and Zsh
+configuration, and provides repeatable commands for setup, diagnostics, updates,
+and uninstalling.
 
----
+## Requirements
 
-## ✨ Why this exists
+- macOS
+- Git
+- Internet access
+- Permission to install Homebrew packages and macOS applications
 
-Setting up a new macOS development environment is repetitive, error-prone, and inconsistent.
+The installer creates a checkout at `~/.mac-dev-setup` and installs the `mac`
+command in `~/.local/bin`.
 
-MacDevSetup solves this by providing:
+## Install
 
-- a fully reproducible setup
-- a clean Homebrew-based architecture
-- automated validation and safety checks
-- zero manual configuration drift
-
----
-
-## 🚀 Quick start
-
-### Recommended
+Run the installer:
 
 ```bash
-git clone https://github.com/labault/mac-dev-setup.git
-cd mac-dev-setup
-./scripts/bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.sh | bash
 ```
 
----
-
-### One-line install
+Restart your shell if `mac` is not available immediately, then confirm the CLI is
+installed:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.sh | bash`
+mac help
 ```
 
----
+## Set Up Your Mac
 
-## ⚙️ What it installs
+Install the default development environment:
 
-The setup command supports installation profiles:
+```bash
+mac setup
+```
+
+The default profile is `full`. To choose a profile explicitly:
 
 ```bash
 mac setup --profile full
 mac setup --profile minimal
 ```
 
-The default profile is `full`.
+Preview a setup command without changing your system:
 
-### Core system tools
+```bash
+mac setup --profile minimal --dry-run
+```
 
-- git
-- curl / wget
-- jq
-- tree
-- openssl
-- antidote
-- gitleaks
+During setup, MacDevSetup:
 
-### Development tools
+- installs Homebrew if it is missing;
+- installs packages from the selected profile;
+- configures Git through a managed global include;
+- applies the included Zsh configuration and completion files.
 
-- shellcheck
-- hadolint
-- actionlint
-- act
+## Profiles
 
-### macOS apps
+`minimal` installs the core command-line environment for shell, Git, and project
+maintenance.
 
-- OrbStack
-- Beekeeper Studio
-- Pearcleaner
+`full` installs everything in the curated developer environment, including
+language tooling, quality tools, GUI applications, VS Code extensions, and
+container/database utilities.
 
----
+## CLI Usage
 
-## 🧪 Validation
+List available commands:
 
-Run full environment check:
+```bash
+mac help
+```
 
-./scripts/verify.sh
+Install or reapply the development environment:
 
-Run security hardening:
+```bash
+mac setup [--profile full|minimal] [--dry-run]
+```
 
-./scripts/hardening.sh
+Run diagnostics:
 
----
+```bash
+mac doctor
+```
 
-## 🧱 Architecture
+Update MacDevSetup:
 
-brew/
-  Brewfile
+```bash
+mac update
+mac update --dry-run
+```
 
-profiles/
-  full/
-    Brewfile
-  minimal/
-    Brewfile
+Uninstall the CLI and managed PATH entry:
 
-scripts/
-  bootstrap.sh
-  verify.sh
-  hardening.sh
-  install.sh
+```bash
+mac uninstall
+```
 
----
+Preview uninstall actions:
 
-## 🧠 Philosophy
+```bash
+mac uninstall --dry-run
+```
 
-This is not a dotfiles repository.
+Remove safely managed configuration too:
 
-It is a deterministic macOS development system.
+```bash
+mac uninstall --remove-config
+```
 
-No manual setup. No guessing. No drift.
+Remove the installed checkout when it matches `~/.mac-dev-setup`:
 
----
+```bash
+mac uninstall --remove-install-dir
+```
 
-## 🚀 Status
+## Managed Files
 
-Stable v0.3.x — ready for production use
+MacDevSetup may manage these user-level files:
+
+- `~/.zprofile`
+- `~/.zshrc`
+- `~/.zsh_plugins.txt`
+- `~/.p10k.zsh`
+- `~/.shell/alias.sh`
+- `~/.zsh/completions/_mac`
+- global Git `include.path`
+
+Review or back up existing shell files before running `mac setup` if you already
+maintain custom Zsh configuration.
+
+## Documentation
+
+Detailed tool documentation is available in [`docs`](docs). Start with:
+
+- [`docs/setup/setup.md`](docs/setup/setup.md)
+- [`docs/homebrew/homebrew.md`](docs/homebrew/homebrew.md)
+- [`docs/zsh/zsh.md`](docs/zsh/zsh.md)
+- [`docs/git/git.md`](docs/git/git.md)
+
+## License
+
+See [`package.json`](package.json) for package metadata.
