@@ -8,7 +8,7 @@ This repo defines a fully reproducible development setup for macOS using Homebre
 
 ## 🚀 Quick start
 
-git clone <https://github.com/Labault/mac-dev-setup.git>
+git clone <[mac-dev-setup](https://github.com/labault/mac-dev-setup)>.git
 cd mac-dev-setup
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
@@ -47,7 +47,7 @@ cd "$REPO_ROOT"
 
 ## 🧪 Validation
 
-Run:
+Run verification script:
 
 ./scripts/verify.sh
 
