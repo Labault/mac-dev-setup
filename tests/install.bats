@@ -15,7 +15,20 @@ setup() {
     GIT_OBJECT_DIRECTORY GIT_COMMON_DIR 2>/dev/null || true
   WORK="$(mktemp -d)"
   CLI_NAME="mds-test-cli"
-  export MAC_DEV_SETUP_REPO_URL="$REPO_DIR"
+
+  # Clone from a dedicated seed repo on a real "main" branch rather than the
+  # working checkout, which may be detached (e.g. a PR merge ref) on CI and
+  # would break the idempotent `git pull --ff-only` path.
+  SEED="$WORK/seed"
+  mkdir -p "$SEED"
+  cp -R "$REPO_DIR/scripts" "$SEED/scripts"
+  git -C "$SEED" init -q -b main
+  git -C "$SEED" config user.email "test@example.com"
+  git -C "$SEED" config user.name "Test"
+  git -C "$SEED" add .
+  git -C "$SEED" commit -qm "seed"
+
+  export MAC_DEV_SETUP_REPO_URL="$SEED"
   export MAC_DEV_SETUP_INSTALL_DIR="$WORK/install"
   export MAC_DEV_SETUP_BIN_DIR="$WORK/bin"
   export MAC_DEV_SETUP_SHELL_CONFIG="$WORK/profile"
