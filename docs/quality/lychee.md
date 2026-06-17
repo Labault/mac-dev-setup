@@ -214,6 +214,6 @@ brew uninstall lychee
 
 Then remove:
 
-- its entry from the root `Brewfile`;
+- its entry from `profiles/full/Brewfile`;
 - its hook from `.pre-commit-config.yaml`;
 - any repository-specific lychee configuration no longer in use.

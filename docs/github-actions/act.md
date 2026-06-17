@@ -12,7 +12,7 @@ Act is installed through Homebrew:
 brew install act
 ```
 
-It is also declared in the root `Brewfile`:
+It is also declared in `profiles/full/Brewfile`:
 
 ```bash
 brew bundle install --file=Brewfile
@@ -214,6 +214,6 @@ Remove Act with:
 brew uninstall act
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Any project-specific Act configuration must also be reviewed and removed separately.
