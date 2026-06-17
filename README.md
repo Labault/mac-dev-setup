@@ -65,9 +65,9 @@ Setup:
 maintenance.
 
 `full` installs the complete curated developer environment, including language
-tooling, quality tools, GUI applications, VS Code extensions, and
-container/database utilities. The root `Brewfile` is a compatibility link to
-`profiles/full/Brewfile`.
+tooling, quality tools, GUI applications, and container/database utilities. The
+root `Brewfile` is a compatibility link to `profiles/full/Brewfile`. VS Code
+extensions are managed separately and installed with `mac vscode`.
 
 ## CLI Usage
 

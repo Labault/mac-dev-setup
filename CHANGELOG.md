@@ -39,6 +39,9 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - macOS CI consolidated into a single gate, and commits are linted with
   commitlint across the pull request range.
 - Shell scripts are linted with shellcheck in CI.
+- VS Code extensions are no longer declared in the Brewfile (which made the
+  macOS CI depend on the flaky extension marketplace); install them with
+  `mac vscode`, the single source of truth being the configs/vscode lists.
 - `mac setup` writes its log to a user-level location instead of the current
   working directory.
 - Releases are performed manually following the documented process; the
