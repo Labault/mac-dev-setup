@@ -9,7 +9,31 @@ REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 # shellcheck source=scripts/lib/logging.sh
 source "$REPO_DIR/scripts/lib/logging.sh"
 
+print_usage() {
+  log_line "Usage: mac doctor [--help]"
+  log_line ""
+  log_line "Run read-only diagnostics for the macOS development setup."
+}
+
+parse_args() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      --help|-h)
+        print_usage
+        exit 0
+        ;;
+      *)
+        error "Unknown option: $1"
+        print_usage >&2
+        exit 1
+        ;;
+    esac
+  done
+}
+
 main() {
+  parse_args "$@"
+
   info "Mac Doctor - System diagnostics"
 
   log_section "System"
