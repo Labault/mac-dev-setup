@@ -19,7 +19,7 @@
 - dependency health check
 - cleanup suggestions
 
-## v1.0.0 — Stable OSS release
+## v1.0.0 — Stable OSS release (released 2026-06-17)
 
 - fully documented system
 - community contributions

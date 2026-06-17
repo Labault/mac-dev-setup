@@ -8,6 +8,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.0.0 - 2026-06-17
+
 ### Added
 
 - Global setup script for selective or complete environment installation.
@@ -41,6 +43,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 - Added private vulnerability reporting guidance.
 - Added automated secret detection and repository security checks to CI.
+
+For the complete release criteria, see [version 1.0.0 release criteria](docs/releases/v1.0.0.md).
 
 ## 0.1.0 - 2026-06-16
 
