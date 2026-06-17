@@ -11,14 +11,30 @@ source "$SCRIPT_DIR/lib/logging.sh"
 
 info "[ZSH] Setup starting"
 
+if [ -f "$ZSH_CONFIG_DIR/.zprofile" ]; then
+  cp "$ZSH_CONFIG_DIR/.zprofile" ~/.zprofile
+  success ".zprofile applied"
+fi
+
 if [ -f "$ZSH_CONFIG_DIR/.zshrc" ]; then
   cp "$ZSH_CONFIG_DIR/.zshrc" ~/.zshrc
   success ".zshrc applied"
 fi
 
+if [ -f "$ZSH_CONFIG_DIR/.zsh_plugins.txt" ]; then
+  cp "$ZSH_CONFIG_DIR/.zsh_plugins.txt" ~/.zsh_plugins.txt
+  success ".zsh_plugins.txt applied"
+fi
+
 if [ -f "$ZSH_CONFIG_DIR/.p10k.zsh" ]; then
   cp "$ZSH_CONFIG_DIR/.p10k.zsh" ~/.p10k.zsh
   success "p10k config applied"
+fi
+
+if [ -f "$ZSH_CONFIG_DIR/alias.sh" ]; then
+  mkdir -p ~/.shell
+  cp "$ZSH_CONFIG_DIR/alias.sh" ~/.shell/alias.sh
+  success "zsh aliases applied"
 fi
 
 if [ -x "$REPO_DIR/scripts/generate-zsh-completion.sh" ]; then
@@ -31,8 +47,13 @@ if [ -d "$ZSH_CONFIG_DIR/completions" ]; then
   success "zsh completions applied"
 fi
 
-# reload shell config (safe)
-# shellcheck source=/dev/null
-source ~/.zshrc 2>/dev/null || true
+if command -v zsh >/dev/null; then
+  if ZDOTDIR="$HOME" zsh -ic '[[ "${_comps[mac]:-}" == "_mac" ]]' >/dev/null 2>&1; then
+    success "mac zsh completion registered"
+  else
+    error "mac zsh completion could not be registered"
+    exit 1
+  fi
+fi
 
 success "[ZSH] Done"
