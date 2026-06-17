@@ -62,7 +62,7 @@ jobs:
             "$(find /tmp/lychee -type f -name lychee -print -quit)" \
             /usr/local/bin/lychee
 
-                    echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Check commit format
         run: bash scripts/check-commit.sh
@@ -77,3 +77,8 @@ jobs:
 
       - name: Run repository quality checks
         run: pre-commit run --all-files --show-diff-on-failure
+
+      - name: Verify generated Zsh completion
+        run: |
+          bash scripts/generate-zsh-completion.sh
+          git diff --exit-code -- configs/zsh/completions/_mac

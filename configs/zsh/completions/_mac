@@ -9,6 +9,8 @@ _mac() {
     'help:List available commands.'
     'doctor:Run system diagnostics for the macOS development setup.'
     'setup:Install and configure the macOS development setup.'
+    'uninstall:Remove the mac CLI symlink and managed shell PATH entry.'
+    'update:Update the mac CLI from its git repository.'
   )
 
   if (( CURRENT == 2 )); then

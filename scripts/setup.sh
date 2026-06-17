@@ -19,6 +19,52 @@ source "$SCRIPT_DIR/lib/logging.sh"
 source "$SCRIPT_DIR/lib/profiles.sh"
 
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+print_usage() {
+  log_line "Usage: scripts/setup.sh [--profile full|minimal] [--dry-run]"
+  log_line "Profiles: $(profile_list "$REPO_DIR")"
+}
+
+parse_args() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      --profile)
+        PROFILE="${2:-}"
+        if [ -z "$PROFILE" ] || [ "${PROFILE#--}" != "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
+        shift 2
+        ;;
+      --profile=*)
+        PROFILE="${1#*=}"
+        if [ -z "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
+        shift
+        ;;
+      --dry-run)
+        DRY_RUN="true"
+        shift
+        ;;
+      --help|-h)
+        print_usage
+        exit 0
+        ;;
+      *)
+        error "Unknown option: $1"
+        print_usage >&2
+        exit 1
+        ;;
+    esac
+  done
+}
+
+parse_args "$@"
+
 PROFILE="${PROFILE:-$(profile_default)}"
 BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
 
