@@ -24,7 +24,4 @@ else
   warn "$GITCONFIG not found"
 fi
 
-# Optional: global identity (important)
-git config --global init.defaultBranch main
-
 success "[GIT] Done"
