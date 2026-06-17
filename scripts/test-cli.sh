@@ -27,6 +27,9 @@ assert_contains "$setup_help_output" "Usage: scripts/setup.sh"
 mac_setup_help_output="$(bash "$REPO_DIR/scripts/cli.sh" setup --help)"
 assert_contains "$mac_setup_help_output" "Usage: mac setup"
 
+mac_doctor_help_output="$(bash "$REPO_DIR/scripts/cli.sh" doctor --help)"
+assert_contains "$mac_doctor_help_output" "Usage: mac doctor"
+
 setup_dry_run_output="$(bash "$REPO_DIR/scripts/cli.sh" setup --profile minimal --dry-run)"
 assert_contains "$setup_dry_run_output" "Dry run mode activated"
 
