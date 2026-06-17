@@ -25,47 +25,6 @@ print_help() {
   log_line "  doctor  Diagnose system"
 }
 
-run_setup() {
-  PROFILE="full"
-  DRY_RUN="false"
-
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      --profile)
-        PROFILE="${2:-}"
-        shift 2
-        ;;
-      --profile=*)
-        PROFILE="${1#*=}"
-        shift
-        ;;
-      --dry-run)
-        DRY_RUN="true"
-        shift
-        ;;
-      *)
-        error "Unknown option: $1"
-        print_usage >&2
-        exit 1
-        ;;
-    esac
-  done
-
-  case "$PROFILE" in
-    full|minimal) ;;
-    *)
-      error "Invalid profile: $PROFILE"
-      print_usage >&2
-      exit 1
-      ;;
-  esac
-
-  if ! PROFILE="$PROFILE" DRY_RUN="$DRY_RUN" bash "$REPO_DIR/scripts/setup.sh"; then
-    error "Setup failed"
-    exit 1
-  fi
-}
-
 run_command_script() {
   command_name="$1"
   shift
@@ -77,10 +36,7 @@ run_command_script() {
     exit 1
   fi
 
-  if ! bash "$command_script" "$@"; then
-    error "Command failed: $command_name"
-    exit 1
-  fi
+  bash "$command_script" "$@"
 }
 
 execute_command() {
@@ -91,10 +47,7 @@ execute_command() {
   fi
 
   case "$command_name" in
-    setup)
-      run_setup "$@"
-      ;;
-    doctor)
+    setup|doctor)
       run_command_script "$command_name" "$@"
       ;;
     help|--help|-h)
