@@ -12,11 +12,7 @@ OrbStack is installed through Homebrew Cask:
 brew install --cask orbstack
 ```
 
-It is also declared in the root `Brewfile`:
-
-```bash
-brew bundle install --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 ## Launch OrbStack
 
@@ -165,6 +161,6 @@ Remove OrbStack with:
 brew uninstall --cask orbstack
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Uninstalling the application and deleting its local data are separate operations. Local containers, images, volumes, or virtual machines should only be removed after confirming that they are no longer needed.

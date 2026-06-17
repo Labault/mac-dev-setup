@@ -1,4 +1,4 @@
-name: macOS CI - Bootstrap Test
+name: macOS CI
 
 on:
   pull_request:
@@ -7,56 +7,39 @@ on:
       - main
 
 jobs:
-  macos-bootstrap:
+  macos:
     runs-on: macos-latest
 
     steps:
-      # ----------------------------
-      # Checkout
-      # ----------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ----------------------------
-      # Ensure Homebrew exists
-      # ----------------------------
-      - name: Check Homebrew
+      - name: Cache Homebrew
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/Homebrew
+          key: brew-${{ runner.os }}-${{ hashFiles('profiles/**/Brewfile') }}
+
+      - name: Ensure Homebrew
         run: |
           if ! command -v brew >/dev/null 2>&1; then
             echo "Homebrew not found (unexpected on macOS runner)"
             exit 1
           fi
+          brew update
+          brew analytics off
 
-      # ----------------------------
-      # Make scripts executable
-      # ----------------------------
       - name: Prepare scripts
         run: chmod +x scripts/*.sh
 
-      # ----------------------------
-      # Run bootstrap (MAIN TEST)
-      # ----------------------------
-      - name: Run setup script
-        run: |
-          ./scripts/setup.sh
+      - name: Verify setup CLI contract
+        run: bash scripts/cli.sh setup --profile minimal --dry-run
 
-      # ----------------------------
-      # Validate Brewfile
-      # ----------------------------
-      - name: Validate Brewfile
-        run: |
-          brew bundle check --file=profiles/full/Brewfile
+      - name: Install full profile
+        run: brew bundle --file=profiles/full/Brewfile
 
-      - name: Run bootstrap (real test)
-        run: |
-          chmod +x scripts/*.sh
-          ./scripts/setup.sh
+      - name: Apply setup once
+        run: CI=true bash scripts/setup.sh --profile full
 
-      - name: Re-run bootstrap (idempotence check)
-        run: |
-          ./scripts/setup.sh
-
-      - name: Validate Brew state
-        run: |
-          brew list
-          brew bundle check --file=profiles/full/Brewfile
+      - name: Verify setup and hardening
+        run: bash scripts/verify.sh

@@ -11,11 +11,7 @@ The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-Install all tools declared in the `Brewfile`:
-
-```bash
-brew bundle --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install bat directly:
 
@@ -136,14 +132,6 @@ command -v bat
 On some Linux distributions, the executable may be named `batcat`, but the
 Homebrew installation uses `bat`.
 
-## Updates
-
-Update bat through Homebrew:
-
-```bash
-brew upgrade bat
-```
-
 ## Rollback
 
 Remove bat with Homebrew:
@@ -152,4 +140,4 @@ Remove bat with Homebrew:
 brew uninstall bat
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.

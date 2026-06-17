@@ -12,11 +12,7 @@ Beekeeper Studio is installed through Homebrew Cask:
 brew install --cask beekeeper-studio
 ```
 
-It is also declared in the root `Brewfile`:
-
-```bash
-brew bundle install --file=Brewfile
-```
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 ## Launch the application
 
@@ -130,6 +126,6 @@ Remove the application with:
 brew uninstall --cask beekeeper-studio
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Homebrew may leave user-specific application data in the macOS Library. Delete that data only after confirming that saved connections, preferences, and local information are no longer needed.

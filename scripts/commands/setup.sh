@@ -12,7 +12,7 @@ source "$REPO_DIR/scripts/lib/logging.sh"
 source "$REPO_DIR/scripts/lib/profiles.sh"
 
 print_usage() {
-  log_line "Usage: mac setup [--profile full|minimal] [--dry-run]"
+  log_line "Usage: mac setup [--profile <profile>] [--dry-run]"
   log_line "Profiles: $(profile_list "$REPO_DIR")"
 }
 
@@ -43,6 +43,10 @@ main() {
       --dry-run)
         DRY_RUN="true"
         shift
+        ;;
+      --help|-h)
+        print_usage
+        exit 0
         ;;
       *)
         error "Unknown option: $1"
