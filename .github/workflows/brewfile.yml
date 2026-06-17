@@ -41,19 +41,25 @@ jobs:
           brew analytics off
 
       # ----------------------------
-      # Install Brewfiles (safe mode)
+      # Install Brewfiles (CLEAN FIX)
       # ----------------------------
       - name: Install base
-        run: brew bundle check --file=brewfiles/Brewfile.base || brew bundle --file=brewfiles/Brewfile.base
+        run: brew bundle --file=brewfiles/Brewfile.base
 
       - name: Install dev
-        run: brew bundle check --file=brewfiles/Brewfile.dev || brew bundle --file=brewfiles/Brewfile.dev
+        run: brew bundle --file=brewfiles/Brewfile.dev
 
       - name: Install casks
-        run: brew bundle check --file=brewfiles/Brewfile.casks || brew bundle --file=brewfiles/Brewfile.casks
+        run: brew bundle --file=brewfiles/Brewfile.casks
 
       # ----------------------------
-      # Always verify
+      # Verify (always after install)
       # ----------------------------
       - name: Verify setup
         run: bash scripts/verify.sh
+
+      # ----------------------------
+      # Hardening (after verify)
+      # ----------------------------
+      - name: Run hardening checks
+        run: bash scripts/hardening.sh
