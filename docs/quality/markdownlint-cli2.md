@@ -198,6 +198,6 @@ brew uninstall markdownlint-cli2
 
 Then remove:
 
-- its entry from the root `Brewfile`;
+- its entry from `profiles/full/Brewfile`;
 - its hook from `.pre-commit-config.yaml`;
 - `.markdownlint-cli2.yaml` if no other Markdown tooling uses it.

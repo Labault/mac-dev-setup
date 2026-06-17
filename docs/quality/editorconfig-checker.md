@@ -188,7 +188,7 @@ brew uninstall editorconfig-checker
 
 Then remove:
 
-- its entry from the root `Brewfile`;
+- its entry from `profiles/full/Brewfile`;
 - its hook from `.pre-commit-config.yaml`;
 - `.editorconfig` only if the repository no longer needs shared formatting
   rules.

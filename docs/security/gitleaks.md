@@ -12,7 +12,7 @@ Gitleaks is installed through Homebrew:
 brew install gitleaks
 ```
 
-It is also declared in the root `Brewfile`, so it can be installed with the rest of the curated environment:
+It is also declared in `profiles/full/Brewfile`, so it can be installed with the rest of the curated environment:
 
 ```bash
 brew bundle install --file=Brewfile
@@ -82,6 +82,6 @@ Remove Gitleaks with:
 brew uninstall gitleaks
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Any related pre-commit hook must also be removed separately.

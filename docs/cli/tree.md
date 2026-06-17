@@ -155,4 +155,4 @@ Remove tree with Homebrew:
 brew uninstall tree
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.

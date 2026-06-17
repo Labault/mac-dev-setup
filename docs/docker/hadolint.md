@@ -12,7 +12,7 @@ Hadolint is installed through Homebrew:
 brew install hadolint
 ```
 
-It is also declared in the root `Brewfile`:
+It is also declared in `profiles/full/Brewfile`:
 
 ```bash
 brew bundle install --file=Brewfile
@@ -99,6 +99,6 @@ Remove Hadolint with:
 brew uninstall hadolint
 ```
 
-Then remove its entry from the root `Brewfile`.
+Then remove its entry from `profiles/full/Brewfile`.
 
 Any related pre-commit hook or Hadolint configuration must also be removed separately.
