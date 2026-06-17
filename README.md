@@ -4,7 +4,9 @@
 ![status](https://img.shields.io/badge/status-stable-green)
 ![brew](https://img.shields.io/badge/homebrew-based-orange)
 
-A reproducible macOS development environment focused on automation, consistency, and developer productivity.
+A curated macOS development environment built step by step, with real-world validation.
+This repository documents tools, configurations, and workflows used on a daily developer machine (Apple Silicon).
+Every change is tested and intentionally chosen.
 
 ---
 
