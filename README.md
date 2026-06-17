@@ -29,6 +29,11 @@ Other operating systems, including Linux and Windows, are outside the scope of t
 
 ### Package management and macOS
 
+### Homebrew
+
+* [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
+* [Homebrew inventory (real usage tracking)](docs/homebrew/inventory.md)
+
 * [Homebrew setup, packages, maintenance, and rollback](docs/homebrew/homebrew.md)
 * [Pearcleaner macOS application uninstaller](docs/macos/pearcleaner.md)
 * [macOS development defaults](docs/macos/macos-defaults.md)
