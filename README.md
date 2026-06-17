@@ -1,43 +1,66 @@
 # MacDevSetup
 
-A curated macOS development environment built for reproducibility, clarity, and control.
+![macOS](https://img.shields.io/badge/macOS-dev_environment-blue)
+![status](https://img.shields.io/badge/status-stable-green)
+![brew](https://img.shields.io/badge/homebrew-based-orange)
 
-This repo defines a fully reproducible development setup for macOS using Homebrew, Zsh, and a curated toolchain.
+A reproducible macOS development environment focused on automation, consistency, and developer productivity.
+
+---
+
+## ✨ Why this exists
+
+Setting up a new macOS development environment is repetitive, error-prone, and inconsistent.
+
+MacDevSetup solves this by providing:
+
+- a fully reproducible setup
+- a clean Homebrew-based architecture
+- automated validation and safety checks
+- zero manual configuration drift
 
 ---
 
 ## 🚀 Quick start
 
-git clone <[mac-dev-setup](https://github.com/labault/mac-dev-setup)>.git
+### Recommended
+
+```bash
+git clone https://github.com/labault/mac-dev-setup.git
 cd mac-dev-setup
-
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-cd "$REPO_ROOT"
-
 ./scripts/bootstrap.sh
+```
+
+---
+
+### One-line install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.sh | bash`
+```
 
 ---
 
 ## ⚙️ What it installs
 
-### 🧱 Base tools
+### Core system tools
 
 - git
 - curl / wget
-- jq (JSON tooling)
+- jq
 - tree
 - openssl
-- antidote (Zsh plugin manager)
-- gitleaks (security scanning)
+- antidote
+- gitleaks
 
-### 🧪 Dev tooling
+### Development tools
 
 - shellcheck
 - hadolint
 - actionlint
 - act
 
-### 🖥️ Applications
+### macOS apps
 
 - OrbStack
 - Beekeeper Studio
@@ -47,13 +70,17 @@ cd "$REPO_ROOT"
 
 ## 🧪 Validation
 
-Run verification script:
+Run full environment check:
 
 ./scripts/verify.sh
 
+Run security hardening:
+
+./scripts/hardening.sh
+
 ---
 
-## 🧱 Structure
+## 🧱 Architecture
 
 brewfiles/
   Brewfile.base
@@ -63,20 +90,21 @@ brewfiles/
 scripts/
   bootstrap.sh
   verify.sh
+  hardening.sh
+  install.sh
 
 ---
 
-## ⚠️ Rules
+## 🧠 Philosophy
 
-- No fake Homebrew packages
-- No guessing tool names
-- Everything must be reproducible via Brewfile
-- All install goes through bootstrap
+This is not a dotfiles repository.
+
+It is a deterministic macOS development system.
+
+No manual setup. No guessing. No drift.
 
 ---
 
-## 🔥 Philosophy
+## 🚀 Status
 
-This setup is not a list of tools.
-
-It is a reproducible macOS dev environment definition.
+Stable v0.3.x — ready for production use
