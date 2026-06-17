@@ -1,0 +1,59 @@
+name: Feature request
+description: Suggest a new tool, configuration, workflow, or documentation improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggestions should match the curated and manually validated nature of this repository.
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the tool, configuration, or improvement being proposed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Explain the problem it solves or the value it adds.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: List similar tools or approaches and explain the differences.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Area
+      options:
+        - macOS
+        - Homebrew
+        - Shell
+        - Git
+        - GitHub Actions
+        - Containers
+        - Editor
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: The proposal is relevant to a macOS development environment.
+          required: true
+        - label: I searched existing issues and documentation first.
+          required: true
