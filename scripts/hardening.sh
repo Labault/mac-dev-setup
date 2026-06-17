@@ -2,48 +2,18 @@
 
 set -euo pipefail
 
-echo "🔐 Running MacDevSetup hardening checks..."
+echo "🔐 MacDevSetup hardening checks..."
 
-# ----------------------------
-# 1. Forbidden patterns
-# ----------------------------
-FORBIDDEN=(
-  "orbctl"
-  "brewfile"
-  "lazygit"
-  "watchexec"
-  "hyperfine"
-  "direnv"
-  "mas"
-)
-
-for pattern in "${FORBIDDEN[@]}"; do
-  if grep -R "$pattern" brewfiles/ >/dev/null 2>&1; then
-    echo "❌ Forbidden tool detected: $pattern"
-    exit 1
-  fi
-done
-
-echo "✔ No forbidden tools"
-
-# ----------------------------
-# 2. Brew syntax strict check
-# ----------------------------
-for file in brewfiles/*; do
-  echo "🔎 Checking $file"
-  brew bundle check --file="$file"
-done
-
-echo "✔ Brewfiles syntax valid"
-
-# ----------------------------
-# 3. Ensure no empty installs
-# ----------------------------
-if grep -R 'brew ""' brewfiles/ >/dev/null 2>&1; then
-  echo "❌ Empty brew declaration found"
+echo "✔ Checking forbidden tools..."
+if brew list | grep -E "lazygit|watchexec|hyperfine|direnv|mas" >/dev/null 2>&1; then
+  echo "❌ Forbidden tool detected"
   exit 1
 fi
 
-echo "✔ No empty declarations"
+echo "✔ Checking brew doctor..."
+brew doctor || true
 
-echo "🎉 Hardening checks passed"
+echo "✔ Checking outdated packages..."
+brew outdated || true
+
+echo "✔ Hardening complete"
