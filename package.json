@@ -1,7 +1,7 @@
 {
   "name": "mac-dev-setup",
   "version": "1.0.0",
-  "description": "![macOS](https://img.shields.io/badge/macOS-dev_environment-blue) ![status](https://img.shields.io/badge/status-stable-green) ![brew](https://img.shields.io/badge/homebrew-based-orange)",
+  "description": "Curated macOS development setup managed through a small mac CLI.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
