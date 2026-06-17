@@ -7,19 +7,27 @@ on:
       - main
 
 jobs:
-  macos-bootstrap:
+  macos:
     runs-on: macos-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check Homebrew
+      - name: Cache Homebrew
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/Homebrew
+          key: brew-${{ runner.os }}-${{ hashFiles('profiles/**/Brewfile') }}
+
+      - name: Ensure Homebrew
         run: |
           if ! command -v brew >/dev/null 2>&1; then
             echo "Homebrew not found (unexpected on macOS runner)"
             exit 1
           fi
+          brew update
+          brew analytics off
 
       - name: Prepare scripts
         run: chmod +x scripts/*.sh
@@ -33,6 +41,5 @@ jobs:
       - name: Apply setup once
         run: CI=true bash scripts/setup.sh --profile full
 
-      - name: Validate Brew state
-        run: |
-          brew bundle check --file=profiles/full/Brewfile
+      - name: Verify setup and hardening
+        run: bash scripts/verify.sh
