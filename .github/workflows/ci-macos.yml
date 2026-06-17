@@ -45,7 +45,7 @@ jobs:
       # ----------------------------
       - name: Validate Brewfile
         run: |
-          brew bundle check --file=brew/Brewfile
+          brew bundle check --file=profiles/full/Brewfile
 
       - name: Run bootstrap (real test)
         run: |
@@ -59,4 +59,4 @@ jobs:
       - name: Validate Brew state
         run: |
           brew list
-          brew bundle check --file=brew/Brewfile
+          brew bundle check --file=profiles/full/Brewfile

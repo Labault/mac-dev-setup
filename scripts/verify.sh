@@ -4,35 +4,46 @@ set -euo pipefail
 
 echo "🧪 Verifying MacDevSetup..."
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# shellcheck source=scripts/lib/profiles.sh
+source "$SCRIPT_DIR/lib/profiles.sh"
+
 # ----------------------------
-# Brewfiles existence
+# Profile Brewfiles existence
 # ----------------------------
-for file in \
-  brewfiles/Brewfile.base \
-  brewfiles/Brewfile.dev \
-  brewfiles/Brewfile.casks
-do
-  if [ ! -f "$file" ]; then
-    echo "❌ Missing: $file"
+profiles="$(profile_list "$REPO_DIR")"
+
+if [ -z "$profiles" ]; then
+  echo "❌ No setup profiles found"
+  exit 1
+fi
+
+for profile in $profiles; do
+  brewfile="$(profile_brewfile "$REPO_DIR" "$profile")"
+
+  if [ ! -f "$brewfile" ]; then
+    echo "❌ Missing: $brewfile"
     exit 1
   fi
 done
 
-echo "✔ Brewfiles exist"
+echo "✔ Profile Brewfiles exist"
 
 # ----------------------------
-# Brew syntax check
+# Brew profile check
 # ----------------------------
-brew bundle check --file=brewfiles/Brewfile.base >/dev/null
-brew bundle check --file=brewfiles/Brewfile.dev >/dev/null
-brew bundle check --file=brewfiles/Brewfile.casks >/dev/null
+for profile in $profiles; do
+  brew bundle check --file="$(profile_brewfile "$REPO_DIR" "$profile")" >/dev/null
+done
 
-echo "✔ Brewfile syntax valid"
+echo "✔ Profile Brewfiles satisfied"
 
 # ----------------------------
 # Check forbidden tools
 # ----------------------------
-if grep -q "orbctl" brewfiles/*; then
+if grep -Rq "orbctl" "$REPO_DIR/profiles"; then
   echo "❌ Forbidden tool detected: orbctl"
   exit 1
 fi
