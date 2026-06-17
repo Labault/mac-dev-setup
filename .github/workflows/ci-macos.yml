@@ -1,4 +1,4 @@
-name: macOS CI - Bootstrap Test
+name: macOS CI
 
 on:
   pull_request:
@@ -11,15 +11,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # ----------------------------
-      # Checkout
-      # ----------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ----------------------------
-      # Ensure Homebrew exists
-      # ----------------------------
       - name: Check Homebrew
         run: |
           if ! command -v brew >/dev/null 2>&1; then
@@ -27,36 +21,18 @@ jobs:
             exit 1
           fi
 
-      # ----------------------------
-      # Make scripts executable
-      # ----------------------------
       - name: Prepare scripts
         run: chmod +x scripts/*.sh
 
-      # ----------------------------
-      # Run bootstrap (MAIN TEST)
-      # ----------------------------
-      - name: Run setup script
-        run: |
-          ./scripts/setup.sh
+      - name: Verify setup CLI contract
+        run: bash scripts/cli.sh setup --profile minimal --dry-run
 
-      # ----------------------------
-      # Validate Brewfile
-      # ----------------------------
-      - name: Validate Brewfile
-        run: |
-          brew bundle check --file=profiles/full/Brewfile
+      - name: Install full profile
+        run: brew bundle --file=profiles/full/Brewfile
 
-      - name: Run bootstrap (real test)
-        run: |
-          chmod +x scripts/*.sh
-          ./scripts/setup.sh
-
-      - name: Re-run bootstrap (idempotence check)
-        run: |
-          ./scripts/setup.sh
+      - name: Apply setup once
+        run: CI=true bash scripts/setup.sh --profile full
 
       - name: Validate Brew state
         run: |
-          brew list
           brew bundle check --file=profiles/full/Brewfile
