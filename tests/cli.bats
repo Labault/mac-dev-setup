@@ -12,6 +12,17 @@ setup() {
   [[ "$output" == *doctor* ]]
   [[ "$output" == *update* ]]
   [[ "$output" == *uninstall* ]]
+  [[ "$output" == *defaults* ]]
+  [[ "$output" == *keyboard* ]]
+  [[ "$output" == *vscode* ]]
+}
+
+@test "the extra commands expose --help" {
+  for cmd in defaults keyboard vscode; do
+    run bash "$CLI" "$cmd" --help
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"Usage: mac $cmd"* ]]
+  done
 }
 
 @test "mac --help and -h behave like help" {

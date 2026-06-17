@@ -7,10 +7,13 @@ _mac() {
 
   commands=(
     'help:List available commands.'
+    'defaults:Apply the curated macOS system defaults.'
     'doctor:Run system diagnostics for the macOS development setup.'
+    'keyboard:Install the French OSS keyboard layout.'
     'setup:Install and configure the macOS development setup.'
     'uninstall:Remove the mac CLI symlink and managed shell PATH entry.'
     'update:Update the mac CLI from its git repository.'
+    'vscode:Install the curated VS Code extensions.'
   )
 
   if (( CURRENT == 2 )); then
