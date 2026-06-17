@@ -1,0 +1,2 @@
+# Allow `# shellcheck source=...` directives to resolve sourced libraries.
+external-sources=true
