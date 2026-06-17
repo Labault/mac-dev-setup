@@ -54,10 +54,9 @@ install_file "$ZSH_CONFIG_DIR/.zsh_plugins.txt" "$HOME/.zsh_plugins.txt" ".zsh_p
 install_file "$ZSH_CONFIG_DIR/.p10k.zsh" "$HOME/.p10k.zsh" "p10k config"
 install_file "$ZSH_CONFIG_DIR/alias.sh" "$HOME/.shell/alias.sh" "zsh aliases"
 
-if [ -x "$REPO_DIR/scripts/generate-zsh-completion.sh" ]; then
-  bash "$REPO_DIR/scripts/generate-zsh-completion.sh"
-fi
-
+# The completion file is generated and committed during development (and
+# verified in CI), so setup installs the versioned copy as-is instead of
+# regenerating it inside the install tree.
 if [ -d "$ZSH_CONFIG_DIR/completions" ]; then
   mkdir -p ~/.zsh/completions
   cp "$ZSH_CONFIG_DIR"/completions/* ~/.zsh/completions/
