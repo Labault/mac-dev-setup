@@ -1,10 +1,9 @@
+# Taps
+
 tap "symfony-cli/tap"
-# Run your GitHub Actions locally
-brew "act"
-# Static analysis and lint tool, for (ba)sh scripts
-brew "shellcheck"
-# Static checker for GitHub Actions workflow files
-brew "actionlint"
+
+# CLI tools
+
 # Plugin manager for zsh, inspired by antigen and antibody
 brew "antidote"
 # Shell extension to jump to frequently used directories
@@ -13,40 +12,18 @@ brew "autojump"
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Postgres C API library
-brew "libpq"
-# General-purpose scripting language
-brew "php"
-# Dependency Manager for PHP
-brew "composer"
 # Top-like interface for container metrics
 brew "ctop"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # More intuitive version of du in rust
 brew "dust"
-# Tool to verify that your files are in harmony with your .editorconfig
-brew "editorconfig-checker"
-# GitHub command-line tool
-brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Audit git repos for secrets
-brew "gitleaks"
 # Alternative to top/htop
 brew "glances"
-# Smarter Dockerfile linter to validate best practices
-brew "hadolint"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
-# Fast, async, resource-friendly link checker
-brew "lychee"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
-# Fast, flexible, config-based cli for linting Markdown/CommonMark files
-brew "markdownlint-cli2"
-# Framework for managing multi-language pre-commit hooks
-brew "pre-commit"
 # SMTP command-line test tool
 brew "swaks"
 # Send macOS User Notifications from the command-line
@@ -57,10 +34,44 @@ brew "tldr"
 brew "tokei"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Extremely fast Python package installer and resolver, written in Rust
-brew "uv"
+
+# Dev tools
+
+# Run your GitHub Actions locally
+brew "act"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# Dependency Manager for PHP
+brew "composer"
+# Tool to verify that your files are in harmony with your .editorconfig
+brew "editorconfig-checker"
+# GitHub command-line tool
+brew "gh"
+# Audit git repos for secrets
+brew "gitleaks"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
+# Postgres C API library
+brew "libpq"
+# Fast, async, resource-friendly link checker
+brew "lychee"
+# Fast, flexible, config-based cli for linting Markdown/CommonMark files
+brew "markdownlint-cli2"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# General-purpose scripting language
+brew "php"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
 brew "symfony-cli/tap/symfony-cli", trusted: true
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+
+# GUI apps
+
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Menu bar usage monitor for Codex and Claude
@@ -85,6 +96,9 @@ cask "vial"
 cask "visual-studio-code"
 # Rust-based terminal
 cask "warp"
+
+# Editor extensions
+
 vscode "anthropic.claude-code"
 vscode "avaly.restore-git-branch-tabs-improved"
 vscode "bmewburn.vscode-intelephense-client"
@@ -100,4 +114,7 @@ vscode "redhat.vscode-yaml"
 vscode "sanderronde.phpstan-vscode"
 vscode "whatwedo.twig"
 vscode "xdebug.php-debug"
+
+# Runtime-managed tools
+
 uv "claude-monitor"
