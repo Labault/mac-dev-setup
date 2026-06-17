@@ -12,7 +12,7 @@ source "$REPO_DIR/scripts/lib/logging.sh"
 source "$REPO_DIR/scripts/lib/profiles.sh"
 
 print_usage() {
-  log_line "Usage: mac setup [--profile <name>] [--dry-run]"
+  log_line "Usage: mac setup [--profile full|minimal] [--dry-run]"
   log_line "Profiles: $(profile_list "$REPO_DIR")"
 }
 
@@ -24,7 +24,7 @@ main() {
     case "$1" in
       --profile)
         PROFILE="${2:-}"
-        if [ -z "$PROFILE" ]; then
+        if [ -z "$PROFILE" ] || [ "${PROFILE#--}" != "$PROFILE" ]; then
           error "Missing value for --profile"
           print_usage >&2
           exit 1
@@ -33,6 +33,11 @@ main() {
         ;;
       --profile=*)
         PROFILE="${1#*=}"
+        if [ -z "$PROFILE" ]; then
+          error "Missing value for --profile"
+          print_usage >&2
+          exit 1
+        fi
         shift
         ;;
       --dry-run)

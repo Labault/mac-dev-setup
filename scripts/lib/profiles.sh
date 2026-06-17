@@ -24,6 +24,15 @@ profile_exists() {
   [ -f "$(profile_brewfile "$repo_dir" "$profile")" ]
 }
 
+profile_name_is_valid() {
+  profile="$1"
+
+  case "$profile" in
+    full|minimal) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 profile_list() {
   repo_dir="$1"
   profiles_dir="$(profile_dir "$repo_dir")"
@@ -40,6 +49,10 @@ profile_validate() {
   profile="$2"
 
   if [ -z "$profile" ]; then
+    return 1
+  fi
+
+  if ! profile_name_is_valid "$profile"; then
     return 1
   fi
 
