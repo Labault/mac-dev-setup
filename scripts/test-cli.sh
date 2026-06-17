@@ -57,6 +57,14 @@ if grep -Eq 'mkdir -p logs|"logs/setup\.log"' "$REPO_DIR/scripts/setup.sh"; then
   exit 1
 fi
 
+uninstall_home="$(mktemp -d)"
+cp "$REPO_DIR/configs/zsh/.zprofile" "$uninstall_home/.zprofile"
+printf 'unmanaged content\n' >"$uninstall_home/.zshrc"
+uninstall_config_output="$(HOME="$uninstall_home" bash "$REPO_DIR/scripts/commands/uninstall.sh" --remove-config --dry-run 2>&1)"
+assert_contains "$uninstall_config_output" "Would remove .zprofile"
+assert_contains "$uninstall_config_output" ".zshrc differs"
+rm -rf "$uninstall_home"
+
 doctor_bin="$(mktemp -d)"
 for bootstrap_tool in bash dirname; do
   ln -s "$(command -v "$bootstrap_tool")" "$doctor_bin/$bootstrap_tool"
