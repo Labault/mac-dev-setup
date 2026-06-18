@@ -9,6 +9,13 @@ Start with the project diagnostics:
 mac doctor
 ```
 
+Check a specific setup profile when investigating missing Homebrew packages:
+
+```bash
+mac doctor --profile minimal
+mac doctor --profile full
+```
+
 If the `mac` command is not available yet, run the doctor script directly from
 the checkout:
 

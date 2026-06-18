@@ -10,6 +10,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Changed
 
+- Started the smarter doctor milestone by making `mac doctor` profile-aware
+  with `brew bundle check` diagnostics and setup reconciliation guidance.
 - Added focused documentation for the first `v1.1.0` inventory cleanup batch:
   Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
   terminal-notifier, Ukelele, and uv.

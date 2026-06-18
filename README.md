@@ -105,7 +105,7 @@ This is the full command reference. Every command also accepts `--help`.
 | --- | --- | --- |
 | `mac help` | List all available commands | — |
 | `mac setup` | Install / reapply the environment | `--profile minimal\|full`, `--dry-run` |
-| `mac doctor` | Check your machine and report missing tools | `--help` |
+| `mac doctor` | Check your machine and profile packages | `--profile minimal\|full` |
 | `mac update` | Update MacDevSetup to the latest version | `--dry-run` |
 | `mac uninstall` | Remove the CLI and its managed entries | `--remove-config`, `--remove-install-dir`, `--dry-run` |
 | `mac defaults` | Apply curated macOS Finder/Dock/keyboard defaults | `--help` |
@@ -117,6 +117,9 @@ This is the full command reference. Every command also accepts `--help`.
 ```bash
 # Did something break? Find out what is missing.
 mac doctor
+
+# Check a specific Homebrew profile.
+mac doctor --profile minimal
 
 # Pull the latest version of MacDevSetup.
 mac update
