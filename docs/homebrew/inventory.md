@@ -84,14 +84,14 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ### AI assistants
 
 - `claude` → Claude desktop app by Anthropic; used for reasoning, design, and code review.
+- `claude-monitor` → CLI usage monitor for Claude API consumption; installed via `uv`.
+- `codexbar` → menu bar app tracking Claude and Codex usage and costs.
 - `ollama` → run large language models locally; used for privacy-sensitive tasks and offline work.
 
 ---
 
 ## 🔴 TOOLING (not part of workflow but installed)
 
-- `claude-monitor` → runtime-managed usage monitoring tool installed through `uv`.
-- `codexbar` → auxiliary menu bar tooling.
 - `glances` → system monitor.
 - `jordanbaird-ice` → menu bar manager.
 - `keeweb` → password manager.
