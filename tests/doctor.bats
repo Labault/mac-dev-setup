@@ -44,7 +44,7 @@ copy_managed_config_to_home() {
   rm -rf "$bin"
 
   [ "$status" -ne 0 ]
-  [[ "$output" == *"mac CLI missing"* ]]
+  [[ "$output" == *"❌ missing: mac CLI"* ]]
   [[ "$output" == *"Doctor found problems"* ]]
 }
 
@@ -77,7 +77,7 @@ BREW
 
   [ "$status" -eq 0 ]
   [[ "$output" == *"Profile: minimal"* ]]
-  [[ "$output" == *"profile packages in sync"* ]]
+  [[ "$output" == *"✅ in sync: profile packages"* ]]
   [[ "$brew_log" == *"bundle check --file=$REPO_DIR/profiles/minimal/Brewfile"* ]]
 }
 
@@ -98,7 +98,7 @@ BREW
   rm -rf "$bin"
 
   [ "$status" -ne 0 ]
-  [[ "$output" == *"profile packages missing or outdated"* ]]
+  [[ "$output" == *"❌ missing: profile packages missing or outdated"* ]]
   [[ "$output" == *"Run: mac setup --profile minimal"* ]]
 }
 
@@ -121,7 +121,7 @@ BREW
   rm -rf "$bin"
 
   [ "$status" -eq 0 ]
-  [[ "$output" == *"no undeclared Homebrew packages"* ]]
+  [[ "$output" == *"✅ in sync: no undeclared Homebrew packages"* ]]
 }
 
 @test "doctor warns about installed packages missing from all profiles" {
@@ -143,7 +143,7 @@ BREW
   rm -rf "$bin"
 
   [ "$status" -eq 0 ]
-  [[ "$output" == *"undeclared Homebrew packages installed"* ]]
+  [[ "$output" == *"⚠️ drift: undeclared Homebrew packages installed"* ]]
   [[ "$output" == *"local-only-tool"* ]]
   [[ "$output" == *"local-only-app"* ]]
 }
@@ -169,7 +169,7 @@ BREW
   rm -rf "$bin" "$home"
 
   [ "$status" -eq 0 ]
-  [[ "$output" == *"managed config files in sync"* ]]
+  [[ "$output" == *"✅ in sync: managed config files"* ]]
 }
 
 @test "doctor warns when managed config differs" {
@@ -194,7 +194,7 @@ BREW
   rm -rf "$bin" "$home"
 
   [ "$status" -eq 0 ]
-  [[ "$output" == *".zshrc differs from MacDevSetup copy"* ]]
+  [[ "$output" == *"⚠️ drift: .zshrc differs from MacDevSetup copy"* ]]
   [[ "$output" == *"Run: mac setup --profile minimal"* ]]
 }
 

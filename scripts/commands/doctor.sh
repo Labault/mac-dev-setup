@@ -72,6 +72,18 @@ parse_args() {
 DOCTOR_STATUS=0
 FIX_SUGGESTIONS=""
 
+doctor_in_sync() {
+  success "✅ in sync: $*"
+}
+
+doctor_drift() {
+  warn "⚠️ drift: $*"
+}
+
+doctor_missing() {
+  error "❌ missing: $*"
+}
+
 add_fix_suggestion() {
   suggestion="$1"
 
@@ -88,9 +100,9 @@ check_command() {
   label="$2"
 
   if command -v "$command_name" >/dev/null; then
-    success "$label installed"
+    doctor_in_sync "$label installed"
   else
-    error "$label missing"
+    doctor_missing "$label"
     DOCTOR_STATUS=1
   fi
 }
@@ -107,9 +119,9 @@ check_profile_brewfile() {
   fi
 
   if brew bundle check --file="$brewfile" >/dev/null; then
-    success "profile packages in sync"
+    doctor_in_sync "profile packages"
   else
-    error "profile packages missing or outdated"
+    doctor_missing "profile packages missing or outdated"
     log_line "Run: mac setup --profile $profile"
     add_fix_suggestion "mac setup --profile $profile"
     add_fix_suggestion "brew bundle --file=\"$brewfile\""
@@ -150,14 +162,14 @@ check_homebrew_drift() {
   comm -13 "$declared_file" "$installed_file" >"$drift_file"
 
   if [ -s "$drift_file" ]; then
-    warn "undeclared Homebrew packages installed"
+    doctor_drift "undeclared Homebrew packages installed"
     while IFS= read -r package; do
       log_line "  - $package"
       add_fix_suggestion "brew uninstall \"$package\""
     done <"$drift_file"
     log_line "Consider adding intentional tools to a profile Brewfile, or uninstalling local-only packages."
   else
-    success "no undeclared Homebrew packages"
+    doctor_in_sync "no undeclared Homebrew packages"
   fi
 
   rm -f "$declared_file" "$installed_file" "$drift_file"
@@ -177,25 +189,25 @@ check_config_drift() {
 
   while IFS="$(printf '\t')" read -r source_file target_file label; do
     if [ ! -f "$source_file" ]; then
-      warn "$label source missing: $source_file"
+      doctor_drift "$label source missing: $source_file"
       config_status=1
       continue
     fi
 
     if [ ! -f "$target_file" ]; then
-      warn "$label not installed: $target_file"
+      doctor_drift "$label not installed: $target_file"
       config_status=1
       continue
     fi
 
     if ! cmp -s "$source_file" "$target_file"; then
-      warn "$label differs from MacDevSetup copy: $target_file"
+      doctor_drift "$label differs from MacDevSetup copy: $target_file"
       config_status=1
     fi
   done < <(managed_config_files)
 
   if [ "$config_status" -eq 0 ]; then
-    success "managed config files in sync"
+    doctor_in_sync "managed config files"
   else
     log_line "Run: mac setup --profile $PROFILE"
     add_fix_suggestion "mac setup --profile $PROFILE"
@@ -239,9 +251,9 @@ main() {
 
   if command -v brew >/dev/null; then
     if brew doctor >/dev/null 2>&1; then
-      success "brew OK"
+      doctor_in_sync "brew doctor"
     else
-      warn "brew warnings"
+      doctor_drift "brew doctor warnings"
     fi
   fi
 

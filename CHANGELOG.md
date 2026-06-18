@@ -17,6 +17,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Added managed Zsh configuration drift reporting to `mac doctor`.
 - Added `mac doctor --fix` suggestions that print reconciliation commands
   without executing them.
+- Clarified `mac doctor` status output with explicit in-sync, drift, and
+  missing markers.
 - Added focused documentation for the first `v1.1.0` inventory cleanup batch:
   Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
   terminal-notifier, Ukelele, and uv.
