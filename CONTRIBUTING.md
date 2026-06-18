@@ -99,7 +99,9 @@ Examples:
 🔒 security: harden secret detection
 ```
 
-Prefer small, atomic commits with one clear purpose.
+Prefer small, atomic commits with one clear purpose. See
+[docs/git/gitmoji.md](docs/git/gitmoji.md) for the full format, the emoji
+reference, and how commitlint enforces it.
 
 ## Pull requests
 

@@ -67,6 +67,7 @@ These run in the terminal and improve on macOS built-ins.
 | `gh` | GitHub from the terminal: open PRs, create issues, clone repos | `gh --help` |
 | `git-delta` | Readable, colored Git diffs | [docs/git/git-delta.md](docs/git/git-delta.md) |
 | `gitleaks` | Scan your repo for accidentally committed secrets | [docs/security/gitleaks.md](docs/security/gitleaks.md) |
+| Gitmoji | Emoji + Conventional Commit convention (enforced here by commitlint) | [docs/git/gitmoji.md](docs/git/gitmoji.md) |
 | KeeWeb | KeePass-compatible password manager (desktop app) | [docs/security/keeweb.md](docs/security/keeweb.md) |
 
 ---
