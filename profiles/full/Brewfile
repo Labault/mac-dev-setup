@@ -80,6 +80,8 @@ cask "cleanshot"
 cask "obsidian"
 # Collaborative workspace for notes, databases, and wikis
 cask "notion"
+# Open-source image editor for manual retouching and background removal
+cask "gimp"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser

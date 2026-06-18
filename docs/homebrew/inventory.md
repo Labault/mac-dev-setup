@@ -40,6 +40,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ### macOS / dev UX
 
 - `cleanshot` → screenshot and screen recording tool; annotations, scrolling capture, OCR. Licence required, activated manually.
+- `gimp` → open-source image editor for manual retouching, background removal, and export.
 - `notion` → collaborative workspace for notes, databases, and wikis. Used as desktop app and web.
 - `obsidian` → local-first Markdown note-taking app. Personal vault stays outside this repository.
 - `pearcleaner` → uninstall/cleanup tool.
