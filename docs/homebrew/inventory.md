@@ -84,6 +84,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ### AI assistants
 
 - `claude` → Claude desktop app by Anthropic; used for reasoning, design, and code review.
+- `ollama` → run large language models locally; used for privacy-sensitive tasks and offline work.
 
 ---
 
