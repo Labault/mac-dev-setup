@@ -8,6 +8,15 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.7.0 - 2026-06-18
+
+### Added
+
+- Added SwiftBar to the full profile for shell-script-driven menu bar
+  monitoring with documentation covering multi-site uptime scripts.
+- Added Sentry documentation for Symfony projects covering bundle integration,
+  release tracking, environment filtering, and exception ignore list.
+
 ## 1.6.0 - 2026-06-18
 
 ### Added
