@@ -46,7 +46,7 @@ path_manager_shell_profile() {
 }
 
 path_manager_shell_literal() {
-  directory="$1"
+  local directory="$1"
 
   case "$directory" in
     "$HOME") printf '%s' "\$HOME" ;;
@@ -56,8 +56,9 @@ path_manager_shell_literal() {
 }
 
 path_manager_file_contains_directory() {
-  file="$1"
-  directory="$2"
+  local file="$1"
+  local directory="$2"
+  local literal_directory home_suffix
 
   [ -f "$file" ] || return 1
 
@@ -75,9 +76,19 @@ path_manager_file_contains_directory() {
 }
 
 path_manager_remove_block() {
-  file="$1"
+  local file="$1"
+  local tmp_file
 
   [ -f "$file" ] || return 0
+
+  # Refuse to touch a file whose managed block is half-present. Without this
+  # guard, an orphaned begin marker (end marker manually deleted) would make
+  # awk treat everything to EOF as managed and silently drop the user's config.
+  if grep -Fq "$PATH_MANAGER_BEGIN_MARKER" "$file" \
+    && ! grep -Fq "$PATH_MANAGER_END_MARKER" "$file"; then
+    path_manager_warn "Incomplete MacDevSetup PATH markers in $file; leaving it untouched."
+    return 1
+  fi
 
   tmp_file="${file}.mac-dev-setup.$$"
   awk -v begin="$PATH_MANAGER_BEGIN_MARKER" -v end="$PATH_MANAGER_END_MARKER" '
@@ -104,8 +115,9 @@ path_manager_remove_block() {
 }
 
 path_manager_write_block() {
-  file="$1"
-  directory="$2"
+  local file="$1"
+  local directory="$2"
+  local literal_directory
   literal_directory="$(path_manager_shell_literal "$directory")"
 
   mkdir -p "$(dirname "$file")"
@@ -129,8 +141,8 @@ EOF
 }
 
 path_manager_install() {
-  directory="$1"
-  profile="${2:-$(path_manager_shell_profile)}"
+  local directory="$1"
+  local profile="${2:-$(path_manager_shell_profile)}"
 
   path_manager_remove_block "$profile" || true
 
@@ -144,8 +156,8 @@ path_manager_install() {
 }
 
 path_manager_uninstall() {
-  directory="$1"
-  profile="${2:-$(path_manager_shell_profile)}"
+  local directory="$1"
+  local profile="${2:-$(path_manager_shell_profile)}"
 
   if path_manager_remove_block "$profile"; then
     path_manager_success "Removed MacDevSetup PATH block from $profile."

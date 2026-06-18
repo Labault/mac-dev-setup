@@ -49,3 +49,19 @@ teardown() {
   run path_manager_uninstall "$BIN_DIR" "$PROFILE_FILE"
   [ "$status" -eq 0 ]
 }
+
+@test "remove refuses an orphaned begin marker and preserves config" {
+  {
+    printf 'export EXISTING=1\n'
+    printf '%s\n' "$PATH_MANAGER_BEGIN_MARKER"
+    printf 'export STILL_HERE=1\n'
+  } >"$PROFILE_FILE"
+
+  run path_manager_remove_block "$PROFILE_FILE"
+  [ "$status" -ne 0 ]
+
+  run grep -F "export EXISTING=1" "$PROFILE_FILE"
+  [ "$status" -eq 0 ]
+  run grep -F "export STILL_HERE=1" "$PROFILE_FILE"
+  [ "$status" -eq 0 ]
+}
