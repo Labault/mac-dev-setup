@@ -6,6 +6,8 @@ into menu bar items (used here for uptime monitoring). All three are installed
 through Homebrew and declared in the project `Brewfile`; see
 [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
+![macOS menu bar with SwiftBar, Stats, CodexBar, and keyboard layout indicators](../assets/screenshots/macos/menu-bar-overview.webp)
+
 ## Ice
 
 [Ice](https://icemenubar.app/) is a macOS menu bar manager. It is installed as
@@ -212,6 +214,8 @@ status. The `slow_threshold_ms` field is optional and defaults to `1500`.
 Dropdown rows are clickable and open the checked URL. The dropdown also shows
 the average response time, number of slow sites, slowest site, and last check
 time.
+
+![SwiftBar website monitoring dropdown](../assets/screenshots/macos/menu-bar-swiftbar-status.webp)
 
 ### Dropdown actions
 
