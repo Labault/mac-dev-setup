@@ -1,30 +1,104 @@
-# SwiftBar
+# Menu bar utilities
 
-## Overview
+This page covers the three menu bar tools in this setup: **Ice** organizes the
+menu bar, **Stats** shows system metrics, and **SwiftBar** turns shell scripts
+into menu bar items (used here for uptime monitoring). All three are installed
+through Homebrew and declared in the project `Brewfile`; see
+[`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
-[SwiftBar](https://swiftbar.app/) turns any shell script into a macOS menu bar item. Every script in a designated folder is executed on a configurable schedule and its output is displayed directly in the menu bar.
+## Ice
 
-It is used in this setup for lightweight VPS and website uptime monitoring — no external service or background daemon required.
+[Ice](https://icemenubar.app/) is a macOS menu bar manager. It is installed as
+`jordanbaird-ice` and helps keep menu bar utilities readable when several
+development tools are running.
 
-It is installed through Homebrew and declared in the project `Brewfile`.
+### Installation
 
-## Installation
+```bash
+brew install --cask jordanbaird-ice
+```
 
-It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
+Verify the installation:
 
-Install SwiftBar directly:
+```bash
+brew list --cask jordanbaird-ice
+```
+
+### Usage
+
+Open Ice from Applications or with:
+
+```bash
+open -a Ice
+```
+
+Use it to hide low-priority menu bar icons and keep important indicators
+visible. The exact menu bar layout is user-specific and is not versioned in
+this repository.
+
+### Rollback
+
+```bash
+brew uninstall --cask jordanbaird-ice
+```
+
+## Stats
+
+[Stats](https://github.com/exelban/stats) is a macOS menu bar system monitor.
+It displays CPU, memory, disk, network, battery, and sensor information without
+opening a terminal.
+
+### Installation
+
+```bash
+brew install --cask stats
+```
+
+Verify the installation:
+
+```bash
+brew list --cask stats
+```
+
+### Usage
+
+Open Stats from Applications or with:
+
+```bash
+open -a Stats
+```
+
+Use it for quick local resource checks before reaching for terminal tools such
+as `glances` or `ctop`. Preferences are stored in the user's Library and are
+not versioned, as they include machine-specific sensor choices.
+
+### Rollback
+
+```bash
+brew uninstall --cask stats
+```
+
+## SwiftBar
+
+[SwiftBar](https://swiftbar.app/) turns any shell script into a macOS menu bar
+item. Every script in a designated folder runs on a configurable schedule and
+its output is shown in the menu bar. It is used here for lightweight VPS and
+website uptime monitoring — no external service or background daemon required.
+
+### Installation
 
 ```bash
 brew install --cask swiftbar
 ```
 
-On first launch, SwiftBar asks for a **Plugin Directory** — a folder where it will look for scripts. Choose a versioned location:
+On first launch, SwiftBar asks for a **Plugin Directory** — a folder where it
+looks for scripts. Choose a versioned location:
 
 ```text
 ~/Documents/swiftbar-plugins/
 ```
 
-## Script naming convention
+### Script naming convention
 
 The filename encodes the refresh interval:
 
@@ -36,9 +110,10 @@ disk.1h.sh        # every hour
 
 Supported units: `s` (seconds), `m` (minutes), `h` (hours), `d` (days).
 
-## Writing a plugin
+### Writing a plugin
 
-Every script must be executable and must print output to stdout. The first line becomes the menu bar title; lines after `---` become dropdown items.
+Every script must be executable and print to stdout. The first line becomes the
+menu bar title; lines after `---` become dropdown items.
 
 ```bash
 #!/bin/bash
@@ -61,7 +136,7 @@ chmod +x ~/Documents/swiftbar-plugins/uptime.5m.sh
 
 SwiftBar picks it up automatically; no restart required.
 
-## Multi-site monitoring
+### Multi-site monitoring
 
 Check multiple sites from a single script to keep the menu bar compact:
 
@@ -106,7 +181,8 @@ cp configs/swiftbar/sites.conf.example ~/.config/swiftbar/sites.conf
 chmod +x scripts/swiftbar/sites.5m.sh
 ```
 
-Then edit the local config:
+Run these from the repository root so `$PWD` resolves to the checkout. Then edit
+the local config:
 
 ```text
 ~/.config/swiftbar/sites.conf
@@ -137,7 +213,7 @@ Dropdown rows are clickable and open the checked URL. The dropdown also shows
 the average response time, number of slow sites, slowest site, and last check
 time.
 
-## Dropdown actions
+### Dropdown actions
 
 Lines after `---` in the script output can be made interactive with SwiftBar
 parameters such as `refresh`, `href`, and `bash` (run a script on click):
@@ -149,7 +225,7 @@ Open dashboard | href=https://example.com/dashboard
 Run backup | bash=/path/to/backup.sh terminal=false
 ```
 
-## Hiding a plugin temporarily
+### Hiding a plugin temporarily
 
 Rename the file with a leading `.` to disable it without deleting it:
 
@@ -157,12 +233,15 @@ Rename the file with a leading `.` to disable it without deleting it:
 mv uptime.5m.sh .uptime.5m.sh
 ```
 
-## Rollback
-
-Remove SwiftBar with Homebrew:
+### Rollback
 
 ```bash
 brew uninstall --cask swiftbar
 ```
 
-Then remove its entry from `profiles/full/Brewfile`. Plugin scripts in the plugin directory are not removed automatically.
+Plugin scripts in the plugin directory are not removed automatically.
+
+## Rollback (all)
+
+After uninstalling any of these casks, remove its entry from
+`profiles/full/Brewfile`.

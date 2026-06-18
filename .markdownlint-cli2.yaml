@@ -1,2 +1,6 @@
 config:
   MD013: false
+  # Allow the same subsection name (Installation, Usage, Rollback) under
+  # different parent headings — e.g. multi-tool pages like docs/macos/menu-bar.md.
+  MD024:
+    siblings_only: true

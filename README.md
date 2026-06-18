@@ -132,13 +132,13 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | --- | --- | --- |
 | CleanShot X | Screenshot and screen recording with annotation and OCR | [docs/productivity/cleanshot.md](docs/productivity/cleanshot.md) |
 | GIMP | Open-source image editor for retouching and export | [docs/productivity/gimp.md](docs/productivity/gimp.md) |
-| Ice | Menu bar manager — hide, organise, and reorder menu bar icons | [docs/macos/ice.md](docs/macos/ice.md) |
+| Ice | Menu bar manager — hide, organise, and reorder menu bar icons | [docs/macos/menu-bar.md#ice](docs/macos/menu-bar.md#ice) |
 | Notion | Collaborative workspace for notes, databases, and project tracking | [docs/productivity/notion.md](docs/productivity/notion.md) |
 | Obsidian | Local-first Markdown note-taking app | [docs/productivity/obsidian.md](docs/productivity/obsidian.md) |
 | Pearcleaner | Cleanly uninstall apps and their leftover files | [docs/macos/pearcleaner.md](docs/macos/pearcleaner.md) |
 | Raycast | Launcher that replaces Spotlight: clipboard history, snippets, window management | [docs/productivity/raycast.md](docs/productivity/raycast.md) |
-| Stats | System monitor in the menu bar (CPU, memory, network) | [docs/macos/stats.md](docs/macos/stats.md) |
-| SwiftBar | Turn any shell script into a menu bar item with auto-refresh | [docs/macos/swiftbar.md](docs/macos/swiftbar.md) |
+| Stats | System monitor in the menu bar (CPU, memory, network) | [docs/macos/menu-bar.md#stats](docs/macos/menu-bar.md#stats) |
+| SwiftBar | Turn any shell script into a menu bar item with auto-refresh | [docs/macos/menu-bar.md#swiftbar](docs/macos/menu-bar.md#swiftbar) |
 
 ---
 
@@ -172,7 +172,7 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | Tool | What it does | Documentation |
 | --- | --- | --- |
 | Sentry | Error tracking and performance monitoring for Symfony projects | [docs/monitoring/sentry.md](docs/monitoring/sentry.md) |
-| SwiftBar + custom scripts | Lightweight VPS and site uptime monitoring in the menu bar | [docs/macos/swiftbar.md](docs/macos/swiftbar.md) |
+| SwiftBar + custom scripts | Lightweight VPS and site uptime monitoring in the menu bar | [docs/macos/menu-bar.md#swiftbar](docs/macos/menu-bar.md#swiftbar) |
 
 ---
 
