@@ -165,18 +165,18 @@ brew info <tool>   # description, homepage, and version
 | Tool | What it's for | Learn more |
 | --- | --- | --- |
 | `bat` | `cat` with syntax highlighting and Git integration | [docs/cli/bat.md](docs/cli/bat.md) |
-| `lsd` | `ls` with colors, icons, and a tree view | `tldr lsd` |
+| `lsd` | `ls` with colors, icons, and a tree view | [docs/cli/lsd.md](docs/cli/lsd.md) |
 | `tree` | Show a folder as a tree | [docs/cli/tree.md](docs/cli/tree.md) |
 | `duf` | A friendlier `df` (disk usage / free space) | [docs/cli/duf.md](docs/cli/duf.md) |
 | `dust` | A friendlier `du` (what's taking up space) | [docs/cli/dust.md](docs/cli/dust.md) |
 | `tokei` | Count lines of code, fast *(full)* | [docs/cli/tokei.md](docs/cli/tokei.md) |
 | `tlrc` | Maintained client for short, example-first `tldr` pages | `tldr tldr` |
-| `autojump` | Jump to frequent directories with `j` *(full)* | `tldr autojump` |
+| `autojump` | Jump to frequent directories with `j` *(full)* | [docs/cli/autojump.md](docs/cli/autojump.md) |
 | `ctop` | Live container metrics, top-style *(full)* | [docs/containers/ctop.md](docs/containers/ctop.md) |
 | `glances` | System monitor *(full)* | `tldr glances` |
-| `swaks` | Test SMTP / send test emails *(full)* | `tldr swaks` |
-| `terminal-notifier` | Send macOS notifications from scripts *(full)* | `brew info terminal-notifier` |
-| `antidote` | Zsh plugin manager | [docs/zsh/zsh.md](docs/zsh/zsh.md) |
+| `swaks` | Test SMTP / send test emails *(full)* | [docs/email/swaks.md](docs/email/swaks.md) |
+| `terminal-notifier` | Send macOS notifications from scripts *(full)* | [docs/macos/terminal-notifier.md](docs/macos/terminal-notifier.md) |
+| `antidote` | Zsh plugin manager | [docs/zsh/antidote.md](docs/zsh/antidote.md) |
 
 ### Git & security
 
@@ -194,7 +194,8 @@ brew info <tool>   # description, homepage, and version
 | `php` | PHP runtime *(full)* | `brew info php` |
 | `composer` | PHP dependency manager *(full)* | `brew info composer` |
 | `symfony-cli` | Manage Symfony projects *(full)* | `symfony help` |
-| `uv` | Fast Python package installer *(full)* | `brew info uv` |
+| `libpq` | PostgreSQL client libraries *(full)* | [docs/database/libpq.md](docs/database/libpq.md) |
+| `uv` | Fast Python package installer *(full)* | [docs/python/uv.md](docs/python/uv.md) |
 
 ### Quality, CI & containers *(full profile)*
 
@@ -218,8 +219,10 @@ brew info <tool>   # description, homepage, and version
 | OrbStack | Fast Docker Desktop replacement | [docs/containers/orbstack.md](docs/containers/orbstack.md) |
 | Beekeeper Studio | SQL editor / database manager | [docs/database/beekeeper-studio.md](docs/database/beekeeper-studio.md) |
 | Pearcleaner | Cleanly uninstall apps | [docs/macos/pearcleaner.md](docs/macos/pearcleaner.md) |
-| Stats / Ice | Menu-bar system monitor / manager | `brew info stats` |
-| KeeWeb | KeePass-compatible password manager | `brew info keeweb` |
+| Stats / Ice | Menu-bar system monitor / manager | [docs/macos/stats.md](docs/macos/stats.md), [docs/macos/ice.md](docs/macos/ice.md) |
+| KeeWeb | KeePass-compatible password manager | [docs/security/keeweb.md](docs/security/keeweb.md) |
+| Ukelele | Keyboard layout editor | [docs/keyboard/ukelele.md](docs/keyboard/ukelele.md) |
+| claude-monitor | Claude usage monitoring tool | [docs/ai/claude-monitor.md](docs/ai/claude-monitor.md) |
 
 The complete, always-up-to-date inventory lives in
 [docs/homebrew/inventory.md](docs/homebrew/inventory.md).

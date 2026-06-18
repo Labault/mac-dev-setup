@@ -10,6 +10,10 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Changed
 
+- Added focused documentation for the first `v1.1.0` inventory cleanup batch:
+  Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
+  terminal-notifier, Ukelele, and uv.
+- Expanded the Homebrew inventory so every profile package is represented.
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
 - Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only
   reports issues owned by the repository profiles.
@@ -17,6 +21,11 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `tlrc` client while keeping the `tldr` command available.
 - Removed the deprecated `vial` cask from the full profile until Homebrew offers
   a trusted installation path again.
+
+### Added
+
+- Added a BATS consistency check that fails when a Homebrew profile entry is
+  missing from the inventory.
 
 ## 1.0.0 - 2026-06-18
 

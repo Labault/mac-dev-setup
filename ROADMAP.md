@@ -140,20 +140,20 @@ Also verify: repeated setup is idempotent, Zsh/Git backups land in `~/Documents/
 
 | Tool | Cask/Formula | Inventory status today | Action |
 | --- | --- | --- | --- |
-| Ice | `jordanbaird-ice` | **missing** | add + document (menu bar manager) |
-| Ukulele | `ukelele` | **missing** | add + document (layout editor; powers Français OSS) |
-| swaks | `swaks` | **missing** | add + document (SMTP test tool) |
-| terminal-notifier | `terminal-notifier` | listed, no doc | document |
-| libpq | `libpq` | **missing** | add + document (Postgres client libs) |
-| uv | `uv` | **missing** | document (Python/tool runner; manages claude-monitor) |
-| claude-monitor | via `uv` | TOOLING | document install/upgrade/uninstall |
-| Stats | `stats` | TOOLING | document; decide USED vs TOOLING |
-| KeeWeb | `keeweb` | TOOLING | document |
-| lsd | `lsd` | INSTALLED | document |
-| autojump | `autojump` | USED, no doc | document |
-| antidote | `antidote` | USED, only in zsh.md | dedicated page |
+| Ice | `jordanbaird-ice` | documented | keep as TOOLING unless promoted by daily use |
+| Ukulele | `ukelele` | documented | keep as INSTALLED keyboard-layout support |
+| swaks | `swaks` | documented | keep as INSTALLED until SMTP workflow is integrated |
+| terminal-notifier | `terminal-notifier` | documented | keep as INSTALLED until notification hooks use it |
+| libpq | `libpq` | documented | keep as USED for PostgreSQL client support |
+| uv | `uv` | documented | keep as USED for Python/tool-runner support |
+| claude-monitor | via `uv` | documented | keep as TOOLING unless promoted by daily use |
+| Stats | `stats` | documented | keep as TOOLING unless promoted by daily use |
+| KeeWeb | `keeweb` | documented | keep as TOOLING/personal app |
+| lsd | `lsd` | documented | keep as INSTALLED because aliases are optional |
+| autojump | `autojump` | documented | keep as USED by shell workflow |
+| antidote | `antidote` | documented | keep as USED by shell workflow |
 
-**Also:** add a CI consistency check (a BATS test) that fails when a Brewfile entry has no matching inventory line — so this gap can't silently reappear.
+**Done:** a BATS consistency check now fails when a Brewfile entry has no matching inventory line.
 
 **Estimated effort:** 2–4 h
 
