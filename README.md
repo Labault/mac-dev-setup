@@ -197,9 +197,9 @@ brew info <tool>   # description, homepage, and version
 | Tool | What it's for | Learn more |
 | --- | --- | --- |
 | `node` | JavaScript runtime + `npm` | [nodejs.org/docs](https://nodejs.org/en/docs) |
-| `php` | PHP runtime *(full)* | `brew info php` |
-| `composer` | PHP dependency manager *(full)* | `brew info composer` |
-| `symfony-cli` | Manage Symfony projects *(full)* | `symfony help` |
+| `php` | PHP runtime *(full)* | [docs/php/php.md](docs/php/php.md) |
+| `composer` | PHP dependency manager *(full)* | [docs/php/php.md](docs/php/php.md) |
+| `symfony-cli` | Manage Symfony projects *(full)* | [docs/php/php.md](docs/php/php.md) |
 | `libpq` | PostgreSQL client libraries *(full)* | [docs/database/libpq.md](docs/database/libpq.md) |
 | `uv` | Fast Python package installer *(full)* | [docs/python/uv.md](docs/python/uv.md) |
 
