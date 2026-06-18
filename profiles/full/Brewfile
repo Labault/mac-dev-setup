@@ -106,6 +106,8 @@ cask "orbstack"
 cask "pearcleaner"
 # System monitor for the menu bar
 cask "stats"
+# Menu bar app runner — shell scripts become menu bar items with auto-refresh
+cask "swiftbar"
 # Unicode keyboard layout editor
 cask "ukelele"
 # Open-source code editor

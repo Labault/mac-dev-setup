@@ -45,6 +45,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `obsidian` → local-first Markdown note-taking app. Personal vault stays outside this repository.
 - `pearcleaner` → uninstall/cleanup tool.
 - `raycast` → productivity launcher; replaces Spotlight with clipboard history, snippets, and window management.
+- `swiftbar` → menu bar app runner; shell scripts in a folder become auto-refreshing menu bar items (used for VPS/site monitoring).
 - `sublime-text` → fast and lightweight text editor; used for quick file edits and large file handling.
 - `visual-studio-code` → editor.
 - `warp` → terminal.
