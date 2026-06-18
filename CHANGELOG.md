@@ -82,7 +82,7 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 ### Changed
 
 - Added focused inventory documentation for Antidote, autojump, claude-monitor,
-  Ice, KeeWeb, libpq, lsd, Stats, swaks, terminal-notifier, Ukelele, and uv.
+  Ice, KeeWeb, libpq, lsd, Stats, terminal-notifier, Ukelele, and uv.
 - Expanded the Homebrew inventory so every profile package is represented.
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
 - Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only
@@ -91,8 +91,6 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `tlrc` client while keeping the `tldr` command available.
 - Removed the deprecated `vial` cask from the full profile until Homebrew offers
   a trusted installation path again.
-- Updated the swaks documentation link to its GitHub repository to avoid
-  intermittent documentation link-check timeouts.
 
 ## 1.0.0 - 2026-06-18
 

@@ -74,7 +74,6 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `editorconfig-checker` → formatting enforcement.
 - `lsd` → alternative `ls` replacement.
 - `lychee` → link checker.
-- `swaks` → SMTP test tool.
 - `terminal-notifier` → notification utility.
 - `tlrc` → official `tldr` client for CLI help pages.
 - `ukelele` → keyboard layout editor used to inspect or evolve the bundled French OSS layout.

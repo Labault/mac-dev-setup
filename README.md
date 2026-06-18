@@ -53,7 +53,6 @@ These run in the terminal and improve on macOS built-ins.
 | `dust` | Show what is taking up disk space (friendlier `du`) | [docs/cli/dust.md](docs/cli/dust.md) |
 | `glances` | Real-time system monitor (CPU, memory, disk, network) | `tldr glances` |
 | `lsd` | `ls` with colors, icons, and a tree view | [docs/cli/lsd.md](docs/cli/lsd.md) |
-| `swaks` | Send test emails from the terminal (useful for SMTP debugging) | [docs/email/swaks.md](docs/email/swaks.md) |
 | `terminal-notifier` | Send macOS notifications from shell scripts | [docs/macos/terminal-notifier.md](docs/macos/terminal-notifier.md) |
 | `tldr` | Short, example-first manual pages — installed as `tlrc` formula | `tldr tldr` |
 | `tokei` | Count lines of code by language | [docs/cli/tokei.md](docs/cli/tokei.md) |
@@ -86,16 +85,6 @@ These are only installed with the `full` profile.
 | PHPStan / Psalm | Static analysis — catch bugs before running the code | [docs/php/static-analysis.md](docs/php/static-analysis.md) |
 | `symfony-cli` | Create, run, and manage Symfony projects | [docs/php/php.md](docs/php/php.md) |
 | `xdebug` | Step debugger for PHP | [docs/php/xdebug.md](docs/php/xdebug.md) |
-
----
-
-### Node & Python
-
-| Tool | What it does | Documentation |
-| --- | --- | --- |
-| `libpq` | PostgreSQL client libraries (required by some PHP/Python packages) | [docs/database/libpq.md](docs/database/libpq.md) |
-| `node` | JavaScript runtime + `npm` | [nodejs.org/docs](https://nodejs.org/en/docs) |
-| `uv` | Fast Python package and tool installer | [docs/python/uv.md](docs/python/uv.md) |
 
 ---
 

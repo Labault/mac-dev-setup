@@ -24,8 +24,6 @@ brew "git-delta"
 brew "glances"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
-# SMTP command-line test tool
-brew "swaks"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Official tldr client written in Rust
