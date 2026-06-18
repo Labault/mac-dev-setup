@@ -8,6 +8,15 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.4.0 - 2026-06-18
+
+### Added
+
+- Added Bruno, Google Chrome, and Firefox to the full profile Brewfile with
+  inventory classification and focused documentation under `docs/web/`.
+- Added web service documentation for Excalidraw (web app and VS Code
+  extension workflow), RealFaviconGenerator, remove.bg, and ImageMagick.
+
 ## 1.3.0 - 2026-06-18
 
 ### Added
