@@ -4,6 +4,8 @@ Beekeeper Studio is a graphical database client for browsing, querying, and admi
 
 It is included in this setup as the preferred desktop tool for working with local and remote databases.
 
+![Beekeeper Studio browsing a demo PostgreSQL database](../assets/screenshots/apps/beekeeper-studio.webp)
+
 ## Installation
 
 Beekeeper Studio is installed through Homebrew Cask:

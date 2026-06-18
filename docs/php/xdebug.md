@@ -6,6 +6,8 @@ extension already installed by this setup.
 Keep Xdebug disabled by default for normal PHP and Composer work. Enable it only
 when debugging, profiling, or collecting Xdebug-specific diagnostics.
 
+![Xdebug configuration loaded by Homebrew PHP](../assets/screenshots/php/xdebug-status.webp)
+
 ## Installation
 
 Install Xdebug for the active Homebrew PHP version:

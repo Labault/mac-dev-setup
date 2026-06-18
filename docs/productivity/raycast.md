@@ -6,6 +6,8 @@ window management, and a large extension ecosystem.
 
 It is installed through Homebrew and declared in the project `Brewfile`.
 
+![Raycast launcher showing Visual Studio Code commands](../assets/screenshots/apps/raycast-launcher.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

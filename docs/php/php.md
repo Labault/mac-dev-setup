@@ -9,6 +9,8 @@ The full profile installs the PHP runtime used by local Symfony projects:
 Project dependencies, quality tools, and test tools should live in each
 project's `composer.json`. This repository installs the shared runtime only.
 
+![Homebrew PHP runtime version output](../assets/screenshots/php/php-version.webp)
+
 ## Installation
 
 Install the full profile:

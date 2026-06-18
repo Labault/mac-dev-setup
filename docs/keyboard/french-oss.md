@@ -6,6 +6,8 @@ The layout keeps the familiar French AZERTY arrangement while adding easier acce
 
 The versioned bundle is stored in:
 
+![French OSS keyboard layout modifier overview](../assets/screenshots/macos/french-oss-keyboard.webp)
+
 ```text
 configs/keyboard/Francais-OSS-Mac.bundle
 ```
