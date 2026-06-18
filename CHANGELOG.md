@@ -19,6 +19,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   without executing them.
 - Clarified `mac doctor` status output with explicit in-sync, drift, and
   missing markers.
+- Updated the swaks documentation link to its GitHub repository to avoid
+  intermittent documentation link-check timeouts.
 - Added focused documentation for the first `v1.1.0` inventory cleanup batch:
   Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
   terminal-notifier, Ukelele, and uv.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-[swaks](https://www.jetmore.org/john/code/swaks/) is an SMTP test tool.
+[swaks](https://github.com/jetmore/swaks) is an SMTP test tool.
 
 It is useful for validating local mail catchers, SMTP credentials, TLS settings, and application email delivery during development.
 
