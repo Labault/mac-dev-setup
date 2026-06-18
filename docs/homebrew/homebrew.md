@@ -57,7 +57,8 @@ The Brewfile's dependencies are satisfied.
 - `autojump`: provides fast navigation to frequently used directories.
 - `lsd`: provides a modern and more visual alternative to `ls`.
 - `terminal-notifier`: sends macOS notifications from terminal commands and scripts.
-- `tldr`: provides concise, example-driven command documentation.
+- `tlrc`: provides the maintained official `tldr` command for concise,
+  example-driven command documentation.
 
 ### PHP and Symfony
 

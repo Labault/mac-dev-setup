@@ -8,6 +8,14 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+### Changed
+
+- Updated the macOS CI Node setup action to `actions/setup-node@v6`.
+- Replaced the deprecated Homebrew `tldr` formula with the maintained official
+  `tlrc` client while keeping the `tldr` command available.
+- Removed the deprecated `vial` cask from the full profile until Homebrew offers
+  a trusted installation path again.
+
 ## 1.0.0 - 2026-06-18
 
 ### Added

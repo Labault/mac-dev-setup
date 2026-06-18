@@ -78,13 +78,13 @@ MacDevSetup already provides:
 
 | Category | Tools |
 | --- | --- |
-| Shell | antidote, autojump, bash, lsd, tldr |
+| Shell | antidote, autojump, bash, lsd, tlrc |
 | File/disk | bat, duf, dust, tree |
 | Dev | act, actionlint, composer, editorconfig-checker, gh, gitleaks, hadolint, libpq, lychee, markdownlint-cli2, node, php, pre-commit, shellcheck, symfony-cli, uv |
 | Stats/monitoring | ctop, glances, tokei |
 | Notification | swaks, terminal-notifier |
 | Database | beekeeper-studio, libpq |
-| GUI | codexbar, jordanbaird-ice (Ice), keeweb, orbstack, pearcleaner, stats, ukelele, vial, visual-studio-code, warp |
+| GUI | codexbar, jordanbaird-ice (Ice), keeweb, orbstack, pearcleaner, stats, ukelele, visual-studio-code, warp |
 | Runtime-managed | claude-monitor (via uv) |
 
 The technical foundation is solid. The remaining work is sequenced below.
@@ -134,14 +134,13 @@ Also verify: repeated setup is idempotent, Zsh/Git backups land in `~/Documents/
 
 ### v1.1.0 — Close the "installed but undocumented" gap
 
-**Goal:** Several tools are in the `full` Brewfile with no documentation page, and `docs/homebrew/inventory.md` is **incomplete** (it omits Ice, Vial, Ukulele, swaks, terminal-notifier, libpq, uv, claude-monitor). New users can't see why these are installed.
+**Goal:** Several tools are in the `full` Brewfile with no documentation page, and `docs/homebrew/inventory.md` is **incomplete** (it omits Ice, Ukulele, swaks, terminal-notifier, libpq, uv, claude-monitor). New users can't see why these are installed.
 
 **Fix the inventory first**, then write one focused page per tool.
 
 | Tool | Cask/Formula | Inventory status today | Action |
 | --- | --- | --- | --- |
 | Ice | `jordanbaird-ice` | **missing** | add + document (menu bar manager) |
-| Vial | `vial` | **missing** | add + document (keyboard firmware config) |
 | Ukulele | `ukelele` | **missing** | add + document (layout editor; powers Français OSS) |
 | swaks | `swaks` | **missing** | add + document (SMTP test tool) |
 | terminal-notifier | `terminal-notifier` | listed, no doc | document |
@@ -400,7 +399,11 @@ Every module stays: readable, optional when personal, idempotent, documented, re
 
 ### Already installed — needs documentation/configuration only
 
-Stats, Ice (`jordanbaird-ice`), KeeWeb, Vial, Ukulele, lsd, autojump, glances, ctop, CodexBar, claude-monitor, swaks, terminal-notifier, libpq, uv.
+Stats, Ice (`jordanbaird-ice`), KeeWeb, Ukulele, lsd, autojump, glances, ctop, CodexBar, claude-monitor, swaks, terminal-notifier, libpq, uv.
+
+Vial was removed from the installed profile after Homebrew deprecated the cask
+for failing Gatekeeper checks. Re-evaluate it only if the cask becomes trusted
+again or a safer installation path is documented.
 
 ### High-priority new integration
 

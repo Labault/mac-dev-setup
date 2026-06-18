@@ -51,7 +51,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - editorconfig-checker → formatting enforcement
 - lsd → alternative ls replacement
 - terminal-notifier → notification utility
-- tldr → CLI help pages
+- tlrc → official tldr client for CLI help pages
 
 ---
 

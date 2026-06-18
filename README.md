@@ -170,7 +170,7 @@ brew info <tool>   # description, homepage, and version
 | `duf` | A friendlier `df` (disk usage / free space) | [docs/cli/duf.md](docs/cli/duf.md) |
 | `dust` | A friendlier `du` (what's taking up space) | [docs/cli/dust.md](docs/cli/dust.md) |
 | `tokei` | Count lines of code, fast *(full)* | [docs/cli/tokei.md](docs/cli/tokei.md) |
-| `tldr` | Short, example-first man pages | `tldr tldr` |
+| `tlrc` | Maintained client for short, example-first `tldr` pages | `tldr tldr` |
 | `autojump` | Jump to frequent directories with `j` *(full)* | `tldr autojump` |
 | `ctop` | Live container metrics, top-style *(full)* | [docs/containers/ctop.md](docs/containers/ctop.md) |
 | `glances` | System monitor *(full)* | `tldr glances` |
