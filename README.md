@@ -19,6 +19,7 @@ and the full command reference.
 
 ## Table of contents
 
+- [Quick start (30 seconds)](#quick-start-30-seconds)
 - [What's included](#whats-included)
 - [Installation](#installation)
 - [The `mac` CLI — command reference](#the-mac-cli--command-reference)

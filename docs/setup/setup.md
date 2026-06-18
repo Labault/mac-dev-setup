@@ -2,9 +2,9 @@
 
 The supported entry point for applying the macOS development environment is:
 
-~~~bash
+```bash
 mac setup
-~~~
+```
 
 The CLI delegates to `scripts/setup.sh`, which keeps the same options for direct
 maintenance use.
@@ -13,15 +13,15 @@ maintenance use.
 
 Display the available CLI commands:
 
-~~~bash
+```bash
 mac help
-~~~
+```
 
 Install or reapply the default setup:
 
-~~~bash
+```bash
 mac setup
-~~~
+```
 
 ## Profiles
 
@@ -29,28 +29,28 @@ Installation profiles select the Homebrew tools installed during setup.
 
 The default profile is `full`:
 
-~~~bash
+```bash
 mac setup
 mac setup --profile full
-~~~
+```
 
 Use the minimal profile for a smaller command-line setup:
 
-~~~bash
+```bash
 mac setup --profile minimal
-~~~
+```
 
 Preview the setup without changing the machine:
 
-~~~bash
+```bash
 mac setup --profile minimal --dry-run
-~~~
+```
 
 Profiles are defined under:
 
-~~~text
+```text
 profiles/<name>/Brewfile
-~~~
+```
 
 To add a new profile, create a new directory under `profiles/`, add a
 `Brewfile`, and allow it in `scripts/lib/profiles.sh`.
@@ -59,25 +59,25 @@ To add a new profile, create a new directory under `profiles/`, add a
 
 ### Homebrew
 
-~~~bash
+```bash
 mac setup --profile full
-~~~
+```
 
 Installs the dependencies declared by the selected profile Brewfile.
 
 ### Git
 
-~~~bash
+```bash
 mac setup
-~~~
+```
 
 Adds the repository Git configuration as a managed global include.
 
 ### Zsh
 
-~~~bash
+```bash
 mac setup
-~~~
+```
 
 Applies the curated Zsh files and installs the generated `mac` completion.
 
@@ -90,27 +90,27 @@ of the default `mac setup` flow.
 
 Install the recommended extensions listed in:
 
-~~~text
+```text
 configs/vscode/extensions.txt
-~~~
+```
 
 with:
 
-~~~bash
+```bash
 ./scripts/install-vscode-extensions.sh
-~~~
+```
 
 Optional extensions remain explicit:
 
-~~~bash
+```bash
 ./scripts/install-vscode-extensions.sh --with-optional
-~~~
+```
 
 ### French OSS keyboard layout
 
-~~~bash
+```bash
 ./scripts/install-keyboard-layout.sh
-~~~
+```
 
 Installs the versioned French OSS keyboard layout bundle.
 
@@ -120,9 +120,9 @@ A logout and login are still required before macOS reloads the layout.
 
 ### macOS defaults
 
-~~~bash
+```bash
 ./scripts/apply-macos-defaults.sh
-~~~
+```
 
 Applies the curated Finder, Dock, screenshot, keyboard, and text-substitution preferences.
 
@@ -130,16 +130,16 @@ Applies the curated Finder, Dock, screenshot, keyboard, and text-substitution pr
 
 The versioned Warp configuration is stored at:
 
-~~~text
+```text
 configs/warp/settings.toml
-~~~
+```
 
 Install it manually after reviewing the file:
 
-~~~bash
+```bash
 mkdir -p "$HOME/.warp"
 cp configs/warp/settings.toml "$HOME/.warp/settings.toml"
-~~~
+```
 
 Warp should be restarted after applying the configuration.
 
@@ -155,21 +155,21 @@ The SSH example must therefore be reviewed and installed manually.
 
 Validate the script with ShellCheck:
 
-~~~bash
+```bash
 shellcheck scripts/setup.sh
-~~~
+```
 
 Display its help output:
 
-~~~bash
+```bash
 ./scripts/setup.sh --help
-~~~
+```
 
 Test the dry-run path:
 
-~~~bash
+```bash
 ./scripts/setup.sh --profile minimal --dry-run
-~~~
+```
 
 ## Rollback
 

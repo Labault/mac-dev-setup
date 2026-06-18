@@ -4,9 +4,9 @@ This repository includes a script that applies a curated set of macOS preference
 
 The script is stored in:
 
-~~~text
+```text
 scripts/apply-macos-defaults.sh
-~~~
+```
 
 ## Applied settings
 
@@ -34,9 +34,9 @@ The script:
 
 Screenshots are stored in:
 
-~~~text
+```text
 ~/Pictures/Screenshots
-~~~
+```
 
 The directory is created automatically.
 
@@ -48,10 +48,10 @@ Press-and-hold accent selection is disabled so that keys repeat normally in edit
 
 The configured repeat values are:
 
-~~~text
+```text
 KeyRepeat = 2
 InitialKeyRepeat = 15
-~~~
+```
 
 ### Text substitutions
 
@@ -63,27 +63,27 @@ This prevents macOS from modifying code, commands, and technical text automatica
 
 Review the script before applying it:
 
-~~~bash
+```bash
 sed -n '1,240p' scripts/apply-macos-defaults.sh
-~~~
+```
 
 Validate it with ShellCheck:
 
-~~~bash
+```bash
 shellcheck scripts/apply-macos-defaults.sh
-~~~
+```
 
 Apply the configuration with the CLI:
 
-~~~bash
+```bash
 mac defaults
-~~~
+```
 
 Or run the script directly:
 
-~~~bash
+```bash
 ./scripts/apply-macos-defaults.sh
-~~~
+```
 
 Finder, the Dock, and SystemUIServer are restarted automatically after the settings are written.
 
@@ -91,45 +91,45 @@ Finder, the Dock, and SystemUIServer are restarted automatically after the setti
 
 Inspect the Finder settings:
 
-~~~bash
+```bash
 defaults read com.apple.finder AppleShowAllFiles
 defaults read com.apple.finder ShowPathbar
 defaults read com.apple.finder ShowStatusBar
 defaults read NSGlobalDomain AppleShowAllExtensions
-~~~
+```
 
 Inspect the Dock settings:
 
-~~~bash
+```bash
 defaults read com.apple.dock autohide
 defaults read com.apple.dock show-recents
 defaults read com.apple.dock tilesize
 defaults read com.apple.dock minimize-to-application
-~~~
+```
 
 Inspect the screenshot settings:
 
-~~~bash
+```bash
 defaults read com.apple.screencapture location
 defaults read com.apple.screencapture type
 defaults read com.apple.screencapture disable-shadow
-~~~
+```
 
 Inspect the keyboard settings:
 
-~~~bash
+```bash
 defaults read NSGlobalDomain ApplePressAndHoldEnabled
 defaults read NSGlobalDomain KeyRepeat
 defaults read NSGlobalDomain InitialKeyRepeat
-~~~
+```
 
 Inspect the text substitution settings:
 
-~~~bash
+```bash
 defaults read NSGlobalDomain NSAutomaticCapitalizationEnabled
 defaults read NSGlobalDomain NSAutomaticDashSubstitutionEnabled
 defaults read NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled
-~~~
+```
 
 ## Rollback
 
@@ -139,16 +139,16 @@ Restore a setting by deleting its explicit value or writing the preferred replac
 
 For example, restore the Finder path bar:
 
-~~~bash
+```bash
 defaults write com.apple.finder ShowPathbar -bool true
 killall Finder
-~~~
+```
 
 Delete an explicit preference to allow macOS to use its default behavior:
 
-~~~bash
+```bash
 defaults delete NSGlobalDomain KeyRepeat
 defaults delete NSGlobalDomain InitialKeyRepeat
-~~~
+```
 
 Some changes may require restarting the affected application or logging out of the macOS session.

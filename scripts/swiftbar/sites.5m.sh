@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -u
+set -euo pipefail
 
 # SwiftBar plugin: monitor websites from a pipe-separated config file.
 # Config format: label|url|expected_statuses|timeout_seconds|slow_threshold_ms

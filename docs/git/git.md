@@ -4,134 +4,136 @@ This repository includes a reusable Git configuration focused on a predictable, 
 
 The versioned configuration is stored in:
 
-~~~text
+```text
 configs/git/.gitconfig
-~~~
+```
 
 Personal identity, credentials, signing keys, and account-specific settings must remain in the user's global Git configuration and must not be committed.
 
 ## Installation
 
-Include the versioned configuration from the global Git configuration:
+The `mac setup` command configures this automatically and correctly for your installation path.
 
-~~~bash
-git config --global include.path \
-  "$HOME/Documents/Projects/mac-dev-setup/configs/git/.gitconfig"
-~~~
+To configure it manually, set the path to match wherever you cloned this repository:
 
-Verify the include:
+```bash
+REPO_DIR="$HOME/path/to/mac-dev-setup"
+git config --global include.path "$REPO_DIR/configs/git/.gitconfig"
+```
 
-~~~bash
+Verify:
+
+```bash
 git config --global --get include.path
-~~~
+```
 
 ## Default branch
 
 New repositories use `main` as their initial branch:
 
-~~~ini
+```ini
 [init]
     defaultBranch = main
-~~~
+```
 
 ## Fetch and pull behavior
 
 Deleted remote branches are pruned automatically during fetch operations:
 
-~~~ini
+```ini
 [fetch]
     prune = true
-~~~
+```
 
 Pull operations use rebase instead of creating an automatic merge commit:
 
-~~~ini
+```ini
 [pull]
     rebase = true
-~~~
+```
 
 Local changes are temporarily stashed and restored during rebases:
 
-~~~ini
+```ini
 [rebase]
     autoStash = true
-~~~
+```
 
 ## Push behavior
 
 The first push of a new branch automatically creates its upstream tracking branch:
 
-~~~ini
+```ini
 [push]
     autoSetupRemote = true
-~~~
+```
 
 ## Conflict resolution
 
 Git remembers previous conflict resolutions:
 
-~~~ini
+```ini
 [rerere]
     enabled = true
     autoupdate = true
-~~~
+```
 
 Previously recorded resolutions may be reapplied and staged automatically.
 
 Merge conflicts use the `zdiff3` style:
 
-~~~ini
+```ini
 [merge]
     conflictStyle = zdiff3
-~~~
+```
 
 ## Branch and tag display
 
 Branches are sorted by most recent commit date:
 
-~~~ini
+```ini
 [branch]
     sort = -committerdate
-~~~
+```
 
 Tags are sorted using version-aware ordering:
 
-~~~ini
+```ini
 [tag]
     sort = version:refname
-~~~
+```
 
 Lists use columns when appropriate:
 
-~~~ini
+```ini
 [column]
     ui = auto
-~~~
+```
 
 ## Command assistance
 
 Git prompts before applying a suggested correction for a mistyped command:
 
-~~~ini
+```ini
 [help]
     autocorrect = prompt
-~~~
+```
 
 ## Diff and commit display
 
 Moved lines are highlighted more clearly in diffs:
 
-~~~ini
+```ini
 [diff]
     colorMoved = zebra
-~~~
+```
 
 Interactive commits display the diff below the commit message editor:
 
-~~~ini
+```ini
 [commit]
     verbose = true
-~~~
+```
 
 Git Delta is configured separately in the same file and provides the default pager and enhanced diff rendering.
 
@@ -139,37 +141,37 @@ Git Delta is configured separately in the same file and provides the default pag
 
 Validate the configuration syntax:
 
-~~~bash
+```bash
 git config --file configs/git/.gitconfig --list >/dev/null \
   && echo "Git configuration is valid."
-~~~
+```
 
 Inspect the effective configuration:
 
-~~~bash
+```bash
 git config --global --includes --list --show-origin
-~~~
+```
 
 Inspect only the workflow-related settings:
 
-~~~bash
+```bash
 git config --global --includes --get-regexp \
   '^(init\.|fetch\.|pull\.|rebase\.|push\.|rerere\.|branch\.|tag\.|column\.|help\.|diff\.|commit\.|merge\.|core\.|interactive\.|delta\.)'
-~~~
+```
 
 ## Rollback
 
 Remove the include from the global Git configuration:
 
-~~~bash
+```bash
 git config --global --fixed-value --unset-all include.path \
   "$HOME/Documents/Projects/mac-dev-setup/configs/git/.gitconfig"
-~~~
+```
 
 Review the global configuration afterward:
 
-~~~bash
+```bash
 git config --global --list --show-origin
-~~~
+```
 
 Removing the include disables the versioned settings without deleting personal identity or credential configuration.

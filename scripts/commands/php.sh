@@ -10,9 +10,19 @@ REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 source "$REPO_DIR/scripts/lib/logging.sh"
 
 print_usage() {
-  log_line "Usage: mac php xdebug <enable|disable|status> [--help]"
+  log_line "Usage: mac php xdebug <subcommand> [--help]"
   log_line ""
-  log_line "Manage the Homebrew PHP Xdebug configuration."
+  log_line "Subcommands:"
+  log_line "  enable   Write the Xdebug ini and activate step debugging"
+  log_line "  disable  Remove the active ini (Xdebug stays installed, just inactive)"
+  log_line "  status   Show whether Xdebug is enabled or disabled"
+  log_line ""
+  log_line "Xdebug adds overhead to every request — disable it when not debugging."
+  log_line ""
+  log_line "Examples:"
+  log_line "  mac php xdebug status"
+  log_line "  mac php xdebug enable   # before a debug session"
+  log_line "  mac php xdebug disable  # after debugging"
 }
 
 php_minor_version() {

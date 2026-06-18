@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eo pipefail
 
 # Resolve real repo path from symlink
 REAL_PATH="$(readlink "$0" || true)"
@@ -22,7 +22,8 @@ print_usage() {
 }
 
 suggest_commands() {
-  requested_command="$1"
+  local requested_command="$1"
+  local command_records
   command_records="$(command_registry_build "$COMMANDS_DIR")"
 
   if [ -z "$requested_command" ] || [ -z "$command_records" ]; then
@@ -99,6 +100,7 @@ suggest_commands() {
 }
 
 print_help() {
+  local command_records
   command_records="$(command_registry_build "$COMMANDS_DIR")"
 
   log_line "mac CLI"
@@ -135,7 +137,8 @@ print_help() {
 }
 
 run_command_script() {
-  command_name="$1"
+  local command_name="$1"
+  local command_script
   shift
 
   command_script="$(command_script_path "$COMMANDS_DIR" "$command_name")"
@@ -149,7 +152,8 @@ run_command_script() {
 }
 
 handle_unknown_command() {
-  command_name="$1"
+  local command_name="$1"
+  local suggestions
   suggestions="$(suggest_commands "$command_name")"
 
   error "Unknown command: $command_name"
@@ -157,9 +161,9 @@ handle_unknown_command() {
   if [ -n "$suggestions" ]; then
     log_line ""
     log_line "Did you mean?"
-    printf '%s\n' "$suggestions" | while IFS= read -r suggested_command; do
+    while IFS= read -r suggested_command; do
       log_line "  mac $suggested_command"
-    done
+    done < <(printf '%s\n' "$suggestions")
   fi
 
   log_line ""
@@ -168,7 +172,7 @@ handle_unknown_command() {
 }
 
 execute_command() {
-  command_name="${1:-}"
+  local command_name="${1:-}"
 
   if [ "$#" -gt 0 ]; then
     shift

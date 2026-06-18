@@ -6,20 +6,20 @@ Visual Studio Code is installed and managed through Homebrew Cask.
 
 Install Visual Studio Code with Homebrew:
 
-~~~bash
+```bash
 brew install --cask visual-studio-code
-~~~
+```
 
 Verify the installation:
 
-~~~bash
+```bash
 brew list --cask | grep -x visual-studio-code
 
 test -d "/Applications/Visual Studio Code.app" \
   && echo "Visual Studio Code application found."
 
 code --version
-~~~
+```
 
 The `code` command must be available in the shell.
 
@@ -27,9 +27,9 @@ The `code` command must be available in the shell.
 
 The shared VS Code settings are stored in:
 
-~~~text
+```text
 configs/vscode/settings.json
-~~~
+```
 
 They contain only generic and reusable preferences. Personal themes, account-dependent extensions, project-specific paths, and local container names are intentionally excluded.
 
@@ -37,9 +37,9 @@ They contain only generic and reusable preferences. Personal themes, account-dep
 
 Recommended extensions are listed in:
 
-~~~text
+```text
 configs/vscode/extensions.txt
-~~~
+```
 
 They cover the main PHP and Symfony development workflow:
 
@@ -56,15 +56,15 @@ They cover the main PHP and Symfony development workflow:
 
 Install them with the CLI:
 
-~~~bash
+```bash
 mac vscode
-~~~
+```
 
 Or run the script directly:
 
-~~~bash
+```bash
 ./scripts/install-vscode-extensions.sh
-~~~
+```
 
 The command is idempotent and skips extensions that are already installed.
 
@@ -72,23 +72,23 @@ The command is idempotent and skips extensions that are already installed.
 
 Optional extensions are listed separately in:
 
-~~~text
+```text
 configs/vscode/extensions-optional.txt
-~~~
+```
 
 They include personal, visual, AI-assisted, and specialized workflow extensions.
 
 Install both recommended and optional extensions with:
 
-~~~bash
+```bash
 mac vscode --with-optional
-~~~
+```
 
 Or run the script directly:
 
-~~~bash
+```bash
 ./scripts/install-vscode-extensions.sh --with-optional
-~~~
+```
 
 ## Project-specific settings
 
@@ -109,43 +109,43 @@ These settings should instead be stored in the relevant project's `.vscode/setti
 
 Validate the shared settings:
 
-~~~bash
+```bash
 python3 -m json.tool configs/vscode/settings.json >/dev/null
-~~~
+```
 
 Validate the installation script:
 
-~~~bash
+```bash
 shellcheck scripts/install-vscode-extensions.sh
-~~~
+```
 
 Test the extension installation:
 
-~~~bash
+```bash
 ./scripts/install-vscode-extensions.sh
 ./scripts/install-vscode-extensions.sh --with-optional
-~~~
+```
 
 ## Rollback
 
 Uninstall Visual Studio Code managed by Homebrew:
 
-~~~bash
+```bash
 brew uninstall --cask visual-studio-code
-~~~
+```
 
 The VS Code user configuration is stored separately under:
 
-~~~text
+```text
 ~/Library/Application Support/Code/User
-~~~
+```
 
 Uninstalling the application does not automatically remove these user settings.
 
 To remove one extension:
 
-~~~bash
+```bash
 code --uninstall-extension publisher.extension
-~~~
+```
 
 To remove a shared configuration file from this repository, delete it and restore the previous version through Git.

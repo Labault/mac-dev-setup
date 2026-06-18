@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description: Run system diagnostics for the macOS development setup.
 
-set -e
+set -eo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -152,6 +152,9 @@ check_homebrew_drift() {
     warn "brew unavailable; skipping undeclared package check"
     return
   fi
+
+  cleanup() { rm -f "${declared_file:-}" "${installed_file:-}" "${drift_file:-}"; }
+  trap cleanup EXIT
 
   declared_file="$(mktemp)"
   installed_file="$(mktemp)"

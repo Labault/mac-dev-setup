@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description: Install the curated VS Code extensions.
 
-set -e
+set -eo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"

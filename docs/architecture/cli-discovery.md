@@ -24,16 +24,16 @@ Commands are discovered from executable files in `scripts/commands/`.
 directory, ignores non-files and non-executable files, and derives the default
 command name from the filename without its extension. For example:
 
-~~~text
+```text
 scripts/commands/doctor.sh -> doctor
-~~~
+```
 
 Each command may override its public name with a leading metadata comment:
 
-~~~bash
+```bash
 # @name doctor
 # @description Run system diagnostics for the macOS development setup.
-~~~
+```
 
 The metadata parser reads only the initial comment block after an optional
 shebang. Parsing stops at the first non-comment, non-empty line, which keeps
@@ -45,9 +45,9 @@ The registry is generated on demand. There is no persisted command database.
 
 Each registry record contains three tab-separated fields:
 
-~~~text
+```text
 command_name<TAB>command_path<TAB>command_description
-~~~
+```
 
 `scripts/lib/command_registry.sh` owns this format and provides the public
 operations:

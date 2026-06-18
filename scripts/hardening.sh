@@ -15,7 +15,7 @@ FORBIDDEN_TOOLS="lazygit watchexec hyperfine direnv mas orbctl"
 
 echo "✔ Checking forbidden tools in profiles..."
 for tool in $FORBIDDEN_TOOLS; do
-  if grep -REq "\"$tool\"" "$REPO_DIR/profiles"; then
+  if grep -RFq "\"$tool\"" "$REPO_DIR/profiles"; then
     echo "❌ Forbidden tool declared in a profile Brewfile: $tool"
     exit 1
   fi
