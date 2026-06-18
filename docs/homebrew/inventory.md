@@ -76,7 +76,6 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `lychee` → link checker.
 - `terminal-notifier` → notification utility.
 - `tlrc` → official `tldr` client for CLI help pages.
-- `ukelele` → keyboard layout editor used to inspect or evolve the bundled French OSS layout.
 - `uv` → Python package/tool runner, also used for runtime-managed tools.
 
 ---

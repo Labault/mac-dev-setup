@@ -82,7 +82,7 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 ### Changed
 
 - Added focused inventory documentation for Antidote, autojump, claude-monitor,
-  Ice, KeeWeb, libpq, lsd, Stats, terminal-notifier, Ukelele, and uv.
+  Ice, KeeWeb, libpq, lsd, Stats, terminal-notifier, and uv.
 - Expanded the Homebrew inventory so every profile package is represented.
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
 - Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only

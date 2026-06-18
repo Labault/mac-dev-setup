@@ -106,8 +106,6 @@ cask "pearcleaner"
 cask "stats"
 # Menu bar app runner — shell scripts become menu bar items with auto-refresh
 cask "swiftbar"
-# Unicode keyboard layout editor
-cask "ukelele"
 # Open-source code editor
 cask "visual-studio-code"
 # Fast and lightweight text editor
