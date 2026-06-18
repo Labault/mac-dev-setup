@@ -127,6 +127,141 @@ Oh My Zsh compatibility and libraries are loaded first, followed by Oh My Zsh pl
 
 `zsh-syntax-highlighting` must remain last so it can correctly hook into the final Zsh configuration.
 
+## Useful Oh My Zsh aliases
+
+Oh My Zsh libraries and plugins can expose aliases in addition to the aliases
+stored in `configs/zsh/alias.sh`.
+
+The current configuration loads the Oh My Zsh libraries and the `git`,
+`autojump`, and `command-not-found` plugins. The most useful daily aliases and
+commands are listed below.
+
+### Directories and shell navigation
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `..` | `cd ..` | Move one directory up |
+| `...` | `../..` | Reference two directories up |
+| `....` | `../../..` | Reference three directories up |
+| `-` | `cd -` | Return to the previous directory |
+| `1` | `cd -1` | Jump to the previous directory stack entry |
+| `2` | `cd -2` | Jump to the second directory stack entry |
+| `md` | `mkdir -p` | Create nested directories without errors |
+| `rd` | `rmdir` | Remove an empty directory |
+
+Zsh keeps a directory stack when using commands such as `cd`, `pushd`, and
+`popd`. The numeric aliases are useful after moving through several directories.
+
+### File listing and shell helpers
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `l` | `lsd -lah` | List files with details, icons, and hidden files |
+| `ll` | `lsd -la` | List files with the local public alias |
+| `la` | `ls -lAh` | List almost all files with details |
+| `lsa` | `ls -lah` | List all files with details |
+| `_` | `sudo` | Re-run a command with `sudo` by prefixing it with `_` |
+| `grep` | `grep --color=auto ...` | Search text with colored matches and ignored VCS folders |
+| `egrep` | `grep -E` | Run extended regular-expression searches |
+| `fgrep` | `grep -F` | Search fixed strings |
+
+`ll` is defined by this repository in `configs/zsh/alias.sh`; the other aliases
+come from the loaded Oh My Zsh libraries.
+
+### Git status, staging, and diffs
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `g` | `git` | Run any Git command with a shorter prefix |
+| `gst` | `git status` | Check the working tree |
+| `ga` | `git add` | Stage specific files |
+| `gaa` | `git add --all` | Stage all changes |
+| `gapa` | `git add --patch` | Stage changes interactively |
+| `gd` | `git diff` | Show unstaged changes |
+| `gds` | `git diff --staged` | Show staged changes |
+
+### Git commits and history
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `gc` | `git commit --verbose` | Commit with the diff visible in the editor |
+| `gca` | `git commit --verbose --all` | Commit all tracked changes |
+| `gcam` | `git commit --all --message` | Commit tracked changes with an inline message |
+| `gsh` | `git show` | Inspect a commit, tag, or object |
+| `glog` | `git log --oneline --decorate --graph` | Read a compact branch history |
+
+### Git branches and remotes
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `gb` | `git branch` | List local branches |
+| `gba` | `git branch --all` | List local and remote branches |
+| `gco` | `git checkout` | Switch branch or restore paths |
+| `gcb` | `git checkout -b` | Create and switch to a new branch |
+| `gcm` | `git checkout $(git_main_branch)` | Switch to the main branch |
+| `gf` | `git fetch` | Fetch remote changes |
+| `gfa` | `git fetch --all --tags --prune --jobs=10` | Fetch and prune all remotes and tags |
+| `gl` | `git pull` | Pull changes |
+| `gpr` | `git pull --rebase` | Pull with rebase |
+| `gpra` | `git pull --rebase --autostash` | Pull with rebase while preserving local changes |
+| `gp` | `git push` | Push changes |
+| `gpsup` | `git push --set-upstream origin $(git_current_branch)` | Push a new branch and set its upstream |
+| `gpod` | `git push origin --delete` | Delete a remote branch |
+
+### Git merge, rebase, stash, and cleanup
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `gm` | `git merge` | Merge another branch |
+| `grb` | `git rebase` | Rebase the current branch |
+| `grbi` | `git rebase --interactive` | Rewrite local history interactively |
+| `grbc` | `git rebase --continue` | Continue a rebase after resolving conflicts |
+| `grba` | `git rebase --abort` | Abort the current rebase |
+| `grst` | `git restore --staged` | Unstage files |
+| `grs` | `git restore` | Restore files from the index or another source |
+| `grh` | `git reset` | Reset the current branch or index |
+| `grhh` | `git reset --hard` | Discard tracked local changes |
+| `gsta` | `git stash push` | Stash local changes |
+| `gstp` | `git stash pop` | Restore and remove the latest stash |
+| `gstaa` | `git stash apply` | Restore the latest stash without removing it |
+| `gclean` | `git clean --interactive -d` | Interactively remove untracked files and directories |
+| `gpf` | `git push --force-with-lease --force-if-includes` | Force-push more safely after rewriting history |
+
+### Git worktrees and tags
+
+| Alias | Command | Use case |
+| --- | --- | --- |
+| `grt` | `cd "$(git rev-parse --show-toplevel \|\| echo .)"` | Jump to the repository root |
+| `gwt` | `git worktree` | Manage Git worktrees |
+| `gwta` | `git worktree add` | Create a worktree |
+| `gwtls` | `git worktree list` | List worktrees |
+| `gwtrm` | `git worktree remove` | Remove a worktree |
+| `gta` | `git tag --annotate` | Create an annotated tag |
+| `gtv` | `git tag \| sort -V` | List tags using version-aware sorting |
+
+### Navigation helpers
+
+The loaded Oh My Zsh `autojump` plugin exposes the `j` command:
+
+```bash
+j project-name
+```
+
+Use it to jump to a frequently visited directory by typing only part of its
+name.
+
+To inspect every alias currently available in a shell session, run:
+
+```bash
+alias
+```
+
+To focus on Git aliases only:
+
+```bash
+alias | grep '^g'
+```
+
 ## Public and private aliases
 
 Public aliases are stored in:
