@@ -74,6 +74,8 @@ brew "uv"
 
 # Productivity launcher — replaces Spotlight with clipboard history, snippets, and window management
 cask "raycast"
+# Screenshot and screen recording tool with annotations, scrolling capture, and OCR
+cask "cleanshot"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser

@@ -39,6 +39,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 
 ### macOS / dev UX
 
+- `cleanshot` → screenshot and screen recording tool; annotations, scrolling capture, OCR. Licence required, activated manually.
 - `pearcleaner` → uninstall/cleanup tool.
 - `raycast` → productivity launcher; replaces Spotlight with clipboard history, snippets, and window management.
 - `visual-studio-code` → editor.
