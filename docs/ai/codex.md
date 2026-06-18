@@ -48,6 +48,8 @@ codex --help
 codex "task description" --model <model-name>   # see `codex --help` for current models
 ```
 
+![Codex CLI help output](../assets/screenshots/ai/codex-cli.webp)
+
 ## Workflow
 
 Codex works best on well-scoped, atomic tasks:

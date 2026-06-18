@@ -2,6 +2,8 @@
 
 Powerlevel10k is the prompt theme used by the curated Zsh configuration.
 
+![Powerlevel10k prompt with Git status](../assets/screenshots/zsh/powerlevel10k-prompt.webp)
+
 The repository stores the accepted configuration in:
 
 ```text

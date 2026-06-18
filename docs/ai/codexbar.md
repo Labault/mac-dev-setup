@@ -19,6 +19,8 @@ brew install --cask codexbar
 After installation, open CodexBar from the Applications folder. It appears in
 the menu bar and starts tracking usage automatically once configured.
 
+![CodexBar menu bar usage overview](../assets/screenshots/ai/codexbar.webp)
+
 ## Configuration
 
 CodexBar connects to AI provider APIs using your credentials:

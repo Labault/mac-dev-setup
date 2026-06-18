@@ -127,6 +127,18 @@ Oh My Zsh compatibility and libraries are loaded first, followed by Oh My Zsh pl
 
 `zsh-syntax-highlighting` must remain last so it can correctly hook into the final Zsh configuration.
 
+## mac CLI completion
+
+The setup installs a generated Zsh completion for the `mac` command in:
+
+```text
+~/.zsh/completions/_mac
+```
+
+It lists every available subcommand with its short description.
+
+![mac CLI Zsh completion](../assets/screenshots/cli/mac-completion.webp)
+
 ## Useful Oh My Zsh aliases
 
 Oh My Zsh libraries and plugins can expose aliases in addition to the aliases

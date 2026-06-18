@@ -76,6 +76,10 @@ git commit -m "🐛 fix(setup): handle a missing Homebrew prefix"
 Prefer small, atomic commits with one clear purpose, so a single emoji
 describes the whole change.
 
+![Git log with Gitmoji commit messages](../assets/screenshots/git/gitmoji-log.webp)
+
+![commitlint rejecting a commit message without Gitmoji](../assets/screenshots/git/commitlint-gitmoji.webp)
+
 ## Optional: gitmoji-cli
 
 [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli) is an interactive

@@ -33,6 +33,8 @@ The workflow contains a `quality` job running on the latest Ubuntu GitHub-hosted
 
 Its purpose is to reproduce the repository-wide checks normally executed locally through `pre-commit`.
 
+![GitHub Actions repository quality job](../assets/screenshots/quality/github-actions-ci.webp)
+
 The workflow installs the tools required by hooks declared with:
 
 ```yaml

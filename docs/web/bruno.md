@@ -22,6 +22,8 @@ Verify the installation:
 brew list --cask | grep -x bruno
 ```
 
+![Bruno GET request with JSON response](../assets/screenshots/web/bruno-request.webp)
+
 ## Collections
 
 A Bruno collection is a directory. Each request is a `.bru` file. Create a

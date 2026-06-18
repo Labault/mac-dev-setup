@@ -52,6 +52,8 @@ Run all hooks against every tracked file:
 pre-commit run --all-files
 ```
 
+![pre-commit hooks passing locally](../assets/screenshots/quality/pre-commit-run.webp)
+
 Validate the configuration file:
 
 ```bash

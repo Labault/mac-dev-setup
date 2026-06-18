@@ -4,6 +4,8 @@ This file documents the real usage status of every Homebrew formula and cask in 
 
 It ensures the Brewfile remains a **curated workstation definition**, not just a dump of installed tools.
 
+![Homebrew inventory overview](../assets/screenshots/homebrew/inventory-overview.webp)
+
 ---
 
 ## 🟢 USED (actively integrated in workflow)

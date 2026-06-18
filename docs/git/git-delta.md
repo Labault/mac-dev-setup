@@ -73,6 +73,8 @@ Display a diff through delta:
 git diff
 ```
 
+![git diff rendered with delta](../assets/screenshots/git/git-delta-diff.webp)
+
 Display staged changes:
 
 ```bash

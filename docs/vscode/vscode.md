@@ -37,6 +37,8 @@ configs/vscode/settings.json
 
 They contain only generic and reusable preferences. Personal themes, account-dependent extensions, project-specific paths, and local container names are intentionally excluded.
 
+![Shared VS Code settings JSON](../assets/screenshots/apps/vscode-settings.webp)
+
 ## Recommended extensions
 
 Recommended extensions are listed in:
@@ -71,6 +73,8 @@ Or run the script directly:
 ```
 
 The command is idempotent and skips extensions that are already installed.
+
+![Recommended VS Code extensions installed](../assets/screenshots/apps/vscode-extensions.webp)
 
 ## Optional extensions
 

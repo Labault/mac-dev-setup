@@ -49,6 +49,8 @@ A successful setup returns:
 The Brewfile's dependencies are satisfied.
 ```
 
+![brew bundle check successful output](../assets/screenshots/homebrew/brew-bundle-check.webp)
+
 ## Packages
 
 The complete, classified list of every formula and cask — with its role
