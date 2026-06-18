@@ -83,7 +83,7 @@ cask "gimp"
 # Claude desktop app by Anthropic
 cask "claude"
 # Run large language models locally
-cask "ollama"
+cask "ollama-app"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser

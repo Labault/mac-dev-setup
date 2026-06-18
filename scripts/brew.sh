@@ -14,6 +14,17 @@ source "$SCRIPT_DIR/lib/profiles.sh"
 PROFILE="${PROFILE:-$(profile_default)}"
 BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
 
+brewfile_entry_count() {
+  awk '
+    /^[[:space:]]*(brew|cask|tap|uv)[[:space:]]+"/ {
+      count++
+    }
+    END {
+      print count + 0
+    }
+  ' "$BREWFILE"
+}
+
 if ! profile_validate "$REPO_DIR" "$PROFILE"; then
   error "Invalid profile: $PROFILE"
   info "Available profiles: $(profile_list "$REPO_DIR")"
@@ -35,6 +46,9 @@ brew update
 info "Installing Brewfile dependencies"
 
 if [ -f "$BREWFILE" ]; then
+  entry_count="$(brewfile_entry_count)"
+  info "Checking $entry_count Brewfile entries"
+  info "Homebrew may pause on 'Fetching ...' while it downloads packages and apps"
   brew bundle check --file="$BREWFILE" || brew bundle --file="$BREWFILE"
 else
   error "$BREWFILE not found"

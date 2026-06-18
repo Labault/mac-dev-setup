@@ -13,7 +13,7 @@ It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebr
 Install Ollama directly:
 
 ```bash
-brew install --cask ollama
+brew install --cask ollama-app
 ```
 
 Start the Ollama service:
@@ -96,7 +96,7 @@ du -sh ~/.ollama/models
 Stop the Ollama service first, then remove the app:
 
 ```bash
-brew uninstall --cask ollama
+brew uninstall --cask ollama-app
 ```
 
 Remove downloaded models and data:
