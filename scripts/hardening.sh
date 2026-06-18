@@ -21,7 +21,9 @@ for tool in $FORBIDDEN_TOOLS; do
   fi
 done
 
-if command -v brew >/dev/null 2>&1; then
+if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+  echo "ℹ Skipping host-global brew doctor/outdated checks on GitHub-hosted runners"
+elif command -v brew >/dev/null 2>&1; then
   echo "✔ Checking brew doctor..."
   brew doctor || true
 

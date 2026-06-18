@@ -11,8 +11,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 ### Changed
 
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
-- Normalized the GitHub-hosted macOS Homebrew state before profile
-  installation to avoid runner-provided tap and deprecated keg warnings.
+- Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only
+  reports issues owned by the repository profiles.
 - Replaced the deprecated Homebrew `tldr` formula with the maintained official
   `tlrc` client while keeping the `tldr` command available.
 - Removed the deprecated `vial` cask from the full profile until Homebrew offers
