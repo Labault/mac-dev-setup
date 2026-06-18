@@ -14,6 +14,7 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   with `brew bundle check` diagnostics and setup reconciliation guidance.
 - Added non-blocking Homebrew drift detection to `mac doctor` for installed
   packages that are not declared by any setup profile.
+- Added managed Zsh configuration drift reporting to `mac doctor`.
 - Added focused documentation for the first `v1.1.0` inventory cleanup batch:
   Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
   terminal-notifier, Ukelele, and uv.

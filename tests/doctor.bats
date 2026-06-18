@@ -7,7 +7,7 @@ setup() {
 make_common_doctor_path() {
   bin="$(mktemp -d)"
 
-  for tool in bash dirname find basename sort paste sed mktemp comm rm cat; do
+  for tool in bash dirname find basename sort paste sed mktemp comm rm cat cmp mkdir cp; do
     ln -s "$(command -v "$tool")" "$bin/$tool"
   done
 
@@ -18,6 +18,18 @@ make_common_doctor_path() {
   printf '#!/bin/sh\nexit 0\n' >"$bin/mac"
 
   chmod +x "$bin/sw_vers" "$bin/uname" "$bin/git" "$bin/zsh" "$bin/mac"
+}
+
+copy_managed_config_to_home() {
+  home="$1"
+
+  mkdir -p "$home/.shell" "$home/.zsh/completions"
+  cp "$REPO_DIR/configs/zsh/.zprofile" "$home/.zprofile"
+  cp "$REPO_DIR/configs/zsh/.zshrc" "$home/.zshrc"
+  cp "$REPO_DIR/configs/zsh/.zsh_plugins.txt" "$home/.zsh_plugins.txt"
+  cp "$REPO_DIR/configs/zsh/.p10k.zsh" "$home/.p10k.zsh"
+  cp "$REPO_DIR/configs/zsh/alias.sh" "$home/.shell/alias.sh"
+  cp "$REPO_DIR/configs/zsh/completions/_mac" "$home/.zsh/completions/_mac"
 }
 
 @test "doctor exits non-zero and reports the missing tool" {
@@ -134,4 +146,54 @@ BREW
   [[ "$output" == *"undeclared Homebrew packages installed"* ]]
   [[ "$output" == *"local-only-tool"* ]]
   [[ "$output" == *"local-only-app"* ]]
+}
+
+@test "doctor reports managed config files in sync" {
+  make_common_doctor_path
+  home="$(mktemp -d)"
+  copy_managed_config_to_home "$home"
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" HOME="$home" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin" "$home"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"managed config files in sync"* ]]
+}
+
+@test "doctor warns when managed config differs" {
+  make_common_doctor_path
+  home="$(mktemp -d)"
+  copy_managed_config_to_home "$home"
+  printf 'local change\n' >>"$home/.zshrc"
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" HOME="$home" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin" "$home"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *".zshrc differs from MacDevSetup copy"* ]]
+  [[ "$output" == *"Run: mac setup --profile minimal"* ]]
 }

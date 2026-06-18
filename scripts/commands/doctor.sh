@@ -139,6 +139,44 @@ check_homebrew_drift() {
   rm -f "$declared_file" "$installed_file" "$drift_file"
 }
 
+managed_config_files() {
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/.zprofile" "$HOME/.zprofile" ".zprofile"
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/.zshrc" "$HOME/.zshrc" ".zshrc"
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/.zsh_plugins.txt" "$HOME/.zsh_plugins.txt" ".zsh_plugins.txt"
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/.p10k.zsh" "$HOME/.p10k.zsh" "p10k config"
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/alias.sh" "$HOME/.shell/alias.sh" "zsh aliases"
+  printf '%s\t%s\t%s\n' "$REPO_DIR/configs/zsh/completions/_mac" "$HOME/.zsh/completions/_mac" "zsh completion"
+}
+
+check_config_drift() {
+  config_status=0
+
+  while IFS="$(printf '\t')" read -r source_file target_file label; do
+    if [ ! -f "$source_file" ]; then
+      warn "$label source missing: $source_file"
+      config_status=1
+      continue
+    fi
+
+    if [ ! -f "$target_file" ]; then
+      warn "$label not installed: $target_file"
+      config_status=1
+      continue
+    fi
+
+    if ! cmp -s "$source_file" "$target_file"; then
+      warn "$label differs from MacDevSetup copy: $target_file"
+      config_status=1
+    fi
+  done < <(managed_config_files)
+
+  if [ "$config_status" -eq 0 ]; then
+    success "managed config files in sync"
+  else
+    log_line "Run: mac setup --profile $PROFILE"
+  fi
+}
+
 main() {
   parse_args "$@"
 
@@ -166,6 +204,9 @@ main() {
 
   check_profile_brewfile "$PROFILE"
   check_homebrew_drift
+
+  log_section "Config"
+  check_config_drift
 
   log_section "mac CLI"
 
