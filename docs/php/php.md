@@ -70,6 +70,18 @@ Keep these decisions inside each PHP project:
 Use repository-level Homebrew only for tools that must exist before a project is
 cloned or bootstrapped.
 
+## Toolchain Guides
+
+Use the focused guides for project-level decisions:
+
+- [Xdebug](xdebug.md) for debugging and profiling;
+- [coverage](coverage.md) for PCOV and coverage reports;
+- [static analysis](static-analysis.md) for PHPStan;
+- [Pest](pest.md) for tests and Composer test scripts;
+- [coding standards](coding-standards.md) for PHP-CS-Fixer and Rector;
+- [mutation testing](mutation-testing.md) for Infection;
+- [mise](mise.md) for runtime version-manager evaluation.
+
 ## Rollback
 
 Remove the shared runtime tools:

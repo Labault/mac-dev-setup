@@ -200,6 +200,8 @@ brew info <tool>   # description, homepage, and version
 | `php` | PHP runtime *(full)* | [docs/php/php.md](docs/php/php.md) |
 | `composer` | PHP dependency manager *(full)* | [docs/php/php.md](docs/php/php.md) |
 | `symfony-cli` | Manage Symfony projects *(full)* | [docs/php/php.md](docs/php/php.md) |
+| `xdebug` / `pcov` | PHP debugging and coverage strategy *(project-level)* | [docs/php/xdebug.md](docs/php/xdebug.md), [docs/php/coverage.md](docs/php/coverage.md) |
+| `phpstan` / `pest` | PHP analysis and testing strategy *(project-level)* | [docs/php/static-analysis.md](docs/php/static-analysis.md), [docs/php/pest.md](docs/php/pest.md) |
 | `libpq` | PostgreSQL client libraries *(full)* | [docs/database/libpq.md](docs/database/libpq.md) |
 | `uv` | Fast Python package installer *(full)* | [docs/python/uv.md](docs/python/uv.md) |
 

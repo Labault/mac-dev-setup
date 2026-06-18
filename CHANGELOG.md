@@ -37,6 +37,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 - Added initial PHP/Symfony toolchain documentation for the shared Homebrew
   runtime, Xdebug policy, and PHPStan project setup.
+- Added PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer,
+  Rector, Infection, and mise evaluation.
 - Added a BATS consistency check that fails when a Homebrew profile entry is
   missing from the inventory.
 
