@@ -16,6 +16,12 @@ mac doctor --profile minimal
 mac doctor --profile full
 ```
 
+Print reconciliation commands without running them:
+
+```bash
+mac doctor --fix
+```
+
 If the `mac` command is not available yet, run the doctor script directly from
 the checkout:
 

@@ -12,14 +12,19 @@ source "$REPO_DIR/scripts/lib/logging.sh"
 source "$REPO_DIR/scripts/lib/profiles.sh"
 
 print_usage() {
-  log_line "Usage: mac doctor [--profile <profile>] [--help]"
+  log_line "Usage: mac doctor [--profile <profile>] [--fix] [--help]"
   log_line "Profiles: $(profile_list "$REPO_DIR")"
   log_line ""
   log_line "Run read-only diagnostics for the macOS development setup."
+  log_line ""
+  log_line "Options:"
+  log_line "  --profile <profile>  Check the selected setup profile."
+  log_line "  --fix                Print reconciliation commands without running them."
 }
 
 parse_args() {
   PROFILE="$(profile_default)"
+  FIX="false"
 
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -39,6 +44,10 @@ parse_args() {
           print_usage >&2
           exit 1
         fi
+        shift
+        ;;
+      --fix)
+        FIX="true"
         shift
         ;;
       --help|-h)
@@ -61,6 +70,18 @@ parse_args() {
 }
 
 DOCTOR_STATUS=0
+FIX_SUGGESTIONS=""
+
+add_fix_suggestion() {
+  suggestion="$1"
+
+  case "$FIX_SUGGESTIONS" in
+    *"$suggestion"*) return 0 ;;
+  esac
+
+  FIX_SUGGESTIONS="${FIX_SUGGESTIONS}${suggestion}
+"
+}
 
 check_command() {
   command_name="$1"
@@ -90,6 +111,8 @@ check_profile_brewfile() {
   else
     error "profile packages missing or outdated"
     log_line "Run: mac setup --profile $profile"
+    add_fix_suggestion "mac setup --profile $profile"
+    add_fix_suggestion "brew bundle --file=\"$brewfile\""
     DOCTOR_STATUS=1
   fi
 }
@@ -130,6 +153,7 @@ check_homebrew_drift() {
     warn "undeclared Homebrew packages installed"
     while IFS= read -r package; do
       log_line "  - $package"
+      add_fix_suggestion "brew uninstall \"$package\""
     done <"$drift_file"
     log_line "Consider adding intentional tools to a profile Brewfile, or uninstalling local-only packages."
   else
@@ -174,7 +198,26 @@ check_config_drift() {
     success "managed config files in sync"
   else
     log_line "Run: mac setup --profile $PROFILE"
+    add_fix_suggestion "mac setup --profile $PROFILE"
   fi
+}
+
+print_fix_suggestions() {
+  [ "$FIX" = "true" ] || return 0
+
+  log_section "Fix suggestions"
+
+  if [ -z "$FIX_SUGGESTIONS" ]; then
+    success "No fix suggestions"
+    return 0
+  fi
+
+  while IFS= read -r suggestion; do
+    [ -n "$suggestion" ] || continue
+    log_line "  $suggestion"
+  done <<EOF
+$FIX_SUGGESTIONS
+EOF
 }
 
 main() {
@@ -211,6 +254,8 @@ main() {
   log_section "mac CLI"
 
   check_command mac "mac CLI"
+
+  print_fix_suggestions
 
   log_line ""
 

@@ -197,3 +197,56 @@ BREW
   [[ "$output" == *".zshrc differs from MacDevSetup copy"* ]]
   [[ "$output" == *"Run: mac setup --profile minimal"* ]]
 }
+
+@test "doctor --fix prints reconciliation commands without running them" {
+  make_common_doctor_path
+  home="$(mktemp -d)"
+  copy_managed_config_to_home "$home"
+  printf 'local change\n' >>"$home/.zshrc"
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 1 ;;
+  list\ --formula) printf '%s\n' bash local-only-tool ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  uninstall*) exit 42 ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" HOME="$home" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal --fix
+  rm -rf "$bin" "$home"
+
+  [ "$status" -ne 0 ]
+  [[ "$output" == *"Fix suggestions"* ]]
+  [[ "$output" == *"mac setup --profile minimal"* ]]
+  [[ "$output" == *"brew bundle --file=\"$REPO_DIR/profiles/minimal/Brewfile\""* ]]
+  [[ "$output" == *"brew uninstall \"local-only-tool\""* ]]
+}
+
+@test "doctor --fix reports no suggestions when everything is in sync" {
+  make_common_doctor_path
+  home="$(mktemp -d)"
+  copy_managed_config_to_home "$home"
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" HOME="$home" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal --fix
+  rm -rf "$bin" "$home"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"No fix suggestions"* ]]
+}
