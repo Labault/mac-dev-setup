@@ -67,6 +67,8 @@ mac setup --profile full
 
 Installs the dependencies declared by the selected profile Brewfile.
 
+![mac setup full profile output](../assets/screenshots/setup/setup-flow.webp)
+
 ### Git
 
 ```bash

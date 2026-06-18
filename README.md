@@ -392,6 +392,8 @@ mac doctor --fix                # print the commands that would fix each issue (
 - **Drift** — a managed config file differs from the versioned copy.
 - **Undeclared** — a tool is installed but not declared in any profile.
 
+![mac doctor diagnostics output](docs/assets/screenshots/readme/mac-doctor.webp)
+
 ---
 
 ### `mac php`
