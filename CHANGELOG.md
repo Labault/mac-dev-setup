@@ -8,6 +8,19 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.6.0 - 2026-06-18
+
+### Added
+
+- Added Claude desktop app, Ollama, and Sublime Text to the full profile with
+  inventory classification and focused documentation under `docs/ai/` and
+  `docs/vscode/`.
+- Added Codex CLI documentation covering installation, workflow, and comparison
+  with Claude Code.
+- Promoted codexbar and claude-monitor from TOOLING to USED with expanded
+  documentation.
+- Excluded `claude.ai` from lychee link checking as it redirects to login.
+
 ## 1.5.0 - 2026-06-18
 
 ### Added
