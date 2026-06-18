@@ -35,6 +35,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Added
 
+- Added `mac php xdebug status|enable|disable` to manage the Homebrew PHP
+  Xdebug config while keeping it disabled by default.
 - Added initial PHP/Symfony toolchain documentation for the shared Homebrew
   runtime, Xdebug policy, and PHPStan project setup.
 - Added PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer,

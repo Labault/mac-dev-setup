@@ -52,6 +52,17 @@ Disable it again by removing that enabled file:
 rm "$(brew --prefix)/etc/php/$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')/conf.d/99-xdebug.ini"
 ```
 
+MacDevSetup also exposes a small helper:
+
+```bash
+mac php xdebug status
+mac php xdebug enable
+mac php xdebug disable
+```
+
+The helper manages `99-xdebug.ini` in the active Homebrew PHP `conf.d`
+directory and keeps `99-xdebug.ini.disabled` as the reusable disabled template.
+
 ## VS Code Workflow
 
 The recommended VS Code extensions include `xdebug.php-debug`.
@@ -85,6 +96,7 @@ project adopts it. Do not enable Xdebug coverage and PCOV in the same run.
 Check whether Xdebug is loaded:
 
 ```bash
+mac php xdebug status
 php -v
 php --ri xdebug
 ```

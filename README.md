@@ -106,6 +106,7 @@ This is the full command reference. Every command also accepts `--help`.
 | `mac help` | List all available commands | — |
 | `mac setup` | Install / reapply the environment | `--profile minimal\|full`, `--dry-run` |
 | `mac doctor` | Check your machine and profile packages | `--profile minimal\|full`, `--fix` |
+| `mac php` | Manage PHP development helpers | `xdebug status\|enable\|disable` |
 | `mac update` | Update MacDevSetup to the latest version | `--dry-run` |
 | `mac uninstall` | Remove the CLI and its managed entries | `--remove-config`, `--remove-install-dir`, `--dry-run` |
 | `mac defaults` | Apply curated macOS Finder/Dock/keyboard defaults | `--help` |

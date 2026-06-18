@@ -10,6 +10,7 @@ _mac() {
     'defaults:Apply the curated macOS system defaults.'
     'doctor:Run system diagnostics for the macOS development setup.'
     'keyboard:Install the French OSS keyboard layout.'
+    'php:Manage PHP development helpers.'
     'setup:Install and configure the macOS development setup.'
     'uninstall:Remove the mac CLI symlink and managed shell PATH entry.'
     'update:Update the mac CLI from its git repository.'

@@ -10,6 +10,7 @@ setup() {
   [ "$status" -eq 0 ]
   [[ "$output" == *setup* ]]
   [[ "$output" == *doctor* ]]
+  [[ "$output" == *php* ]]
   [[ "$output" == *update* ]]
   [[ "$output" == *uninstall* ]]
   [[ "$output" == *defaults* ]]
@@ -18,7 +19,7 @@ setup() {
 }
 
 @test "the extra commands expose --help" {
-  for cmd in defaults keyboard vscode; do
+  for cmd in defaults keyboard php vscode; do
     run bash "$CLI" "$cmd" --help
     [ "$status" -eq 0 ]
     [[ "$output" == *"Usage: mac $cmd"* ]]
