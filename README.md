@@ -449,8 +449,12 @@ Full documentation lives in [`docs/`](docs). Good entry points:
 
 - [Setup walkthrough](docs/setup/setup.md)
 - [Homebrew & the package inventory](docs/homebrew/homebrew.md)
-- [Zsh configuration](docs/zsh/zsh.md)
+- [Zsh configuration](docs/zsh/zsh.md) — plugins, Powerlevel10k theme, aliases
 - [Git configuration](docs/git/git.md)
+- [SSH configuration](docs/ssh/ssh.md)
+- [macOS defaults reference](docs/macos/macos-defaults.md) — what `mac defaults` applies
+- [Français OSS keyboard layout](docs/keyboard/french-oss.md) — what `mac keyboard` installs
+- [CI and GitHub Actions](docs/github-actions/ci.md) — the quality pipeline
 - [How the CLI is built](docs/architecture/current-architecture.md)
 - [Troubleshooting](docs/troubleshooting/troubleshooting.md)
 
