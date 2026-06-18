@@ -78,13 +78,13 @@ These are only installed with the `full` profile.
 | Tool | What it does | Documentation |
 | --- | --- | --- |
 | `composer` | PHP dependency manager | [docs/php/php.md](docs/php/php.md) |
-| `php` | PHP runtime (Homebrew-managed, Apple Silicon native) | [docs/php/php.md](docs/php/php.md) |
-| `symfony-cli` | Create, run, and manage Symfony projects | [docs/php/php.md](docs/php/php.md) |
-| `xdebug` | Step debugger for PHP | [docs/php/xdebug.md](docs/php/xdebug.md) |
 | pcov | Fast PHP code coverage (project-level, replaces Xdebug for CI) | [docs/php/coverage.md](docs/php/coverage.md) |
 | Pest | Modern PHP test framework | [docs/php/pest.md](docs/php/pest.md) |
+| `php` | PHP runtime (Homebrew-managed, Apple Silicon native) | [docs/php/php.md](docs/php/php.md) |
 | PHP-CS-Fixer / Rector | Autoformat and auto-refactor PHP code | [docs/php/coding-standards.md](docs/php/coding-standards.md) |
 | PHPStan / Psalm | Static analysis — catch bugs before running the code | [docs/php/static-analysis.md](docs/php/static-analysis.md) |
+| `symfony-cli` | Create, run, and manage Symfony projects | [docs/php/php.md](docs/php/php.md) |
+| `xdebug` | Step debugger for PHP | [docs/php/xdebug.md](docs/php/xdebug.md) |
 
 ---
 
