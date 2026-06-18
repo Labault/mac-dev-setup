@@ -78,6 +78,8 @@ cask "raycast"
 cask "cleanshot"
 # Local-first Markdown note-taking app with a personal vault
 cask "obsidian"
+# Collaborative workspace for notes, databases, and wikis
+cask "notion"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser
