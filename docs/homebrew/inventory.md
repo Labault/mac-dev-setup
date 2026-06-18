@@ -45,6 +45,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `obsidian` → local-first Markdown note-taking app. Personal vault stays outside this repository.
 - `pearcleaner` → uninstall/cleanup tool.
 - `raycast` → productivity launcher; replaces Spotlight with clipboard history, snippets, and window management.
+- `sublime-text` → fast and lightweight text editor; used for quick file edits and large file handling.
 - `visual-studio-code` → editor.
 - `warp` → terminal.
 
@@ -77,6 +78,12 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `tlrc` → official `tldr` client for CLI help pages.
 - `ukelele` → keyboard layout editor used to inspect or evolve the bundled French OSS layout.
 - `uv` → Python package/tool runner, also used for runtime-managed tools.
+
+---
+
+### AI assistants
+
+- `claude` → Claude desktop app by Anthropic; used for reasoning, design, and code review.
 
 ---
 

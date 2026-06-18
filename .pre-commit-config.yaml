@@ -35,6 +35,8 @@ repos:
         language: system
         pass_filenames: false
         args:
+          - --exclude
+          - 'https://claude\.ai'
           - README.md
           - docs/**/*.md
 

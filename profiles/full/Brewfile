@@ -82,6 +82,8 @@ cask "obsidian"
 cask "notion"
 # Open-source image editor for manual retouching and background removal
 cask "gimp"
+# Claude desktop app by Anthropic
+cask "claude"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser
@@ -106,6 +108,8 @@ cask "stats"
 cask "ukelele"
 # Open-source code editor
 cask "visual-studio-code"
+# Fast and lightweight text editor
+cask "sublime-text"
 # Rust-based terminal
 cask "warp"
 
