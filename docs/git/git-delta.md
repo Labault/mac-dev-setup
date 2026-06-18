@@ -1,7 +1,5 @@
 # git-delta
 
-## Overview
-
 [delta](https://github.com/dandavison/delta) is a syntax-highlighting pager for
 Git, diff, and grep output.
 

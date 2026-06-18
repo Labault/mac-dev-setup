@@ -1,7 +1,5 @@
 # claude-monitor
 
-## Overview
-
 [claude-monitor](https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor)
 is a command-line tool that tracks Claude API usage and costs in real time. It
 reads the local Claude Code session data and displays token consumption,

@@ -1,7 +1,5 @@
 # mise
 
-## Overview
-
 [mise](https://mise.jdx.dev/) is a runtime version manager that can manage
 multiple PHP, Node, Python, and other tool versions per project.
 

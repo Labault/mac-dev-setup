@@ -1,12 +1,14 @@
 # terminal-notifier
 
-## Overview
-
 [terminal-notifier](https://github.com/julienXX/terminal-notifier) sends macOS notifications from shell scripts.
 
 It is installed for lightweight local feedback after long-running commands.
 
+The tool is installed through Homebrew and declared in the project `Brewfile`.
+
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install terminal-notifier directly:
 

@@ -1,7 +1,5 @@
 # Excalidraw
 
-## Overview
-
 [Excalidraw](https://excalidraw.com/) is a virtual whiteboard for sketching
 hand-drawn-style diagrams. It is used in this project for architecture diagrams,
 flow charts, and visual documentation.

@@ -1,7 +1,5 @@
 # PHP Mutation Testing
 
-## Overview
-
 [Infection](https://infection.github.io/guide/) is the mutation testing tool to
 consider for mature PHP projects.
 

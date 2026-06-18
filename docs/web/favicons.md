@@ -1,7 +1,5 @@
 # RealFaviconGenerator
 
-## Overview
-
 [RealFaviconGenerator](https://realfavicongenerator.net/) is a web service that
 generates the full set of favicon assets from a single source image: PNG icons
 for every platform, the web app manifest, Apple touch icons, and the HTML markup

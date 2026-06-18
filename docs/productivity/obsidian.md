@@ -1,7 +1,5 @@
 # Obsidian
 
-## Overview
-
 [Obsidian](https://obsidian.md/) is a local-first Markdown note-taking app. Notes
 are stored as plain `.md` files in a vault directory you control. There is no
 mandatory cloud account.

@@ -1,7 +1,5 @@
 # duf
 
-## Overview
-
 [duf](https://github.com/muesli/duf) is a command-line disk usage viewer.
 
 It provides a clearer and more readable alternative to the standard `df` command for inspecting mounted filesystems and available storage space.

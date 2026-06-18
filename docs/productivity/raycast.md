@@ -1,7 +1,5 @@
 # Raycast
 
-## Overview
-
 [Raycast](https://www.raycast.com/) is a productivity launcher that replaces
 Spotlight. It provides instant app launching, clipboard history, text snippets,
 window management, and a large extension ecosystem.

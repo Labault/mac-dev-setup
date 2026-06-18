@@ -1,7 +1,5 @@
 # Claude
 
-## Overview
-
 [Claude](https://claude.ai/) is an AI assistant made by Anthropic. It is used for
 reasoning, design decisions, code review, writing, and research tasks.
 

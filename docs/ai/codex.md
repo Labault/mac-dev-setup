@@ -1,7 +1,5 @@
 # Codex CLI
 
-## Overview
-
 [Codex CLI](https://github.com/openai/codex) is an agentic coding tool by
 OpenAI that operates directly in the terminal. It reads the project context,
 proposes file changes, runs commands, and iterates until the task is complete.

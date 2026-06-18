@@ -1,12 +1,14 @@
 # Antidote
 
-## Overview
-
 [Antidote](https://antidote.sh/) is the Zsh plugin manager used by this setup.
 
 It reads the managed plugin list and generates a fast static plugin bundle for Zsh startup.
 
+The tool is installed through Homebrew and declared in the project `Brewfile`.
+
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Antidote directly:
 

@@ -1,7 +1,5 @@
 # Pre-commit
 
-## Overview
-
 [pre-commit](https://pre-commit.com/) manages automated checks that run before a Git commit is created.
 
 It helps detect problems early and keeps repository checks consistent across development environments.

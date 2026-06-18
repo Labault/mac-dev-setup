@@ -1,8 +1,12 @@
 # Warp
 
-Warp is installed and managed through Homebrew Cask.
+[Warp](https://www.warp.dev/) is a modern terminal with built-in AI assistance and shareable workflows.
+
+The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Warp:
 

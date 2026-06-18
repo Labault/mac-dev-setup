@@ -1,7 +1,5 @@
 # markdownlint-cli2
 
-## Overview
-
 [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 validates Markdown files against configurable style and structure rules.
 

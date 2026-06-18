@@ -1,7 +1,5 @@
 # autojump
 
-## Overview
-
 [autojump](https://github.com/wting/autojump) learns the directories you use most often and lets you jump to them with the `j` command.
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.

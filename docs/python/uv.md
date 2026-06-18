@@ -1,12 +1,14 @@
 # uv
 
-## Overview
-
 [uv](https://docs.astral.sh/uv/) is a fast Python package and tool manager.
 
 This setup uses it for Python-based command-line tools that should not be installed into the system Python.
 
+The tool is installed through Homebrew and declared in the project `Brewfile`.
+
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install uv directly:
 

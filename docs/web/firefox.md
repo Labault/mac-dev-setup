@@ -1,7 +1,5 @@
 # Firefox
 
-## Overview
-
 [Firefox](https://www.mozilla.org/firefox/) is the secondary browser in this setup,
 used for cross-browser testing. Its Gecko rendering engine behaves differently from
 Chrome's Blink in edge cases related to CSS layout, form behaviour, and JavaScript

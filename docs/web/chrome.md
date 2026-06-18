@@ -1,7 +1,5 @@
 # Google Chrome
 
-## Overview
-
 [Google Chrome](https://www.google.com/chrome/) is the primary development browser
 in this setup. It provides the most comprehensive DevTools suite and is the
 reference browser for Lighthouse audits.

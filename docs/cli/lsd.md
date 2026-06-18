@@ -1,7 +1,5 @@
 # lsd
 
-## Overview
-
 [lsd](https://github.com/lsd-rs/lsd) is a modern replacement for `ls` with colors, icons, file type indicators, and tree output.
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.

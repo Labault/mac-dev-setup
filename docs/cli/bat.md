@@ -1,7 +1,5 @@
 # bat
 
-## Overview
-
 [bat](https://github.com/sharkdp/bat) is a command-line file viewer with syntax
 highlighting, line numbers, Git integration, and paging.
 

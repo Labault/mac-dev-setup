@@ -1,7 +1,5 @@
 # GIMP
 
-## Overview
-
 [GIMP](https://www.gimp.org/) (GNU Image Manipulation Program) is an open-source
 image editor. It is used for manual retouching, background removal, cropping, and
 export tasks that require precision or work with sensitive images that cannot be

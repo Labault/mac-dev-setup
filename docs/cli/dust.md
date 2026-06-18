@@ -1,7 +1,5 @@
 # dust
 
-## Overview
-
 [dust](https://github.com/bootandy/dust) is a command-line disk usage analyzer.
 
 It provides a more readable overview than the standard `du` command and helps identify large files and directories quickly.

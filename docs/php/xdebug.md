@@ -1,7 +1,5 @@
 # Xdebug
 
-## Overview
-
 [Xdebug](https://xdebug.org/docs/) is the PHP debugger expected by the VS Code
 extension already installed by this setup.
 

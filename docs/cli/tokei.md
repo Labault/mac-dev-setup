@@ -1,7 +1,5 @@
 # tokei
 
-## Overview
-
 [tokei](https://github.com/XAMPPRocky/tokei) analyzes source code and reports file counts, lines of code, comments, and blank lines by language.
 
 It is useful for obtaining a quick quantitative overview of a repository.

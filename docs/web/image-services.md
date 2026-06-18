@@ -1,7 +1,5 @@
 # Image services
 
-## Overview
-
 This page documents web services useful for image manipulation during web
 development. No installation is required.
 

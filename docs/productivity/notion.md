@@ -1,7 +1,5 @@
 # Notion
 
-## Overview
-
 [Notion](https://www.notion.so/) is a collaborative workspace combining notes,
 databases, wikis, and project tracking. It is used via both the desktop app and
 the web interface.

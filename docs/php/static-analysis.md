@@ -1,7 +1,5 @@
 # PHP Static Analysis
 
-## Overview
-
 [PHPStan](https://phpstan.org/user-guide/getting-started) is the static
 analysis tool chosen for this setup. The VS Code extension list already includes
 `sanderronde.phpstan-vscode`, so projects should standardize on PHPStan rather

@@ -1,7 +1,5 @@
 # CleanShot X
 
-## Overview
-
 [CleanShot X](https://cleanshot.com/) is a screenshot and screen recording tool
 for macOS. It replaces the native screenshot workflow with annotations, scrolling
 capture, OCR, GIF recording, and a cloud upload option.

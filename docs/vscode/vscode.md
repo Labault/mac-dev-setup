@@ -1,8 +1,12 @@
 # Visual Studio Code
 
-Visual Studio Code is installed and managed through Homebrew Cask.
+[Visual Studio Code](https://code.visualstudio.com/) is the primary code editor for this setup.
+
+The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Visual Studio Code with Homebrew:
 

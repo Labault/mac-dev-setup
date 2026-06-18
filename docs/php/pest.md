@@ -1,7 +1,5 @@
 # Pest
 
-## Overview
-
 [Pest](https://pestphp.com/docs/installation) is the preferred test interface to
 evaluate for new PHP projects in this setup. PHPUnit remains the underlying
 engine and compatibility layer.

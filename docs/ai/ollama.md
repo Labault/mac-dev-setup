@@ -1,7 +1,5 @@
 # Ollama
 
-## Overview
-
 [Ollama](https://ollama.com/) runs large language models locally on your Mac.
 It is used for privacy-sensitive tasks, offline work, and local API integrations
 where sending data to a cloud service is not acceptable.

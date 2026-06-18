@@ -1,7 +1,5 @@
 # CodexBar
 
-## Overview
-
 [CodexBar](https://codexbar.app/) is a macOS menu bar app that tracks usage and
 costs for AI coding tools, including Claude and Codex. It provides a quick
 at-a-glance view of token consumption and spend without leaving the desktop.

@@ -1,7 +1,5 @@
 # PHP Coding Standards
 
-## Overview
-
 Use automated formatting and refactoring to keep PHP projects consistent:
 
 - PHP-CS-Fixer for formatting and style normalization;

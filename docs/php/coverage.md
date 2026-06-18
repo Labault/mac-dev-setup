@@ -1,7 +1,5 @@
 # PHP Coverage
 
-## Overview
-
 Use coverage to measure which code paths are exercised by the test suite.
 
 For this setup:

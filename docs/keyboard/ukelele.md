@@ -1,12 +1,14 @@
 # Ukelele
 
-## Overview
-
 [Ukelele](https://software.sil.org/ukelele/) is a Unicode keyboard layout editor for macOS.
 
 It is installed because this repository ships a custom French OSS keyboard layout and occasionally needs a graphical editor to inspect or evolve it.
 
+The tool is installed through Homebrew and declared in the project `Brewfile`.
+
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Ukelele directly:
 

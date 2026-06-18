@@ -1,12 +1,14 @@
 # libpq
 
-## Overview
-
 [libpq](https://www.postgresql.org/docs/current/libpq.html) provides PostgreSQL client libraries and command-line tools without installing the full PostgreSQL server.
 
 It is included for projects that need `psql`, `pg_dump`, client headers, or Composer packages that compile against PostgreSQL libraries.
 
+The tool is installed through Homebrew and declared in the project `Brewfile`.
+
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install libpq directly:
 

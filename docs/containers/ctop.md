@@ -1,7 +1,5 @@
 # ctop
 
-## Overview
-
 [ctop](https://github.com/bcicen/ctop) is an interactive terminal dashboard
 for monitoring Docker containers.
 

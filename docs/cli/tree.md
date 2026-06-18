@@ -1,7 +1,5 @@
 # tree
 
-## Overview
-
 [tree](https://gitlab.com/OldManProgrammer/unix-tree) displays directory structures as a recursive tree.
 
 It is useful for inspecting a project layout, documenting repository structure, and sharing a concise overview of files and folders.

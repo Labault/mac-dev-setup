@@ -1,7 +1,5 @@
 # lychee
 
-## Overview
-
 [lychee](https://github.com/lycheeverse/lychee) checks links in Markdown,
 HTML, and other text-based files.
 

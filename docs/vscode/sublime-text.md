@@ -1,7 +1,5 @@
 # Sublime Text
 
-## Overview
-
 [Sublime Text](https://www.sublimetext.com/) is a fast and lightweight text
 editor. It is used alongside VS Code for quick file edits, large file handling,
 and situations where a minimal editor without project context is preferable.

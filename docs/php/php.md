@@ -1,7 +1,5 @@
 # PHP and Symfony
 
-## Overview
-
 The full profile installs the PHP runtime used by local Symfony projects:
 
 - `php` for the Homebrew-managed PHP runtime;

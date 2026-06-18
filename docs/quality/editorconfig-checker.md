@@ -1,7 +1,5 @@
 # editorconfig-checker
 
-## Overview
-
 [editorconfig-checker](https://github.com/editorconfig-checker/editorconfig-checker)
 verifies that repository files respect the formatting rules declared in
 `.editorconfig`.

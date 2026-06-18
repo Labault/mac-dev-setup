@@ -1,7 +1,5 @@
 # Sentry
 
-## Overview
-
 [Sentry](https://sentry.io/) is a cloud error tracking and performance monitoring
 platform. It captures unhandled exceptions, logs structured context (request,
 user, session), and groups recurring errors into issues.

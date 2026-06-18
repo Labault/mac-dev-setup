@@ -1,7 +1,5 @@
 # Bruno
 
-## Overview
-
 [Bruno](https://www.usebruno.com/) is an open-source API client. Unlike cloud-based
 alternatives, Bruno stores collections as plain text files on disk, which means
 they can be committed alongside the project they describe.

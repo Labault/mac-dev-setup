@@ -1,7 +1,5 @@
 # Gitmoji
 
-## Overview
-
 [Gitmoji](https://gitmoji.dev/) is a convention that prefixes each commit
 message with an emoji describing the intent of the change. The emoji gives an
 at-a-glance summary of what a commit does before you read the text.
