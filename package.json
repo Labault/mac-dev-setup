@@ -1,6 +1,6 @@
 {
   "name": "mac-dev-setup",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Curated macOS development setup managed through a small mac CLI.",
   "main": "index.js",
   "directories": {

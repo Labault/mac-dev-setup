@@ -8,6 +8,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.0.0 - 2026-06-18
+
 ### Added
 
 - `mac` command-line interface with a modular, auto-discovered command
