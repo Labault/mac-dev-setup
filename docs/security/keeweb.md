@@ -6,6 +6,11 @@
 
 It is installed as a desktop option for working with password databases without committing secrets to the repository.
 
+> **Maintenance note:** KeeWeb's active development has slowed considerably. It
+> still reads and writes the standard KDBX format, so your data is not locked
+> in, but if you want an actively maintained alternative for the same format,
+> consider [KeePassXC](https://keepassxc.org/) (`brew install --cask keepassxc`).
+
 ## Installation
 
 Install KeeWeb directly:

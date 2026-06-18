@@ -90,7 +90,7 @@ du -sh ~/.ollama/models
 | Sensitive data that must not leave the machine | Ollama |
 | Offline work | Ollama |
 | Local Symfony integration and testing | Ollama |
-| Complex reasoning or large context | Claude / GPT-4o |
+| Complex reasoning or large context | Claude / a frontier cloud model |
 | Fastest iteration speed | Claude Code / Codex |
 
 ## Rollback

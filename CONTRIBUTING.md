@@ -46,16 +46,17 @@ Keep changes focused and avoid combining unrelated work.
 
 ## Validation
 
-Before opening a pull request, run:
+Before opening a pull request, run the test suite and the quality hooks:
 
 ```bash
+npm test                  # Bats test suite
 pre-commit run --all-files
 ```
 
-When GitHub Actions workflows are modified, also run:
+When GitHub Actions workflows are modified, also lint every workflow file:
 
 ```bash
-actionlint .github/workflows/ci.yml
+actionlint .github/workflows/*.yml
 ```
 
 The repository quality job can be tested locally with Act:

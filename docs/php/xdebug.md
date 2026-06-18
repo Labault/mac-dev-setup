@@ -42,26 +42,21 @@ xdebug.client_host=127.0.0.1
 xdebug.client_port=9003
 ```
 
-Enable Xdebug for a debugging session by moving or symlinking the file into the
-active `conf.d` directory as `99-xdebug.ini`, then restart the relevant PHP
-process.
-
-Disable it again by removing that enabled file:
+In this setup you do not edit these files by hand. MacDevSetup ships a helper
+that manages them for you:
 
 ```bash
-rm "$(brew --prefix)/etc/php/$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')/conf.d/99-xdebug.ini"
+mac php xdebug status    # show whether Xdebug is enabled or disabled
+mac php xdebug enable     # activate Xdebug for a debugging session
+mac php xdebug disable    # deactivate it again
 ```
 
-MacDevSetup also exposes a small helper:
-
-```bash
-mac php xdebug status
-mac php xdebug enable
-mac php xdebug disable
-```
-
-The helper manages `99-xdebug.ini` in the active Homebrew PHP `conf.d`
-directory and keeps `99-xdebug.ini.disabled` as the reusable disabled template.
+The helper keeps `99-xdebug.ini.disabled` as the reusable disabled template
+(created automatically on first run). `enable` copies it to `99-xdebug.ini` in
+the active Homebrew PHP `conf.d` directory; `disable` removes that copy. The
+template is never moved or symlinked, so it always stays available. Restart the
+relevant PHP process (or `symfony server:stop && symfony server:start`) after
+toggling.
 
 ## VS Code Workflow
 

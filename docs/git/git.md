@@ -161,11 +161,13 @@ git config --global --includes --get-regexp \
 
 ## Rollback
 
-Remove the include from the global Git configuration:
+Remove the include from the global Git configuration (use the same path you
+set during installation):
 
 ```bash
+REPO_DIR="$HOME/path/to/mac-dev-setup"
 git config --global --fixed-value --unset-all include.path \
-  "$HOME/Documents/Projects/mac-dev-setup/configs/git/.gitconfig"
+  "$REPO_DIR/configs/git/.gitconfig"
 ```
 
 Review the global configuration afterward:

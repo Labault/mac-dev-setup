@@ -47,7 +47,7 @@ Useful flags:
 
 ```bash
 codex --help
-codex "task description" --model gpt-4o
+codex "task description" --model <model-name>   # see `codex --help` for current models
 ```
 
 ## Workflow
@@ -65,7 +65,7 @@ Codex works best on well-scoped, atomic tasks:
 | Aspect | Codex CLI | Claude Code |
 | --- | --- | --- |
 | Provider | OpenAI | Anthropic |
-| Model | GPT-4o (default) | Claude Sonnet / Opus |
+| Model | OpenAI's current default (see `codex --help`) | Claude Sonnet / Opus |
 | Auth | `OPENAI_API_KEY` env var | Anthropic account |
 | Billing | OpenAI API usage | Anthropic subscription or API |
 | Project instructions | `AGENTS.md` | `.claude/CLAUDE.md` |

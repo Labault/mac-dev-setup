@@ -87,15 +87,15 @@ pre-commit run gitleaks --all-files
 
 Gitleaks is an additional safety layer. Secrets must still never be deliberately added to the repository.
 
-## Planned hooks
+## Additional hooks
 
-Additional accepted tools will be integrated when relevant files exist:
+Beyond the built-in hooks, the configuration runs ShellCheck (shell scripts),
+markdownlint-cli2 (Markdown), lychee (link checking), editorconfig-checker, and
+Actionlint (GitHub Actions workflows). Gitleaks runs as a secret scanner.
 
-- ShellCheck for shell scripts;
-- Actionlint for GitHub Actions workflows;
-- Hadolint for Dockerfiles.
-
-Hooks should not be enabled before the repository contains files they can meaningfully validate.
+Hadolint (Dockerfiles) is intentionally not enabled yet: the repository has no
+Dockerfiles for it to validate. Hooks are only added once relevant files
+exist.
 
 ## Troubleshooting
 

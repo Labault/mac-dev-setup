@@ -52,8 +52,10 @@ Profiles are defined under:
 profiles/<name>/Brewfile
 ```
 
-To add a new profile, create a new directory under `profiles/`, add a
-`Brewfile`, and allow it in `scripts/lib/profiles.sh`.
+To add a new profile, create a new directory under `profiles/` and add a
+`Brewfile`. Any profile whose name matches the safe charset (`[A-Za-z0-9_-]`)
+and ships a `Brewfile` is accepted automatically — there is no allowlist to
+edit in `scripts/lib/profiles.sh`.
 
 ## Supported steps
 

@@ -344,10 +344,11 @@ Log out and log back in, then check:
 System Settings > Keyboard > Text Input > Edit
 ```
 
-If the layout still does not appear, rerun the keyboard setup step:
+If the layout still does not appear, reinstall it (keyboard install is opt-in
+and is not part of `mac setup`):
 
 ```bash
-mac setup --profile full
+mac keyboard
 ```
 
 ### macOS defaults do not appear to apply

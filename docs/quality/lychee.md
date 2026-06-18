@@ -71,9 +71,14 @@ The hook is configured as a local system hook:
   language: system
   pass_filenames: false
   args:
+    - --exclude
+    - 'https://claude\.ai'
     - README.md
     - docs/**/*.md
 ```
+
+The `--exclude` entry skips `claude.ai`, which blocks automated link checkers
+and would otherwise report false failures.
 
 Run only this hook:
 

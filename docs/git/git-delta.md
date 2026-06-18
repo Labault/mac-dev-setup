@@ -29,28 +29,24 @@ brew list --formula | grep -x git-delta
 
 ## Git integration
 
-Configure Git to use delta as its pager:
+In this setup, delta is **already configured** by the versioned
+`configs/git/.gitconfig` (see [Git setup](git.md)), which sets it as the pager,
+the interactive diff filter, and enables navigation and line numbers. Once that
+file is included in your global config, no extra step is needed.
+
+The manual commands below are only for using delta **outside** this repository's
+configuration (e.g. on a machine where you have not included `.gitconfig`):
 
 ```bash
 git config --global core.pager delta
 git config --global interactive.diffFilter 'delta --color-only'
-```
-
-Enable improved navigation for interactive Git commands:
-
-```bash
 git config --global delta.navigate true
-```
-
-Enable line numbers:
-
-```bash
 git config --global delta.line-numbers true
 ```
 
 ## Recommended configuration
 
-A practical global configuration is:
+The versioned `configs/git/.gitconfig` already contains the equivalent of:
 
 ```gitconfig
 [core]

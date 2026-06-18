@@ -30,10 +30,12 @@ brew list --cask | grep -x gimp
 ### Background removal
 
 1. Open the image (`File → Open`).
-2. Add an alpha channel: `Image → Flatten Image` then `Image → Alpha to Selection`,
-  or directly `Filters → Colors → Color to Alpha`.
-3. Use `Fuzzy Select` (magic wand) to select the background.
-4. Press `Delete` to remove it.
+2. Add transparency support: `Layer → Transparency → Add Alpha Channel`
+  (without it, deleted areas fill with the background color instead of
+  becoming transparent).
+3. Use `Fuzzy Select` (magic wand) to select the background, or
+  `Colors → Color to Alpha` to drop a uniform color directly.
+4. Press `Delete` to remove the selection.
 5. Export as PNG to preserve transparency: `File → Export As → filename.png`.
 
 ### Cropping and resizing

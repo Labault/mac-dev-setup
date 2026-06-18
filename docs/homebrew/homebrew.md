@@ -49,56 +49,17 @@ A successful setup returns:
 The Brewfile's dependencies are satisfied.
 ```
 
-## Formulae
+## Packages
 
-### Shell and terminal
+The complete, classified list of every formula and cask — with its role
+(used / installed / tooling) — lives in a single source of truth:
 
-- `antidote`: manages Zsh plugins.
-- `autojump`: provides fast navigation to frequently used directories.
-- `lsd`: provides a modern and more visual alternative to `ls`.
-- `terminal-notifier`: sends macOS notifications from terminal commands and scripts.
-- `tlrc`: provides the maintained official `tldr` command for concise,
-  example-driven command documentation.
+- [`docs/homebrew/inventory.md`](inventory.md)
 
-### PHP and Symfony
-
-- `php`: provides the PHP runtime used by local Symfony projects.
-- `composer`: manages PHP project dependencies.
-- `symfony-cli/tap/symfony-cli`: provides the Symfony CLI for local development and project tooling.
-- `libpq`: provides PostgreSQL client libraries and command-line tools without installing the full PostgreSQL server.
-
-### Development utilities
-
-- `act`: executes GitHub Actions workflows locally using a container runtime.
-- `actionlint`: validates GitHub Actions workflow files and expressions.
-- `gh`: provides the GitHub CLI for repository, pull request, issue, and workflow operations.
-- `glances`: provides detailed system monitoring from the terminal, including remote sessions.
-- `gitleaks`: detects secrets, credentials, and sensitive values in repositories.
-- `hadolint`: analyzes Dockerfiles for common mistakes and unsafe patterns.
-- `pre-commit`: manages repository hooks that run checks before commits.
-- `shellcheck`: detects errors and unsafe patterns in shell scripts.
-- `uv`: installs and runs Python-based command-line tools in isolated environments.
-
-## Casks
-
-### Development
-
-- `beekeeper-studio`: provides a graphical client for browsing and administering SQL databases.
-- `orbstack`: provides the local Docker-compatible container runtime and Linux virtualization environment.
-
-### Menu bar and monitoring
-
-- `codexbar`: displays Codex and Claude usage information in the macOS menu bar.
-- `jordanbaird-ice`: organizes and hides menu bar items.
-- `stats`: displays system metrics directly in the menu bar.
-
-### Security
-
-- `keeweb`: manages KeePass-compatible password databases in the KDBX format.
-
-### macOS maintenance
-
-- `pearcleaner`: removes macOS applications and helps identify related leftover files.
+Maintaining the list in one place avoids the drift that comes from duplicating
+it across documents. The [README "What's included" tables](../../README.md#whats-included)
+group the same tools by purpose with a short description and a link to each
+tool's dedicated page.
 
 ## Maintenance
 

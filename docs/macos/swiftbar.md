@@ -139,12 +139,14 @@ time.
 
 ## Dropdown actions
 
-Lines after `---` in the script output can be made clickable using `bash=` parameters:
+Lines after `---` in the script output can be made interactive with SwiftBar
+parameters such as `refresh`, `href`, and `bash` (run a script on click):
 
 ```text
 ---
 Refresh now | refresh=true
 Open dashboard | href=https://example.com/dashboard
+Run backup | bash=/path/to/backup.sh terminal=false
 ```
 
 ## Hiding a plugin temporarily
