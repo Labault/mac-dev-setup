@@ -96,6 +96,47 @@ fi
 printf "%b\n" "$DETAIL"
 ```
 
+This repository also ships a reusable plugin:
+
+```bash
+mkdir -p ~/Documents/swiftbar-plugins
+mkdir -p ~/.config/swiftbar
+ln -sf "$PWD/scripts/swiftbar/sites.5m.sh" ~/Documents/swiftbar-plugins/sites.5m.sh
+cp configs/swiftbar/sites.conf.example ~/.config/swiftbar/sites.conf
+chmod +x scripts/swiftbar/sites.5m.sh
+```
+
+Then edit the local config:
+
+```text
+~/.config/swiftbar/sites.conf
+```
+
+Keep configuration files outside `~/Documents/swiftbar-plugins/`. SwiftBar may
+automatically mark files in its plugin directory as executable, so non-plugin
+files can appear as broken `?` menu bar items.
+
+Each non-comment line follows this format:
+
+```text
+label|url|expected_statuses|timeout_seconds|slow_threshold_ms
+```
+
+Example:
+
+```text
+Homepage|https://example.com|200|8|1500
+API Health|https://api.example.com/health|200,204|5|800
+Redirect Check|https://example.com/login|200,302|8|1500
+```
+
+The plugin shows `Website OK` when every check matches the expected HTTP status,
+and `Website FAIL` when at least one site times out or returns an unexpected
+status. The `slow_threshold_ms` field is optional and defaults to `1500`.
+Dropdown rows are clickable and open the checked URL. The dropdown also shows
+the average response time, number of slow sites, slowest site, and last check
+time.
+
 ## Dropdown actions
 
 Lines after `---` in the script output can be made clickable using `bash=` parameters:
