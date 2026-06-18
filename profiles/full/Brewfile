@@ -72,6 +72,12 @@ brew "uv"
 
 # GUI apps
 
+# Open-source API client with collections stored as plain files
+cask "bruno"
+# Web browser — primary development browser
+cask "google-chrome"
+# Web browser — cross-browser testing
+cask "firefox"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
 # Menu bar usage monitor for Codex and Claude

@@ -52,8 +52,16 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 
 ---
 
+### Browsers and API clients
+
+- `google-chrome` → primary development browser.
+- `bruno` → git-friendly API client; collections stored as plain files.
+
+---
+
 ## 🟡 INSTALLED (optional / partial usage)
 
+- `firefox` → secondary browser for cross-browser testing.
 - `duf` → disk usage viewer.
 - `dust` → alternative disk usage analyzer.
 - `editorconfig-checker` → formatting enforcement.
