@@ -8,22 +8,42 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.3.0 - 2026-06-18
+
+### Added
+
+- `mac php xdebug status|enable|disable` command to manage the Homebrew PHP
+  Xdebug configuration while keeping it disabled by default.
+- PHP/Symfony toolchain documentation covering the shared Homebrew runtime,
+  Xdebug policy, and PHPStan project setup.
+- PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer, Rector,
+  Infection mutation testing, and mise evaluation.
+
+## 1.2.0 - 2026-06-18
+
 ### Changed
 
-- Started the smarter doctor milestone by making `mac doctor` profile-aware
-  with `brew bundle check` diagnostics and setup reconciliation guidance.
+- Made `mac doctor` profile-aware: it now runs `brew bundle check` against the
+  active profile and reports which declared packages are missing.
 - Added non-blocking Homebrew drift detection to `mac doctor` for installed
-  packages that are not declared by any setup profile.
+  packages not declared by any setup profile.
 - Added managed Zsh configuration drift reporting to `mac doctor`.
-- Added `mac doctor --fix` suggestions that print reconciliation commands
-  without executing them.
+- Added `mac doctor --fix` flag that prints reconciliation commands without
+  executing them.
 - Clarified `mac doctor` status output with explicit in-sync, drift, and
   missing markers.
-- Updated the swaks documentation link to its GitHub repository to avoid
-  intermittent documentation link-check timeouts.
-- Added focused documentation for the first `v1.1.0` inventory cleanup batch:
-  Antidote, autojump, claude-monitor, Ice, KeeWeb, libpq, lsd, Stats, swaks,
-  terminal-notifier, Ukelele, and uv.
+
+## 1.1.0 - 2026-06-18
+
+### Added
+
+- BATS consistency check that fails when a Homebrew profile entry is missing
+  from the inventory (`docs/homebrew/inventory.md`).
+
+### Changed
+
+- Added focused inventory documentation for Antidote, autojump, claude-monitor,
+  Ice, KeeWeb, libpq, lsd, Stats, swaks, terminal-notifier, Ukelele, and uv.
 - Expanded the Homebrew inventory so every profile package is represented.
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
 - Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only
@@ -32,17 +52,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `tlrc` client while keeping the `tldr` command available.
 - Removed the deprecated `vial` cask from the full profile until Homebrew offers
   a trusted installation path again.
-
-### Added
-
-- Added `mac php xdebug status|enable|disable` to manage the Homebrew PHP
-  Xdebug config while keeping it disabled by default.
-- Added initial PHP/Symfony toolchain documentation for the shared Homebrew
-  runtime, Xdebug policy, and PHPStan project setup.
-- Added PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer,
-  Rector, Infection, and mise evaluation.
-- Added a BATS consistency check that fails when a Homebrew profile entry is
-  missing from the inventory.
+- Updated the swaks documentation link to its GitHub repository to avoid
+  intermittent documentation link-check timeouts.
 
 ## 1.0.0 - 2026-06-18
 
