@@ -8,6 +8,14 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.5.0 - 2026-06-18
+
+### Added
+
+- Added Raycast, CleanShot X, Obsidian, Notion, and GIMP to the full profile
+  Brewfile with inventory classification and focused documentation under
+  `docs/productivity/`.
+
 ## 1.4.0 - 2026-06-18
 
 ### Added
