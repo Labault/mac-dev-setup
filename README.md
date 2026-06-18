@@ -228,6 +228,8 @@ mac help
 You should see a list of commands. If `mac` is not found, open a new tab — your
 shell likely hasn’t reloaded yet.
 
+![mac help command output](docs/assets/screenshots/readme/mac-help.webp)
+
 ---
 
 ### Common first-run issues
@@ -271,6 +273,8 @@ Want to preview what it *would* do without changing anything?
 ```bash
 mac setup --dry-run
 ```
+
+![mac setup dry-run output](docs/assets/screenshots/readme/mac-setup-dry-run.webp)
 
 ---
 
