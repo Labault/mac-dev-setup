@@ -72,6 +72,8 @@ brew "uv"
 
 # GUI apps
 
+# Productivity launcher — replaces Spotlight with clipboard history, snippets, and window management
+cask "raycast"
 # Open-source API client with collections stored as plain files
 cask "bruno"
 # Web browser — primary development browser
