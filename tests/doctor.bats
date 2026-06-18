@@ -17,7 +17,7 @@ make_common_doctor_path() {
   printf '#!/bin/sh\nexit 0\n' >"$bin/zsh"
   printf '#!/bin/sh\nexit 0\n' >"$bin/mac"
 
-  chmod +x "$bin"/*
+  chmod +x "$bin/sw_vers" "$bin/uname" "$bin/git" "$bin/zsh" "$bin/mac"
 }
 
 @test "doctor exits non-zero and reports the missing tool" {
