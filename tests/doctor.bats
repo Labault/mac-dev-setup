@@ -7,7 +7,7 @@ setup() {
 make_common_doctor_path() {
   bin="$(mktemp -d)"
 
-  for tool in bash dirname find basename sort paste; do
+  for tool in bash dirname find basename sort paste sed mktemp comm rm cat; do
     ln -s "$(command -v "$tool")" "$bin/$tool"
   done
 
@@ -88,4 +88,50 @@ BREW
   [ "$status" -ne 0 ]
   [[ "$output" == *"profile packages missing or outdated"* ]]
   [[ "$output" == *"Run: mac setup --profile minimal"* ]]
+}
+
+@test "doctor reports no Homebrew drift when installed packages are declared" {
+  make_common_doctor_path
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"no undeclared Homebrew packages"* ]]
+}
+
+@test "doctor warns about installed packages missing from all profiles" {
+  make_common_doctor_path
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash local-only-tool ;;
+  list\ --cask) printf '%s\n' visual-studio-code local-only-app ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"undeclared Homebrew packages installed"* ]]
+  [[ "$output" == *"local-only-tool"* ]]
+  [[ "$output" == *"local-only-app"* ]]
 }

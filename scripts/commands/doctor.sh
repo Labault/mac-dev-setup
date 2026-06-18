@@ -94,6 +94,51 @@ check_profile_brewfile() {
   fi
 }
 
+declared_homebrew_packages() {
+  for profile in $(profile_list "$REPO_DIR"); do
+    brewfile="$(profile_brewfile "$REPO_DIR" "$profile")"
+
+    sed -n \
+      -e 's/^[[:space:]]*brew[[:space:]]*"\([^"]*\)".*/\1/p' \
+      -e 's/^[[:space:]]*cask[[:space:]]*"\([^"]*\)".*/\1/p' \
+      "$brewfile"
+  done | sed 's#.*/##' | sort -u
+}
+
+installed_homebrew_packages() {
+  {
+    brew list --formula 2>/dev/null || true
+    brew list --cask 2>/dev/null || true
+  } | sort -u
+}
+
+check_homebrew_drift() {
+  if ! command -v brew >/dev/null; then
+    warn "brew unavailable; skipping undeclared package check"
+    return
+  fi
+
+  declared_file="$(mktemp)"
+  installed_file="$(mktemp)"
+  drift_file="$(mktemp)"
+
+  declared_homebrew_packages >"$declared_file"
+  installed_homebrew_packages >"$installed_file"
+  comm -13 "$declared_file" "$installed_file" >"$drift_file"
+
+  if [ -s "$drift_file" ]; then
+    warn "undeclared Homebrew packages installed"
+    while IFS= read -r package; do
+      log_line "  - $package"
+    done <"$drift_file"
+    log_line "Consider adding intentional tools to a profile Brewfile, or uninstalling local-only packages."
+  else
+    success "no undeclared Homebrew packages"
+  fi
+
+  rm -f "$declared_file" "$installed_file" "$drift_file"
+}
+
 main() {
   parse_args "$@"
 
@@ -120,6 +165,7 @@ main() {
   fi
 
   check_profile_brewfile "$PROFILE"
+  check_homebrew_drift
 
   log_section "mac CLI"
 
