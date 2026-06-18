@@ -42,6 +42,15 @@ jobs:
           brew update
           brew analytics off
 
+      - name: Normalize Homebrew runner state
+        run: |
+          # GitHub-hosted macOS runners can ship stale taps, broken cache links,
+          # and deprecated kegs unrelated to this repository's Brewfiles.
+          brew cleanup --prune=all || true
+          brew untap homebrew/core homebrew/cask || true
+          brew untap aws/tap azure/bicep hashicorp/tap || true
+          brew uninstall --ignore-dependencies openssl@1.1 || true
+
       - name: Prepare scripts
         run: chmod +x scripts/*.sh
 
