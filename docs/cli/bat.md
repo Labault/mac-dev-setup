@@ -26,7 +26,7 @@ bat --version
 brew list --formula | grep -x bat
 ```
 
-## Basic usage
+## Usage
 
 Display a file:
 

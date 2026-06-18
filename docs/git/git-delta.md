@@ -67,7 +67,7 @@ The versioned `configs/git/.gitconfig` already contains the equivalent of:
 The exact visual settings can be adjusted later without changing the tool
 installation.
 
-## Basic usage
+## Usage
 
 Display a diff through delta:
 

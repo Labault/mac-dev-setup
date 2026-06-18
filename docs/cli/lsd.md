@@ -4,13 +4,13 @@
 
 [lsd](https://github.com/lsd-rs/lsd) is a modern replacement for `ls` with colors, icons, file type indicators, and tree output.
 
-It is installed because the Zsh aliases use it for daily directory browsing.
+The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
 
-lsd is part of the curated Homebrew profiles.
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
-Install it directly:
+Install lsd directly:
 
 ```bash
 brew install lsd
@@ -43,24 +43,16 @@ Show a tree:
 lsd --tree --depth 2
 ```
 
-## Configuration
+The repository's Zsh aliases define `ll`, which maps to `lsd -la`.
 
-This repository exposes aliases in `configs/zsh/alias.sh`.
-
-The most important one is:
-
-```bash
-ll
-```
-
-It maps to a detailed listing powered by lsd.
+lsd's icons require a Nerd Font (a patched font that includes extra glyphs), the same dependency Powerlevel10k needs.
 
 ## Rollback
 
-Remove lsd with:
+Remove lsd with Homebrew:
 
 ```bash
 brew uninstall lsd
 ```
 
-Then remove or adjust aliases that call `lsd`.
+Then remove its entry from `profiles/full/Brewfile`, and remove or adjust aliases that call `lsd`.

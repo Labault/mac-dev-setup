@@ -27,7 +27,7 @@ lychee --version
 brew list --formula | grep -x lychee
 ```
 
-## Basic usage
+## Usage
 
 Check the README and all documentation files:
 
@@ -90,26 +90,7 @@ The hook scans the complete documentation set instead of only staged files.
 
 ## Interpreting results
 
-Lychee may report:
-
-- broken links;
-- unreachable hosts;
-- redirected URLs;
-- invalid local paths;
-- unsupported schemes;
-- timeouts;
-- blocked requests.
-
-Not every network failure means that a link is permanently broken.
-
-A website may temporarily fail because of:
-
-- rate limiting;
-- bot protection;
-- DNS issues;
-- temporary downtime;
-- authentication requirements;
-- network restrictions.
+Lychee reports broken links, unreachable hosts, redirected URLs, invalid local paths, unsupported schemes, timeouts, and blocked requests. Not every network failure means a link is permanently broken, since rate limiting, bot protection, DNS issues, temporary downtime, or authentication requirements can cause transient failures.
 
 ## Local links
 

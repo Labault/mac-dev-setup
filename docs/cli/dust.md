@@ -25,7 +25,7 @@ dust --version
 brew list --formula | grep -x dust
 ```
 
-## Basic usage
+## Usage
 
 Analyze the current directory:
 

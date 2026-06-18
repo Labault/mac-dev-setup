@@ -25,7 +25,7 @@ duf --version
 brew list --formula | grep -x duf
 ```
 
-## Basic usage
+## Usage
 
 Display mounted filesystems:
 

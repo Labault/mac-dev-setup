@@ -1,6 +1,6 @@
 # Release process
 
-This document describes the release workflow for Mac Dev Setup.
+This document describes the release workflow for MacDevSetup.
 
 The project uses semantic versioning where applicable and maintains notable changes in the root `CHANGELOG.md` file.
 

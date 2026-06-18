@@ -30,17 +30,6 @@ Check that the application is installed through Homebrew:
 brew list --cask beekeeper-studio
 ```
 
-## Supported use cases
-
-Beekeeper Studio can be used to:
-
-- connect to local and remote SQL databases;
-- browse schemas, tables, columns, indexes, and constraints;
-- run SQL queries;
-- inspect and edit data;
-- save frequently used queries;
-- manage several database connections from one interface.
-
 For this setup, it is primarily intended for PostgreSQL databases used by Symfony projects.
 
 ## PostgreSQL connections
@@ -95,8 +84,6 @@ Before modifying production data:
 3. Back up important data before destructive operations.
 4. Review every `UPDATE`, `DELETE`, or schema-changing query before execution.
 5. Use an explicit transaction when possible.
-
-A graphical client makes database access convenient, but does not protect against destructive SQL.
 
 ## Saved connections and local data
 

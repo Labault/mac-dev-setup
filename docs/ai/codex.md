@@ -32,7 +32,7 @@ export OPENAI_API_KEY="..."
 Add this export to `~/.shell/local.zsh` (gitignored) so it is available in
 every session without being versioned.
 
-## Basic usage
+## Usage
 
 Run Codex in any project directory:
 

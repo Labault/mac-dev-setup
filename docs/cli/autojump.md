@@ -4,9 +4,11 @@
 
 [autojump](https://github.com/wting/autojump) learns the directories you use most often and lets you jump to them with the `j` command.
 
-It is installed in the full profile and loaded through the managed Zsh configuration.
+The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
+
+It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install autojump directly:
 
@@ -66,4 +68,4 @@ Remove autojump with:
 brew uninstall autojump
 ```
 
-Then remove it from the managed Zsh plugin list if it is no longer wanted.
+Then remove its entry from `profiles/full/Brewfile` and remove it from the managed Zsh plugin list if it is no longer wanted.

@@ -40,7 +40,7 @@ To remove an application:
 4. Confirm that none of the selected files contain data that must be preserved.
 5. Run the removal.
 
-Pearcleaner should be used as a review tool, not as an automatic permission to delete every detected file.
+Pearcleaner is a review tool, not an automatic deletion tool: before confirming, back up any important data, check whether the application uses cloud synchronization, and make sure it is not still running. Extra care is required for password managers, database clients, development tools, virtual machines, and container runtimes.
 
 ## Related files
 
@@ -67,18 +67,6 @@ Application Support and container directories can contain:
 - user preferences;
 - licenses;
 - application-specific documents.
-
-## Before removing an application
-
-Before uninstalling an application with important local data:
-
-1. Export or back up the required data.
-2. Check whether the application uses cloud synchronization.
-3. Review Application Support and container directories.
-4. Confirm that the application is not still running.
-5. Review every file selected by Pearcleaner before deletion.
-
-Extra care is required for password managers, database clients, development tools, virtual machines, and container runtimes.
 
 ## Full disk access
 

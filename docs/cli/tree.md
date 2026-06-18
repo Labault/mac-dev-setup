@@ -25,7 +25,7 @@ tree --version
 brew list --formula | grep -x tree
 ```
 
-## Basic usage
+## Usage
 
 Display the current directory structure:
 
@@ -93,11 +93,8 @@ The generated file should only be committed when it provides lasting documentati
 
 tree is useful for:
 
-- documenting a repository layout;
-- reviewing a new project;
+- documenting or reviewing a repository layout;
 - sharing an architecture overview;
-- inspecting generated directories;
-- preparing bug reports or technical discussions;
 - comparing folder structures before and after a change.
 
 ## Safety
@@ -106,14 +103,7 @@ tree is read-only.
 
 It displays filesystem contents and does not modify files or directories.
 
-Be careful before sharing its output publicly because file and directory names may reveal:
-
-- project names;
-- usernames;
-- client information;
-- environment names;
-- internal architecture;
-- sensitive filenames.
+Be careful before sharing its output publicly, as file and directory names can expose sensitive paths and filenames.
 
 ## Troubleshooting
 

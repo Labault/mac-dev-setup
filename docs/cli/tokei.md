@@ -25,7 +25,7 @@ tokei --version
 brew list --formula | grep -x tokei
 ```
 
-## Basic usage
+## Usage
 
 Analyze the current directory:
 
@@ -82,24 +82,13 @@ Structured output can be used in scripts, reports, or automated checks.
 
 tokei is useful for:
 
-- understanding the language distribution of a repository;
-- tracking project growth;
+- tracking project growth over time;
 - comparing branches or project versions;
-- estimating the size of a codebase;
-- detecting unexpectedly large generated directories;
-- preparing technical reports.
+- detecting unexpectedly large generated directories.
 
 ## Interpretation
 
-Line counts are quantitative indicators, not direct measures of:
-
-- code quality;
-- maintainability;
-- complexity;
-- productivity;
-- project value.
-
-A larger codebase is not necessarily better, and fewer lines do not automatically mean simpler code.
+Line counts measure size, not quality — treat them as a rough indicator.
 
 ## Safety
 

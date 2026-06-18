@@ -72,7 +72,7 @@ Then run:
 ctop
 ```
 
-## Basic usage
+## Usage
 
 Launch the dashboard:
 
@@ -96,10 +96,7 @@ The exact shortcuts can be displayed from the built-in help screen.
 ctop is useful for:
 
 - monitoring several containers at once;
-- identifying high CPU or memory usage;
 - checking container restart loops;
-- inspecting network activity;
-- viewing container processes;
 - diagnosing a local Docker Compose environment.
 
 ## Relationship with other tools
