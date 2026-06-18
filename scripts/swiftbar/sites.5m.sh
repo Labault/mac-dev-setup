@@ -9,6 +9,9 @@ CONFIG_FILE="${SWIFTBAR_SITES_CONFIG:-$CONFIG_HOME/swiftbar/sites.conf}"
 DEFAULT_EXPECTED_STATUSES="200"
 DEFAULT_TIMEOUT_SECONDS="8"
 DEFAULT_SLOW_THRESHOLD_MS="1500"
+COLOR_OK="#22863a"
+COLOR_FAIL="#cb2431"
+COLOR_SLOW="#b08800"
 
 ok_count=0
 fail_count=0
@@ -48,8 +51,11 @@ add_detail() {
   local status="$3"
   local duration_ms="$4"
   local url="$5"
+  local color="$6"
 
-  details+=("$icon $label - HTTP $status (${duration_ms}ms) | href=$url")
+  details+=("$label | href=$url")
+  details+=("--$icon | color=$color")
+  details+=("--HTTP $status, ${duration_ms}ms")
 }
 
 duration_to_ms() {
@@ -110,13 +116,13 @@ while IFS='|' read -r raw_label raw_url raw_expected raw_timeout raw_slow_ms _; 
     ok_count=$((ok_count + 1))
     if [[ "$duration_ms" -gt "$slow_ms" ]]; then
       slow_count=$((slow_count + 1))
-      add_detail "SLOW" "$label" "$status" "$duration_ms" "$url"
+      add_detail "SLOW" "$label" "$status" "$duration_ms" "$url" "$COLOR_SLOW"
     else
-      add_detail "OK" "$label" "$status" "$duration_ms" "$url"
+      add_detail "OK" "$label" "$status" "$duration_ms" "$url" "$COLOR_OK"
     fi
   else
     fail_count=$((fail_count + 1))
-    add_detail "FAIL" "$label" "$status" "$duration_ms" "$url"
+    add_detail "FAIL" "$label" "$status" "$duration_ms" "$url" "$COLOR_FAIL"
   fi
 done < "$CONFIG_FILE"
 
@@ -136,12 +142,15 @@ else
 fi
 
 echo "---"
+echo "Summary"
+echo "--Average response: ${average_ms}ms"
+echo "--Slow sites: $slow_count"
+echo "--Slowest: $slowest_label (${slowest_ms}ms)"
+echo "--Last check: $(date '+%H:%M:%S')"
+echo "---"
+echo "Sites"
 printf '%s\n' "${details[@]}"
 echo "---"
-echo "Average response: ${average_ms}ms"
-echo "Slow sites: $slow_count"
-echo "Slowest: $slowest_label (${slowest_ms}ms)"
-echo "Last check: $(date '+%H:%M:%S')"
-echo "---"
-echo "Config: $CONFIG_FILE"
+echo "Settings"
+echo "--Config: $CONFIG_FILE"
 echo "Refresh | refresh=true"
