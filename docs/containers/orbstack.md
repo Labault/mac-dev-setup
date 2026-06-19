@@ -4,6 +4,8 @@ OrbStack provides a lightweight local environment for running Docker containers 
 
 It is used in this setup as the main container runtime for local development.
 
+![OrbStack showing a demo Nginx container](../assets/screenshots/apps/orbstack.webp)
+
 ## Installation
 
 OrbStack is installed through Homebrew Cask:

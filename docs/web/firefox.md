@@ -33,6 +33,8 @@ Use Firefox as a second pass after validating the golden path in Chrome:
 4. Check font rendering and scroll behaviour.
 5. Run the accessibility inspector.
 
+![Firefox DevTools inspecting a simple documentation page](../assets/screenshots/web/firefox-testing.webp)
+
 ## DevTools highlights
 
 Firefox DevTools include tools not available in Chrome:

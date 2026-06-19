@@ -148,6 +148,8 @@ The current configuration loads the Oh My Zsh libraries and the `git`,
 `autojump`, and `command-not-found` plugins. The most useful daily aliases and
 commands are listed below.
 
+![gst alias showing Git working tree status](../assets/screenshots/zsh/aliases.webp)
+
 ### Directories and shell navigation
 
 | Alias | Command | Use case |

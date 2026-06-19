@@ -421,6 +421,8 @@ mac update              # update to the latest version
 mac update --dry-run    # preview the update, change nothing
 ```
 
+![mac update dry-run output](docs/assets/screenshots/cli/mac-update-dry-run.webp)
+
 If you have uncommitted changes, `mac update` refuses to proceed to avoid
 overwriting your work.
 
@@ -437,6 +439,8 @@ mac uninstall --remove-config       # also remove managed config files (only if 
 mac uninstall --remove-install-dir  # also remove ~/.mac-dev-setup
 mac uninstall --dry-run             # preview what would be removed, change nothing
 ```
+
+![mac uninstall dry-run output](docs/assets/screenshots/cli/mac-uninstall-dry-run.webp)
 
 ---
 

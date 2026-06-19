@@ -38,6 +38,8 @@ Use it to hide low-priority menu bar icons and keep important indicators
 visible. The exact menu bar layout is user-specific and is not versioned in
 this repository.
 
+![Ice showing expanded and compact macOS menu bar states](../assets/screenshots/macos/ice-menu-bar.webp)
+
 ### Rollback
 
 ```bash
@@ -73,6 +75,8 @@ open -a Stats
 Use it for quick local resource checks before reaching for terminal tools such
 as `glances` or `ctop`. Preferences are stored in the user's Library and are
 not versioned, as they include machine-specific sensor choices.
+
+![Stats menu bar GPU metrics dropdown](../assets/screenshots/macos/stats-menu.webp)
 
 ### Rollback
 

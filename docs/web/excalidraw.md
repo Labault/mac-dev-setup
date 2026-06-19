@@ -7,6 +7,8 @@ flow charts, and visual documentation.
 No installation required. The primary workflow uses the web app. A VS Code
 extension is available for editing diagrams directly alongside the code.
 
+![Excalidraw diagram sketching the MacDevSetup flow](../assets/screenshots/web/excalidraw-diagram.webp)
+
 ## Web app
 
 Open [excalidraw.com](https://excalidraw.com/) directly in the browser.

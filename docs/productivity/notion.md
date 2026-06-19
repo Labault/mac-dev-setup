@@ -8,6 +8,8 @@ The desktop app is installed through Homebrew and declared in the project
 `Brewfile`. Account creation and data live on Notion's servers — nothing is
 stored locally beyond the app cache.
 
+![Notion demo workspace with a MacDevSetup visual roadmap](../assets/screenshots/apps/notion-workspace.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

@@ -21,6 +21,8 @@ The script:
 
 These choices make development files such as `.git`, `.env`, and `.zshrc` visible while keeping the Finder interface relatively compact.
 
+![Finder showing hidden development files and file extensions](../assets/screenshots/macos/finder-defaults.webp)
+
 ### Dock
 
 The script:

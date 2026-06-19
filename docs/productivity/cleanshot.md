@@ -45,6 +45,8 @@ After capture, the annotation toolbar opens. Available tools: arrow, text,
 rectangle, highlight, blur, numbered steps, and a pixelate tool for redacting
 sensitive content.
 
+![CleanShot X annotation toolbar with numbered arrows](../assets/screenshots/apps/cleanshot-annotation.webp)
+
 Use blur and pixelate to redact hostnames, tokens, and personal data before
 publishing screenshots in documentation or issues.
 

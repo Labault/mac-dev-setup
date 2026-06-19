@@ -8,6 +8,8 @@ It is installed through Homebrew and declared in the project `Brewfile`.
 
 **The personal vault is never committed to this repository.**
 
+![Obsidian demo vault with note and graph view](../assets/screenshots/apps/obsidian-workspace.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
