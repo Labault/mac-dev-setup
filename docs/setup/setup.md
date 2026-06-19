@@ -46,6 +46,8 @@ Preview the setup without changing the machine:
 mac setup --profile minimal --dry-run
 ```
 
+![mac setup minimal profile dry-run output](../assets/screenshots/setup/setup-profile.webp)
+
 Profiles are defined under:
 
 ```text
