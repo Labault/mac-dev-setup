@@ -50,5 +50,8 @@ zstyle ':completion:*' menu select
 # Private and machine-specific configuration.
 [[ -r "$HOME/.shell/local.zsh" ]] && source "$HOME/.shell/local.zsh"
 
+# Claude Code
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=64000
+
 # Powerlevel10k configuration.
 [[ -r "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
