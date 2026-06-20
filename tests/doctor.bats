@@ -250,3 +250,27 @@ BREW
   [ "$status" -eq 0 ]
   [[ "$output" == *"No fix suggestions"* ]]
 }
+
+@test "doctor --summary collapses undeclared packages to a count" {
+  make_common_doctor_path
+  home="$(mktemp -d)"
+  copy_managed_config_to_home "$home"
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  doctor) exit 0 ;;
+  bundle\ check*) exit 0 ;;
+  list\ --formula) printf '%s\n' bash local-only-a local-only-b ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" HOME="$home" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal --fix --summary
+  rm -rf "$bin" "$home"
+
+  [[ "$output" != *"brew uninstall"* ]]
+  [[ "$output" == *"undeclared packages"* ]]
+}

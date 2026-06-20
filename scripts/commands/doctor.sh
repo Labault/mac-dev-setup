@@ -12,7 +12,7 @@ source "$REPO_DIR/scripts/lib/logging.sh"
 source "$REPO_DIR/scripts/lib/profiles.sh"
 
 print_usage() {
-  log_line "Usage: mac doctor [--profile <profile>] [--fix] [--help]"
+  log_line "Usage: mac doctor [--profile <profile>] [--fix] [--summary] [--help]"
   log_line "Profiles: $(profile_list "$REPO_DIR")"
   log_line ""
   log_line "Run read-only diagnostics for the macOS development setup."
@@ -20,11 +20,13 @@ print_usage() {
   log_line "Options:"
   log_line "  --profile <profile>  Check the selected setup profile."
   log_line "  --fix                Print reconciliation commands without running them."
+  log_line "  --summary            Collapse long package lists to a count."
 }
 
 parse_args() {
   PROFILE="$(profile_default)"
   FIX="false"
+  SUMMARY="false"
 
   while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -48,6 +50,10 @@ parse_args() {
         ;;
       --fix)
         FIX="true"
+        shift
+        ;;
+      --summary)
+        SUMMARY="true"
         shift
         ;;
       --help|-h)
@@ -166,10 +172,19 @@ check_homebrew_drift() {
 
   if [ -s "$drift_file" ]; then
     doctor_drift "undeclared Homebrew packages installed"
-    while IFS= read -r package; do
-      log_line "  - $package"
-      add_fix_suggestion "brew uninstall \"$package\""
-    done <"$drift_file"
+    if [ "$SUMMARY" = "true" ]; then
+      drift_count=0
+      while IFS= read -r _; do
+        drift_count=$(( drift_count + 1 ))
+      done <"$drift_file"
+      log_line "  ($drift_count packages — run without --summary to list)"
+      add_fix_suggestion "# $drift_count undeclared packages — run: mac doctor to list them"
+    else
+      while IFS= read -r package; do
+        log_line "  - $package"
+        add_fix_suggestion "brew uninstall \"$package\""
+      done <"$drift_file"
+    fi
     log_line "Consider adding intentional tools to a profile Brewfile, or uninstalling local-only packages."
   else
     doctor_in_sync "no undeclared Homebrew packages"
