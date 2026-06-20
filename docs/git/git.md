@@ -137,6 +137,8 @@ Interactive commits display the diff below the commit message editor:
 
 Git Delta is configured separately in the same file and provides the default pager and enhanced diff rendering.
 
+![git diff rendered with delta](../assets/screenshots/git/git-delta-diff.webp)
+
 ## Validation
 
 Validate the configuration syntax:

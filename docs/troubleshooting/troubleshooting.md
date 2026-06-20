@@ -22,6 +22,8 @@ Print reconciliation commands without running them:
 mac doctor --fix
 ```
 
+![mac doctor showing a diagnostic report](../assets/screenshots/readme/mac-doctor.webp)
+
 If the `mac` command is not available yet, run the doctor script directly from
 the checkout:
 
