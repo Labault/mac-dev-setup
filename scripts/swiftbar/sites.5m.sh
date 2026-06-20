@@ -63,94 +63,104 @@ duration_to_ms() {
   awk -v seconds="$duration_seconds" 'BEGIN { printf "%d", (seconds * 1000) + 0.5 }'
 }
 
-if [[ ! -f "$CONFIG_FILE" ]]; then
-  echo "Sites: config missing"
-  echo "---"
-  echo "Create $CONFIG_FILE"
-  exit 0
-fi
-
-while IFS='|' read -r raw_label raw_url raw_expected raw_timeout raw_slow_ms _; do
-  label="$(trim "${raw_label:-}")"
-  url="$(trim "${raw_url:-}")"
-  expected="$(trim "${raw_expected:-$DEFAULT_EXPECTED_STATUSES}")"
-  timeout="$(trim "${raw_timeout:-$DEFAULT_TIMEOUT_SECONDS}")"
-  slow_ms="$(trim "${raw_slow_ms:-$DEFAULT_SLOW_THRESHOLD_MS}")"
-
-  [[ -z "$label" || "$label" == \#* ]] && continue
-  [[ -z "$url" ]] && continue
-  [[ -z "$expected" ]] && expected="$DEFAULT_EXPECTED_STATUSES"
-  [[ -z "$timeout" ]] && timeout="$DEFAULT_TIMEOUT_SECONDS"
-  [[ -z "$slow_ms" ]] && slow_ms="$DEFAULT_SLOW_THRESHOLD_MS"
-
-  total_count=$((total_count + 1))
-
-  response="$(
-    curl \
-      --location \
-      --silent \
-      --show-error \
-      --output /dev/null \
-      --write-out "%{http_code}|%{time_total}" \
-      --max-time "$timeout" \
-      "$url" 2>/dev/null
-  )"
-
-  if [[ -z "$response" ]]; then
-    fail_count=$((fail_count + 1))
-    details+=("X $label - no response | href=$url")
-    continue
+main() {
+  if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "Sites: config missing"
+    echo "---"
+    echo "Create $CONFIG_FILE"
+    exit 0
   fi
 
-  status="${response%%|*}"
-  duration="${response##*|}"
-  duration_ms="$(duration_to_ms "$duration")"
-  total_ms=$((total_ms + duration_ms))
+  while IFS='|' read -r raw_label raw_url raw_expected raw_timeout raw_slow_ms _; do
+    label="$(trim "${raw_label:-}")"
+    url="$(trim "${raw_url:-}")"
+    expected="$(trim "${raw_expected:-$DEFAULT_EXPECTED_STATUSES}")"
+    timeout="$(trim "${raw_timeout:-$DEFAULT_TIMEOUT_SECONDS}")"
+    slow_ms="$(trim "${raw_slow_ms:-$DEFAULT_SLOW_THRESHOLD_MS}")"
 
-  if [[ "$duration_ms" -gt "$slowest_ms" ]]; then
-    slowest_ms="$duration_ms"
-    slowest_label="$label"
-  fi
+    [[ -z "$label" || "$label" == \#* ]] && continue
+    [[ -z "$url" ]] && continue
+    [[ -z "$expected" ]] && expected="$DEFAULT_EXPECTED_STATUSES"
+    [[ -z "$timeout" ]] && timeout="$DEFAULT_TIMEOUT_SECONDS"
+    [[ -z "$slow_ms" ]] && slow_ms="$DEFAULT_SLOW_THRESHOLD_MS"
 
-  if status_is_expected "$status" "$expected"; then
-    ok_count=$((ok_count + 1))
-    if [[ "$duration_ms" -gt "$slow_ms" ]]; then
-      slow_count=$((slow_count + 1))
-      add_detail "SLOW" "$label" "$status" "$duration_ms" "$url" "$COLOR_SLOW"
-    else
-      add_detail "OK" "$label" "$status" "$duration_ms" "$url" "$COLOR_OK"
+    total_count=$((total_count + 1))
+
+    response="$(
+      curl \
+        --location \
+        --silent \
+        --show-error \
+        --output /dev/null \
+        --write-out "%{http_code}|%{time_total}" \
+        --max-time "$timeout" \
+        "$url" 2>/dev/null
+    )"
+
+    if [[ -z "$response" ]]; then
+      fail_count=$((fail_count + 1))
+      details+=("X $label - no response | href=$url")
+      continue
     fi
-  else
-    fail_count=$((fail_count + 1))
-    add_detail "FAIL" "$label" "$status" "$duration_ms" "$url" "$COLOR_FAIL"
+
+    status="${response%%|*}"
+    duration="${response##*|}"
+    duration_ms="$(duration_to_ms "$duration")"
+    total_ms=$((total_ms + duration_ms))
+
+    if [[ "$duration_ms" -gt "$slowest_ms" ]]; then
+      slowest_ms="$duration_ms"
+      slowest_label="$label"
+    fi
+
+    if status_is_expected "$status" "$expected"; then
+      ok_count=$((ok_count + 1))
+      if [[ "$duration_ms" -gt "$slow_ms" ]]; then
+        slow_count=$((slow_count + 1))
+        add_detail "SLOW" "$label" "$status" "$duration_ms" "$url" "$COLOR_SLOW"
+      else
+        add_detail "OK" "$label" "$status" "$duration_ms" "$url" "$COLOR_OK"
+      fi
+    else
+      fail_count=$((fail_count + 1))
+      add_detail "FAIL" "$label" "$status" "$duration_ms" "$url" "$COLOR_FAIL"
+    fi
+  done < "$CONFIG_FILE"
+
+  if [[ "$total_count" -eq 0 ]]; then
+    echo "Sites: none"
+    echo "---"
+    echo "Add sites to $CONFIG_FILE"
+    exit 0
   fi
-done < "$CONFIG_FILE"
 
-if [[ "$total_count" -eq 0 ]]; then
-  echo "Sites: none"
+  average_ms=$((total_ms / total_count))
+
+  if [[ "$fail_count" -eq 0 ]]; then
+    echo "Website OK ($ok_count/$total_count)"
+  else
+    echo "Website FAIL ($fail_count/$total_count)"
+  fi
+
   echo "---"
-  echo "Add sites to $CONFIG_FILE"
-  exit 0
+  echo "Summary"
+  echo "--Average response: ${average_ms}ms"
+  echo "--Slow sites: $slow_count"
+  echo "--Slowest: $slowest_label (${slowest_ms}ms)"
+  echo "--Last check: $(date '+%H:%M:%S')"
+  echo "---"
+  echo "Sites"
+  # Guard the expansion: under `set -u` an empty array would otherwise abort on
+  # the older Bash that ships with macOS.
+  (( ${#details[@]} )) && printf '%s\n' "${details[@]}"
+  echo "---"
+  echo "Settings"
+  echo "--Config: $CONFIG_FILE"
+  echo "Refresh | refresh=true"
+}
+
+# Run only when executed directly (SwiftBar runs the file); when sourced by the
+# test suite, only the pure helper functions above are loaded.
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main
 fi
-
-average_ms=$((total_ms / total_count))
-
-if [[ "$fail_count" -eq 0 ]]; then
-  echo "Website OK ($ok_count/$total_count)"
-else
-  echo "Website FAIL ($fail_count/$total_count)"
-fi
-
-echo "---"
-echo "Summary"
-echo "--Average response: ${average_ms}ms"
-echo "--Slow sites: $slow_count"
-echo "--Slowest: $slowest_label (${slowest_ms}ms)"
-echo "--Last check: $(date '+%H:%M:%S')"
-echo "---"
-echo "Sites"
-printf '%s\n' "${details[@]}"
-echo "---"
-echo "Settings"
-echo "--Config: $CONFIG_FILE"
-echo "Refresh | refresh=true"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 # ----------------------------
 # CONTEXT (FROM CLI)
@@ -122,7 +122,7 @@ run_setup() {
   check_tool git
   check_tool zsh
 
-  if [ "$CI" = "true" ]; then
+  if [ "${CI:-}" = "true" ]; then
     info "Running in CI mode"
   fi
 

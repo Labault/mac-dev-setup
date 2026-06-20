@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Description: Install and configure the macOS development setup.
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"

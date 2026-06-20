@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Description: Remove the mac CLI symlink and managed shell PATH entry.
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"

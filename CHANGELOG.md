@@ -35,7 +35,14 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Documented the existing `mac doctor --summary` and `mac vscode --with-optional`
   flags in the README so it matches the scripts.
 - Removed a stray `</details>` tag from the README "What's included" section.
-- Hardened `scripts/commands/php.sh` with `set -euo pipefail`.
+- Hardened the command-layer and setup scripts with `set -euo pipefail`
+  (doctor, setup, uninstall, defaults, keyboard, vscode, brew, git, zsh, php)
+  and guarded the previously unset `$CI` reference in `scripts/setup.sh`.
+- Restructured the SwiftBar `sites.5m.sh` plugin so its pure helpers are unit
+  testable, and guarded its detail-array expansion under `set -u`.
+- Expanded the Bats suite from 78 to 99 tests, adding coverage for the
+  hardening guard, uninstall safety refusals, the SwiftBar helpers, `brew.sh`,
+  `zsh.sh` backup/idempotency, and the logging stderr routing.
 - Inserted missing image references in `docs/git/git.md` (git-delta diff) and
   `docs/troubleshooting/troubleshooting.md` (mac doctor report and
   doctor --fix --summary).
