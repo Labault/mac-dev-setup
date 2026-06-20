@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Install the French OSS keyboard layout.
 
 set -eo pipefail

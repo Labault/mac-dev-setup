@@ -8,6 +8,24 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+### Added
+
+- Screenshots for `bat`, `duf`, `dust`, `lsd`, and `tokei` documentation pages,
+  illustrating terminal output and tool behavior directly in the docs.
+- Visual assets roadmap (`docs/assets/ROADMAP.md`) tracking all planned and
+  actioned screenshots across 12 phases with capture rules and a validation
+  checklist.
+
+### Changed
+
+- Inserted missing image references in `docs/git/git.md` (git-delta diff) and
+  `docs/troubleshooting/troubleshooting.md` (mac doctor report).
+- Fixed `.git/info/exclude` pattern from `ROADMAP.md` to `/ROADMAP.md` to
+  prevent the local planning file from inadvertently excluding
+  `docs/assets/ROADMAP.md`.
+- Standardized all shell script shebangs from `#!/bin/bash` to
+  `#!/usr/bin/env bash` for consistency and portability.
+
 ## 1.7.0 - 2026-06-18
 
 ### Added

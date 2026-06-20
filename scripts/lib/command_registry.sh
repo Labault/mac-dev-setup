@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # shellcheck source=scripts/lib/command_metadata.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/command_metadata.sh"

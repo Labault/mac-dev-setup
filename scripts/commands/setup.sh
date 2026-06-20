@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Install and configure the macOS development setup.
 
 set -e

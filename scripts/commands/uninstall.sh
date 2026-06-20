@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Remove the mac CLI symlink and managed shell PATH entry.
 
 set -e

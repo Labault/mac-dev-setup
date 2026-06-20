@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 COMMAND_METADATA_FIELD_SEPARATOR="$(printf '\t')"
 

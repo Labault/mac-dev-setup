@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Apply the curated macOS system defaults.
 
 set -eo pipefail

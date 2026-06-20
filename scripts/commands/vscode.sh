@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Install the curated VS Code extensions.
 
 set -eo pipefail

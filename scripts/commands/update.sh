@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Description: Update the mac CLI from its git repository.
 
 set -eo pipefail

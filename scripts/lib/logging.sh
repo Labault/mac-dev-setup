@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Keep all CLI output behind these helpers so silent mode can be added in one
 # place later.
