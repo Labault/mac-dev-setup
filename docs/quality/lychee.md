@@ -33,6 +33,8 @@ Check the README and all documentation files:
 lychee README.md 'docs/**/*.md'
 ```
 
+![Lychee checking documentation links with zero errors](../assets/screenshots/quality/lychee.webp)
+
 Check the current directory recursively:
 
 ```bash

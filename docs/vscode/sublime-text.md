@@ -29,6 +29,8 @@ subl filename.txt
 subl .
 ```
 
+![Sublime Text editing a small Python script](../assets/screenshots/apps/sublime-text.webp)
+
 ## When to use Sublime Text vs VS Code
 
 | Situation | Editor |

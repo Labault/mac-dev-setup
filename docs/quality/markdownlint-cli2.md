@@ -59,6 +59,8 @@ Check selected files:
 markdownlint-cli2 README.md docs/**/*.md
 ```
 
+![markdownlint-cli2 checking README and documentation files with zero errors](../assets/screenshots/quality/markdownlint.webp)
+
 Apply supported automatic fixes:
 
 ```bash

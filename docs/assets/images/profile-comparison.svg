@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">MacDevSetup profile comparison</title>
+  <desc id="desc">Side-by-side terminal comparison of mac setup with the full and minimal profiles.</desc>
+  <defs>
+    <linearGradient id="window" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b3440"/>
+      <stop offset="1" stop-color="#092930"/>
+    </linearGradient>
+    <linearGradient id="pane" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#082f3a"/>
+      <stop offset="1" stop-color="#08262d"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#021418" flood-opacity="0.25"/>
+    </filter>
+    <style>
+      .page { fill: #e8f1ef; }
+      .window { fill: url(#window); filter: url(#shadow); }
+      .bar { fill: rgba(8, 31, 38, 0.82); }
+      .split { stroke: rgba(196, 232, 228, 0.20); stroke-width: 1.5; }
+      .muted { fill: #90aeb4; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 600; }
+      .term { fill: #d8e8e8; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 600; }
+      .dim { fill: #9bb5ba; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 600; }
+      .ok { fill: #9ee37d; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 700; }
+      .info { fill: #b9d2ff; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 700; }
+      .cmd { fill: #f2f7f7; font-family: Menlo, Monaco, monospace; font-size: 14px; font-weight: 800; }
+      .prompt { fill: #7ee787; font-family: Menlo, Monaco, monospace; font-size: 14px; font-weight: 900; }
+      .accent { fill: #4cc9f0; font-family: Menlo, Monaco, monospace; font-size: 13px; font-weight: 800; }
+      .badge-full { fill: rgba(59, 130, 246, 0.18); stroke: rgba(96, 165, 250, 0.5); }
+      .badge-min { fill: rgba(45, 212, 191, 0.16); stroke: rgba(94, 234, 212, 0.45); }
+      .badge-text { fill: #dff8f6; font-family: Menlo, Monaco, monospace; font-size: 12px; font-weight: 800; }
+    </style>
+  </defs>
+
+  <rect class="page" width="1200" height="900"/>
+  <circle cx="1060" cy="70" r="210" fill="#d7f5ef" opacity="0.8"/>
+  <circle cx="110" cy="835" r="250" fill="#dcecff" opacity="0.7"/>
+
+  <rect x="32" y="34" width="1136" height="832" rx="18" class="window"/>
+  <rect x="32" y="34" width="1136" height="38" rx="18" class="bar"/>
+  <path d="M32 54c0-11 8-20 20-20h1096c11 0 20 9 20 20v18H32z" class="bar"/>
+  <circle cx="58" cy="53" r="6" fill="#ff5f57"/>
+  <circle cx="78" cy="53" r="6" fill="#ffbd2e"/>
+  <circle cx="98" cy="53" r="6" fill="#28c840"/>
+  <text x="246" y="58" class="muted">~/Projects/mac-dev-setup</text>
+  <text x="815" y="58" class="muted">~/.mac-dev-setup</text>
+  <line x1="600" y1="34" x2="600" y2="866" class="split"/>
+
+  <rect x="52" y="92" width="188" height="28" rx="14" class="badge-full"/>
+  <text x="68" y="111" class="badge-text">FULL PROFILE - 53 entries</text>
+  <rect x="620" y="92" width="210" height="28" rx="14" class="badge-min"/>
+  <text x="636" y="111" class="badge-text">MINIMAL PROFILE - 15 entries</text>
+
+  <text x="52" y="146" class="prompt">&gt;</text>
+  <text x="76" y="146" class="cmd">mac setup --profile full</text>
+  <text x="52" y="170" class="info">[INFO]</text><text x="102" y="170" class="term">Mac Dev Setup - Bootstrap starting</text>
+  <text x="52" y="190" class="info">[INFO]</text><text x="102" y="190" class="term">Profile: full</text>
+  <text x="52" y="210" class="info">[INFO]</text><text x="102" y="210" class="term">Brewfile: ~/.mac-dev-setup/profiles/full/Brewfile</text>
+  <text x="52" y="230" class="info">[INFO]</text><text x="102" y="230" class="term">Logging to ~/Library/Logs/mac-dev-setup/setup.log</text>
+  <text x="52" y="250" class="info">[INFO]</text><text x="102" y="250" class="term">[BREW] Setup starting</text>
+  <text x="52" y="270" class="info">[INFO]</text><text x="102" y="270" class="term">Updating Homebrew...</text>
+  <text x="52" y="290" class="term">==&gt; Updating Homebrew...</text>
+  <text x="52" y="310" class="term">Already up-to-date.</text>
+  <text x="52" y="330" class="info">[INFO]</text><text x="102" y="330" class="term">Installing Brewfile dependencies</text>
+  <text x="52" y="350" class="info">[INFO]</text><text x="102" y="350" class="term">Checking 53 Brewfile entries</text>
+  <text x="52" y="370" class="dim">brew bundle check --verbose to list unmet dependencies.</text>
+  <text x="52" y="390" class="term">Fetching uv</text>
+  <text x="52" y="410" class="term">Using symfony-cli/tap</text>
+  <text x="52" y="430" class="term">Using antidote</text>
+  <text x="52" y="450" class="term">Using autojump</text>
+  <text x="52" y="470" class="term">Using ctop</text>
+  <text x="52" y="490" class="term">Using terminal-notifier</text>
+  <text x="52" y="510" class="term">Using act, actionlint, hadolint, lychee</text>
+  <text x="52" y="530" class="term">Using composer, php, symfony-cli</text>
+  <text x="52" y="550" class="term">Using bruno, google-chrome, firefox</text>
+  <text x="52" y="570" class="term">Using beekeeper-studio, orbstack, warp</text>
+  <text x="52" y="590" class="term">Using visual-studio-code, sublime-text</text>
+  <text x="52" y="610" class="term">Using claude, codexbar, ollama-app</text>
+  <text x="52" y="630" class="term">Using raycast, cleanshot, notion, obsidian</text>
+  <text x="52" y="650" class="term">Using pearcleaner, stats, swiftbar</text>
+  <text x="52" y="670" class="term">Using pre-commit, shellcheck, node, uv</text>
+  <text x="52" y="690" class="term">`brew bundle` complete! 53 dependencies installed.</text>
+  <text x="52" y="710" class="ok">[OK]</text><text x="102" y="710" class="term">[BREW] Done</text>
+  <text x="52" y="730" class="info">[INFO]</text><text x="102" y="730" class="term">[GIT] Setup starting</text>
+  <text x="52" y="750" class="ok">[OK]</text><text x="102" y="750" class="term">gitconfig applied</text>
+  <text x="52" y="770" class="info">[INFO]</text><text x="102" y="770" class="term">[ZSH] Setup starting</text>
+  <text x="52" y="790" class="ok">[OK]</text><text x="102" y="790" class="term">zsh aliases and completions applied</text>
+  <text x="52" y="810" class="info">[INFO]</text><text x="102" y="810" class="term">Post install validation</text>
+  <text x="52" y="830" class="ok">[OK]</text><text x="102" y="830" class="term">Mac Dev Setup completed successfully</text>
+
+  <text x="620" y="146" class="prompt">&gt;</text>
+  <text x="644" y="146" class="cmd">mac setup --profile minimal</text>
+  <text x="620" y="170" class="info">[INFO]</text><text x="670" y="170" class="term">Mac Dev Setup - Bootstrap starting</text>
+  <text x="620" y="190" class="info">[INFO]</text><text x="670" y="190" class="term">Profile: minimal</text>
+  <text x="620" y="210" class="info">[INFO]</text><text x="670" y="210" class="term">Brewfile: ~/.mac-dev-setup/profiles/minimal/Brewfile</text>
+  <text x="620" y="230" class="info">[INFO]</text><text x="670" y="230" class="term">Logging to ~/Library/Logs/mac-dev-setup/setup.log</text>
+  <text x="620" y="250" class="info">[INFO]</text><text x="670" y="250" class="term">[BREW] Setup starting</text>
+  <text x="620" y="270" class="info">[INFO]</text><text x="670" y="270" class="term">Updating Homebrew...</text>
+  <text x="620" y="290" class="term">==&gt; Updating Homebrew...</text>
+  <text x="620" y="310" class="term">Already up-to-date.</text>
+  <text x="620" y="330" class="info">[INFO]</text><text x="670" y="330" class="term">Installing Brewfile dependencies</text>
+  <text x="620" y="350" class="info">[INFO]</text><text x="670" y="350" class="term">Checking 15 Brewfile entries</text>
+  <text x="620" y="370" class="term">The Brewfile's dependencies are satisfied.</text>
+  <text x="620" y="390" class="ok">[OK]</text><text x="670" y="390" class="term">[BREW] Done</text>
+  <text x="620" y="410" class="info">[INFO]</text><text x="670" y="410" class="term">[GIT] Setup starting</text>
+  <text x="620" y="430" class="ok">[OK]</text><text x="670" y="430" class="term">gitconfig applied</text>
+  <text x="620" y="450" class="ok">[OK]</text><text x="670" y="450" class="term">[GIT] Done</text>
+  <text x="620" y="470" class="info">[INFO]</text><text x="670" y="470" class="term">[ZSH] Setup starting</text>
+  <text x="620" y="490" class="ok">[OK]</text><text x="670" y="490" class="term">.zprofile already up to date</text>
+  <text x="620" y="510" class="ok">[OK]</text><text x="670" y="510" class="term">.zshrc already up to date</text>
+  <text x="620" y="530" class="ok">[OK]</text><text x="670" y="530" class="term">.zsh_plugins.txt already up to date</text>
+  <text x="620" y="550" class="ok">[OK]</text><text x="670" y="550" class="term">p10k config already up to date</text>
+  <text x="620" y="570" class="ok">[OK]</text><text x="670" y="570" class="term">zsh aliases already up to date</text>
+  <text x="620" y="590" class="ok">[OK]</text><text x="670" y="590" class="term">zsh completions applied</text>
+  <text x="620" y="610" class="ok">[OK]</text><text x="670" y="610" class="term">mac zsh completion registered</text>
+  <text x="620" y="630" class="ok">[OK]</text><text x="670" y="630" class="term">[ZSH] Done</text>
+  <text x="620" y="650" class="info">[INFO]</text><text x="670" y="650" class="term">Post install validation</text>
+  <text x="620" y="670" class="ok">[OK]</text><text x="670" y="670" class="term">brew ok</text>
+  <text x="620" y="690" class="ok">[OK]</text><text x="670" y="690" class="term">git ok</text>
+  <text x="620" y="710" class="ok">[OK]</text><text x="670" y="710" class="term">zsh ok</text>
+  <text x="620" y="730" class="ok">[OK]</text><text x="670" y="730" class="term">Mac Dev Setup completed successfully</text>
+
+  <rect x="620" y="774" width="506" height="56" rx="10" fill="rgba(8, 31, 38, 0.52)" stroke="rgba(196, 232, 228, 0.16)"/>
+  <text x="642" y="800" class="accent">Minimal stays lean:</text>
+  <text x="642" y="820" class="dim">shell, Git, Node, pre-commit, ShellCheck and core CLI helpers.</text>
+</svg>

@@ -287,10 +287,12 @@ mac setup --profile minimal   # the essentials only
 mac setup --profile full      # everything (this is the default)
 ```
 
+![Minimal and full profile comparison](docs/assets/images/profile-comparison.webp)
+
 | Profile | Best for | What you get |
 | --- | --- | --- |
 | `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (15 Homebrew packages) |
-| `full` | Complete dev workstation (default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (30 Homebrew packages, 22 casks, 1 `uv` tool) |
+| `full` | Complete dev workstation (default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (53 Brewfile entries: 30 formulae, 21 casks, 1 tap, 1 `uv` tool) |
 
 The exact lists live in
 [`profiles/minimal/Brewfile`](profiles/minimal/Brewfile) and

@@ -36,6 +36,19 @@ ctop expects the default Docker socket:
 OrbStack uses a different socket associated with the `orbstack` Docker
 context.
 
+The managed Zsh profile exports `DOCKER_HOST` automatically when the OrbStack
+socket exists:
+
+```bash
+export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+```
+
+After applying the managed profile, reload it:
+
+```bash
+source ~/.zprofile
+```
+
 Display the OrbStack Docker endpoint:
 
 ```bash
@@ -43,28 +56,7 @@ docker context inspect orbstack \
   --format '{{.Endpoints.docker.Host}}'
 ```
 
-Run ctop with the OrbStack socket:
-
-```bash
-DOCKER_HOST="$(docker context inspect orbstack \
-  --format '{{.Endpoints.docker.Host}}')" ctop
-```
-
-## Shell alias
-
-A shell alias can make the OrbStack-compatible command easier to run:
-
-```bash
-alias ctop='DOCKER_HOST="$(docker context inspect orbstack --format '\''{{.Endpoints.docker.Host}}'\'')" ctop'
-```
-
-After adding the alias to the shell configuration, reload Zsh:
-
-```bash
-source ~/.zshrc
-```
-
-Then run:
+Run ctop normally:
 
 ```bash
 ctop
@@ -133,8 +125,13 @@ docker context inspect orbstack \
   --format '{{.Endpoints.docker.Host}}'
 ```
 
-If ctop tries to connect to `/var/run/docker.sock`, launch it with the
-`DOCKER_HOST` environment variable shown above.
+If ctop still tries to connect to `/var/run/docker.sock`, verify that the
+managed profile has been reloaded and that `DOCKER_HOST` points to the OrbStack
+socket:
+
+```bash
+echo "$DOCKER_HOST"
+```
 
 ## Safety
 
@@ -151,5 +148,4 @@ Remove ctop with Homebrew:
 brew uninstall ctop
 ```
 
-Then remove its entry from `profiles/full/Brewfile` and remove any related shell
-alias.
+Then remove its entry from `profiles/full/Brewfile`.

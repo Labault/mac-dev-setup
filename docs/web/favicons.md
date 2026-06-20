@@ -31,6 +31,8 @@ expect:
   directory.
 5. Copy the HTML snippet into the base Twig template.
 
+![RealFaviconGenerator download instructions and generated HTML snippet](../assets/screenshots/web/favicons-result.webp)
+
 ## Twig integration
 
 Place the generated markup in the `<head>` block of `templates/base.html.twig`:

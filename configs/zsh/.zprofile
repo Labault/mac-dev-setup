@@ -15,3 +15,10 @@ export PATH
 
 # OrbStack command-line tools and shell integration.
 [[ -r "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
+
+# OrbStack exposes Docker through a user-level socket instead of
+# /var/run/docker.sock. Export it for Docker-compatible tools such as act and
+# ctop when the user has not selected another Docker endpoint explicitly.
+if [[ -z "${DOCKER_HOST:-}" && -S "$HOME/.orbstack/run/docker.sock" ]]; then
+  export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+fi

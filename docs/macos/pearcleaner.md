@@ -32,6 +32,8 @@ brew list --cask pearcleaner
 
 ## Usage
 
+![Pearcleaner application cleanup overview](../assets/screenshots/macos/pearcleaner.webp)
+
 To remove an application:
 
 1. Open Pearcleaner.

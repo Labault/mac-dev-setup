@@ -23,6 +23,8 @@ Verify the installation:
 brew list --cask | grep -x gimp
 ```
 
+![GIMP workspace with an image open for editing and export](../assets/screenshots/apps/gimp-export.webp)
+
 ## Common tasks
 
 ### Background removal

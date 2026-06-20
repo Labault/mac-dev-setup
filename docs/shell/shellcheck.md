@@ -36,6 +36,8 @@ Several scripts can be analyzed in a single command:
 shellcheck script-one.sh script-two.sh
 ```
 
+![ShellCheck passing on repository shell scripts](../assets/screenshots/quality/shellcheck.webp)
+
 To analyze all shell scripts tracked by Git:
 
 ```bash

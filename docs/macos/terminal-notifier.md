@@ -27,6 +27,8 @@ brew list --formula | grep -x terminal-notifier
 
 Send a notification:
 
+![terminal-notifier macOS notification triggered from the terminal](../assets/screenshots/macos/terminal-notifier.webp)
+
 ```bash
 terminal-notifier -title "Build" -message "Done"
 ```

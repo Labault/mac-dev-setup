@@ -30,6 +30,8 @@ From the root of a repository, run:
 actionlint
 ```
 
+![Actionlint verbose output showing two workflows with zero errors](../assets/screenshots/quality/actionlint.webp)
+
 By default, Actionlint searches for workflow files in:
 
 ```text

@@ -63,6 +63,15 @@ It also loads OrbStack shell integration when the following file is available:
 
 `$HOME/.orbstack/shell/init.zsh`
 
+When the OrbStack Docker socket exists, it also exports:
+
+```bash
+DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
+```
+
+This makes Docker-compatible tools such as `act` and `ctop` use OrbStack
+instead of falling back to `/var/run/docker.sock`.
+
 The Homebrew detection keeps the configuration portable across both Apple Silicon and Intel Macs, while OrbStack integration remains optional.
 
 ## Interactive shell configuration

@@ -6,6 +6,8 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 
 ![Homebrew inventory overview](../assets/screenshots/homebrew/inventory-overview.webp)
 
+![Minimal and full profile comparison](../assets/images/profile-comparison.webp)
+
 ---
 
 ## 🟢 USED (actively integrated in workflow)

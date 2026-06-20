@@ -12,6 +12,8 @@ the background from an image. It also exposes a REST API.
 
 Upload an image on the website or call the API.
 
+![Before and after background removal with an image service](../assets/images/image-services-before-after.webp)
+
 Set the `REMOVE_BG_API_KEY` environment variable first, then call the API:
 
 ```bash

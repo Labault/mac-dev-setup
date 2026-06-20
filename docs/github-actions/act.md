@@ -28,16 +28,17 @@ docker info
 
 OrbStack exposes its Docker API through a user-specific Unix socket. Some tools, including Act, do not automatically resolve the active Docker context.
 
-The following environment variable is therefore declared in `~/.zshrc`:
+The managed Zsh profile therefore exports `DOCKER_HOST` automatically when the
+OrbStack socket exists:
 
 ```bash
 export DOCKER_HOST="unix://$HOME/.orbstack/run/docker.sock"
 ```
 
-Reload the shell configuration after adding or changing this value:
+Reload the shell configuration after applying or changing the managed profile:
 
 ```bash
-source ~/.zshrc
+source ~/.zprofile
 ```
 
 Verify the resolved socket:
@@ -62,6 +63,8 @@ From the root of a repository containing GitHub Actions workflows, list the jobs
 ```bash
 act --list
 ```
+
+![Act listing the repository quality workflow job](../assets/screenshots/quality/act-run.webp)
 
 Act searches for workflows under:
 

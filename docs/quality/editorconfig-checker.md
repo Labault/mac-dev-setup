@@ -65,6 +65,8 @@ Check the entire repository:
 editorconfig-checker
 ```
 
+![editorconfig-checker passing on repository files](../assets/screenshots/quality/editorconfig-checker.webp)
+
 A successful check may produce no output.
 
 Check specific files:
