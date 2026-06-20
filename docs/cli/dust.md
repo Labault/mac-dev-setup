@@ -6,6 +6,8 @@ It provides a more readable overview than the standard `du` command and helps id
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
+![dust showing a compact disk usage tree for the project directory](../assets/screenshots/cli/dust.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

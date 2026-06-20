@@ -7,6 +7,8 @@ It is used as a more readable alternative to the standard `cat` command.
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
+![bat rendering the README with line numbers and syntax highlighting](../assets/screenshots/cli/bat.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

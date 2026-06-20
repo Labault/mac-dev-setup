@@ -6,6 +6,8 @@ It provides a clearer and more readable alternative to the standard `df` command
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
+![duf showing local macOS filesystems and disk usage](../assets/screenshots/cli/duf.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
