@@ -8,7 +8,7 @@ setup() {
 make_php_path() {
   bin="$(mktemp -d)"
 
-  for tool in bash dirname mkdir cp rm cat; do
+  for tool in bash dirname mkdir cp rm cat cmp date basename; do
     ln -s "$(command -v "$tool")" "$bin/$tool"
   done
 
@@ -95,18 +95,57 @@ BREW
 @test "php xdebug disable removes enabled config and keeps disabled template" {
   make_php_path
   conf_dir="$(mktemp -d)"
+  backup_dir="$(mktemp -d)"
   printf 'zend_extension=xdebug\n' >"$conf_dir/99-xdebug.ini"
   printf 'zend_extension=xdebug\n' >"$conf_dir/99-xdebug.ini.disabled"
 
-  run env PATH="$bin" MAC_DEV_SETUP_PHP_CONF_DIR="$conf_dir" bash "$PHP_COMMAND" xdebug disable
+  run env PATH="$bin" MAC_DEV_SETUP_PHP_CONF_DIR="$conf_dir" \
+    MAC_DEV_SETUP_PHP_BACKUP_DIR="$backup_dir" bash "$PHP_COMMAND" xdebug disable
   enabled_exists="false"
   [ -f "$conf_dir/99-xdebug.ini" ] && enabled_exists="true"
   disabled_exists="false"
   [ -f "$conf_dir/99-xdebug.ini.disabled" ] && disabled_exists="true"
-  rm -rf "$bin" "$conf_dir"
+  rm -rf "$bin" "$conf_dir" "$backup_dir"
 
   [ "$status" -eq 0 ]
   [[ "$output" == *"Xdebug disabled"* ]]
   [ "$enabled_exists" = "false" ]
   [ "$disabled_exists" = "true" ]
+}
+
+@test "php xdebug enable backs up a pre-existing custom ini before overwriting" {
+  make_php_path
+  conf_dir="$(mktemp -d)"
+  extension_dir="$(mktemp -d)"
+  backup_dir="$(mktemp -d)"
+  printf 'extension\n' >"$extension_dir/xdebug.so"
+  printf 'xdebug.mode=coverage ; my custom tuning\n' >"$conf_dir/99-xdebug.ini"
+
+  run env PATH="$bin" MAC_DEV_SETUP_PHP_CONF_DIR="$conf_dir" \
+    XDEBUG_EXTENSION_DIR="$extension_dir" MAC_DEV_SETUP_PHP_BACKUP_DIR="$backup_dir" \
+    bash "$PHP_COMMAND" xdebug enable
+  backup_count="$(find "$backup_dir" -name '99-xdebug.ini.*.backup' | wc -l | tr -d ' ')"
+  backup_body=""
+  for f in "$backup_dir"/99-xdebug.ini.*.backup; do backup_body="$(cat "$f")"; done
+  rm -rf "$bin" "$conf_dir" "$extension_dir" "$backup_dir"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"Backed up existing 99-xdebug.ini"* ]]
+  [ "$backup_count" -eq 1 ]
+  [[ "$backup_body" == *"my custom tuning"* ]]
+}
+
+@test "php xdebug disable backs up the ini before removing it" {
+  make_php_path
+  conf_dir="$(mktemp -d)"
+  backup_dir="$(mktemp -d)"
+  printf 'zend_extension=xdebug ; tuned\n' >"$conf_dir/99-xdebug.ini"
+
+  run env PATH="$bin" MAC_DEV_SETUP_PHP_CONF_DIR="$conf_dir" \
+    MAC_DEV_SETUP_PHP_BACKUP_DIR="$backup_dir" bash "$PHP_COMMAND" xdebug disable
+  backup_count="$(find "$backup_dir" -name '99-xdebug.ini.*.backup' | wc -l | tr -d ' ')"
+  rm -rf "$bin" "$conf_dir" "$backup_dir"
+
+  [ "$status" -eq 0 ]
+  [ "$backup_count" -eq 1 ]
 }

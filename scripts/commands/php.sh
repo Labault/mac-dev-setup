@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Description: Manage PHP development helpers.
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -53,6 +53,24 @@ xdebug_disabled_file() {
 
 xdebug_extension_file() {
   printf '%s/xdebug.so\n' "$(php_extension_dir)"
+}
+
+php_backup_dir() {
+  printf '%s\n' "${MAC_DEV_SETUP_PHP_BACKUP_DIR:-$HOME/Documents/Backups/mac-dev-setup/php}"
+}
+
+# Preserve a user-authored 99-xdebug.ini before enable overwrites it or disable
+# deletes it. Without this, a custom tuned config would be lost silently.
+backup_xdebug_ini_if_present() {
+  target_file="$1"
+
+  [ -f "$target_file" ] || return 0
+
+  backup_dir="$(php_backup_dir)"
+  mkdir -p "$backup_dir"
+  backup_file="$backup_dir/$(basename "$target_file").$(date +%Y%m%d-%H%M%S).backup"
+  cp -p "$target_file" "$backup_file"
+  info "Backed up existing $(basename "$target_file") to $backup_file"
 }
 
 write_xdebug_template() {
@@ -113,6 +131,9 @@ xdebug_enable() {
   disabled_file="$(ensure_xdebug_disabled_template)"
 
   mkdir -p "$(dirname "$enabled_file")"
+  if ! cmp -s "$disabled_file" "$enabled_file" 2>/dev/null; then
+    backup_xdebug_ini_if_present "$enabled_file"
+  fi
   cp "$disabled_file" "$enabled_file"
   success "Xdebug enabled: $enabled_file"
 }
@@ -124,6 +145,7 @@ xdebug_disable() {
   enabled_file="$(xdebug_enabled_file)"
 
   if [ -f "$enabled_file" ]; then
+    backup_xdebug_ini_if_present "$enabled_file"
     rm -f "$enabled_file"
     success "Xdebug disabled"
   else

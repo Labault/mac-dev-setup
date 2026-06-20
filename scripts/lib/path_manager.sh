@@ -45,6 +45,29 @@ path_manager_shell_profile() {
   esac
 }
 
+path_manager_directory_is_safe() {
+  local directory="$1"
+
+  # The directory is interpolated into a double-quoted shell string that gets
+  # written to the user's profile and executed on every new shell. Reject any
+  # character that could break out of that string and inject commands. Ordinary
+  # paths (including spaces or unicode) pass; only metacharacters that are
+  # dangerous inside double quotes are refused.
+  case "$directory" in
+    "") return 1 ;;
+    *'"'*) return 1 ;;
+    *'$'*) return 1 ;;
+    *'`'*) return 1 ;;
+    *[\\]*) return 1 ;;
+  esac
+
+  case "$directory" in
+    *$'\n'*) return 1 ;;
+  esac
+
+  return 0
+}
+
 path_manager_shell_literal() {
   local directory="$1"
 
@@ -143,6 +166,11 @@ EOF
 path_manager_install() {
   local directory="$1"
   local profile="${2:-$(path_manager_shell_profile)}"
+
+  if ! path_manager_directory_is_safe "$directory"; then
+    path_manager_warn "Refusing to add an unsafe directory to PATH: $directory"
+    return 1
+  fi
 
   path_manager_remove_block "$profile" || true
 

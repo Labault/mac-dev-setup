@@ -50,6 +50,14 @@ teardown() {
   [ "$status" -eq 0 ]
 }
 
+@test "install refuses a directory containing shell metacharacters" {
+  run path_manager_install '/tmp/x";rm -rf ~;#' "$PROFILE_FILE"
+  [ "$status" -ne 0 ]
+  [[ "$output" == *"Refusing to add an unsafe directory"* ]]
+  run grep -F "$PATH_MANAGER_BEGIN_MARKER" "$PROFILE_FILE"
+  [ "$status" -ne 0 ]
+}
+
 @test "remove refuses an orphaned begin marker and preserves config" {
   {
     printf 'export EXISTING=1\n'
