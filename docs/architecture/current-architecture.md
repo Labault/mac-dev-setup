@@ -7,6 +7,8 @@ inventory.
 
 ## Entry points
 
+![scripts directory tree showing commands, lib, and swiftbar subdirectories](../assets/screenshots/architecture/scripts-tree.webp)
+
 - `install.sh` installs or updates the checkout and creates the `mac` symlink.
 - `scripts/cli.sh` dispatches `mac` commands.
 - `scripts/commands/` contains the public command implementations.
