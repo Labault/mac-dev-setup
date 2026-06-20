@@ -39,6 +39,8 @@ Project test runners can request coverage when the extension is available:
 XDEBUG_MODE=off php -d pcov.enabled=1 vendor/bin/pest --coverage
 ```
 
+![Pest coverage summary with passing PHP tests](../assets/screenshots/php/coverage-summary.webp)
+
 Generate Clover XML for CI tooling:
 
 ```bash

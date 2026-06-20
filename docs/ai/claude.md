@@ -14,6 +14,8 @@ Three entry points are available in this setup:
 The desktop app is installed through Homebrew and declared in the project
 `Brewfile`. Claude Code is installed separately via npm.
 
+![Claude Desktop answering a Mac developer setup checklist prompt](../assets/screenshots/ai/claude-desktop.webp)
+
 ## Installation
 
 ### Desktop app

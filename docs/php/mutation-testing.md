@@ -39,6 +39,8 @@ Run it manually:
 composer mutation
 ```
 
+![Infection mutation testing summary in a PHP project](../assets/screenshots/php/mutation-testing.webp)
+
 ## Scope
 
 Start with focused paths before running mutation testing across an entire legacy

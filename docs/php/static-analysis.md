@@ -59,6 +59,8 @@ Run it with:
 composer analyse
 ```
 
+![PHPStan static analysis passing with no errors](../assets/screenshots/php/static-analysis.webp)
+
 ## Baseline Strategy
 
 Use a baseline only for existing projects with known debt:

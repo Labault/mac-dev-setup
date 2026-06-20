@@ -44,6 +44,8 @@ composer test
 composer test:coverage
 ```
 
+![Pest test run with passing PHP tests](../assets/screenshots/php/pest-run.webp)
+
 ## Test Types
 
 Use a clear test layout:

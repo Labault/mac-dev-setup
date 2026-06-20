@@ -30,6 +30,8 @@ Run Hadolint against a Dockerfile with:
 hadolint Dockerfile
 ```
 
+![Hadolint reporting Dockerfile warnings and a fixed passing run](../assets/screenshots/quality/hadolint.webp)
+
 A Dockerfile with a different name can also be analyzed:
 
 ```bash

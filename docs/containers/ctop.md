@@ -70,6 +70,8 @@ Launch the dashboard:
 ctop
 ```
 
+![ctop monitoring demo Docker containers](../assets/screenshots/quality/ctop.webp)
+
 Common controls include:
 
 ```text

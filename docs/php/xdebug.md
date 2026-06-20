@@ -51,6 +51,8 @@ mac php xdebug enable     # activate Xdebug for a debugging session
 mac php xdebug disable    # deactivate it again
 ```
 
+![mac php xdebug status showing a disabled config with the extension installed](../assets/screenshots/cli/mac-php-xdebug.webp)
+
 The helper keeps `99-xdebug.ini.disabled` as the reusable disabled template
 (created automatically on first run). `enable` copies it to `99-xdebug.ini` in
 the active Homebrew PHP `conf.d` directory; `disable` removes that copy. The

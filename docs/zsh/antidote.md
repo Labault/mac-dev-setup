@@ -36,6 +36,8 @@ configs/zsh/.zsh_plugins.txt
 
 The plugin list is versioned so a new Mac gets the same shell behavior.
 
+![Managed Antidote plugin list for Zsh](../assets/screenshots/zsh/antidote-plugins.webp)
+
 ## Refresh plugins
 
 Open a new shell or run:

@@ -4,6 +4,8 @@
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
+![Warp terminal running the mac CLI help command](../assets/screenshots/apps/warp-terminal.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

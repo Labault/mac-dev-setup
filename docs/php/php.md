@@ -37,6 +37,11 @@ composer --version
 symfony version
 ```
 
+The `mac php` helper also checks the local Xdebug state without requiring you to
+inspect PHP configuration files manually:
+
+![mac php xdebug status showing a disabled config with the extension installed](../assets/screenshots/cli/mac-php-xdebug.webp)
+
 Check that Composer can inspect the local platform:
 
 ```bash

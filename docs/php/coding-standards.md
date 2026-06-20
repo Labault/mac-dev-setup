@@ -46,6 +46,8 @@ Add Composer scripts:
 }
 ```
 
+![PHP-CS-Fixer dry run with no files to fix](../assets/screenshots/php/coding-standards.webp)
+
 ## Rector
 
 Install per project:
