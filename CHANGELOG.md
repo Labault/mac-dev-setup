@@ -10,16 +10,21 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Added
 
-- Screenshots for `bat`, `duf`, `dust`, `lsd`, and `tokei` documentation pages,
-  illustrating terminal output and tool behavior directly in the docs.
+- `mac doctor --summary` flag to collapse the undeclared Homebrew package list
+  to a count, making the output usable in screenshots and narrow terminals.
+- Screenshots for `bat`, `duf`, `dust`, `lsd`, `tokei`, and
+  `mac doctor --fix --summary` illustrating tool behavior and diagnostic output
+  directly in the docs.
 - Visual assets roadmap (`docs/assets/ROADMAP.md`) tracking all planned and
   actioned screenshots across 12 phases with capture rules and a validation
   checklist.
+- `lsd --tree scripts/` screenshot in the architecture documentation.
 
 ### Changed
 
 - Inserted missing image references in `docs/git/git.md` (git-delta diff) and
-  `docs/troubleshooting/troubleshooting.md` (mac doctor report).
+  `docs/troubleshooting/troubleshooting.md` (mac doctor report and
+  doctor --fix --summary).
 - Fixed `.git/info/exclude` pattern from `ROADMAP.md` to `/ROADMAP.md` to
   prevent the local planning file from inadvertently excluding
   `docs/assets/ROADMAP.md`.
