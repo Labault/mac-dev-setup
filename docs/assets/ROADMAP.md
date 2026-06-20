@@ -78,7 +78,7 @@ These are useful for explaining what gets installed and how drift is checked.
 | --- | --- | --- | --- | --- |
 | P1 | Brew bundle check | `docs/assets/screenshots/homebrew/brew-bundle-check.webp` | `docs/homebrew/homebrew.md` | `brew bundle check --file profiles/full/Brewfile`. |
 | P1 | Inventory overview | `docs/assets/screenshots/homebrew/inventory-overview.webp` | `docs/homebrew/inventory.md` | A readable excerpt of package categories or counts. |
-| P2 | Minimal vs full profile | `docs/assets/images/profile-comparison.webp` | `README.md`, `docs/homebrew/inventory.md` | Simple visual comparison of `minimal` and `full`. |
+| P2 | Minimal vs full profile | `docs/assets/images/profile-comparison.webp` | `README.md`, `docs/homebrew/inventory.md` | Simple visual comparison of `minimal` and `full`. Source SVG at `docs/assets/images/profile-comparison.svg`. |
 
 ## Phase 5 - macOS Features
 
@@ -193,14 +193,14 @@ These pages do not need screenshots unless a specific visual example is useful.
 
 | Priority | Page | Recommendation |
 | --- | --- | --- |
-| P3 | `docs/security/gitleaks.md` | Optional terminal output with a fake secret only. |
+| P3 | `docs/security/gitleaks.md` | `docs/assets/screenshots/security/gitleaks.webp` — terminal output with a fake secret. Used in `docs/security/gitleaks.md`. |
 | P3 | `docs/security/keeweb.md` | Optional app screenshot with demo database only. |
 | P3 | `docs/ssh/ssh.md` | Usually no screenshot; terminal commands are enough. |
 | P3 | `docs/database/libpq.md` | Usually no screenshot; command examples are enough. |
-| P3 | `docs/cli/bat.md` | Optional colorful `bat README.md` output. |
-| P3 | `docs/cli/duf.md` | Optional `duf` terminal table. |
-| P3 | `docs/cli/dust.md` | Optional `dust` terminal tree. |
-| P3 | `docs/cli/lsd.md` | `docs/assets/screenshots/cli/lsd.webp` — `lsd -la` or `lsd --tree --depth 2` showing Nerd Font icons and colors. Used in `docs/cli/lsd.md`. |
+| P3 | `docs/cli/bat.md` | `docs/assets/screenshots/cli/bat.webp` — `bat` rendering a file with line numbers and syntax highlighting. Used in `docs/cli/bat.md`. |
+| P3 | `docs/cli/duf.md` | `docs/assets/screenshots/cli/duf.webp` — `duf` showing local macOS filesystems and disk usage. Used in `docs/cli/duf.md`. |
+| P3 | `docs/cli/dust.md` | `docs/assets/screenshots/cli/dust.webp` — `dust` showing a compact disk usage tree. Used in `docs/cli/dust.md`. |
+| P3 | `docs/cli/lsd.md` | `docs/assets/screenshots/cli/lsd.webp` — `lsd --tree docs/cli` showing Nerd Font icons and colors. Used in `docs/cli/lsd.md`. |
 | P3 | `docs/cli/tree.md` | Optional `tree -L 2` output. |
 | P3 | `docs/cli/tokei.md` | `docs/assets/screenshots/cli/tokei.webp` — `tokei .` run from the mac-dev-setup root showing the language breakdown table. Used in `docs/cli/tokei.md`. |
 | P3 | `docs/cli/autojump.md` | Usually no screenshot; command examples are enough. |
