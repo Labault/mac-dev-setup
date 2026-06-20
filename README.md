@@ -326,6 +326,8 @@ files:
 Existing files are **backed up before replacement** when they differ from the
 versioned ones. Backups go to `~/Documents/Backups/mac-dev-setup/zsh`.
 
+![MacDevSetup managed files and backup locations](docs/assets/images/managed-files.webp)
+
 ---
 
 ### Undo / rollback summary

@@ -36,6 +36,8 @@ Run claude-monitor in a terminal alongside an active Claude Code session:
 claude-monitor
 ```
 
+![claude-monitor command-line help showing usage options](../assets/screenshots/ai/claude-monitor.webp)
+
 The display refreshes automatically and shows:
 
 - Tokens used in the current session (input / output / cache).

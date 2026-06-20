@@ -3,6 +3,8 @@
 MacDevSetup is organized around a small shell CLI and a profile-based package
 inventory.
 
+![MacDevSetup CLI architecture from the mac entrypoint to command scripts](../assets/images/cli-architecture.webp)
+
 ## Entry points
 
 - `install.sh` installs or updates the checkout and creates the `mac` symlink.

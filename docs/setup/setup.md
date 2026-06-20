@@ -9,6 +9,10 @@ mac setup
 The CLI delegates to `scripts/setup.sh`, which keeps the same options for direct
 maintenance use.
 
+![MacDevSetup setup lifecycle from install to validation and rollback](../assets/images/setup-lifecycle.webp)
+
+![MacDevSetup managed files and backup locations](../assets/images/managed-files.webp)
+
 ## Usage
 
 Display the available CLI commands:

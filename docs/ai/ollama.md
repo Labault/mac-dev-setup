@@ -55,6 +55,8 @@ Run a one-shot prompt:
 echo "Explain PHP generators in one paragraph." | ollama run mistral
 ```
 
+![Ollama running a one-shot prompt with a local model](../assets/screenshots/ai/ollama-run.webp)
+
 ## Local API
 
 Ollama exposes a local HTTP API on port 11434:
