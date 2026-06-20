@@ -45,6 +45,7 @@ clear visual identity.
 | P0 | CLI help | `docs/assets/screenshots/readme/mac-help.webp` | `README.md` | `mac help` output with the command list visible. |
 | P0 | Setup dry run | `docs/assets/screenshots/readme/mac-setup-dry-run.webp` | `README.md` | `mac setup --dry-run` showing planned actions without changes. |
 | P0 | Doctor report | `docs/assets/screenshots/readme/mac-doctor.webp` | `README.md`, `docs/troubleshooting/troubleshooting.md` | `mac doctor` showing a clean or useful diagnostic report. |
+| P2 | Doctor fix summary | `docs/assets/screenshots/troubleshooting/mac-doctor-fix-summary.webp` | `docs/troubleshooting/troubleshooting.md` | `mac doctor --fix --summary` showing compact diagnostic and fix suggestions. |
 | P0 | Setup walkthrough | `docs/assets/screenshots/setup/setup-flow.webp` | `docs/setup/setup.md` | A terminal section showing install, shell reload, and `mac setup`. |
 | P0 | Profile selection | `docs/assets/screenshots/setup/setup-profile.webp` | `docs/setup/setup.md` | `mac setup --profile minimal --dry-run` or `full` profile preview. |
 

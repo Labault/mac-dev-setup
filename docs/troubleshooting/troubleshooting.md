@@ -22,6 +22,14 @@ Print reconciliation commands without running them:
 mac doctor --fix
 ```
 
+Use `--summary` to collapse the undeclared package list to a count:
+
+```bash
+mac doctor --fix --summary
+```
+
+![mac doctor --fix --summary showing a compact diagnostic and fix suggestions](../assets/screenshots/troubleshooting/mac-doctor-fix-summary.webp)
+
 ![mac doctor showing a diagnostic report](../assets/screenshots/readme/mac-doctor.webp)
 
 If the `mac` command is not available yet, run the doctor script directly from
