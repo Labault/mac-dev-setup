@@ -26,8 +26,7 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `docs/vscode/`.
 - Added Codex CLI documentation covering installation, workflow, and comparison
   with Claude Code.
-- Promoted codexbar and claude-monitor from TOOLING to USED with expanded
-  documentation.
+- Promoted codexbar from TOOLING to USED with expanded documentation.
 - Excluded `claude.ai` from lychee link checking as it redirects to login.
 
 ## 1.5.0 - 2026-06-18
@@ -55,8 +54,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   Xdebug configuration while keeping it disabled by default.
 - PHP/Symfony toolchain documentation covering the shared Homebrew runtime,
   Xdebug policy, and PHPStan project setup.
-- PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer, Rector,
-  Infection mutation testing, and mise evaluation.
+- PHP project-level guides for PCOV coverage, Pest, PHP-CS-Fixer, Rector, and
+  Infection mutation testing.
 
 ## 1.2.0 - 2026-06-18
 
@@ -81,8 +80,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Changed
 
-- Added focused inventory documentation for Antidote, autojump, claude-monitor,
-  Ice, KeeWeb, libpq, lsd, Stats, terminal-notifier, and uv.
+- Added focused inventory documentation for Antidote, autojump, Ice, KeeWeb,
+  libpq, lsd, Stats, and terminal-notifier.
 - Expanded the Homebrew inventory so every profile package is represented.
 - Updated the macOS CI Node setup action to `actions/setup-node@v6`.
 - Skipped host-global Homebrew diagnostics on GitHub-hosted runners so CI only

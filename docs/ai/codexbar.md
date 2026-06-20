@@ -40,15 +40,11 @@ Keychain and are never committed to any repository.
 | Daily / monthly totals | Cumulative usage across sessions |
 | Model breakdown | Usage split by model (Sonnet, Opus, GPT-4o, etc.) |
 
-## Relationship with claude-monitor
+## Relationship With AI Assistants
 
-| Tool | Interface | Scope |
-| --- | --- | --- |
-| CodexBar | Menu bar, always visible | Multi-provider, persistent |
-| claude-monitor | Terminal, run on demand | Claude Code sessions only |
-
-Use CodexBar for a persistent overview of total spend. Use claude-monitor for
-real-time token tracking during an active Claude Code session.
+CodexBar is a companion app for AI coding tools. It stays in the menu bar and
+provides a persistent overview of token usage and estimated cost while Claude,
+Codex, and other assistants are used throughout the day.
 
 ## Rollback
 

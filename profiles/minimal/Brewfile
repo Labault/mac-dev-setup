@@ -36,5 +36,3 @@ brew "node"
 brew "pre-commit"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
-# Extremely fast Python package installer and resolver, written in Rust
-brew "uv"

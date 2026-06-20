@@ -16,7 +16,7 @@ BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
 
 brewfile_entry_count() {
   awk '
-    /^[[:space:]]*(brew|cask|tap|uv)[[:space:]]+"/ {
+    /^[[:space:]]*(brew|cask|tap)[[:space:]]+"/ {
       count++
     }
     END {

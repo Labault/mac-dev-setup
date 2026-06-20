@@ -84,8 +84,7 @@ Use the focused guides for project-level decisions:
 - [static analysis](static-analysis.md) for PHPStan;
 - [Pest](pest.md) for tests and Composer test scripts;
 - [coding standards](coding-standards.md) for PHP-CS-Fixer and Rector;
-- [mutation testing](mutation-testing.md) for Infection;
-- [mise](mise.md) for runtime version-manager evaluation.
+- [mutation testing](mutation-testing.md) for Infection.
 
 ## Rollback
 

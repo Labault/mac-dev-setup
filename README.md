@@ -160,7 +160,6 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | Tool | What it does | Documentation |
 | --- | --- | --- |
 | Claude (desktop app + CLI) | AI assistant for reasoning, writing, design, and agentic coding | [docs/ai/claude.md](docs/ai/claude.md) |
-| claude-monitor | Real-time token usage monitor for active Claude Code sessions | [docs/ai/claude-monitor.md](docs/ai/claude-monitor.md) |
 | Codex (CLI) | OpenAI's coding assistant, installed globally via `npm` | [docs/ai/codex.md](docs/ai/codex.md) |
 | CodexBar | Menu bar app tracking token usage and cost across AI providers | [docs/ai/codexbar.md](docs/ai/codexbar.md) |
 | Ollama | Run large language models locally (Mistral, Llama, etc.) | [docs/ai/ollama.md](docs/ai/ollama.md) |
@@ -291,8 +290,8 @@ mac setup --profile full      # everything (this is the default)
 
 | Profile | Best for | What you get |
 | --- | --- | --- |
-| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (15 Homebrew packages) |
-| `full` | Complete dev workstation (default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (53 Brewfile entries: 30 formulae, 21 casks, 1 tap, 1 `uv` tool) |
+| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (14 Homebrew packages) |
+| `full` | Complete dev workstation (default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (51 Brewfile entries: 29 formulae, 21 casks, 1 tap) |
 
 The exact lists live in
 [`profiles/minimal/Brewfile`](profiles/minimal/Brewfile) and

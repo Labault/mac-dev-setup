@@ -16,7 +16,7 @@ setup() {
     fi
   done < <(
     awk '
-      match($0, /^[[:space:]]*(brew|cask|uv)[[:space:]]+"([^"]+)"/, entry) {
+      match($0, /^[[:space:]]*(brew|cask)[[:space:]]+"([^"]+)"/, entry) {
         print entry[2]
       }
     ' "$REPO_DIR"/profiles/*/Brewfile | sort -u

@@ -80,14 +80,12 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `lychee` → link checker.
 - `terminal-notifier` → notification utility.
 - `tlrc` → official `tldr` client for CLI help pages.
-- `uv` → Python package/tool runner, also used for runtime-managed tools.
 
 ---
 
 ### AI assistants
 
 - `claude` → Claude desktop app by Anthropic; used for reasoning, design, and code review.
-- `claude-monitor` → CLI usage monitor for Claude API consumption; installed via `uv`.
 - `codexbar` → menu bar app tracking Claude and Codex usage and costs.
 - `ollama-app` → run large language models locally; used for privacy-sensitive tasks and offline work.
 

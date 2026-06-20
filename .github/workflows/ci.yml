@@ -30,26 +30,19 @@ jobs:
           fi
           echo "No committed local artifacts."
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-
       - name: Install system validation tools
         run: |
           sudo apt-get update
           sudo apt-get install --yes \
             ca-certificates \
             curl \
-            golang-go
+            golang-go \
+            pre-commit
 
           curl -fsSL https://deb.nodesource.com/setup_22.x \
             | sudo -E bash -
 
           sudo apt-get install --yes nodejs
-
-          python -m pip install --upgrade pip
-          python -m pip install pre-commit
 
           npm install --global markdownlint-cli2
 

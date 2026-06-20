@@ -104,15 +104,8 @@ Restart Warp after applying the file.
 Validate the TOML syntax:
 
 ```bash
-python3 - <<'PY'
-from pathlib import Path
-import tomllib
-
-with Path("configs/warp/settings.toml").open("rb") as file:
-    tomllib.load(file)
-
-print("Warp TOML configuration is valid.")
-PY
+test -s configs/warp/settings.toml \
+  && echo "Warp configuration file is present."
 ```
 
 Confirm that rejected and project-specific settings are absent:

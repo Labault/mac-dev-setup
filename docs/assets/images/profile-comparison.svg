@@ -47,9 +47,9 @@
   <line x1="600" y1="34" x2="600" y2="866" class="split"/>
 
   <rect x="52" y="92" width="188" height="28" rx="14" class="badge-full"/>
-  <text x="68" y="111" class="badge-text">FULL PROFILE - 53 entries</text>
+  <text x="68" y="111" class="badge-text">FULL PROFILE - 51 entries</text>
   <rect x="620" y="92" width="210" height="28" rx="14" class="badge-min"/>
-  <text x="636" y="111" class="badge-text">MINIMAL PROFILE - 15 entries</text>
+  <text x="636" y="111" class="badge-text">MINIMAL PROFILE - 14 entries</text>
 
   <text x="52" y="146" class="prompt">&gt;</text>
   <text x="76" y="146" class="cmd">mac setup --profile full</text>
@@ -62,9 +62,9 @@
   <text x="52" y="290" class="term">==&gt; Updating Homebrew...</text>
   <text x="52" y="310" class="term">Already up-to-date.</text>
   <text x="52" y="330" class="info">[INFO]</text><text x="102" y="330" class="term">Installing Brewfile dependencies</text>
-  <text x="52" y="350" class="info">[INFO]</text><text x="102" y="350" class="term">Checking 53 Brewfile entries</text>
+  <text x="52" y="350" class="info">[INFO]</text><text x="102" y="350" class="term">Checking 51 Brewfile entries</text>
   <text x="52" y="370" class="dim">brew bundle check --verbose to list unmet dependencies.</text>
-  <text x="52" y="390" class="term">Fetching uv</text>
+  <text x="52" y="390" class="term">Using gitleaks</text>
   <text x="52" y="410" class="term">Using symfony-cli/tap</text>
   <text x="52" y="430" class="term">Using antidote</text>
   <text x="52" y="450" class="term">Using autojump</text>
@@ -78,8 +78,8 @@
   <text x="52" y="610" class="term">Using claude, codexbar, ollama-app</text>
   <text x="52" y="630" class="term">Using raycast, cleanshot, notion, obsidian</text>
   <text x="52" y="650" class="term">Using pearcleaner, stats, swiftbar</text>
-  <text x="52" y="670" class="term">Using pre-commit, shellcheck, node, uv</text>
-  <text x="52" y="690" class="term">`brew bundle` complete! 53 dependencies installed.</text>
+  <text x="52" y="670" class="term">Using pre-commit, shellcheck, node</text>
+  <text x="52" y="690" class="term">`brew bundle` complete! 51 dependencies installed.</text>
   <text x="52" y="710" class="ok">[OK]</text><text x="102" y="710" class="term">[BREW] Done</text>
   <text x="52" y="730" class="info">[INFO]</text><text x="102" y="730" class="term">[GIT] Setup starting</text>
   <text x="52" y="750" class="ok">[OK]</text><text x="102" y="750" class="term">gitconfig applied</text>
@@ -99,7 +99,7 @@
   <text x="620" y="290" class="term">==&gt; Updating Homebrew...</text>
   <text x="620" y="310" class="term">Already up-to-date.</text>
   <text x="620" y="330" class="info">[INFO]</text><text x="670" y="330" class="term">Installing Brewfile dependencies</text>
-  <text x="620" y="350" class="info">[INFO]</text><text x="670" y="350" class="term">Checking 15 Brewfile entries</text>
+  <text x="620" y="350" class="info">[INFO]</text><text x="670" y="350" class="term">Checking 14 Brewfile entries</text>
   <text x="620" y="370" class="term">The Brewfile's dependencies are satisfied.</text>
   <text x="620" y="390" class="ok">[OK]</text><text x="670" y="390" class="term">[BREW] Done</text>
   <text x="620" y="410" class="info">[INFO]</text><text x="670" y="410" class="term">[GIT] Setup starting</text>

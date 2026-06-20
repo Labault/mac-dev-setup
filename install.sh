@@ -34,11 +34,6 @@ die() {
 resolve_path() {
   target="$1"
 
-  if command -v python3 >/dev/null 2>&1; then
-    python3 -c 'import os, sys; print(os.path.realpath(sys.argv[1]))' "$target"
-    return
-  fi
-
   if [ -L "$target" ]; then
     link_target="$(readlink "$target")"
     case "$link_target" in

@@ -118,7 +118,7 @@ These settings should instead be stored in the relevant project's `.vscode/setti
 Validate the shared settings:
 
 ```bash
-python3 -m json.tool configs/vscode/settings.json >/dev/null
+node -e 'JSON.parse(require("fs").readFileSync("configs/vscode/settings.json", "utf8"))'
 ```
 
 Validate the installation script:

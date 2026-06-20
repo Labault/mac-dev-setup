@@ -36,6 +36,8 @@ To scan only the current files without inspecting the Git history:
 gitleaks dir .
 ```
 
+![Gitleaks detecting a redacted fake private key in a demo directory](../assets/screenshots/security/gitleaks.webp)
+
 ## Exit status
 
 Gitleaks returns a non-zero exit status when a potential secret is detected.
