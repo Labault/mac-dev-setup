@@ -20,8 +20,22 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   checklist.
 - `lsd --tree scripts/` screenshot in the architecture documentation.
 
+### Security
+
+- `path_manager` now rejects directories containing shell metacharacters before
+  writing the managed PATH block into the user's profile, closing a
+  command-injection sink reachable through `MAC_DEV_SETUP_BIN_DIR`.
+- `mac php xdebug enable`/`disable` back up an existing `99-xdebug.ini` before
+  overwriting or removing it, preventing silent loss of a custom config.
+
 ### Changed
 
+- Merged `docs/containers/` (ctop, OrbStack) into `docs/docker/` so all
+  container tooling lives in one place; updated the inbound links.
+- Documented the existing `mac doctor --summary` and `mac vscode --with-optional`
+  flags in the README so it matches the scripts.
+- Removed a stray `</details>` tag from the README "What's included" section.
+- Hardened `scripts/commands/php.sh` with `set -euo pipefail`.
 - Inserted missing image references in `docs/git/git.md` (git-delta diff) and
   `docs/troubleshooting/troubleshooting.md` (mac doctor report and
   doctor --fix --summary).
@@ -30,6 +44,13 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `docs/assets/ROADMAP.md`.
 - Standardized all shell script shebangs from `#!/bin/bash` to
   `#!/usr/bin/env bash` for consistency and portability.
+
+### Removed
+
+- Removed the per-version release-criteria documents (`docs/releases/v0.1.0.md`,
+  `docs/releases/v1.0.0.md`); the `CHANGELOG.md` is now the single source of
+  truth for release history. The release workflow remains in
+  `docs/releases/release-process.md`.
 
 ## 1.7.0 - 2026-06-18
 
@@ -227,5 +248,3 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Installation, verification, maintenance, and rollback documentation.
 - Apple Silicon support with best-effort Intel compatibility.
 - Initial GitHub Actions workflow and local Act support.
-
-For the complete release criteria, see [version 0.1.0 release criteria](docs/releases/v0.1.0.md).

@@ -94,12 +94,14 @@ Lychee reports broken links, unreachable hosts, redirected URLs, invalid local p
 
 ## Local links
 
-Lychee also validates relative links between repository files.
+Lychee also validates relative links between repository files. Links are
+written relative to the current file — from `docs/quality/` a sibling section
+is reached with `../`:
 
 Example:
 
 ```markdown
-[Homebrew documentation](docs/homebrew/homebrew.md)
+[Homebrew documentation](../homebrew/homebrew.md)
 ```
 
 When documentation files are moved or renamed, the related links must be

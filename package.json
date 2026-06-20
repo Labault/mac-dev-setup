@@ -2,7 +2,6 @@
   "name": "mac-dev-setup",
   "version": "1.7.0",
   "description": "Curated macOS development setup managed through a small mac CLI.",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -14,8 +13,15 @@
     "type": "git",
     "url": "git+https://github.com/Labault/mac-dev-setup.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "macos",
+    "dotfiles",
+    "homebrew",
+    "developer-environment",
+    "cli",
+    "zsh"
+  ],
+  "author": "Labault <thibault.lafaurie.dev@hotmail.com>",
   "license": "MIT",
   "type": "commonjs",
   "bugs": {

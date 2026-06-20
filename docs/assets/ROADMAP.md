@@ -145,8 +145,8 @@ This phase now includes the Gitmoji convention page added under `docs/git/`.
 | P2 | Markdownlint output | `docs/assets/screenshots/quality/markdownlint.webp` | `docs/quality/markdownlint-cli2.md` | A clean or intentionally small example output. |
 | P2 | Lychee link check | `docs/assets/screenshots/quality/lychee.webp` | `docs/quality/lychee.md` | Link check summary. |
 | P2 | EditorConfig checker | `docs/assets/screenshots/quality/editorconfig-checker.webp` | `docs/quality/editorconfig-checker.md` | Clean check summary. |
-| P2 | ctop containers | `docs/assets/screenshots/quality/ctop.webp` | `docs/containers/ctop.md` | Demo containers only. |
-| P2 | OrbStack dashboard | `docs/assets/screenshots/apps/orbstack.webp` | `docs/containers/orbstack.md` | OrbStack dashboard with demo containers. |
+| P2 | ctop containers | `docs/assets/screenshots/quality/ctop.webp` | `docs/docker/ctop.md` | Demo containers only. |
+| P2 | OrbStack dashboard | `docs/assets/screenshots/apps/orbstack.webp` | `docs/docker/orbstack.md` | OrbStack dashboard with demo containers. |
 | P3 | Hadolint output | `docs/assets/screenshots/quality/hadolint.webp` | `docs/docker/hadolint.md` | Small Dockerfile lint example. |
 
 ## Phase 9 - PHP And Symfony Tooling

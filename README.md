@@ -97,12 +97,12 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | --- | --- | --- |
 | `act` | Run GitHub Actions locally (no push needed to test a workflow) | [docs/github-actions/act.md](docs/github-actions/act.md) |
 | `actionlint` | Validate GitHub Actions workflow files | [docs/github-actions/actionlint.md](docs/github-actions/actionlint.md) |
-| `ctop` | Live container resource monitor, `top`-style | [docs/containers/ctop.md](docs/containers/ctop.md) |
+| `ctop` | Live container resource monitor, `top`-style | [docs/docker/ctop.md](docs/docker/ctop.md) |
 | `editorconfig-checker` | Enforce `.editorconfig` rules across the repo | [docs/quality/editorconfig-checker.md](docs/quality/editorconfig-checker.md) |
 | `hadolint` | Lint Dockerfiles | [docs/docker/hadolint.md](docs/docker/hadolint.md) |
 | `lychee` | Find broken links in documentation | [docs/quality/lychee.md](docs/quality/lychee.md) |
 | `markdownlint-cli2` | Enforce consistent Markdown formatting | [docs/quality/markdownlint-cli2.md](docs/quality/markdownlint-cli2.md) |
-| OrbStack | Fast, lightweight Docker Desktop replacement | [docs/containers/orbstack.md](docs/containers/orbstack.md) |
+| OrbStack | Fast, lightweight Docker Desktop replacement | [docs/docker/orbstack.md](docs/docker/orbstack.md) |
 | `pre-commit` | Run quality checks automatically before every `git commit` | [docs/pre-commit/pre-commit.md](docs/pre-commit/pre-commit.md) |
 | `shellcheck` | Find bugs and bad patterns in shell scripts | [docs/shell/shellcheck.md](docs/shell/shellcheck.md) |
 
@@ -174,8 +174,6 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | SwiftBar + custom scripts | Lightweight VPS and site uptime monitoring in the menu bar | [docs/macos/menu-bar.md#swiftbar](docs/macos/menu-bar.md#swiftbar) |
 
 ---
-
-</details>
 
 The complete package inventory (USED / INSTALLED / TOOLING) lives in
 [docs/homebrew/inventory.md](docs/homebrew/inventory.md).
@@ -305,9 +303,10 @@ These commands change system or app settings. They are **not** run
 automatically:
 
 ```bash
-mac defaults   # apply curated macOS Finder / Dock / keyboard tweaks
-mac keyboard   # install the Français OSS Mac keyboard layout
-mac vscode     # install the curated VS Code extensions
+mac defaults                 # apply curated macOS Finder / Dock / keyboard tweaks
+mac keyboard                 # install the Français OSS Mac keyboard layout
+mac vscode                   # install the curated VS Code extensions
+mac vscode --with-optional   # also install the optional extension set
 ```
 
 ---
@@ -387,6 +386,7 @@ machines, pulling updates, or debugging.
 mac doctor                      # check your machine (uses your current profile)
 mac doctor --profile minimal    # check against the minimal profile specifically
 mac doctor --fix                # print the commands that would fix each issue (does not run them)
+mac doctor --summary            # collapse long lists to a count (handy when many tools drift)
 ```
 
 `mac doctor` reports three things:

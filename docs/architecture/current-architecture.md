@@ -50,3 +50,8 @@ Local and CI validation are centered on:
 - `pre-commit run --all-files` for formatting, markdown, links, secrets, and
   workflow linting;
 - macOS workflows for Homebrew and setup validation.
+
+## See also
+
+- [CLI command discovery](cli-discovery.md) — how `mac` finds, names, and
+  documents its subcommands from the `scripts/commands/` directory.

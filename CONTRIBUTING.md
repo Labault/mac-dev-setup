@@ -96,7 +96,7 @@ Examples:
 🐛 fix: correct a broken setup command
 🔧 chore: update repository configuration
 👷 ci: improve repository quality checks
-🔒 security: harden secret detection
+🔒️ fix(security): harden secret detection
 ```
 
 Prefer small, atomic commits with one clear purpose. See
@@ -116,6 +116,14 @@ Pull requests should include:
 - screenshots or logs when useful.
 
 The pull request template provides the expected checklist.
+
+## Releases
+
+Releases are cut manually by the maintainer. The full workflow — version
+choice, changelog preparation, tagging, and the GitHub release — is documented
+in [docs/releases/release-process.md](docs/releases/release-process.md). The
+root [`CHANGELOG.md`](CHANGELOG.md) is the canonical record of notable changes;
+keep its `Unreleased` section up to date as part of your change.
 
 ## Compatibility
 
