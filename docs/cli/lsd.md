@@ -4,6 +4,8 @@
 
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
+![lsd tree output with Nerd Font icons and colors](../assets/screenshots/cli/lsd.webp)
+
 ## Installation
 
 It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.

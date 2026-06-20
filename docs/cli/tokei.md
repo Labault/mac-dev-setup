@@ -4,6 +4,8 @@
 
 It is useful for obtaining a quick quantitative overview of a repository.
 
+![tokei language breakdown for the mac-dev-setup repository](../assets/screenshots/cli/tokei.webp)
+
 The tool is installed through Homebrew and declared in the project `Brewfile`.
 
 ## Installation
