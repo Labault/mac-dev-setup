@@ -41,7 +41,7 @@ parameters:
 Start at a level the project can sustain, then raise it progressively. Avoid
 jumping directly to the maximum level on legacy applications.
 
-## Composer Scripts
+## Composer scripts
 
 Add a project script:
 
@@ -61,7 +61,7 @@ composer analyse
 
 ![PHPStan static analysis passing with no errors](../assets/screenshots/php/static-analysis.webp)
 
-## Baseline Strategy
+## Baseline strategy
 
 Use a baseline only for existing projects with known debt:
 
@@ -72,7 +72,7 @@ vendor/bin/phpstan analyse --generate-baseline
 Commit the baseline with the project, then reduce it over time. Do not use a
 baseline to hide new errors in new code.
 
-## IDE Integration
+## IDE integration
 
 The recommended VS Code extensions include PHPStan integration. Keep
 project-specific binary paths in the project's `.vscode/settings.json` when the

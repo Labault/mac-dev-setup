@@ -11,7 +11,7 @@ For this setup:
 Coverage tooling belongs in each PHP project, not in the shared Homebrew
 profile.
 
-## PCOV Installation
+## PCOV installation
 
 Install PCOV for the active PHP runtime:
 
@@ -31,7 +31,7 @@ pcov.enabled=0
 pcov.directory=src
 ```
 
-## Pest and PHPUnit Coverage
+## Pest and PHPUnit coverage
 
 Project test runners can request coverage when the extension is available:
 
@@ -73,7 +73,7 @@ Record:
 - whether HTML and Clover reports are required;
 - any code that needs explicit inclusion or exclusion.
 
-## CI Boundary
+## CI boundary
 
 Run coverage in a dedicated CI command or job when it is expensive. Keep the
 normal `composer test` command fast enough for local development.

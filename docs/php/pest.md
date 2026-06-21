@@ -21,7 +21,7 @@ For Symfony projects, add the Symfony plugin when useful:
 composer require --dev pestphp/pest-plugin-symfony
 ```
 
-## Composer Scripts
+## Composer scripts
 
 Add scripts to the project `composer.json`:
 
@@ -46,7 +46,7 @@ composer test:coverage
 
 ![Pest test run with passing PHP tests](../assets/screenshots/php/pest-run.webp)
 
-## Test Types
+## Test types
 
 Use a clear test layout:
 

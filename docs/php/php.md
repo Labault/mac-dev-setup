@@ -60,7 +60,7 @@ Stop local Symfony services when finished:
 symfony server:stop
 ```
 
-## Project Boundary
+## Project boundary
 
 Keep these decisions inside each PHP project:
 
@@ -75,7 +75,7 @@ Keep these decisions inside each PHP project:
 Use repository-level Homebrew only for tools that must exist before a project is
 cloned or bootstrapped.
 
-## Toolchain Guides
+## Toolchain guides
 
 Use the focused guides for project-level decisions:
 

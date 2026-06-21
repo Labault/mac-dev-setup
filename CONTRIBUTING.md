@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for considering a contribution to Mac Dev Setup.
+Thank you for considering a contribution to MacDevSetup.
 
 This repository is curated rather than exhaustive. New tools, configurations, and workflows are reviewed individually and should be tested, understood, and documented before being accepted.
 

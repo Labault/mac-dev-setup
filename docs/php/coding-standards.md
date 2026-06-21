@@ -85,12 +85,12 @@ Add scripts:
 }
 ```
 
-## Review Rule
+## Review rule
 
 Never auto-run Rector as an invisible setup step. Run it manually, inspect the
 diff, and commit the result separately from behavior changes.
 
-## Pre-commit Boundary
+## Pre-commit boundary
 
 It is reasonable for a project to run PHP-CS-Fixer checks in pre-commit. Rector
 should stay manual or run in a dedicated CI job because it rewrites code.

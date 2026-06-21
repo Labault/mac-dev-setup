@@ -29,7 +29,7 @@ Homebrew PHP configuration commonly lives under:
 $(brew --prefix)/etc/php/<version>/conf.d
 ```
 
-## Disabled by Default
+## Disabled by default
 
 Keep a disabled config available, but do not load it automatically:
 
@@ -60,7 +60,7 @@ template is never moved or symlinked, so it always stays available. Restart the
 relevant PHP process (or `symfony server:stop && symfony server:start`) after
 toggling.
 
-## VS Code Workflow
+## VS Code workflow
 
 The recommended VS Code extensions include `xdebug.php-debug`.
 
@@ -83,7 +83,7 @@ Use the host name exposed by the container runtime when `127.0.0.1` does not
 point back to the Mac host. Keep container-specific path mappings in the project
 workspace.
 
-## Coverage Boundary
+## Coverage boundary
 
 Use Xdebug for debugging and profiling. Use PCOV for fast coverage when the
 project adopts it. Do not enable Xdebug coverage and PCOV in the same run.
@@ -103,3 +103,20 @@ Check the active mode:
 ```bash
 php -r 'echo ini_get("xdebug.mode"), PHP_EOL;'
 ```
+
+## Rollback
+
+Deactivate the active config without uninstalling the extension:
+
+```bash
+mac php xdebug disable
+```
+
+Remove the extension entirely from the active PHP runtime:
+
+```bash
+pecl uninstall xdebug
+```
+
+Restart the relevant PHP process (or `symfony server:stop && symfony server:start`)
+so the change takes effect.

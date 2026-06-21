@@ -20,14 +20,6 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   checklist.
 - `lsd --tree scripts/` screenshot in the architecture documentation.
 
-### Security
-
-- `path_manager` now rejects directories containing shell metacharacters before
-  writing the managed PATH block into the user's profile, closing a
-  command-injection sink reachable through `MAC_DEV_SETUP_BIN_DIR`.
-- `mac php xdebug enable`/`disable` back up an existing `99-xdebug.ini` before
-  overwriting or removing it, preventing silent loss of a custom config.
-
 ### Changed
 
 - Merged `docs/containers/` (ctop, OrbStack) into `docs/docker/` so all
@@ -38,14 +30,19 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Hardened the command-layer and setup scripts with `set -euo pipefail`
   (doctor, setup, uninstall, defaults, keyboard, vscode, brew, git, zsh, php)
   and guarded the previously unset `$CI` reference in `scripts/setup.sh`.
+- Unified shell style across the CLI: every executable now uses
+  `set -euo pipefail`, function-local variables are declared with `local`, and
+  small nits (`--help|-h` spacing, `$HOME` paths, quoting) were normalized.
+- Normalized documentation headings to sentence case (notably the `docs/php/`
+  pages) and added the missing Rollback section to `docs/php/xdebug.md`.
 - Restructured the SwiftBar `sites.5m.sh` plugin so its pure helpers are unit
   testable, and guarded its detail-array expansion under `set -u`.
 - Expanded the Bats suite from 78 to 99 tests, adding coverage for the
   hardening guard, uninstall safety refusals, the SwiftBar helpers, `brew.sh`,
   `zsh.sh` backup/idempotency, and the logging stderr routing.
 - Inserted missing image references in `docs/git/git.md` (git-delta diff) and
-  `docs/troubleshooting/troubleshooting.md` (mac doctor report and
-  doctor --fix --summary).
+  `docs/troubleshooting/troubleshooting.md` (`mac doctor` report and
+  `mac doctor --fix --summary`).
 - Fixed `.git/info/exclude` pattern from `ROADMAP.md` to `/ROADMAP.md` to
   prevent the local planning file from inadvertently excluding
   `docs/assets/ROADMAP.md`.
@@ -58,6 +55,14 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
   `docs/releases/v1.0.0.md`); the `CHANGELOG.md` is now the single source of
   truth for release history. The release workflow remains in
   `docs/releases/release-process.md`.
+
+### Security
+
+- `path_manager` now rejects directories containing shell metacharacters before
+  writing the managed PATH block into the user's profile, closing a
+  command-injection sink reachable through `MAC_DEV_SETUP_BIN_DIR`.
+- `mac php xdebug enable`/`disable` back up an existing `99-xdebug.ini` before
+  overwriting or removing it, preventing silent loss of a custom config.
 
 ## 1.7.0 - 2026-06-18
 

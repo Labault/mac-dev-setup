@@ -21,7 +21,7 @@ Initialize configuration:
 vendor/bin/infection --init
 ```
 
-## Composer Script
+## Composer script
 
 Add a project script:
 
@@ -56,7 +56,7 @@ application:
 }
 ```
 
-## CI Boundary
+## CI boundary
 
 Do not put mutation testing in the default local test command. Prefer:
 
@@ -65,7 +65,7 @@ Do not put mutation testing in the default local test command. Prefer:
 - a release-hardening checklist;
 - a focused run for critical domains.
 
-## Interpreting Results
+## Interpreting results
 
 Use mutation results to improve meaningful assertions. Avoid chasing 100 percent
 scores when the cost is brittle or low-value tests.
