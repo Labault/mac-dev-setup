@@ -4,7 +4,8 @@
 # place later.
 
 _log_supports_color() {
-  fd="$1"
+  local fd="$1"
+  local colors
 
   if [ -n "${NO_COLOR:-}" ] || [ ! -t "$fd" ]; then
     return 1
@@ -20,7 +21,7 @@ _log_supports_color() {
 }
 
 _log_color() {
-  color="$1"
+  local color="$1"
 
   case "$color" in
     cyan) printf '\033[36m' ;;
@@ -32,9 +33,10 @@ _log_color() {
 }
 
 _log_emit() {
-  label="$1"
-  color="$2"
-  fd="$3"
+  local label="$1"
+  local color="$2"
+  local fd="$3"
+  local line
   shift 3
 
   if _log_supports_color "$fd"; then

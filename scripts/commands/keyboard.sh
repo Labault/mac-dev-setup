@@ -19,7 +19,7 @@ print_usage() {
 main() {
   case "${1:-}" in
     "") ;;
-    --help | -h)
+    --help|-h)
       print_usage
       exit 0
       ;;

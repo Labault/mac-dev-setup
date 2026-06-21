@@ -3,7 +3,7 @@
 COMMAND_METADATA_FIELD_SEPARATOR="$(printf '\t')"
 
 command_metadata_parse() {
-  command_path="$1"
+  local command_path="$1"
 
   awk -v separator="$COMMAND_METADATA_FIELD_SEPARATOR" '
     function trim(value) {
@@ -48,13 +48,13 @@ command_metadata_parse() {
 }
 
 command_metadata_name_from_record() {
-  metadata_record="$1"
+  local metadata_record="$1"
 
   printf '%s\n' "${metadata_record%%"$COMMAND_METADATA_FIELD_SEPARATOR"*}"
 }
 
 command_metadata_description_from_record() {
-  metadata_record="$1"
+  local metadata_record="$1"
 
   printf '%s\n' "${metadata_record#*"$COMMAND_METADATA_FIELD_SEPARATOR"}"
 }

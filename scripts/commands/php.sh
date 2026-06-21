@@ -39,6 +39,7 @@ php_conf_dir() {
     return 0
   fi
 
+  local version
   version="$(php_minor_version)"
   printf '%s/etc/php/%s/conf.d\n' "$(brew --prefix)" "$version"
 }
@@ -62,7 +63,8 @@ php_backup_dir() {
 # Preserve a user-authored 99-xdebug.ini before enable overwrites it or disable
 # deletes it. Without this, a custom tuned config would be lost silently.
 backup_xdebug_ini_if_present() {
-  target_file="$1"
+  local target_file="$1"
+  local backup_dir backup_file
 
   [ -f "$target_file" ] || return 0
 
@@ -74,7 +76,7 @@ backup_xdebug_ini_if_present() {
 }
 
 write_xdebug_template() {
-  target_file="$1"
+  local target_file="$1"
 
   mkdir -p "$(dirname "$target_file")"
   cat >"$target_file" <<'EOF'
@@ -87,6 +89,7 @@ EOF
 }
 
 ensure_xdebug_disabled_template() {
+  local disabled_file
   disabled_file="$(xdebug_disabled_file)"
 
   if [ ! -f "$disabled_file" ]; then
@@ -113,6 +116,7 @@ require_brew_when_needed() {
 }
 
 require_xdebug_extension() {
+  local extension_file
   extension_file="$(xdebug_extension_file)"
 
   if [ ! -f "$extension_file" ]; then
@@ -127,6 +131,7 @@ xdebug_enable() {
   require_brew_when_needed
   require_xdebug_extension
 
+  local enabled_file disabled_file
   enabled_file="$(xdebug_enabled_file)"
   disabled_file="$(ensure_xdebug_disabled_template)"
 
@@ -142,6 +147,7 @@ xdebug_disable() {
   require_php_runtime
   require_brew_when_needed
 
+  local enabled_file
   enabled_file="$(xdebug_enabled_file)"
 
   if [ -f "$enabled_file" ]; then
@@ -157,6 +163,7 @@ xdebug_status() {
   require_php_runtime
   require_brew_when_needed
 
+  local enabled_file disabled_file
   enabled_file="$(xdebug_enabled_file)"
   disabled_file="$(xdebug_disabled_file)"
 

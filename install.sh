@@ -32,7 +32,8 @@ die() {
 }
 
 resolve_path() {
-  target="$1"
+  local target="$1"
+  local link_target
 
   if [ -L "$target" ]; then
     link_target="$(readlink "$target")"
@@ -47,7 +48,7 @@ resolve_path() {
 }
 
 path_contains() {
-  directory="$1"
+  local directory="$1"
 
   case ":$PATH:" in
     *":$directory:"*) return 0 ;;
@@ -78,6 +79,7 @@ install_or_update_repo() {
   fi
 
   if [ -d "$INSTALL_DIR/.git" ]; then
+    local origin_url
     origin_url="$(git -C "$INSTALL_DIR" config --get remote.origin.url || true)"
 
     case "$origin_url" in
@@ -110,6 +112,7 @@ install_cli_link() {
   mkdir -p "$BIN_DIR"
 
   if [ -e "$CLI_LINK" ] || [ -L "$CLI_LINK" ]; then
+    local existing_target expected_target
     existing_target="$(resolve_path "$CLI_LINK")"
     expected_target="$(resolve_path "$CLI_TARGET")"
 
@@ -121,6 +124,7 @@ install_cli_link() {
     die "$CLI_LINK already exists and points to $existing_target. Refusing to overwrite it."
   fi
 
+  local existing_command
   existing_command="$(command -v "$CLI_NAME" || true)"
   if [ -n "$existing_command" ]; then
     die "A '$CLI_NAME' command already exists at $existing_command. Refusing to shadow it."
@@ -136,6 +140,7 @@ uninstall_cli_link() {
     return 0
   fi
 
+  local existing_target expected_target
   existing_target="$(resolve_path "$CLI_LINK")"
   expected_target="$(resolve_path "$CLI_TARGET")"
 

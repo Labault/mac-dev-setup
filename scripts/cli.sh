@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 # Resolve real repo path from symlink
 REAL_PATH="$(readlink "$0" || true)"

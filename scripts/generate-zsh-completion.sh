@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -21,12 +21,12 @@ cleanup() {
 trap cleanup EXIT
 
 zsh_quote() {
-  value="$1"
+  local value="$1"
   printf "'%s'" "$(printf '%s' "$value" | sed "s/'/'\\\\''/g")"
 }
 
 write_completion_content() {
-  completion_file="$1"
+  local completion_file="$1"
 
   {
     printf '%s\n' '#compdef mac'
@@ -52,7 +52,7 @@ write_completion_content() {
     printf '%s\n' '  )'
     printf '%s\n' ''
     printf '%s\n' '  if (( CURRENT == 2 )); then'
-    printf "%s\n" "    _describe -t commands 'mac command' commands"
+    printf '%s\n' "    _describe -t commands 'mac command' commands"
     printf '%s\n' '    return'
     printf '%s\n' '  fi'
     printf '%s\n' ''

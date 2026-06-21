@@ -35,7 +35,8 @@ die() {
 }
 
 resolve_path() {
-  target="$1"
+  local target="$1"
+  local link_target
 
   if [ -L "$target" ]; then
     link_target="$(readlink "$target")"
@@ -50,7 +51,7 @@ resolve_path() {
 }
 
 run_or_preview() {
-  message="$1"
+  local message="$1"
   shift
 
   if [ "$DRY_RUN" = "true" ]; then
@@ -96,6 +97,7 @@ remove_cli_link() {
     return 0
   fi
 
+  local existing_target expected_target
   existing_target="$(resolve_path "$CLI_LINK")"
   expected_target="$(resolve_path "$CLI_TARGET")"
 
@@ -107,6 +109,7 @@ remove_cli_link() {
 }
 
 remove_path_entry() {
+  local profile
   profile="$(path_manager_shell_profile)"
 
   if [ "$DRY_RUN" = "true" ]; then
@@ -122,9 +125,9 @@ remove_path_entry() {
 }
 
 remove_if_identical() {
-  source_file="$1"
-  target_file="$2"
-  label="$3"
+  local source_file="$1"
+  local target_file="$2"
+  local label="$3"
 
   if [ ! -f "$source_file" ] || [ ! -f "$target_file" ]; then
     info "$label is not installed."
@@ -140,7 +143,8 @@ remove_if_identical() {
 }
 
 remove_git_include() {
-  gitconfig="$REPO_DIR/configs/git/.gitconfig"
+  local gitconfig="$REPO_DIR/configs/git/.gitconfig"
+  local matching_entry
 
   command -v git >/dev/null 2>&1 || {
     info "git is not available; skipping global git config cleanup."
@@ -154,6 +158,7 @@ remove_git_include() {
 
   matching_entry="false"
 
+  local include_path
   while IFS= read -r include_path; do
     [ "$include_path" = "$gitconfig" ] || continue
     matching_entry="true"
@@ -185,6 +190,7 @@ remove_config() {
 }
 
 remove_install_dir() {
+  local install_dir_real repo_dir_real
   install_dir_real="$(resolve_path "$INSTALL_DIR")"
   repo_dir_real="$(resolve_path "$REPO_DIR")"
 

@@ -5,27 +5,27 @@ profile_default() {
 }
 
 profile_dir() {
-  repo_dir="$1"
+  local repo_dir="$1"
 
   printf '%s\n' "$repo_dir/profiles"
 }
 
 profile_brewfile() {
-  repo_dir="$1"
-  profile="$2"
+  local repo_dir="$1"
+  local profile="$2"
 
   printf '%s\n' "$(profile_dir "$repo_dir")/$profile/Brewfile"
 }
 
 profile_exists() {
-  repo_dir="$1"
-  profile="$2"
+  local repo_dir="$1"
+  local profile="$2"
 
   [ -f "$(profile_brewfile "$repo_dir" "$profile")" ]
 }
 
 profile_name_is_valid() {
-  profile="$1"
+  local profile="$1"
 
   # Accept any profile that ships a directory under profiles/, but keep the
   # name to a safe charset so it can never escape the profiles directory.
@@ -37,7 +37,8 @@ profile_name_is_valid() {
 }
 
 profile_list() {
-  repo_dir="$1"
+  local repo_dir="$1"
+  local profiles_dir
   profiles_dir="$(profile_dir "$repo_dir")"
 
   if [ ! -d "$profiles_dir" ]; then
@@ -48,8 +49,8 @@ profile_list() {
 }
 
 profile_validate() {
-  repo_dir="$1"
-  profile="$2"
+  local repo_dir="$1"
+  local profile="$2"
 
   if [ -z "$profile" ]; then
     return 1

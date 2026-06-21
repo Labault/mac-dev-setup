@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Description: Update the mac CLI from its git repository.
 
-set -eo pipefail
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -26,7 +26,7 @@ cleanup_temp_worktree() {
 }
 
 rollback_update() {
-  exit_code="$?"
+  local exit_code="$?"
 
   if [ "$UPDATE_STARTED" = "true" ] && [ -n "$ORIGINAL_HEAD" ]; then
     warn "Update failed; restoring previous version."
@@ -87,6 +87,7 @@ upstream_ref() {
 }
 
 select_target_ref() {
+  local branch upstream
   branch="$(current_branch)"
   upstream="$(upstream_ref)"
 
@@ -109,8 +110,8 @@ select_target_ref() {
 }
 
 prepare_target_worktree() {
-  target_ref="$1"
-  target_sha="$2"
+  local target_ref="$1"
+  local target_sha="$2"
 
   TEMP_WORKTREE="$(mktemp -d "${TMPDIR:-/tmp}/mac-dev-setup-update.XXXXXX")"
   rm -rf "$TEMP_WORKTREE"
@@ -124,9 +125,9 @@ prepare_target_worktree() {
 }
 
 ensure_fast_forward() {
-  target_ref="$1"
-  target_sha="$2"
-
+  local target_ref="$1"
+  local target_sha="$2"
+  local current_sha
   current_sha="$(git -C "$REPO_DIR" rev-parse HEAD)"
 
   if [ "$current_sha" = "$target_sha" ]; then
@@ -140,8 +141,8 @@ ensure_fast_forward() {
 }
 
 apply_update() {
-  target_ref="$1"
-  target_sha="$2"
+  local target_ref="$1"
+  local target_sha="$2"
 
   ORIGINAL_HEAD="$(git -C "$REPO_DIR" rev-parse HEAD)"
   UPDATE_STARTED="true"
@@ -154,6 +155,8 @@ apply_update() {
 }
 
 main() {
+  local target_ref target_sha
+
   parse_args "$@"
   trap rollback_update EXIT INT TERM
 

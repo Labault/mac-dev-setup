@@ -13,9 +13,10 @@ source "$SCRIPT_DIR/lib/logging.sh"
 info "[ZSH] Setup starting"
 
 backup_target_if_needed() {
-  source_file="$1"
-  target_file="$2"
-  label="$3"
+  local source_file="$1"
+  local target_file="$2"
+  local label="$3"
+  local backup_file
 
   if [ ! -f "$target_file" ] || cmp -s "$source_file" "$target_file"; then
     return 0
@@ -28,9 +29,9 @@ backup_target_if_needed() {
 }
 
 install_file() {
-  source_file="$1"
-  target_file="$2"
-  label="$3"
+  local source_file="$1"
+  local target_file="$2"
+  local label="$3"
 
   if [ ! -f "$source_file" ]; then
     return 0
@@ -58,8 +59,8 @@ install_file "$ZSH_CONFIG_DIR/alias.sh" "$HOME/.shell/alias.sh" "zsh aliases"
 # verified in CI), so setup installs the versioned copy as-is instead of
 # regenerating it inside the install tree.
 if [ -d "$ZSH_CONFIG_DIR/completions" ]; then
-  mkdir -p ~/.zsh/completions
-  cp "$ZSH_CONFIG_DIR"/completions/* ~/.zsh/completions/
+  mkdir -p "$HOME/.zsh/completions"
+  cp "$ZSH_CONFIG_DIR"/completions/* "$HOME/.zsh/completions/"
   success "zsh completions applied"
 fi
 
