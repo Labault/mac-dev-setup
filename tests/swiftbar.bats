@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 setup() {
+  load test_helper
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
   # Sourcing loads the pure helpers without running main (BASH_SOURCE != $0).
   source "$REPO_DIR/scripts/swiftbar/sites.5m.sh"
@@ -43,13 +44,11 @@ setup() {
 }
 
 @test "main reports an OK site using a stubbed curl" {
-  bin="$(mktemp -d)"
-  for tool in bash awk date; do ln -s "$(command -v "$tool")" "$bin/$tool"; done
-  cat >"$bin/curl" <<'CURL'
+  make_stub_bin bash awk date
+  write_stub "$bin/curl" <<'CURL'
 #!/bin/sh
 printf '200|0.123'
 CURL
-  chmod +x "$bin/curl"
   conf="$(mktemp)"
   printf 'Example|https://example.com|200|8|1500\n' >"$conf"
 

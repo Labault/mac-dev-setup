@@ -1,18 +1,15 @@
 #!/usr/bin/env bats
 
 setup() {
+  load test_helper
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
   PHP_COMMAND="$REPO_DIR/scripts/commands/php.sh"
 }
 
 make_php_path() {
-  bin="$(mktemp -d)"
+  make_stub_bin bash dirname mkdir cp rm cat cmp date basename
 
-  for tool in bash dirname mkdir cp rm cat cmp date basename; do
-    ln -s "$(command -v "$tool")" "$bin/$tool"
-  done
-
-  cat >"$bin/php" <<'PHP'
+  write_stub "$bin/php" <<'PHP'
 #!/bin/sh
 case "$1" in
   -r)
@@ -32,15 +29,13 @@ case "$1" in
 esac
 PHP
 
-  cat >"$bin/brew" <<'BREW'
+  write_stub "$bin/brew" <<'BREW'
 #!/bin/sh
 case "$1" in
   --prefix) printf '/opt/homebrew' ;;
   *) exit 0 ;;
 esac
 BREW
-
-  chmod +x "$bin/php" "$bin/brew"
 }
 
 @test "php command exposes help" {

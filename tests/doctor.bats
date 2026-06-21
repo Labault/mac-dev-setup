@@ -1,15 +1,12 @@
 #!/usr/bin/env bats
 
 setup() {
+  load test_helper
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
 }
 
 make_common_doctor_path() {
-  bin="$(mktemp -d)"
-
-  for tool in bash dirname find basename sort paste sed mktemp comm rm cat cmp mkdir cp; do
-    ln -s "$(command -v "$tool")" "$bin/$tool"
-  done
+  make_stub_bin bash dirname find basename sort paste sed mktemp comm rm cat cmp mkdir cp
 
   printf '#!/bin/sh\nprintf "macOS"\n' >"$bin/sw_vers"
   printf '#!/bin/sh\nprintf "arm64"\n' >"$bin/uname"
