@@ -28,6 +28,13 @@ There are two ways in:
 New here and unsure? Use `minimal` and add what you need. To make this your own
 setup, see [Make it yours](#make-it-yours).
 
+## How it works at a glance
+
+`install.sh` sets up a small `mac` CLI. Its commands install your tools and keep
+your machine in a known state — and everything is reversible.
+
+![MacDevSetup system overview: install.sh sets up the mac CLI, which exposes setup, doctor, update, and uninstall; mac setup installs Homebrew packages from a profile Brewfile, applies managed Zsh and Git config, and backs up replaced files](docs/assets/images/system-overview.svg)
+
 ## Quick start (30 seconds)
 
 ```bash
@@ -42,6 +49,7 @@ and the full command reference.
 ## Table of contents
 
 - [Who this is for](#who-this-is-for)
+- [How it works at a glance](#how-it-works-at-a-glance)
 - [Quick start (30 seconds)](#quick-start-30-seconds)
 - [What's included](#whats-included)
 - [Installation](#installation)
