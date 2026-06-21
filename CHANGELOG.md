@@ -40,6 +40,9 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 - Expanded the Bats suite from 78 to 99 tests, adding coverage for the
   hardening guard, uninstall safety refusals, the SwiftBar helpers, `brew.sh`,
   `zsh.sh` backup/idempotency, and the logging stderr routing.
+- Extracted `tests/test_helper.bash` (`make_stub_bin`, `write_stub`) and adopted
+  it in the doctor, php, brew, and swiftbar tests, removing four divergent copies
+  of the stub-PATH setup idiom.
 - Inserted missing image references in `docs/git/git.md` (git-delta diff) and
   `docs/troubleshooting/troubleshooting.md` (`mac doctor` report and
   `mac doctor --fix --summary`).
