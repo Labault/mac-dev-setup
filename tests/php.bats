@@ -76,7 +76,7 @@ BREW
   [ "$status" -eq 0 ]
   [[ "$output" == *"Xdebug enabled"* ]]
   [[ "$enabled_config" == *"zend_extension=xdebug"* ]]
-  [[ "$enabled_config" == "$disabled_config" ]]
+  [ "$enabled_config" = "$disabled_config" ]
 }
 
 @test "php xdebug enable fails when the extension is not installed" {
