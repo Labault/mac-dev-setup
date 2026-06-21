@@ -104,14 +104,14 @@ These should be clean app-window screenshots with no personal workspaces open.
 
 | Priority | Asset | Path | Used in | What to show |
 | --- | --- | --- | --- | --- |
-| P1 | VS Code extensions | `docs/assets/screenshots/apps/vscode-extensions.webp` | `docs/vscode/vscode.md` | Extensions view showing a few curated installed extensions. |
-| P1 | VS Code settings | `docs/assets/screenshots/apps/vscode-settings.webp` | `docs/vscode/vscode.md` | Settings JSON or UI showing managed editor preferences. |
+| P1 | VS Code extensions | `docs/assets/screenshots/apps/vscode-extensions.webp` | `docs/editors/vscode.md` | Extensions view showing a few curated installed extensions. |
+| P1 | VS Code settings | `docs/assets/screenshots/apps/vscode-settings.webp` | `docs/editors/vscode.md` | Settings JSON or UI showing managed editor preferences. |
 | P1 | Raycast launcher | `docs/assets/screenshots/apps/raycast-launcher.webp` | `docs/productivity/raycast.md` | Raycast command palette with a useful command. |
 | P2 | Obsidian workspace | `docs/assets/screenshots/apps/obsidian-workspace.webp` | `docs/productivity/obsidian.md` | Clean demo vault or generic notes workspace. |
 | P2 | Notion workspace | `docs/assets/screenshots/apps/notion-workspace.webp` | `docs/productivity/notion.md` | Empty or demo page, no private workspace data. |
 | P2 | CleanShot annotation | `docs/assets/screenshots/apps/cleanshot-annotation.webp` | `docs/productivity/cleanshot.md` | A screenshot being annotated or exported. |
 | P2 | GIMP export | `docs/assets/screenshots/apps/gimp-export.webp` | `docs/productivity/gimp.md` | Export dialog or image optimization workflow. |
-| P3 | Sublime Text | `docs/assets/screenshots/apps/sublime-text.webp` | `docs/vscode/sublime-text.md` | Sublime editing a neutral config or Markdown file. |
+| P3 | Sublime Text | `docs/assets/screenshots/apps/sublime-text.webp` | `docs/editors/sublime-text.md` | Sublime editing a neutral config or Markdown file. |
 
 ## Phase 7 - Web, API, And Database Tools
 
@@ -137,11 +137,11 @@ This phase now includes the Gitmoji convention page added under `docs/git/`.
 | P1 | Git delta diff | `docs/assets/screenshots/git/git-delta-diff.webp` | `docs/git/git-delta.md`, `docs/git/git.md` | A small colored diff with syntax highlighting. |
 | P1 | Gitmoji commit examples | `docs/assets/screenshots/git/gitmoji-log.webp` | `docs/git/gitmoji.md`, `README.md` | `git log --oneline` with a few sanitized Gitmoji + Conventional Commit messages. |
 | P1 | Commitlint Gitmoji check | `docs/assets/screenshots/git/commitlint-gitmoji.webp` | `docs/git/gitmoji.md` | A small commitlint example showing the convention being enforced. |
-| P1 | Pre-commit run | `docs/assets/screenshots/quality/pre-commit-run.webp` | `docs/pre-commit/pre-commit.md` | Successful hooks summary. |
+| P1 | Pre-commit run | `docs/assets/screenshots/quality/pre-commit-run.webp` | `docs/quality/pre-commit.md` | Successful hooks summary. |
 | P1 | GitHub Actions CI | `docs/assets/screenshots/quality/github-actions-ci.webp` | `docs/github-actions/ci.md` | Green workflow summary in GitHub Actions. |
 | P2 | Act local run | `docs/assets/screenshots/quality/act-run.webp` | `docs/github-actions/act.md` | Local workflow execution summary. |
 | P2 | Actionlint output | `docs/assets/screenshots/quality/actionlint.webp` | `docs/github-actions/actionlint.md` | Clean command output or a small example error. |
-| P2 | Shellcheck output | `docs/assets/screenshots/quality/shellcheck.webp` | `docs/shell/shellcheck.md` | A concise ShellCheck example. |
+| P2 | Shellcheck output | `docs/assets/screenshots/quality/shellcheck.webp` | `docs/quality/shellcheck.md` | A concise ShellCheck example. |
 | P2 | Markdownlint output | `docs/assets/screenshots/quality/markdownlint.webp` | `docs/quality/markdownlint-cli2.md` | A clean or intentionally small example output. |
 | P2 | Lychee link check | `docs/assets/screenshots/quality/lychee.webp` | `docs/quality/lychee.md` | Link check summary. |
 | P2 | EditorConfig checker | `docs/assets/screenshots/quality/editorconfig-checker.webp` | `docs/quality/editorconfig-checker.md` | Clean check summary. |

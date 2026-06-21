@@ -153,7 +153,7 @@ gh run view --log-failed
 
 - [Act local GitHub Actions execution](act.md)
 - [Actionlint GitHub Actions workflow validation](actionlint.md)
-- [Pre-commit and Gitleaks](../pre-commit/pre-commit.md)
+- [Pre-commit and Gitleaks](../quality/pre-commit.md)
 
 ---
 

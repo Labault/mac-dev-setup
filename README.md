@@ -135,8 +135,8 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | `lychee` | Find broken links in documentation | [docs/quality/lychee.md](docs/quality/lychee.md) |
 | `markdownlint-cli2` | Enforce consistent Markdown formatting | [docs/quality/markdownlint-cli2.md](docs/quality/markdownlint-cli2.md) |
 | OrbStack | Fast, lightweight Docker Desktop replacement | [docs/docker/orbstack.md](docs/docker/orbstack.md) |
-| `pre-commit` | Run quality checks automatically before every `git commit` | [docs/pre-commit/pre-commit.md](docs/pre-commit/pre-commit.md) |
-| `shellcheck` | Find bugs and bad patterns in shell scripts | [docs/shell/shellcheck.md](docs/shell/shellcheck.md) |
+| `pre-commit` | Run quality checks automatically before every `git commit` | [docs/quality/pre-commit.md](docs/quality/pre-commit.md) |
+| `shellcheck` | Find bugs and bad patterns in shell scripts | [docs/quality/shellcheck.md](docs/quality/shellcheck.md) |
 
 ---
 
@@ -144,8 +144,8 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 
 | App | What it does | Documentation |
 | --- | --- | --- |
-| Sublime Text | Lightweight editor for quick edits and large files | [docs/vscode/sublime-text.md](docs/vscode/sublime-text.md) |
-| Visual Studio Code | Primary code editor | [docs/vscode/vscode.md](docs/vscode/vscode.md) |
+| Sublime Text | Lightweight editor for quick edits and large files | [docs/editors/sublime-text.md](docs/editors/sublime-text.md) |
+| Visual Studio Code | Primary code editor | [docs/editors/vscode.md](docs/editors/vscode.md) |
 | Warp | Modern terminal with AI autocompletion | [docs/warp/warp.md](docs/warp/warp.md) |
 
 ---

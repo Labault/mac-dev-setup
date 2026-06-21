@@ -44,8 +44,8 @@ For the project overview, install steps, and command reference, see the
 
 ## Editors
 
-- [Visual Studio Code](vscode/vscode.md)
-- [Sublime Text](vscode/sublime-text.md)
+- [Visual Studio Code](editors/vscode.md)
+- [Sublime Text](editors/sublime-text.md)
 
 ## PHP & Symfony
 
@@ -107,8 +107,8 @@ For the project overview, install steps, and command reference, see the
 - [markdownlint-cli2](quality/markdownlint-cli2.md)
 - [Lychee (link checker)](quality/lychee.md)
 - [EditorConfig checker](quality/editorconfig-checker.md)
-- [ShellCheck](shell/shellcheck.md)
-- [Pre-commit](pre-commit/pre-commit.md)
+- [ShellCheck](quality/shellcheck.md)
+- [Pre-commit](quality/pre-commit.md)
 - [Continuous integration](github-actions/ci.md)
 - [Act (local CI)](github-actions/act.md)
 - [actionlint](github-actions/actionlint.md)

@@ -8,6 +8,18 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+### Changed
+
+- Documentation overhaul for newcomers: a "Who this is for" and "Make it yours"
+  framing plus profile-choice-before-install in the README; a browsable
+  `docs/README.md` index with per-page breadcrumbs; a system-overview diagram
+  and corrected architecture SVGs; CI/License/platform badges and a
+  "inspect the script first" note; and accuracy fixes (the CI doc no longer
+  lists non-existent workflows, an env-var reference table, keyboard label).
+- Consolidated documentation folders: moved `shellcheck` and `pre-commit` under
+  `docs/quality/`, and renamed `docs/vscode/` to `docs/editors/` (it holds VS
+  Code and Sublime Text).
+
 ## 1.8.0 - 2026-06-21
 
 ### Added
