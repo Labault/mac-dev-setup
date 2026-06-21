@@ -8,6 +8,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.9.0 - 2026-06-21
+
 ### Changed
 
 - Documentation overhaul for newcomers: a "Who this is for" and "Make it yours"
