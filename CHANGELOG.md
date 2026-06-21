@@ -8,6 +8,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+## 1.8.0 - 2026-06-21
+
 ### Added
 
 - `mac doctor --summary` flag to collapse the undeclared Homebrew package list
