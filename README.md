@@ -1,5 +1,10 @@
 # MacDevSetup
 
+[![CI](https://github.com/Labault/mac-dev-setup/actions/workflows/ci.yml/badge.svg)](https://github.com/Labault/mac-dev-setup/actions/workflows/ci.yml)
+[![macOS CI](https://github.com/Labault/mac-dev-setup/actions/workflows/ci-macos.yml/badge.svg)](https://github.com/Labault/mac-dev-setup/actions/workflows/ci-macos.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Platform: macOS](https://img.shields.io/badge/platform-macOS-lightgrey)
+
 Set up a new Mac for development with **one command**, then manage everything
 through a small CLI called `mac`.
 
@@ -211,6 +216,8 @@ Before starting, make sure you have:
 - Permission to install software (admin account)
 
 You do **not** need to install Homebrew beforehand — the setup does it for you.
+On a fresh Mac, macOS will prompt to install the **Command Line Tools** the
+first time Homebrew runs; accept that prompt and let it finish.
 
 ---
 
@@ -228,7 +235,15 @@ This command:
 - Creates a `mac` command available from anywhere in your terminal.
 - Adds `~/.local/bin` to your shell `PATH`.
 
-It does **not** install tools yet — that happens in Step 3.
+It does **not** install tools yet — that happens in Step 4.
+
+Prefer to read the script before running it? Download and inspect it first:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.sh -o install.sh
+less install.sh   # review what it does
+bash install.sh
+```
 
 ---
 

@@ -28,4 +28,4 @@ fi
 cp -a "$SOURCE_DIR" "$TARGET_DIR"
 
 printf 'Keyboard layout installed in:\n%s\n' "$TARGET_DIR"
-printf '\nLog out and back in, then enable "Francais OSS Mac" in macOS Input Sources.\n'
+printf '\nLog out and back in, then enable "Français OSS Mac" in macOS Input Sources.\n'

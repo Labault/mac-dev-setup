@@ -206,7 +206,7 @@ These pages do not need screenshots unless a specific visual example is useful.
 | P3 | `docs/cli/tree.md` | Optional `tree -L 2` output. |
 | P3 | `docs/cli/tokei.md` | `docs/assets/screenshots/cli/tokei.webp` — `tokei .` run from the mac-dev-setup root showing the language breakdown table. Used in `docs/cli/tokei.md`. |
 | P3 | `docs/cli/autojump.md` | Usually no screenshot; command examples are enough. |
-| P3 | `docs/releases/*.md` | No screenshots needed. |
+| P3 | `docs/releases/release-process.md` | No screenshots needed. |
 | P3 | `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md` | No screenshots needed. |
 
 ## Suggested Review Order

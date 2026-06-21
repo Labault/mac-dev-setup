@@ -80,25 +80,8 @@ Remove empty categories when they are not needed.
 
 Keep an empty `Unreleased` section at the top for future work.
 
-## Add release criteria
-
-Create a release criteria document when the release introduces a substantial milestone:
-
-```text
-docs/releases/vX.Y.Z.md
-```
-
-The document should cover the areas relevant to the release, such as:
-
-- repository quality;
-- package management;
-- shell environment;
-- GitHub Actions;
-- documentation;
-- compatibility;
-- release publication.
-
-Small patch releases may rely on the changelog and validation workflow without requiring a dedicated checklist.
+The `CHANGELOG.md` is the single source of truth for release history; the
+project no longer ships per-version criteria documents.
 
 ## Validate the repository
 
@@ -156,7 +139,7 @@ Confirm that:
 Stage only the intended release files:
 
 ```bash
-git add CHANGELOG.md docs/releases/
+git add CHANGELOG.md package.json package-lock.json
 git diff --cached
 ```
 

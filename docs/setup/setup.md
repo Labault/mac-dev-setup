@@ -93,8 +93,9 @@ Applies the curated Zsh files and installs the generated `mac` completion.
 
 ## Optional tools
 
-Some versioned assets are intentionally installed by dedicated scripts instead
-of the default `mac setup` flow.
+Some versioned assets are intentionally kept out of the default `mac setup`
+flow. Each has its own opt-in `mac` command (which wraps the corresponding
+versioned script under `scripts/`).
 
 ### Visual Studio Code extensions
 
@@ -107,22 +108,22 @@ configs/vscode/extensions.txt
 with:
 
 ```bash
-./scripts/install-vscode-extensions.sh
+mac vscode
 ```
 
 Optional extensions remain explicit:
 
 ```bash
-./scripts/install-vscode-extensions.sh --with-optional
+mac vscode --with-optional
 ```
 
 ### French OSS keyboard layout
 
 ```bash
-./scripts/install-keyboard-layout.sh
+mac keyboard
 ```
 
-Installs the versioned French OSS keyboard layout bundle.
+Installs the versioned French OSS keyboard layout bundle (for French typists).
 
 An existing installation is backed up before replacement.
 
@@ -131,7 +132,7 @@ A logout and login are still required before macOS reloads the layout.
 ### macOS defaults
 
 ```bash
-./scripts/apply-macos-defaults.sh
+mac defaults
 ```
 
 Applies the curated Finder, Dock, screenshot, keyboard, and text-substitution preferences.
@@ -180,6 +181,24 @@ Test the dry-run path:
 ```bash
 ./scripts/setup.sh --profile minimal --dry-run
 ```
+
+## Environment variables
+
+Advanced users can override the defaults below. They are read by `install.sh`
+and the `mac` commands; most users never need them.
+
+| Variable | Used by | Default | Purpose |
+| --- | --- | --- | --- |
+| `MAC_DEV_SETUP_REPO_URL` | `install.sh` | the official repo | Clone from your own fork instead. |
+| `MAC_DEV_SETUP_INSTALL_DIR` | install / uninstall | `~/.mac-dev-setup` | Where the checkout lives. |
+| `MAC_DEV_SETUP_BIN_DIR` | install / uninstall | `~/.local/bin` | Directory holding the `mac` symlink. |
+| `MAC_DEV_SETUP_CLI_NAME` | install / uninstall | `mac` | Name of the installed command. |
+| `MAC_DEV_SETUP_SHELL_CONFIG` | PATH manager | shell-specific | Profile file the managed PATH block is written to. |
+| `MAC_DEV_SETUP_LOG_DIR` | `mac setup` | `~/Library/Logs/mac-dev-setup` | Where the setup log is written. |
+| `MAC_DEV_SETUP_UPDATE_REMOTE` | `mac update` | `origin` | Git remote to update from. |
+| `MAC_DEV_SETUP_UPDATE_BRANCH` | `mac update` | `main` | Fallback branch when no upstream is set. |
+| `MAC_DEV_SETUP_PHP_CONF_DIR` | `mac php` | Homebrew PHP `conf.d` | Override the PHP config directory. |
+| `MAC_DEV_SETUP_PHP_BACKUP_DIR` | `mac php` | `~/Documents/Backups/mac-dev-setup/php` | Where an existing `99-xdebug.ini` is backed up. |
 
 ## Rollback
 

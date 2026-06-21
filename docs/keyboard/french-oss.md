@@ -79,7 +79,8 @@ After installation:
 2. open System Settings;
 3. open Keyboard;
 4. open Text Input or Input Sources;
-5. add `Francais OSS Mac`;
+5. add `Français OSS Mac` (macOS shows it without the accent, as
+   `Francais OSS Mac`, on non-French systems);
 6. select it as the current input source.
 
 ## Manual installation
