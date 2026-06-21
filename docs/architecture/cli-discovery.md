@@ -4,7 +4,7 @@ The `mac` CLI is a shell-based command dispatcher. It keeps command discovery,
 help output, command execution, and Zsh completion generation on the same
 registry path so new commands can be added without editing the dispatcher.
 
-![Command discovery flow from command scripts to CLI help and Zsh completion](../assets/images/command-discovery.webp)
+![Command discovery flow: scripts/commands files are scanned by command_registry.sh (which uses command_metadata.sh), command_discovery.sh is a thin layer over the registry, cli.sh consumes it for help/lookup/suggestions/execute, and the registry also feeds generate-zsh-completion.sh which writes configs/zsh/completions/_mac](../assets/images/command-discovery.svg)
 
 ## Components
 

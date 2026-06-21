@@ -183,9 +183,9 @@ maintainable.
 
 | Priority | Asset | Path | Used in | What to show |
 | --- | --- | --- | --- | --- |
-| P1 | CLI architecture | `docs/assets/images/cli-architecture.webp` | `docs/architecture/current-architecture.md` | Flow from `mac` entrypoint to command discovery and command scripts. |
+| P1 | CLI architecture | `docs/assets/images/cli-architecture.svg` | `docs/architecture/current-architecture.md` | Flow from `mac` entrypoint to command discovery and command scripts. |
 | P2 | Scripts tree | `docs/assets/screenshots/architecture/scripts-tree.webp` | `docs/architecture/current-architecture.md` | `lsd --tree scripts/ --depth 2` showing commands, lib, and swiftbar layout. |
-| P1 | Command discovery | `docs/assets/images/command-discovery.webp` | `docs/architecture/cli-discovery.md` | How command metadata and scripts become CLI commands. |
+| P1 | Command discovery | `docs/assets/images/command-discovery.svg` | `docs/architecture/cli-discovery.md` | How command metadata and scripts become CLI commands. |
 | P2 | Setup lifecycle | `docs/assets/images/setup-lifecycle.webp` | `docs/setup/setup.md` | Install, setup, doctor, update, uninstall lifecycle. |
 | P2 | Managed files map | `docs/assets/images/managed-files.webp` | `README.md`, `docs/setup/setup.md` | Which user-level files are managed or backed up. |
 

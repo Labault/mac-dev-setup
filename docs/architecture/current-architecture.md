@@ -3,7 +3,7 @@
 MacDevSetup is organized around a small shell CLI and a profile-based package
 inventory.
 
-![MacDevSetup CLI architecture from the mac entrypoint to command scripts](../assets/images/cli-architecture.webp)
+![MacDevSetup CLI architecture: the mac symlink runs scripts/cli.sh (which uses scripts/lib helpers) and dispatches to scripts/commands; mac setup runs scripts/setup.sh, which calls brew.sh (a profile Brewfile), git.sh (configs/git/.gitconfig), and zsh.sh (configs/zsh files)](../assets/images/cli-architecture.svg)
 
 ## Entry points
 
