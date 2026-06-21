@@ -6,12 +6,29 @@ through a small CLI called `mac`.
 > **New here? Read this file once, top to bottom.** It explains what’s
 > included, how to install it, and which commands you can run afterward.
 
+## Who this is for
+
+MacDevSetup is an **opinionated, personal** macOS setup, shared so anyone can
+reuse or fork it. It fits you if you want a reproducible, one-command Mac setup
+and are comfortable in the terminal.
+
+There are two ways in:
+
+- **Start lean** with `--profile minimal` — a neutral core of shell, Git, and
+  command-line tools that suits almost everyone.
+- **Take the full workstation** with `--profile full` — the maintainer's exact
+  stack: a PHP/Symfony toolchain, quality linters, GUI apps, and a French
+  keyboard layout. Great if your needs overlap; otherwise start minimal.
+
+New here and unsure? Use `minimal` and add what you need. To make this your own
+setup, see [Make it yours](#make-it-yours).
+
 ## Quick start (30 seconds)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/labault/mac-dev-setup/main/install.sh | bash
 # open a new terminal tab/window
-mac setup
+mac setup --profile minimal   # lean core; omit --profile to install the full workstation
 ```
 
 This is the fastest path. Keep reading for profiles, managed files, rollback,
@@ -19,9 +36,11 @@ and the full command reference.
 
 ## Table of contents
 
+- [Who this is for](#who-this-is-for)
 - [Quick start (30 seconds)](#quick-start-30-seconds)
 - [What's included](#whats-included)
 - [Installation](#installation)
+- [Make it yours](#make-it-yours)
 - [The `mac` CLI — command reference](#the-mac-cli--command-reference)
 - [Going further](#going-further)
 - [License](#license)
@@ -246,16 +265,37 @@ For deeper diagnostics, see
 
 ---
 
-### Step 3 — Install the development environment
+### Step 3 — Choose a profile
+
+A **profile** decides which tools are installed. New here? Start with
+`minimal` — you can always add the rest later.
+
+| Profile | Best for | What you get |
+| --- | --- | --- |
+| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (14 Homebrew packages) |
+| `full` | The maintainer's complete workstation (the default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (51 Brewfile entries: 29 formulae, 21 casks, 1 tap) |
+
+![Minimal and full profile comparison](docs/assets/images/profile-comparison.webp)
+
+The exact lists live in
+[`profiles/minimal/Brewfile`](profiles/minimal/Brewfile) and
+[`profiles/full/Brewfile`](profiles/full/Brewfile). To change what either
+profile installs, see [Make it yours](#make-it-yours).
+
+---
+
+### Step 4 — Install the development environment
 
 ```bash
-mac setup
+mac setup --profile minimal   # or: mac setup --profile full
 ```
+
+Running `mac setup` without `--profile` installs the **full** profile.
 
 This is the main step:
 
 1. Installs **Homebrew** if it is not already on your machine.
-2. Installs every package from your selected **profile** (see below).
+2. Installs every package from your selected **profile**.
 3. Configures **Git** through a managed global include.
 4. Installs the **Zsh** configuration and shell completion for `mac`.
 
@@ -275,28 +315,6 @@ mac setup --dry-run
 
 ---
 
-### Step 4 — Choose a profile
-
-A **profile** decides which tools are installed. Pass it with `--profile`:
-
-```bash
-mac setup --profile minimal   # the essentials only
-mac setup --profile full      # everything (this is the default)
-```
-
-![Minimal and full profile comparison](docs/assets/images/profile-comparison.webp)
-
-| Profile | Best for | What you get |
-| --- | --- | --- |
-| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (14 Homebrew packages) |
-| `full` | Complete dev workstation (default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (51 Brewfile entries: 29 formulae, 21 casks, 1 tap) |
-
-The exact lists live in
-[`profiles/minimal/Brewfile`](profiles/minimal/Brewfile) and
-[`profiles/full/Brewfile`](profiles/full/Brewfile).
-
----
-
 ### Step 5 — Apply optional settings (when you're ready)
 
 These commands change system or app settings. They are **not** run
@@ -304,7 +322,7 @@ automatically:
 
 ```bash
 mac defaults                 # apply curated macOS Finder / Dock / keyboard tweaks
-mac keyboard                 # install the Français OSS Mac keyboard layout
+mac keyboard                 # install the Français OSS Mac keyboard layout (French typists only)
 mac vscode                   # install the curated VS Code extensions
 mac vscode --with-optional   # also install the optional extension set
 ```
@@ -338,6 +356,29 @@ versioned ones. Backups go to `~/Documents/Backups/mac-dev-setup/zsh`.
 - **Remove the local repository clone:** `mac uninstall --remove-install-dir`.
 - **Keep installed tools/apps:** uninstalling MacDevSetup does not remove
   Homebrew packages or installed applications.
+
+---
+
+## Make it yours
+
+The `full` profile reflects one developer's choices. Forking and adapting it is
+expected — here is where to change things:
+
+- **Add or remove tools:** edit [`profiles/minimal/Brewfile`](profiles/minimal/Brewfile)
+  and [`profiles/full/Brewfile`](profiles/full/Brewfile). Each line is a Homebrew
+  `brew`/`cask`/`tap` entry; `mac doctor` reports anything installed but not
+  declared.
+- **Create your own profile:** add `profiles/<name>/Brewfile`, then
+  `mac setup --profile <name>`. Profiles are discovered from the directory, so no
+  code change is needed.
+- **Keep machine-specific or private shell config out of the repo:** put it in
+  `~/.shell/local.zsh`, which the managed `.zshrc` sources automatically and which
+  is never overwritten. See [docs/zsh/zsh.md](docs/zsh/zsh.md).
+- **Skip the parts you don't need:** the keyboard layout, macOS defaults, and VS
+  Code extensions are all opt-in commands (`mac keyboard`, `mac defaults`,
+  `mac vscode`) — simply don't run them.
+- **Point the installer at your own fork:** set `MAC_DEV_SETUP_REPO_URL` before
+  running `install.sh` to clone from your repository instead.
 
 ---
 

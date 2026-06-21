@@ -48,7 +48,7 @@ These tools include:
 - `editorconfig-checker`;
 - `actionlint`.
 
-Hooks provided directly by remote pre-commit repositories, including Gitleaks and the standard pre-commit hooks, are installed automatically by `pre-commit`.
+Hooks provided directly by remote pre-commit repositories, including Gitleaks, ShellCheck, and the standard pre-commit hooks, are installed automatically by `pre-commit`.
 
 ## Validation command
 
@@ -78,21 +78,16 @@ The current workflow validates:
 - Markdown formatting;
 - documentation links;
 - EditorConfig compliance;
-- GitHub Actions workflow syntax.
+- GitHub Actions workflow syntax;
+- shell script linting with ShellCheck (`scripts/*.sh`, `install.sh`).
 
-It also verifies that the generated Zsh completion committed at
-`configs/zsh/completions/_mac` is up to date.
+## macOS workflow
 
-## macOS workflows
+An additional macOS workflow validates platform-specific behavior:
 
-Additional macOS workflows validate platform-specific behavior:
-
-- `.github/workflows/brewfile.yml` installs the full Homebrew profile and runs
-  verification plus hardening checks.
-- `.github/workflows/ci-macos.yml` checks the setup CLI contract, installs the
-  full profile once, applies setup once, and validates the resulting Brew state.
-- `.github/workflows/hardening.yml` runs the hardening gate on a macOS runner
-  without reinstalling Homebrew.
+- `.github/workflows/ci-macos.yml` runs the test suite, checks the setup CLI
+  contract (`--dry-run`), installs the full Homebrew profile, applies setup
+  once, and runs the verification and hardening checks (`scripts/verify.sh`).
 
 ## Pre-commit cache
 
