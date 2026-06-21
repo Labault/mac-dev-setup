@@ -68,45 +68,45 @@ brew "symfony-cli/tap/symfony-cli", trusted: true
 
 # GUI apps
 
-# Productivity launcher — replaces Spotlight with clipboard history, snippets, and window management
-cask "raycast"
-# Screenshot and screen recording tool with annotations, scrolling capture, and OCR
-cask "cleanshot"
-# Local-first Markdown note-taking app with a personal vault
-cask "obsidian"
-# Collaborative workspace for notes, databases, and wikis
-cask "notion"
-# Open-source image editor for manual retouching and background removal
-cask "gimp"
-# Claude desktop app by Anthropic
-cask "claude"
-# Run large language models locally
-cask "ollama-app"
-# Open-source API client with collections stored as plain files
-cask "bruno"
-# Web browser — primary development browser
-cask "google-chrome"
-# Web browser — cross-browser testing
-cask "firefox"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
+# Open-source API client with collections stored as plain files
+cask "bruno"
+# Claude desktop app by Anthropic
+cask "claude"
+# Screenshot and screen recording tool with annotations, scrolling capture, and OCR
+cask "cleanshot"
 # Menu bar usage monitor for Codex and Claude
 cask "codexbar"
+# Web browser — cross-browser testing
+cask "firefox"
+# Open-source image editor for manual retouching and background removal
+cask "gimp"
+# Web browser — primary development browser
+cask "google-chrome"
 # Menu bar manager
 cask "jordanbaird-ice"
 # Password manager compatible with KeePass
 cask "keeweb"
+# Collaborative workspace for notes, databases, and wikis
+cask "notion"
+# Local-first Markdown note-taking app with a personal vault
+cask "obsidian"
+# Run large language models locally
+cask "ollama-app"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
 cask "pearcleaner"
+# Productivity launcher — replaces Spotlight with clipboard history, snippets, and window management
+cask "raycast"
 # System monitor for the menu bar
 cask "stats"
+# Fast and lightweight text editor
+cask "sublime-text"
 # Menu bar app runner — shell scripts become menu bar items with auto-refresh
 cask "swiftbar"
 # Open-source code editor
 cask "visual-studio-code"
-# Fast and lightweight text editor
-cask "sublime-text"
 # Rust-based terminal
 cask "warp"

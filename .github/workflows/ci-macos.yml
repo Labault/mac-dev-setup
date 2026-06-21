@@ -1,17 +1,22 @@
 name: macOS CI
 
 on:
-  pull_request:
   push:
     branches:
       - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   macos:
+    name: macOS setup
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v6
 
       - name: Set up Node.js

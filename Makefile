@@ -1,3 +1,5 @@
+.PHONY: brew install lint-commits setup setup-dev dry-run completion
+
 brew:
 	PROFILE=full bash scripts/brew.sh
 
