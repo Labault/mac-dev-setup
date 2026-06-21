@@ -97,6 +97,13 @@ jobs:
             from="$(git rev-list --max-parents=0 "$to" | tail -1)"
           fi
 
+          # A force-push that rewrote history reports a "before" SHA that no
+          # longer exists in the repository; lint only the pushed tip so the
+          # range stays valid.
+          if [ -n "$from" ] && ! git cat-file -e "${from}^{commit}" 2>/dev/null; then
+            from="$(git rev-parse "${to}^")"
+          fi
+
           npx --no -- commitlint --from "$from" --to "$to" --verbose
 
       - name: Cache pre-commit environments
