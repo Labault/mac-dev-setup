@@ -88,3 +88,7 @@ Then remove its entry from `profiles/full/Brewfile`.
 
 Re-enable native macOS screenshot shortcuts from `System Settings → Keyboard →
 Keyboard Shortcuts → Screenshots`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

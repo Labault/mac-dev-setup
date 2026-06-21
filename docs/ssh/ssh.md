@@ -150,3 +150,7 @@ Remove a key from the current SSH agent without deleting it from disk:
 ```bash
 ssh-add -d "$HOME/.ssh/id_ed25519"
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

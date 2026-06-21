@@ -94,3 +94,7 @@ diff, and commit the result separately from behavior changes.
 
 It is reasonable for a project to run PHP-CS-Fixer checks in pre-commit. Rector
 should stay manual or run in a dedicated CI job because it rewrites code.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

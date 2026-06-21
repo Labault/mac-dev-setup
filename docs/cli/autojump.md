@@ -67,3 +67,7 @@ brew uninstall autojump
 ```
 
 Then remove its entry from `profiles/full/Brewfile` and remove it from the managed Zsh plugin list if it is no longer wanted.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

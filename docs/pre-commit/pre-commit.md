@@ -131,3 +131,7 @@ Restore the committed configuration if needed:
 ```bash
 git restore .pre-commit-config.yaml
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -71,3 +71,7 @@ brew uninstall --cask gimp
 ```
 
 Then remove its entry from `profiles/full/Brewfile`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

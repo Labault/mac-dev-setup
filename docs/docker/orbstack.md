@@ -166,3 +166,7 @@ brew uninstall --cask orbstack
 Then remove its entry from `profiles/full/Brewfile`.
 
 Uninstalling the application and deleting its local data are separate operations. Local containers, images, volumes, or virtual machines should only be removed after confirming that they are no longer needed.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

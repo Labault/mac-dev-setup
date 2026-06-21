@@ -373,3 +373,7 @@ Only restore files whose backup exists. Review machine-specific settings in
 repository.
 
 After restoring the files, close the terminal application completely and reopen it to perform a cold-start test.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -216,3 +216,7 @@ brew uninstall act
 Then remove its entry from `profiles/full/Brewfile`.
 
 Any project-specific Act configuration must also be reviewed and removed separately.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

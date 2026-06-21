@@ -189,3 +189,7 @@ Then remove:
 - its entry from `profiles/full/Brewfile`;
 - its hook from `.pre-commit-config.yaml`;
 - `.markdownlint-cli2.yaml` if no other Markdown tooling uses it.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

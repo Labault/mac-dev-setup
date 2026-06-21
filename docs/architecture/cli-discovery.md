@@ -109,3 +109,7 @@ dispatcher-owned commands are help aliases: `help`, `--help`, and `-h`.
 - Command names must be unique after metadata overrides.
 - Registry fields are tab-separated; command metadata should not contain tabs.
 - Completion is a generated artifact and should not be edited by hand.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

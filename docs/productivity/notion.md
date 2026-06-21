@@ -57,3 +57,7 @@ brew uninstall --cask notion
 Then remove its entry from `profiles/full/Brewfile`.
 
 Workspace data is not affected by uninstalling the desktop app.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

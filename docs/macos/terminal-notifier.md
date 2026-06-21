@@ -56,3 +56,7 @@ Remove terminal-notifier with:
 ```bash
 brew uninstall terminal-notifier
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

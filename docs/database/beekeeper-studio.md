@@ -118,3 +118,7 @@ brew uninstall --cask beekeeper-studio
 Then remove its entry from `profiles/full/Brewfile`.
 
 Homebrew may leave user-specific application data in the macOS Library. Delete that data only after confirming that saved connections, preferences, and local information are no longer needed.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

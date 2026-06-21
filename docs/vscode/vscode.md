@@ -157,3 +157,7 @@ code --uninstall-extension publisher.extension
 ```
 
 To remove a shared configuration file from this repository, delete it and restore the previous version through Git.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

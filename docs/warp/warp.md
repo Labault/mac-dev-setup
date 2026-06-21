@@ -132,3 +132,7 @@ brew uninstall --cask warp
 ```
 
 The local configuration under `~/.warp` is stored separately from the application and may remain after uninstalling Warp.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

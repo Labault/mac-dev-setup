@@ -96,3 +96,7 @@ brew uninstall composer php
 ```
 
 Project dependencies remain in each project's `vendor/` directory and lock file.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

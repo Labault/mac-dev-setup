@@ -69,3 +69,7 @@ Do not put mutation testing in the default local test command. Prefer:
 
 Use mutation results to improve meaningful assertions. Avoid chasing 100 percent
 scores when the cost is brittle or low-value tests.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

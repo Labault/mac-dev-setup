@@ -151,3 +151,7 @@ brew uninstall ctop
 ```
 
 Then remove its entry from `profiles/full/Brewfile`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

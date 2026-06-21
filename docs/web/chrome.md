@@ -86,3 +86,7 @@ Then remove its entry from `profiles/full/Brewfile`.
 Chrome user data (profiles, history, extensions) lives in
 `~/Library/Application Support/Google/Chrome` and is not removed by the cask
 uninstall.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

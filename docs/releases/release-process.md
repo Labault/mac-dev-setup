@@ -285,3 +285,7 @@ For a security-sensitive release:
 - document only the information appropriate for public disclosure.
 
 See the root [security policy](../../SECURITY.md) for reporting guidance.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

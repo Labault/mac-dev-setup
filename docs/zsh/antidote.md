@@ -71,3 +71,7 @@ brew uninstall antidote
 ```
 
 Then remove Antidote-specific lines from the managed Zsh files before applying setup again.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

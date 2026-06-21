@@ -58,3 +58,7 @@ brew uninstall --cask keeweb
 ```
 
 Review local application data before deleting it.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

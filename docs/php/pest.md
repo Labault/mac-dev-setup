@@ -78,3 +78,7 @@ elsewhere.
 
 Use PCOV for fast coverage when the project adopts coverage. Use Xdebug for
 debugging. Do not run both coverage drivers at the same time.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

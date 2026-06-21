@@ -125,3 +125,7 @@ The committed repository configuration can be restored at any time with:
 ```bash
 cp configs/zsh/.p10k.zsh "$HOME/.p10k.zsh"
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

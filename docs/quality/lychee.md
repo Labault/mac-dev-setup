@@ -193,3 +193,7 @@ Then remove:
 - its entry from `profiles/full/Brewfile`;
 - its hook from `.pre-commit-config.yaml`;
 - any repository-specific lychee configuration no longer in use.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

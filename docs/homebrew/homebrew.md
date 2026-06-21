@@ -100,3 +100,7 @@ brew uninstall --cask <cask>
 
 After uninstalling a package, remove its entry from `profiles/full/Brewfile`
 and run the verification command again.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

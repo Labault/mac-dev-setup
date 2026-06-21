@@ -490,7 +490,9 @@ mac uninstall --dry-run             # preview what would be removed, change noth
 
 ## Going further
 
-Full documentation lives in [`docs/`](docs). Good entry points:
+Full documentation lives in [`docs/`](docs/README.md) — start at the
+[documentation index](docs/README.md) for the complete, browsable map. Good
+entry points:
 
 - [Setup walkthrough](docs/setup/setup.md)
 - [Homebrew & the package inventory](docs/homebrew/homebrew.md)

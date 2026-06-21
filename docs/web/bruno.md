@@ -102,3 +102,7 @@ brew uninstall --cask bruno
 Then remove its entry from `profiles/full/Brewfile`.
 
 Collections stored in project repositories are not affected by uninstalling Bruno.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

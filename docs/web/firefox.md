@@ -64,3 +64,7 @@ Then remove its entry from `profiles/full/Brewfile`.
 
 Firefox profile data lives in `~/Library/Application Support/Firefox` and is
 not removed by the cask uninstall.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

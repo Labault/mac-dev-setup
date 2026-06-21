@@ -180,3 +180,7 @@ Then remove:
 - its hook from `.pre-commit-config.yaml`;
 - `.editorconfig` only if the repository no longer needs shared formatting
   rules.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

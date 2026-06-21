@@ -100,3 +100,7 @@ brew uninstall hadolint
 Then remove its entry from `profiles/full/Brewfile`.
 
 Any related pre-commit hook or Hadolint configuration must also be removed separately.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

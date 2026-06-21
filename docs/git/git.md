@@ -179,3 +179,7 @@ git config --global --list --show-origin
 ```
 
 Removing the include disables the versioned settings without deleting personal identity or credential configuration.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

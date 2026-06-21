@@ -124,3 +124,7 @@ composer remove sentry/sentry-symfony
 
 Delete `config/packages/sentry.yaml` and remove `SENTRY_DSN` from all
 `.env.local` files.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

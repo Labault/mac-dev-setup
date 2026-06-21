@@ -94,3 +94,7 @@ brew uninstall --cask raycast
 
 Re-enable Spotlight from `System Settings → Keyboard → Keyboard Shortcuts →
 Spotlight → Show Spotlight search`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

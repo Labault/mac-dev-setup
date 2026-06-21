@@ -55,3 +55,7 @@ Local and CI validation are centered on:
 
 - [CLI command discovery](cli-discovery.md) — how `mac` finds, names, and
   documents its subcommands from the `scripts/commands/` directory.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

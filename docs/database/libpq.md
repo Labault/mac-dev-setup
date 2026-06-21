@@ -52,3 +52,7 @@ Remove libpq with:
 ```bash
 brew uninstall libpq
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

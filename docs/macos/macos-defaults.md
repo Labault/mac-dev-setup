@@ -154,3 +154,7 @@ defaults delete NSGlobalDomain InitialKeyRepeat
 ```
 
 Some changes may require restarting the affected application or logging out of the macOS session.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

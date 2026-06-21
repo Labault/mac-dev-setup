@@ -54,3 +54,7 @@ pipeline.
 - `site.webmanifest` declares `name` and `short_name`.
 - All generated files are committed in the project repository, not in this setup
   repository.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

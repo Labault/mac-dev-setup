@@ -120,3 +120,7 @@ pecl uninstall xdebug
 
 Restart the relevant PHP process (or `symfony server:stop && symfony server:start`)
 so the change takes effect.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

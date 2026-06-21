@@ -31,3 +31,7 @@ curl -s -X POST https://api.remove.bg/v1.0/removebg \
 - Images are transmitted to and processed on remove.bg servers. Do not upload
   images that contain personal data or confidential content.
 - For sensitive images, use GIMP locally instead.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

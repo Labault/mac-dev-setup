@@ -194,3 +194,7 @@ Each setup area keeps its own rollback procedure in the relevant documentation:
 - French OSS keyboard layout.
 
 Review the corresponding documentation before restoring or removing a configuration.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -86,3 +86,7 @@ Check loaded coverage extensions:
 php -m | grep -E 'pcov|xdebug'
 php --ri pcov
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

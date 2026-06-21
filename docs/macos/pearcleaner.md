@@ -126,3 +126,7 @@ brew uninstall --cask pearcleaner
 Then remove its entry from `profiles/full/Brewfile`.
 
 Removing Pearcleaner does not restore applications or files that were previously deleted with it.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

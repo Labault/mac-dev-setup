@@ -396,3 +396,7 @@ command -v brew || true
 command -v mac || true
 mac doctor || true
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -62,3 +62,7 @@ PNG or SVG is what appears in documentation.
 Excalidraw can run fully offline. Open the web app once while connected, then
 use it without internet access. Nothing is stored on Excalidraw servers unless
 you use the collaboration link feature.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

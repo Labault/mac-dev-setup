@@ -170,3 +170,7 @@ cp -a \
 ```
 
 Log out and back in after restoring or removing the layout.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

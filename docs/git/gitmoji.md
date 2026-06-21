@@ -99,3 +99,7 @@ gitmoji --commit            # interactive commit
 - [Conventional Commits](https://www.conventionalcommits.org/) — the type/scope
   grammar layered under the emoji
 - [commitlint](https://commitlint.js.org/) — the linter that enforces the format
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

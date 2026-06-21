@@ -95,3 +95,7 @@ To remove Claude Code:
 ```bash
 npm uninstall -g @anthropic-ai/claude-code
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

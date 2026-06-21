@@ -82,3 +82,7 @@ brew uninstall --cask obsidian
 Then remove its entry from `profiles/full/Brewfile`.
 
 The vault directory is not affected by uninstalling the app.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -253,3 +253,7 @@ Plugin scripts in the plugin directory are not removed automatically.
 
 After uninstalling any of these casks, remove its entry from
 `profiles/full/Brewfile`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

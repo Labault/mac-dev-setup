@@ -56,3 +56,7 @@ brew uninstall lsd
 ```
 
 Then remove its entry from `profiles/full/Brewfile`, and remove or adjust aliases that call `lsd`.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

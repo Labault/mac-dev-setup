@@ -58,3 +58,7 @@ Then remove its entry from `profiles/full/Brewfile`.
 
 Credentials stored in the macOS Keychain are not removed automatically. Remove
 them manually from `Keychain Access` if needed.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

@@ -83,3 +83,7 @@ brew uninstall gitleaks
 Then remove its entry from `profiles/full/Brewfile`.
 
 Any related pre-commit hook must also be removed separately.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

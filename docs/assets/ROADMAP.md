@@ -239,3 +239,7 @@ Notes:
 The original first batch is complete. Future image work should be driven by new
 documentation changes or by the optional opportunities listed above, not by this
 initial checklist.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

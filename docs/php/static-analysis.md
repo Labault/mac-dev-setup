@@ -83,3 +83,7 @@ extension cannot auto-detect `vendor/bin/phpstan`.
 Psalm is intentionally not the default analyzer for this setup. PHPStan is
 already reflected in the editor extensions and keeps the project workflow
 focused on one primary static-analysis tool.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

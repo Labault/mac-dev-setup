@@ -99,3 +99,7 @@ Remove Codex with npm:
 ```bash
 npm uninstall -g @openai/codex
 ```
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)

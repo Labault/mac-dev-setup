@@ -111,3 +111,7 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ## 🎯 Principle
 
 > Installed does not mean used. Documented does not mean essential.
+
+---
+
+[← Docs index](../README.md) · [Project README](../../README.md)
