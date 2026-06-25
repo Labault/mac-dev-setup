@@ -6,7 +6,7 @@
 
 setup() {
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
-  # When the suite runs inside a git hook (husky), git exports GIT_DIR/
+  # When the suite runs inside a git hook, git exports GIT_DIR/
   # GIT_INDEX_FILE etc.; clear them so `git -C <other repo>` is not hijacked.
   unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE GIT_PREFIX \
     GIT_OBJECT_DIRECTORY GIT_COMMON_DIR 2>/dev/null || true

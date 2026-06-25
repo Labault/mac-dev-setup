@@ -24,19 +24,21 @@ The hooks used by this repository are declared in:
 .pre-commit-config.yaml
 ```
 
-Install the Git hook locally after cloning the repository:
+Install the Git hooks locally after cloning the repository:
 
 ```bash
 pre-commit install
 ```
 
-This creates the local hook at:
+The configuration declares `default_install_hook_types`, so a plain
+`pre-commit install` wires up both hook types at once:
 
 ```text
-.git/hooks/pre-commit
+.git/hooks/pre-commit     # quality checks (shellcheck, gitleaks, …)
+.git/hooks/commit-msg     # commitlint (gitmoji + Conventional Commits)
 ```
 
-The generated Git hook is local to the repository and is not committed.
+The generated Git hooks are local to the repository and are not committed.
 
 ## Running the checks
 
@@ -92,6 +94,9 @@ Gitleaks is an additional safety layer. Secrets must still never be deliberately
 Beyond the built-in hooks, the configuration runs ShellCheck (shell scripts),
 markdownlint-cli2 (Markdown), lychee (link checking), editorconfig-checker, and
 Actionlint (GitHub Actions workflows). Gitleaks runs as a secret scanner.
+
+On the `commit-msg` stage, commitlint validates the commit message against the
+gitmoji + Conventional Commits format (see [`docs/git/gitmoji.md`](../git/gitmoji.md)).
 
 Hadolint (Dockerfiles) is intentionally not enabled yet: the repository has no
 Dockerfiles for it to validate. Hooks are only added once relevant files

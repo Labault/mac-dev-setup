@@ -8,6 +8,14 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+### Changed
+
+- Migrated Git hooks fully to the [pre-commit](https://pre-commit.com/)
+  framework and removed Husky. Commit-message linting (commitlint) now runs on
+  pre-commit's `commit-msg` stage; `pre-commit install` wires up both the
+  `pre-commit` and `commit-msg` hooks via `default_install_hook_types`. The Bats
+  test suite now runs in CI only, no longer on every commit.
+
 ## 1.9.0 - 2026-06-21
 
 ### Changed

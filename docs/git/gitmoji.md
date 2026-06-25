@@ -38,9 +38,9 @@ The format is validated automatically by
   Gitmoji — as a Unicode emoji (`✨`) or as its code (`:sparkles:`) — followed
   by a valid Conventional Commit type.
 
-Commit messages are linted both locally (via the Husky `commit-msg` hook) and in
-CI (the `Repository quality` job runs `commitlint`). A commit that omits the
-emoji or uses an unknown type is rejected.
+Commit messages are linted both locally (via the pre-commit `commit-msg` hook)
+and in CI (the `Repository quality` job runs `commitlint`). A commit that omits
+the emoji or uses an unknown type is rejected.
 
 ## Common Gitmoji in this repository
 

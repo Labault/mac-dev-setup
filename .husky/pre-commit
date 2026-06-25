@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-npm test
-pre-commit run --all-files

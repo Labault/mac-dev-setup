@@ -1,6 +1,0 @@
-commit_msg_file="$1"
-
-sed -i.bak '1s/^[[:space:]]*//;1s/[[:space:]]*$//' "$commit_msg_file"
-rm -f "$commit_msg_file.bak"
-
-npx --no -- commitlint --edit "$commit_msg_file"

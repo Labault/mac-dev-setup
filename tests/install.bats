@@ -9,7 +9,7 @@ setup() {
   if [ "$(uname -s)" != "Darwin" ]; then
     skip "install.sh targets macOS only"
   fi
-  # Clear inherited git env (e.g. when run inside a husky hook) so the local
+  # Clear inherited git env (e.g. when run inside a git hook) so the local
   # clone in install.sh is not hijacked by the parent repo's GIT_DIR.
   unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE GIT_PREFIX \
     GIT_OBJECT_DIRECTORY GIT_COMMON_DIR 2>/dev/null || true
