@@ -28,10 +28,6 @@
   },
   "homepage": "https://github.com/Labault/mac-dev-setup#readme",
   "devDependencies": {
-    "@commitlint/cli": "^21.0.2",
-    "@commitlint/config-conventional": "^21.0.2",
-    "@gitmoji/gitmoji-regex": "^1.0.0",
-    "bats": "^1.13.0",
-    "commitlint-config-gitmoji": "^2.3.1"
+    "bats": "^1.13.0"
   }
 }

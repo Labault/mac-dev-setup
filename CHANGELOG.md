@@ -11,10 +11,21 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 ### Changed
 
 - Migrated Git hooks fully to the [pre-commit](https://pre-commit.com/)
-  framework and removed Husky. Commit-message linting (commitlint) now runs on
+  framework and removed Husky. Commit-message linting now runs on
   pre-commit's `commit-msg` stage; `pre-commit install` wires up both the
   `pre-commit` and `commit-msg` hooks via `default_install_hook_types`. The Bats
   test suite now runs in CI only, no longer on every commit.
+- Replaced commitlint with a dependency-free shell linter,
+  `scripts/lint-commit-msg.sh`, that enforces the same gitmoji + Conventional
+  Commits rules (gitmoji allow-list, type-enum, scope/subject checks,
+  header length) both in the `commit-msg` hook and over the pushed commit range
+  in CI.
+
+### Removed
+
+- Dropped the `@commitlint/*`, `@gitmoji/gitmoji-regex`, and
+  `commitlint-config-gitmoji` Node dependencies and the `commitlint.config.cjs`
+  file.
 
 ## 1.9.0 - 2026-06-21
 

@@ -7,7 +7,7 @@ install:
 	npm install
 
 lint-commits:
-	npx commitlint --from HEAD~1 --to HEAD --verbose
+	bash scripts/lint-commit-msg.sh --range HEAD~1 HEAD
 
 setup:
 	bash scripts/cli.sh setup --profile=full

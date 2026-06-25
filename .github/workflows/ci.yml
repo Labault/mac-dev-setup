@@ -102,7 +102,7 @@ jobs:
             from="$(git rev-parse "${to}^")"
           fi
 
-          npx --no -- commitlint --from "$from" --to "$to" --verbose
+          scripts/lint-commit-msg.sh --range "$from" "$to"
 
       - name: Cache pre-commit environments
         uses: actions/cache@v5

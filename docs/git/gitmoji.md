@@ -30,17 +30,18 @@ The scope is optional; the emoji, type, and subject are required.
 
 ## How it is enforced
 
-The format is validated automatically by
-[commitlint](https://commitlint.js.org/), configured in `commitlint.config.cjs`:
+The format is validated automatically by a small shell linter,
+[`scripts/lint-commit-msg.sh`](../../scripts/lint-commit-msg.sh):
 
-- it extends `@commitlint/config-conventional` and the `gitmoji` config;
-- the header pattern (built from `@gitmoji/gitmoji-regex`) requires a leading
-  Gitmoji — as a Unicode emoji (`✨`) or as its code (`:sparkles:`) — followed
-  by a valid Conventional Commit type.
+- the header must start with a leading Gitmoji — as a Unicode emoji (`✨`) or as
+  its code (`:sparkles:`) — checked against the exact Gitmoji list (variation
+  selectors included, so `🔒️` is valid but a bare `🔒` is not);
+- it must be followed by a valid Conventional Commit type, an optional
+  lower-case scope, and a non-empty subject with no trailing period.
 
 Commit messages are linted both locally (via the pre-commit `commit-msg` hook)
-and in CI (the `Repository quality` job runs `commitlint`). A commit that omits
-the emoji or uses an unknown type is rejected.
+and in CI (the `Repository quality` job runs the linter over the pushed commit
+range). A commit that omits the emoji or uses an unknown type is rejected.
 
 ## Common Gitmoji in this repository
 
@@ -78,15 +79,15 @@ describes the whole change.
 
 ![Git log with Gitmoji commit messages](../assets/screenshots/git/gitmoji-log.webp)
 
-![commitlint rejecting a commit message without Gitmoji](../assets/screenshots/git/commitlint-gitmoji.webp)
+![The commit-msg hook rejecting a commit message without Gitmoji](../assets/screenshots/git/commitlint-gitmoji.webp)
 
 ## Optional: gitmoji-cli
 
 [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli) is an interactive
 helper that prompts for the emoji and message instead of typing them by hand.
 It is **not** part of this setup and is **not** declared in the `Brewfile` —
-the commitlint convention above is all you need. If you want it anyway, install
-it yourself:
+the convention above is all you need. If you want it anyway, install it
+yourself:
 
 ```bash
 brew install gitmoji        # or: npm install -g gitmoji-cli
@@ -98,7 +99,8 @@ gitmoji --commit            # interactive commit
 - [gitmoji.dev](https://gitmoji.dev/) — searchable list of all emojis
 - [Conventional Commits](https://www.conventionalcommits.org/) — the type/scope
   grammar layered under the emoji
-- [commitlint](https://commitlint.js.org/) — the linter that enforces the format
+- [`scripts/lint-commit-msg.sh`](../../scripts/lint-commit-msg.sh) — the shell
+  linter that enforces the format
 
 ---
 
