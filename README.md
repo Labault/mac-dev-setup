@@ -35,6 +35,15 @@ your machine in a known state — and everything is reversible.
 
 ![MacDevSetup system overview: install.sh sets up the mac CLI, which exposes setup, doctor, update, and uninstall; mac setup installs Homebrew packages from a profile Brewfile, applies managed Zsh and Git config, and backs up replaced files](docs/assets/images/system-overview.svg)
 
+> **Next step — set up your projects.**
+> [bootstrap-web-setup](https://github.com/Labault/bootstrap-web-setup) is the
+> logical continuation of MacDevSetup, one level down: once your **machine** is
+> tooled here, it drops a standardized quality / CI / security config into your
+> **web projects** (Symfony, optionally + JS/TS front) — driven by the very
+> binaries MacDevSetup installs (pre-commit, gitleaks, shellcheck, PHPStan,
+> PHP-CS-Fixer, Rector, …). Same author, same conventions: the two are maintained
+> together and evolve in lock-step.
+
 ## Quick start (30 seconds)
 
 ```bash
