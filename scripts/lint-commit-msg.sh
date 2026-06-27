@@ -262,8 +262,11 @@ validate_message() {
           *) errs+=("type \"$type\" is not allowed — use one of: $GITMOJI_TYPES") ;;
         esac
 
+        # Enumerate the upper-case letters rather than use an [A-Z] range: under a
+        # dictionary-collation locale (e.g. system bash on the macOS CI runner)
+        # the range also matches lower-case letters, rejecting every valid scope.
         case "$scope" in
-          *[A-Z]*) errs+=("scope \"$scope\" must be lower-case") ;;
+          *[ABCDEFGHIJKLMNOPQRSTUVWXYZ]*) errs+=("scope \"$scope\" must be lower-case") ;;
         esac
 
         if [ -z "${subject//[[:space:]]/}" ]; then
