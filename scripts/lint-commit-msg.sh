@@ -233,31 +233,51 @@ validate_message() {
     esac
   fi
 
+  # Parse "<type>(<scope>)?(!)?: <subject>" with parameter expansion rather than a
+  # single regex: bash's =~ delegates to the platform regex engine, and older
+  # libc builds (e.g. the macOS CI runner) mishandle the escaped scope parens and
+  # the nested [:space:] class, rejecting every header that carries a scope.
   if [ "$emoji_ok" -eq 0 ]; then
     errs+=("must start with a valid gitmoji (Unicode emoji or :code:) — see https://gitmoji.dev/")
-  elif [[ "$rest" =~ ^([^(!:[:space:]]+)(\(([^)]*)\))?(!)?:[[:space:]](.*)$ ]]; then
-    type="${BASH_REMATCH[1]}"
-    scope="${BASH_REMATCH[3]}"
-    subject="${BASH_REMATCH[5]}"
-
-    case " $GITMOJI_TYPES " in
-      *" $type "*) ;;
-      *) errs+=("type \"$type\" is not allowed — use one of: $GITMOJI_TYPES") ;;
-    esac
-
-    case "$scope" in
-      *[A-Z]*) errs+=("scope \"$scope\" must be lower-case") ;;
-    esac
-
-    if [ -z "${subject//[[:space:]]/}" ]; then
-      errs+=("subject must not be empty")
-    fi
-
-    case "$subject" in
-      *.) errs+=("subject must not end with a period") ;;
-    esac
   else
-    errs+=("header must match \"<emoji> <type>(<scope>): <subject>\"")
+    case "$rest" in
+      *": "*)
+        # Split on the first ": " into the "type(scope)!" prefix and the subject.
+        prefix="${rest%%": "*}"
+        subject="${rest#*": "}"
+        prefix="${prefix%"!"}" # drop an optional breaking-change marker
+
+        type="$prefix"
+        scope=""
+        case "$prefix" in
+          *"("*")")
+            type="${prefix%%"("*}"
+            scope="${prefix#*"("}"
+            scope="${scope%")"}"
+            ;;
+        esac
+
+        case " $GITMOJI_TYPES " in
+          *" $type "*) ;;
+          *) errs+=("type \"$type\" is not allowed — use one of: $GITMOJI_TYPES") ;;
+        esac
+
+        case "$scope" in
+          *[A-Z]*) errs+=("scope \"$scope\" must be lower-case") ;;
+        esac
+
+        if [ -z "${subject//[[:space:]]/}" ]; then
+          errs+=("subject must not be empty")
+        fi
+
+        case "$subject" in
+          *.) errs+=("subject must not end with a period") ;;
+        esac
+        ;;
+      *)
+        errs+=("header must match \"<emoji> <type>(<scope>): <subject>\"")
+        ;;
+    esac
   fi
 
   # body-leading-blank: a body must be separated from the header by a blank line.

@@ -39,6 +39,9 @@ repos:
         args:
           - --exclude
           - 'https://claude\.ai'
+          # bootstrap-web-setup is a private repo: anonymous CI requests 404.
+          - --exclude
+          - 'github\.com/Labault/bootstrap-web-setup'
           - README.md
           - docs/**/*.md
 
