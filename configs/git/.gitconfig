@@ -37,6 +37,7 @@
 
 [tag]
     sort = version:refname
+    gpgsign = true
 
 [column]
     ui = auto
@@ -49,3 +50,15 @@
 
 [commit]
     verbose = true
+    gpgsign = true
+
+# Signature SSH (clé ed25519 déjà dans l'agent). Ajouter la MÊME clé comme
+# "Signing Key" sur GitHub pour le badge Verified (distinct de la clé d'auth).
+[user]
+    signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = ~/Documents/Projects/mac-dev-setup/configs/git/allowed_signers
