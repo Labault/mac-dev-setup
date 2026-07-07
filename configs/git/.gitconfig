@@ -1,5 +1,6 @@
 [core]
     pager = delta
+    excludesfile = ~/Documents/Projects/mac-dev-setup/configs/git/ignore
 
 [interactive]
     diffFilter = delta --color-only

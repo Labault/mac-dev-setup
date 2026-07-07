@@ -1,0 +1,32 @@
+# Global gitignore (core.excludesfile) — cruft OS/éditeur, jamais versionné.
+# Le spécifique projet reste dans le .gitignore du repo.
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Éditeurs / IDE
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-workspace
+
+# Outils
+.direnv/
+.envrc.local
