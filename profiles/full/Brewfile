@@ -84,8 +84,6 @@ cask "firefox"
 cask "gimp"
 # Web browser — primary development browser
 cask "google-chrome"
-# Menu bar manager
-cask "jordanbaird-ice"
 # Password manager compatible with KeePass
 cask "keeweb"
 # Collaborative workspace for notes, databases, and wikis
@@ -106,6 +104,8 @@ cask "stats"
 cask "sublime-text"
 # Menu bar app runner — shell scripts become menu bar items with auto-refresh
 cask "swiftbar"
+# Menu bar manager
+cask "thaw"
 # Open-source code editor
 cask "visual-studio-code"
 # Rust-based terminal
