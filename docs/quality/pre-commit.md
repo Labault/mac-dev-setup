@@ -69,6 +69,9 @@ pre-commit autoupdate
 ```
 
 Any revision update must be reviewed and tested before being committed.
+Dependabot maintains GitHub Actions and npm dependencies separately; it does
+not update these hook revisions. The CI tool pins and archive verification
+procedure are documented in [Continuous integration](../github-actions/ci.md).
 
 ## Gitleaks
 

@@ -1,12 +1,11 @@
 # Homebrew Inventory
 
-This file documents the real usage status of every Homebrew formula and cask in this setup.
+This file records the intended role of every formula and cask in the profiles.
+It is a curated selection, not a live inventory or proof that an app is used.
 
 It ensures the Brewfile remains a **curated workstation definition**, not just a dump of installed tools.
 
 ![Homebrew inventory overview](../assets/screenshots/homebrew/inventory-overview.webp)
-
-![Minimal and full profile comparison](../assets/images/profile-comparison.webp)
 
 ---
 
@@ -21,15 +20,22 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 - `bash` → modern Homebrew-provided Bash for script compatibility.
 - `bat` → file viewer with syntax highlighting.
 - `composer` / `php` / `symfony-cli` → backend stack.
+- `fnm` → project-specific Node.js versions; shell activation is opt-in.
 - `gh` → GitHub CLI.
+- `git` → Homebrew-managed Git.
+- `git-filter-repo` → deliberate Git history cleanup.
 - `git-delta` → Git diff enhancement.
 - `gitleaks` → security scanning.
+- `jq` → inspect and transform JSON.
 - `markdownlint-cli2` → Markdown validation.
 - `node` → JavaScript runtime for repository tooling and npm scripts.
 - `pre-commit` → local quality pipeline.
+- `ripgrep` → source-code search independent of editor-bundled binaries.
 - `shellcheck` → shell script validation.
+- `shfmt` → shell formatting.
 - `tokei` → code statistics.
 - `tree` → filesystem exploration.
+- `uv` → Python environments and isolated CLI tools.
 
 ---
 
@@ -45,7 +51,6 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 
 - `cleanshot` → screenshot and screen recording tool; annotations, scrolling capture, OCR. Licence required, activated manually.
 - `gimp` → open-source image editor for manual retouching, background removal, and export.
-- `notion` → collaborative workspace for notes, databases, and wikis. Used as desktop app and web.
 - `obsidian` → local-first Markdown note-taking app. Personal vault stays outside this repository.
 - `pearcleaner` → uninstall/cleanup tool.
 - `raycast` → productivity launcher; replaces Spotlight with clipboard history, snippets, and window management.
@@ -66,7 +71,6 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ### Browsers and API clients
 
 - `google-chrome` → primary development browser.
-- `bruno` → git-friendly API client; collections stored as plain files.
 
 ---
 
@@ -94,16 +98,20 @@ It ensures the Brewfile remains a **curated workstation definition**, not just a
 ## 🔴 TOOLING (not part of workflow but installed)
 
 - `glances` → system monitor.
-- `jordanbaird-ice` → menu bar manager.
+- `thaw` → menu bar manager (replaces Ice in the full profile).
 - `keeweb` → password manager.
-- `stats` → macOS system monitoring.
 
 ---
 
 ## 📌 Notes
 
-- No tool is strictly forbidden.
-- Everything remains installed, but only some tools are part of the **documented workflow**.
+- Profile policy checks live in `scripts/hardening.sh`.
+- Removing a profile entry does not uninstall an existing application.
+- Bruno, Notion, and Stats are optional tools outside the current profiles.
+  Their guides remain available for manual installation.
+- See [workstation audits](audit.md) for versions, updates, and local snapshots.
+- See [development CLI tools](../cli/development-tools.md) for the shared
+  Git, JSON, search, Node.js, Python, and formatting utilities.
 - Future goal: progressively move tools from INSTALLED → USED or remove if unnecessary.
 
 ---

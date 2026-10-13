@@ -5,6 +5,8 @@
 # never collides with a real "mac" already on PATH.
 
 setup() {
+  load test_helper
+  isolate_git
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
   if [ "$(uname -s)" != "Darwin" ]; then
     skip "install.sh targets macOS only"

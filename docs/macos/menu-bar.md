@@ -1,52 +1,40 @@
 # Menu bar utilities
 
-This page covers the three menu bar tools in this setup: **Ice** organizes the
-menu bar, **Stats** shows system metrics, and **SwiftBar** turns shell scripts
-into menu bar items (used here for uptime monitoring). All three are installed
-through Homebrew and declared in the project `Brewfile`; see
-[`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
+The full profile installs **Thaw** to organise the menu bar and **SwiftBar**
+to turn shell scripts into menu bar items. **Stats** remains an optional
+manual installation for system metrics. See
+[`Homebrew setup`](../homebrew/homebrew.md) for the profile installation.
 
 ![macOS menu bar with SwiftBar, Stats, CodexBar, and keyboard layout indicators](../assets/screenshots/macos/menu-bar-overview.webp)
 
-## Ice
+## Thaw
 
-[Ice](https://icemenubar.app/) is a macOS menu bar manager. It is installed as
-`jordanbaird-ice` and helps keep menu bar utilities readable when several
-development tools are running.
+[Thaw](https://github.com/Thaw-App/Thaw) is the menu bar manager selected by
+this profile. It replaces the former `jordanbaird-ice` entry.
 
 ### Installation
 
 ```bash
-brew install --cask jordanbaird-ice
-```
-
-Verify the installation:
-
-```bash
-brew list --cask jordanbaird-ice
+brew install --cask thaw
 ```
 
 ### Usage
 
-Open Ice from Applications or with:
+Open Thaw from Applications and choose which menu bar icons to keep visible.
+The layout and macOS permissions are configured per user and are not versioned.
 
-```bash
-open -a Ice
-```
-
-Use it to hide low-priority menu bar icons and keep important indicators
-visible. The exact menu bar layout is user-specific and is not versioned in
-this repository.
-
-![Ice showing expanded and compact macOS menu bar states](../assets/screenshots/macos/ice-menu-bar.webp)
+Replacing the Brewfile entry does not uninstall an existing Ice installation
+or migrate its preferences. Check your installed apps before removing anything.
 
 ### Rollback
 
 ```bash
-brew uninstall --cask jordanbaird-ice
+brew uninstall --cask thaw
 ```
 
 ## Stats
+
+Stats is optional and is not installed by `mac setup`.
 
 [Stats](https://github.com/exelban/stats) is a macOS menu bar system monitor.
 It displays CPU, memory, disk, network, battery, and sensor information without
@@ -251,8 +239,8 @@ Plugin scripts in the plugin directory are not removed automatically.
 
 ## Rollback (all)
 
-After uninstalling any of these casks, remove its entry from
-`profiles/full/Brewfile`.
+If you stop using Thaw or SwiftBar, remove its entry from
+`profiles/full/Brewfile` as well. Stats has no entry in the current profiles.
 
 ---
 

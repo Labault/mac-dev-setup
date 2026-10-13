@@ -4,11 +4,9 @@
 alternatives, Bruno stores collections as plain text files on disk, which means
 they can be committed alongside the project they describe.
 
-It is installed through Homebrew and declared in the project `Brewfile`.
+Bruno is optional and is not installed by either setup profile.
 
 ## Installation
-
-It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Bruno directly:
 
@@ -98,8 +96,6 @@ Remove Bruno with Homebrew:
 ```bash
 brew uninstall --cask bruno
 ```
-
-Then remove its entry from `profiles/full/Brewfile`.
 
 Collections stored in project repositories are not affected by uninstalling Bruno.
 

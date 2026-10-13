@@ -73,6 +73,18 @@ mac setup --profile full
 
 Installs the dependencies declared by the selected profile Brewfile.
 
+Setup reuses Homebrew already on `PATH`. If it is absent there, setup searches
+`/opt/homebrew/bin/brew` on Apple Silicon and `/usr/local/bin/brew` on Intel,
+then checks the other standard prefix. It installs Homebrew only when neither
+an active nor a standard-prefix installation is available.
+
+The installer download and execution must succeed. Setup then loads
+`brew shellenv` in both the Homebrew step and the parent setup shell, so Git,
+Zsh and final validation can find the installed tools. A failed download,
+installation or environment activation stops setup before later steps.
+
+`--dry-run` returns before any installation or environment activation.
+
 ![mac setup full profile output](../assets/screenshots/setup/setup-flow.webp)
 
 ### Git

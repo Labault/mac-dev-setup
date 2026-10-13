@@ -81,6 +81,42 @@ The current workflow validates:
 - GitHub Actions workflow syntax;
 - shell script linting with ShellCheck (`scripts/*.sh`, `install.sh`).
 
+## Commit selection
+
+The workflow calls `scripts/lint-commit-msg.sh --ci`. Selection is covered by
+Bats tests and uses the event references passed through environment variables.
+
+| Event | Commits checked |
+| --- | --- |
+| Pull request | `base..head`, including divergent branches |
+| Push with accessible `before` | `before..after`, including force pushes |
+| First push (`before` is all zeroes) | All history reachable from `after`, including roots |
+| Manual dispatch | No commit delta; this check is explicitly skipped |
+| Missing or invalid references | Failure, without narrowing the range |
+| Valid empty range | Success with an explicit empty-range message |
+
+Git failures propagate to the job. A successful commit check means Git actually
+computed the requested history and every selected message passed validation.
+
+## Tool versions and maintenance
+
+Both workflows read the exact Node.js version from `.node-version`. The Ubuntu
+workflow pins pre-commit and markdownlint-cli2, and downloads fixed releases of
+Actionlint, Lychee and EditorConfig checker. Each archive is checked against a
+SHA-256 digest recorded in the workflow before extraction.
+
+To update a binary, change its release URL and digest together. Obtain the digest
+from the upstream release asset metadata and verify the downloaded archive.
+Run the corresponding checker locally, then validate the workflow with Actionlint.
+
+Dependabot proposes monthly updates for GitHub Actions and npm dependencies.
+Remote hook revisions are maintained with `pre-commit autoupdate`; review the
+result and run all hooks before accepting it. There is no automatic merge.
+
+These pins control tool selection. Hosted runners, APT packages, Python/npm
+transitive dependencies and Homebrew packages still evolve. The macOS job uses
+current Homebrew packages intentionally to detect integration drift.
+
 ## macOS workflow
 
 An additional macOS workflow validates platform-specific behavior:
@@ -88,6 +124,10 @@ An additional macOS workflow validates platform-specific behavior:
 - `.github/workflows/ci-macos.yml` runs the test suite, checks the setup CLI
   contract (`--dry-run`), installs the full Homebrew profile, applies setup
   once, and runs the verification and hardening checks (`scripts/verify.sh`).
+
+The macOS runner already provides Homebrew. Cold installation and environment
+activation are tested with disposable command doubles for Intel and Apple
+Silicon; this does not replace a real fresh-Mac installation test.
 
 ## Pre-commit cache
 

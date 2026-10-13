@@ -1,6 +1,8 @@
 #!/usr/bin/env bats
 
 setup() {
+  load test_helper
+  isolate_git
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
   LINT="$REPO_DIR/scripts/lint-commit-msg.sh"
   MSG="$(mktemp)"

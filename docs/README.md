@@ -16,11 +16,13 @@ For the project overview, install steps, and command reference, see the
 - [Troubleshooting](troubleshooting/troubleshooting.md)
 - [Homebrew](homebrew/homebrew.md)
 - [Package inventory (USED / INSTALLED / TOOLING)](homebrew/inventory.md)
+- [Workstation audit and update checks](homebrew/audit.md)
 - [Architecture overview](architecture/current-architecture.md)
 - [CLI command discovery (internals)](architecture/cli-discovery.md)
 
 ## Command-line tools
 
+- [Development CLI tools (Git, jq, ripgrep, fnm, uv, shfmt)](cli/development-tools.md)
 - [bat](cli/bat.md)
 - [lsd](cli/lsd.md)
 - [duf](cli/duf.md)
@@ -65,7 +67,7 @@ For the project overview, install steps, and command reference, see the
 
 ## Web & API
 
-- [Bruno (API client)](web/bruno.md)
+- [Bruno (optional API client)](web/bruno.md)
 - [Google Chrome](web/chrome.md)
 - [Firefox](web/firefox.md)
 - [Excalidraw](web/excalidraw.md)
@@ -89,10 +91,10 @@ For the project overview, install steps, and command reference, see the
 - [Raycast](productivity/raycast.md)
 - [CleanShot X](productivity/cleanshot.md)
 - [Obsidian](productivity/obsidian.md)
-- [Notion](productivity/notion.md)
+- [Notion (optional)](productivity/notion.md)
 - [GIMP](productivity/gimp.md)
 - [macOS defaults](macos/macos-defaults.md)
-- [Menu bar (SwiftBar & Stats)](macos/menu-bar.md)
+- [Menu bar (Thaw, SwiftBar & optional Stats)](macos/menu-bar.md)
 - [terminal-notifier](macos/terminal-notifier.md)
 - [Pearcleaner](macos/pearcleaner.md)
 
@@ -109,7 +111,7 @@ For the project overview, install steps, and command reference, see the
 - [EditorConfig checker](quality/editorconfig-checker.md)
 - [ShellCheck](quality/shellcheck.md)
 - [Pre-commit](quality/pre-commit.md)
-- [Continuous integration](github-actions/ci.md)
+- [Continuous integration, commit selection and tool version maintenance](github-actions/ci.md)
 - [Act (local CI)](github-actions/act.md)
 - [actionlint](github-actions/actionlint.md)
 

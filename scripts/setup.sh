@@ -18,6 +18,9 @@ source "$SCRIPT_DIR/lib/logging.sh"
 # shellcheck source=scripts/lib/profiles.sh
 source "$SCRIPT_DIR/lib/profiles.sh"
 
+# shellcheck source=scripts/lib/homebrew.sh
+source "$SCRIPT_DIR/lib/homebrew.sh"
+
 REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 print_usage() {
@@ -111,6 +114,8 @@ run_setup() {
   # EXECUTION
   # ----------------------------
   PROFILE="$PROFILE" bash "$SCRIPT_DIR/brew.sh"
+  # Child processes cannot export their environment back to this shell.
+  activate_homebrew
   bash "$SCRIPT_DIR/git.sh"
   bash "$SCRIPT_DIR/zsh.sh"
 

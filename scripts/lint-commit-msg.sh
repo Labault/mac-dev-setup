@@ -301,28 +301,89 @@ validate_message() {
   return 0
 }
 
-main() {
-  if [ "${1:-}" = "--range" ]; then
-    local from to sha body status=0
-    from="${2:?--range requires <from> <to>}"
-    to="${3:?--range requires <from> <to>}"
-    while IFS= read -r sha; do
-      [ -z "$sha" ] && continue
-      body="$(git log -1 --format=%B "$sha")"
-      if ! validate_message "$body" "$sha"; then
-        status=1
-      fi
-    done < <(git rev-list --reverse "${from}..${to}")
-    if [ "$status" -eq 0 ]; then
-      success "all commit messages follow the gitmoji + Conventional Commits format"
-    fi
-    return "$status"
+lint_commits() {
+  local commits sha body status=0
+  if ! commits="$(git rev-list --reverse "$@")"; then
+    error "Cannot determine commits: check the Git references and checkout history"
+    return 1
   fi
+  if [ -z "$commits" ]; then
+    info "No commits to check"
+    return 0
+  fi
+  while IFS= read -r sha; do
+    if ! body="$(git log -1 --format=%B "$sha")"; then
+      error "Cannot read commit $sha"
+      return 1
+    fi
+    if ! validate_message "$body" "$sha"; then
+      status=1
+    fi
+  done <<<"$commits"
+  if [ "$status" -eq 0 ]; then
+    success "all commit messages follow the gitmoji + Conventional Commits format"
+  fi
+  return "$status"
+}
 
-  local file body
-  file="${1:?usage: lint-commit-msg.sh <commit-msg-file> | --range <from> <to>}"
-  body="$(<"$file")"
-  validate_message "$body" ""
+check_commit_ref() {
+  if ! git rev-parse --verify --quiet --end-of-options "${1}^{commit}" >/dev/null; then
+    error "Cannot determine commits: invalid commit reference $1"
+    return 1
+  fi
+}
+
+lint_range() {
+  check_commit_ref "$1" || return 1
+  check_commit_ref "$2" || return 1
+  lint_commits "${1}..${2}"
+}
+
+lint_ci() {
+  local from to
+  case "${CI_EVENT:-}" in
+    workflow_dispatch)
+      info "No commit delta for workflow_dispatch; commit check skipped"
+      return 0
+      ;;
+    pull_request)
+      from="${PR_BASE_SHA:-}"
+      to="${PR_HEAD_SHA:-}"
+      ;;
+    push)
+      from="${PUSH_BEFORE_SHA:-}"
+      to="${PUSH_AFTER_SHA:-}"
+      if [[ "$from" =~ ^0+$ ]] && [ -n "$to" ]; then
+        check_commit_ref "$to" || return 1
+        lint_commits "$to"
+        return "$?"
+      fi
+      ;;
+    *)
+      error "Unsupported CI event: ${CI_EVENT:-unset}"
+      return 1
+      ;;
+  esac
+  if [ -z "$from" ] || [ -z "$to" ]; then
+    error "Cannot determine commits: missing CI references"
+    return 1
+  fi
+  lint_range "$from" "$to"
+}
+
+main() {
+  case "${1:-}" in
+    --ci) lint_ci ;;
+    --range)
+      lint_range "${2:?--range requires <from> <to>}" "${3:?--range requires <from> <to>}"
+      ;;
+    *)
+      local file body
+      file="${1:?usage: lint-commit-msg.sh <commit-msg-file> | --range <from> <to> | --ci}"
+      body="$(<"$file")"
+      validate_message "$body" ""
+      ;;
+  esac
 }
 
 main "$@"

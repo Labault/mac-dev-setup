@@ -18,12 +18,20 @@ brew "ctop"
 brew "duf"
 # More intuitive version of du in rust
 brew "dust"
+# Distributed version control
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Rewrite Git history when a repository needs an intentional cleanup
+brew "git-filter-repo"
 # Alternative to top/htop
 brew "glances"
+# Command-line JSON processor
+brew "jq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Search source trees quickly while respecting ignore files
+brew "ripgrep"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Official tldr client written in Rust
@@ -43,6 +51,8 @@ brew "actionlint"
 brew "composer"
 # Tool to verify that your files are in harmony with your .editorconfig
 brew "editorconfig-checker"
+# Select project-specific Node.js versions
+brew "fnm"
 # GitHub command-line tool
 brew "gh"
 # Audit git repos for secrets
@@ -63,15 +73,17 @@ brew "php"
 brew "pre-commit"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Format shell scripts
+brew "shfmt"
 # Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
 brew "symfony-cli/tap/symfony-cli", trusted: true
+# Manage Python environments and isolated command-line tools
+brew "uv"
 
 # GUI apps
 
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
-# Open-source API client with collections stored as plain files
-cask "bruno"
 # Claude desktop app by Anthropic
 cask "claude"
 # Screenshot and screen recording tool with annotations, scrolling capture, and OCR
@@ -86,8 +98,6 @@ cask "gimp"
 cask "google-chrome"
 # Password manager compatible with KeePass
 cask "keeweb"
-# Collaborative workspace for notes, databases, and wikis
-cask "notion"
 # Local-first Markdown note-taking app with a personal vault
 cask "obsidian"
 # Run large language models locally
@@ -98,8 +108,6 @@ cask "orbstack"
 cask "pearcleaner"
 # Productivity launcher — replaces Spotlight with clipboard history, snippets, and window management
 cask "raycast"
-# System monitor for the menu bar
-cask "stats"
 # Fast and lightweight text editor
 cask "sublime-text"
 # Menu bar app runner — shell scripts become menu bar items with auto-refresh

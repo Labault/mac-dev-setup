@@ -15,12 +15,18 @@ brew "bat"
 brew "duf"
 # More intuitive version of du in rust
 brew "dust"
+# Distributed version control
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Audit git repos for secrets
 brew "gitleaks"
+# Command-line JSON processor
+brew "jq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Search source trees quickly while respecting ignore files
+brew "ripgrep"
 # Official tldr client written in Rust
 brew "tlrc"
 # Display directories as trees (with optional color/HTML output)

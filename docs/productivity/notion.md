@@ -4,15 +4,12 @@
 databases, wikis, and project tracking. It is used via both the desktop app and
 the web interface.
 
-The desktop app is installed through Homebrew and declared in the project
-`Brewfile`. Account creation and data live on Notion's servers — nothing is
-stored locally beyond the app cache.
+The desktop app is optional and is not installed by either setup profile.
+Your Notion workspace is managed separately from this repository.
 
 ![Notion demo workspace with a MacDevSetup visual roadmap](../assets/screenshots/apps/notion-workspace.webp)
 
 ## Installation
-
-It is part of the curated Homebrew environment; see [`Homebrew setup`](../homebrew/homebrew.md) to install everything at once.
 
 Install Notion directly:
 
@@ -53,8 +50,6 @@ Remove the Notion desktop app with Homebrew:
 ```bash
 brew uninstall --cask notion
 ```
-
-Then remove its entry from `profiles/full/Brewfile`.
 
 Workspace data is not affected by uninstalling the desktop app.
 

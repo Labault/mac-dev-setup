@@ -107,7 +107,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash bat gh ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   *) exit 0 ;;
 esac
@@ -129,7 +129,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash local-only-tool ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash local-only-tool ;;
   list\ --cask) printf '%s\n' visual-studio-code local-only-app ;;
   *) exit 0 ;;
 esac
@@ -145,6 +145,71 @@ BREW
   [[ "$output" == *"local-only-app"* ]]
 }
 
+@test "doctor ignores transitive dependencies but reports requested formulae and casks" {
+  make_common_doctor_path
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  list\ --formula) printf '%s\n' bash local-only-tool transitive-library ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash local-only-tool ;;
+  list\ --cask) printf '%s\n' visual-studio-code local-only-app ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin"
+
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"local-only-tool"* ]]
+  [[ "$output" == *"local-only-app"* ]]
+  [[ "$output" != *"transitive-library"* ]]
+}
+
+@test "doctor fails when requested formulae cannot be listed" {
+  make_common_doctor_path
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  list\ --formula*) exit 1 ;;
+  list\ --cask) printf '%s\n' visual-studio-code ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin"
+
+  [ "$status" -ne 0 ]
+  [[ "$output" == *"Homebrew package inventory could not be read"* ]]
+  [[ "$output" != *"in sync: no undeclared Homebrew packages"* ]]
+}
+
+@test "doctor fails when casks cannot be listed" {
+  make_common_doctor_path
+
+  cat >"$bin/brew" <<'BREW'
+#!/bin/sh
+case "$*" in
+  list\ --formula*) printf '%s\n' bash ;;
+  list\ --cask) exit 1 ;;
+  *) exit 0 ;;
+esac
+BREW
+  chmod +x "$bin/brew"
+
+  run env PATH="$bin" bash "$REPO_DIR/scripts/commands/doctor.sh" --profile minimal
+  rm -rf "$bin"
+
+  [ "$status" -ne 0 ]
+  [[ "$output" == *"Homebrew package inventory could not be read"* ]]
+  [[ "$output" != *"in sync: no undeclared Homebrew packages"* ]]
+}
+
 @test "doctor reports managed config files in sync" {
   make_common_doctor_path
   home="$(mktemp -d)"
@@ -155,7 +220,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash bat gh ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   *) exit 0 ;;
 esac
@@ -180,7 +245,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash bat gh ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   *) exit 0 ;;
 esac
@@ -206,7 +271,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 1 ;;
-  list\ --formula) printf '%s\n' bash local-only-tool ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash local-only-tool ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   uninstall*) exit 42 ;;
   *) exit 0 ;;
@@ -221,7 +286,8 @@ BREW
   [[ "$output" == *"Fix suggestions"* ]]
   [[ "$output" == *"mac setup --profile minimal"* ]]
   [[ "$output" == *"brew bundle --file=\"$REPO_DIR/profiles/minimal/Brewfile\""* ]]
-  [[ "$output" == *"brew uninstall \"local-only-tool\""* ]]
+  [[ "$output" != *"brew uninstall"* ]]
+  [[ "$output" == *"Review undeclared packages before changing the setup"* ]]
 }
 
 @test "doctor --fix reports no suggestions when everything is in sync" {
@@ -234,7 +300,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash bat gh ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash bat gh ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   *) exit 0 ;;
 esac
@@ -258,7 +324,7 @@ BREW
 case "$*" in
   doctor) exit 0 ;;
   bundle\ check*) exit 0 ;;
-  list\ --formula) printf '%s\n' bash local-only-a local-only-b ;;
+  list\ --formula\ --installed-on-request) printf '%s\n' bash local-only-a local-only-b ;;
   list\ --cask) printf '%s\n' visual-studio-code ;;
   *) exit 0 ;;
 esac
@@ -270,4 +336,5 @@ BREW
 
   [[ "$output" != *"brew uninstall"* ]]
   [[ "$output" == *"undeclared packages"* ]]
+  [[ "$output" == *"Review undeclared packages before changing the setup"* ]]
 }

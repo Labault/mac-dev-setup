@@ -46,12 +46,17 @@ Keep changes focused and avoid combining unrelated work.
 
 ## Validation
 
-Before opening a pull request, run the test suite and the quality hooks:
+Use the Node.js version in `.node-version` and install dependencies with
+`npm ci`. Before opening a pull request, run the test suite and quality hooks:
 
 ```bash
 npm test                  # Bats test suite
 pre-commit run --all-files
 ```
+
+Git-based tests isolate temporary repositories from personal signing and hooks.
+They do not require changes to your global Git configuration. Bootstrap tests use
+disposable copies and simulated installers; they do not install Homebrew on your Mac.
 
 When GitHub Actions workflows are modified, also lint every workflow file:
 

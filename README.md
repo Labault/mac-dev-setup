@@ -96,6 +96,7 @@ These run in the terminal and improve on macOS built-ins.
 | `lsd` | `ls` with colors, icons, and a tree view | [docs/cli/lsd.md](docs/cli/lsd.md) |
 | `terminal-notifier` | Send macOS notifications from shell scripts | [docs/macos/terminal-notifier.md](docs/macos/terminal-notifier.md) |
 | `tldr` | Short, example-first manual pages — installed as `tlrc` formula | `tldr tldr` |
+| `jq` / `ripgrep` | Inspect JSON and search source trees | [Development CLI tools](docs/cli/development-tools.md) |
 | `tokei` | Count lines of code by language | [docs/cli/tokei.md](docs/cli/tokei.md) |
 | `tree` | Show a directory as a tree | [docs/cli/tree.md](docs/cli/tree.md) |
 
@@ -105,6 +106,7 @@ These run in the terminal and improve on macOS built-ins.
 
 | Tool | What it does | Documentation |
 | --- | --- | --- |
+| `git` / `git-filter-repo` | Version control and deliberate history cleanup (`git-filter-repo` in full only) | [Development CLI tools](docs/cli/development-tools.md) |
 | `gh` | GitHub from the terminal: open PRs, create issues, clone repos | `gh --help` |
 | `git-delta` | Readable, colored Git diffs | [docs/git/git-delta.md](docs/git/git-delta.md) |
 | `gitleaks` | Scan your repo for accidentally committed secrets | [docs/security/gitleaks.md](docs/security/gitleaks.md) |
@@ -159,6 +161,15 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 
 ---
 
+### Node.js, Python & shell tooling
+
+Both profiles include Homebrew Node.js for shared tooling. The full profile also
+provides `fnm` for project-specific Node versions, `uv` for isolated Python tools,
+and `shfmt` for shell formatting. Runtime selection stays explicit; see
+[development CLI tools](docs/cli/development-tools.md).
+
+---
+
 ### Databases
 
 | App | What it does | Documentation |
@@ -173,12 +184,10 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | --- | --- | --- |
 | CleanShot X | Screenshot and screen recording with annotation and OCR | [docs/productivity/cleanshot.md](docs/productivity/cleanshot.md) |
 | GIMP | Open-source image editor for retouching and export | [docs/productivity/gimp.md](docs/productivity/gimp.md) |
-| Ice | Menu bar manager — hide, organise, and reorder menu bar icons | [docs/macos/menu-bar.md#ice](docs/macos/menu-bar.md#ice) |
-| Notion | Collaborative workspace for notes, databases, and project tracking | [docs/productivity/notion.md](docs/productivity/notion.md) |
+| Thaw | Organise menu bar icons | [docs/macos/menu-bar.md#thaw](docs/macos/menu-bar.md#thaw) |
 | Obsidian | Local-first Markdown note-taking app | [docs/productivity/obsidian.md](docs/productivity/obsidian.md) |
 | Pearcleaner | Cleanly uninstall apps and their leftover files | [docs/macos/pearcleaner.md](docs/macos/pearcleaner.md) |
 | Raycast | Launcher that replaces Spotlight: clipboard history, snippets, window management | [docs/productivity/raycast.md](docs/productivity/raycast.md) |
-| Stats | System monitor in the menu bar (CPU, memory, network) | [docs/macos/menu-bar.md#stats](docs/macos/menu-bar.md#stats) |
 | SwiftBar | Turn any shell script into a menu bar item with auto-refresh | [docs/macos/menu-bar.md#swiftbar](docs/macos/menu-bar.md#swiftbar) |
 
 ---
@@ -187,7 +196,6 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 
 | App | What it does | Documentation |
 | --- | --- | --- |
-| Bruno | Git-friendly API client — collections stored as plain files in your repo | [docs/web/bruno.md](docs/web/bruno.md) |
 | Excalidraw | Hand-drawn-style diagrams in the browser or VS Code | [docs/web/excalidraw.md](docs/web/excalidraw.md) |
 | Firefox | Secondary browser for cross-browser testing | [docs/web/firefox.md](docs/web/firefox.md) |
 | Google Chrome | Primary development browser | [docs/web/chrome.md](docs/web/chrome.md) |
@@ -201,7 +209,7 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | Tool | What it does | Documentation |
 | --- | --- | --- |
 | Claude (desktop app + CLI) | AI assistant for reasoning, writing, design, and agentic coding | [docs/ai/claude.md](docs/ai/claude.md) |
-| Codex (CLI) | OpenAI's coding assistant, installed globally via `npm` | [docs/ai/codex.md](docs/ai/codex.md) |
+| Codex (CLI) | OpenAI's coding assistant, installed separately with the standalone installer | [docs/ai/codex.md](docs/ai/codex.md) |
 | CodexBar | Menu bar app tracking token usage and cost across AI providers | [docs/ai/codexbar.md](docs/ai/codexbar.md) |
 | Ollama | Run large language models locally (Mistral, Llama, etc.) | [docs/ai/ollama.md](docs/ai/ollama.md) |
 
@@ -215,6 +223,9 @@ Linting and quality tools run automatically before each commit via `pre-commit`.
 | SwiftBar + custom scripts | Lightweight VPS and site uptime monitoring in the menu bar | [docs/macos/menu-bar.md#swiftbar](docs/macos/menu-bar.md#swiftbar) |
 
 ---
+
+Bruno, Notion, and Stats remain documented as optional, manually installed tools.
+They are not installed by either profile.
 
 The complete package inventory (USED / INSTALLED / TOOLING) lives in
 [docs/homebrew/inventory.md](docs/homebrew/inventory.md).
@@ -304,10 +315,8 @@ A **profile** decides which tools are installed. New here? Start with
 
 | Profile | Best for | What you get |
 | --- | --- | --- |
-| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (14 Homebrew packages) |
-| `full` | The maintainer's complete workstation (the default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (51 Brewfile entries: 29 formulae, 21 casks, 1 tap) |
-
-![Minimal and full profile comparison](docs/assets/images/profile-comparison.webp)
+| `minimal` | Lightweight shell + Git workflow | Core CLI tools, Git helpers, `gh`, `node`, `pre-commit` (17 Homebrew packages) |
+| `full` | The maintainer's complete workstation (the default) | Everything in `minimal` + PHP/Symfony stack, quality linters, GUI apps, containers, databases, AI tools (55 Brewfile entries: 36 formulae, 18 casks, 1 tap) |
 
 The exact lists live in
 [`profiles/minimal/Brewfile`](profiles/minimal/Brewfile) and
@@ -398,8 +407,8 @@ expected — here is where to change things:
 
 - **Add or remove tools:** edit [`profiles/minimal/Brewfile`](profiles/minimal/Brewfile)
   and [`profiles/full/Brewfile`](profiles/full/Brewfile). Each line is a Homebrew
-  `brew`/`cask`/`tap` entry; `mac doctor` reports anything installed but not
-  declared.
+  `brew`/`cask`/`tap` entry; `mac doctor` reports explicitly installed formulae
+  and casks that are not declared. Transitive dependencies are excluded.
 - **Create your own profile:** add `profiles/<name>/Brewfile`, then
   `mac setup --profile <name>`. Profiles are discovered from the directory, so no
   code change is needed.
@@ -466,7 +475,11 @@ mac doctor --summary            # collapse long lists to a count (handy when man
 
 - **Missing** — a tool declared in the profile is not installed.
 - **Drift** — a managed config file differs from the versioned copy.
-- **Undeclared** — a tool is installed but not declared in any profile.
+- **Undeclared**: an explicitly installed formula or cask is absent from every
+  profile. Review whether it belongs in your setup; this is not a removal list.
+
+For a dated inventory, update checks, and casks whose receipts differ from the
+actual app, follow the [workstation audit guide](docs/homebrew/audit.md).
 
 ![mac doctor diagnostics output](docs/assets/screenshots/readme/mac-doctor.webp)
 

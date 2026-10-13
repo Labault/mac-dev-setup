@@ -12,7 +12,7 @@ Three entry points are available in this setup:
 | Web (claude.ai) | Fallback when the desktop app is not available |
 
 The desktop app is installed through Homebrew and declared in the project
-`Brewfile`. Claude Code is installed separately via npm.
+`Brewfile`. Claude Code is installed separately with its native installer.
 
 ![Claude Desktop answering a Mac developer setup checklist prompt](../assets/screenshots/ai/claude-desktop.webp)
 
@@ -32,12 +32,18 @@ Sign in with your Anthropic account after launch.
 
 ### Claude Code CLI
 
-Claude Code is a CLI tool for agentic coding tasks in the terminal. Install it
-globally via npm:
+Claude Code has a native installation independent of Node.js. Follow the
+[official setup guide](https://code.claude.com/docs/en/setup):
 
 ```bash
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+Native installations manage their own updates. The `stable` and `latest`
+channels can expose different versions, so compare the configured channel
+before treating a version difference as a missed update. Keep existing
+Homebrew or npm installations on their own channel instead of adding a second
+copy. Check the resolved launcher with `type -a claude`.
 
 Verify the installation:
 
@@ -90,11 +96,10 @@ brew uninstall --cask claude
 
 Then remove its entry from `profiles/full/Brewfile`.
 
-To remove Claude Code:
-
-```bash
-npm uninstall -g @anthropic-ai/claude-code
-```
+For Claude Code, follow the [uninstall instructions for your installation
+method](https://code.claude.com/docs/en/setup#uninstall-claude-code). An npm
+uninstall does not remove the native launcher. Review configuration and
+credential removal separately from removing the executable.
 
 ---
 

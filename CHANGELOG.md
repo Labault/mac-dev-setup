@@ -8,7 +8,34 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ## Unreleased
 
+### Added
+
+- Declared Git, jq, and ripgrep in both profiles, with fnm, git-filter-repo,
+  shfmt, and uv in the full profile.
+- Documented workstation audits and the boundary between shared tooling and
+  project-specific runtime versions.
+
+### Fixed
+
+- Isolated Git test fixtures from personal signing and hooks.
+- Propagated commit selection failures in CI, included roots on initial pushes,
+  and defined manual, pull request, force-push and empty-range behavior.
+- Activated existing or newly installed Homebrew in the setup shell and stopped
+  subsequent steps on installer or environment failures.
+
+- Excluded transitive Homebrew dependencies from `mac doctor` drift reports,
+  replaced removal suggestions with review guidance, and surfaced inventory
+  read failures.
+- Made the profile inventory check work with native macOS tools and fail on
+  missing documentation or an empty package list.
+- Aligned menu bar documentation with Thaw and updated Claude/Codex CLI
+  installation and authentication guidance.
+
 ### Changed
+
+- Shared an exact Node.js version across CI workflows, pinned validation tools
+  and verified downloaded archives with SHA-256.
+- Updated remote pre-commit hooks and enabled monthly npm Dependabot updates.
 
 - Migrated Git hooks fully to the [pre-commit](https://pre-commit.com/)
   framework and removed Husky. Commit-message linting now runs on
@@ -23,6 +50,8 @@ The format is inspired by Keep a Changelog, and the project follows semantic ver
 
 ### Removed
 
+- Removed Bruno, Notion, and Stats from the full profile; their optional guides
+  remain available and existing installations are not uninstalled.
 - Dropped the `@commitlint/*`, `@gitmoji/gitmoji-regex`, and
   `commitlint-config-gitmoji` Node dependencies and the `commitlint.config.cjs`
   file.

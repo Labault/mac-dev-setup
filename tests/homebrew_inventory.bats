@@ -6,21 +6,25 @@ setup() {
 }
 
 @test "Homebrew inventory mentions every profile package" {
+  run sed -n \
+    -e 's/^[[:space:]]*brew[[:space:]]*"\([^"]*\)".*/\1/p' \
+    -e 's/^[[:space:]]*cask[[:space:]]*"\([^"]*\)".*/\1/p' \
+    "$REPO_DIR"/profiles/*/Brewfile
+
+  [ "$status" -eq 0 ]
+  [ -n "$output" ]
   missing=""
 
   while IFS= read -r token; do
     name="${token##*/}"
 
-    if ! grep -Fq -- "$name" "$INVENTORY"; then
+    if ! grep -Fq -- "\`$name\`" "$INVENTORY"; then
       missing="$missing $name"
     fi
-  done < <(
-    awk '
-      match($0, /^[[:space:]]*(brew|cask)[[:space:]]+"([^"]+)"/, entry) {
-        print entry[2]
-      }
-    ' "$REPO_DIR"/profiles/*/Brewfile | sort -u
-  )
+  done <<< "$output"
 
-  [ -z "$missing" ]
+  if [ -n "$missing" ]; then
+    printf 'Undocumented profile packages:%s\n' "$missing"
+    return 1
+  fi
 }

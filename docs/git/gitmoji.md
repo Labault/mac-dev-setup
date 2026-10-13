@@ -41,7 +41,9 @@ The format is validated automatically by a small shell linter,
 
 Commit messages are linted both locally (via the pre-commit `commit-msg` hook)
 and in CI (the `Repository quality` job runs the linter over the pushed commit
-range). A commit that omits the emoji or uses an unknown type is rejected.
+range, or the PR history). Manual runs have no commit delta and explicitly
+skip this check. See the [CI selection contract](../github-actions/ci.md#commit-selection).
+A commit that omits the emoji or uses an unknown type is rejected.
 
 ## Common Gitmoji in this repository
 

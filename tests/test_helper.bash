@@ -22,3 +22,10 @@ write_stub() {
   cat >"$path"
   chmod +x "$path"
 }
+
+# Keep temporary repositories independent of personal signing and hooks.
+isolate_git() {
+  unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE GIT_PREFIX \
+    GIT_OBJECT_DIRECTORY GIT_COMMON_DIR GIT_CONFIG GIT_CONFIG_PARAMETERS
+  export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1 GIT_CONFIG_COUNT=0
+}

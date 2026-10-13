@@ -148,8 +148,8 @@ declared_homebrew_packages() {
 
 installed_homebrew_packages() {
   {
-    brew list --formula 2>/dev/null || true
-    brew list --cask 2>/dev/null || true
+    brew list --formula --installed-on-request || return
+    brew list --cask || return
   } | sort -u
 }
 
@@ -167,7 +167,11 @@ check_homebrew_drift() {
   drift_file="$(mktemp)"
 
   declared_homebrew_packages >"$declared_file"
-  installed_homebrew_packages >"$installed_file"
+  if ! installed_homebrew_packages >"$installed_file"; then
+    doctor_missing "Homebrew package inventory could not be read"
+    DOCTOR_STATUS=1
+    return
+  fi
   comm -13 "$declared_file" "$installed_file" >"$drift_file"
 
   if [ -s "$drift_file" ]; then
@@ -177,15 +181,15 @@ check_homebrew_drift() {
       while IFS= read -r _; do
         drift_count=$(( drift_count + 1 ))
       done <"$drift_file"
-      log_line "  ($drift_count packages — run without --summary to list)"
-      add_fix_suggestion "# $drift_count undeclared packages — run: mac doctor to list them"
+      log_line "  ($drift_count packages; run without --summary to list)"
+      add_fix_suggestion "# $drift_count undeclared packages: run mac doctor to list them"
     else
       while IFS= read -r package; do
         log_line "  - $package"
-        add_fix_suggestion "brew uninstall \"$package\""
       done <"$drift_file"
     fi
-    log_line "Consider adding intentional tools to a profile Brewfile, or uninstalling local-only packages."
+    log_line "Review undeclared packages before changing the setup."
+    add_fix_suggestion "# Review the undeclared package list and add intentional tools to a profile Brewfile."
   else
     doctor_in_sync "no undeclared Homebrew packages"
   fi

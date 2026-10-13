@@ -11,6 +11,9 @@ source "$SCRIPT_DIR/lib/logging.sh"
 # shellcheck source=scripts/lib/profiles.sh
 source "$SCRIPT_DIR/lib/profiles.sh"
 
+# shellcheck source=scripts/lib/homebrew.sh
+source "$SCRIPT_DIR/lib/homebrew.sh"
+
 PROFILE="${PROFILE:-$(profile_default)}"
 BREWFILE="$(profile_brewfile "$REPO_DIR" "$PROFILE")"
 
@@ -34,10 +37,28 @@ fi
 info "[BREW] Setup starting"
 info "[BREW] Profile: $PROFILE"
 
-# Install Homebrew if needed
-if ! command -v brew >/dev/null 2>&1; then
+# The downloaded installer runs in a child shell; activate its result here.
+if activate_homebrew; then
+  :
+else
+  activation_status=$?
+  if [ "$activation_status" -ne 1 ]; then
+    error "Cannot activate existing Homebrew environment"
+    exit 1
+  fi
   info "Installing Homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if ! installer="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
+    error "Cannot download Homebrew installer"
+    exit 1
+  fi
+  if ! /bin/bash -c "$installer"; then
+    error "Homebrew installation failed"
+    exit 1
+  fi
+  if ! activate_homebrew; then
+    error "Homebrew executable not found or shellenv failed after installation"
+    exit 1
+  fi
 fi
 
 info "Updating Homebrew"

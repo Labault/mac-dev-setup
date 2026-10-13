@@ -5,6 +5,8 @@
 # location, so running the copy inside the clone operates on the clone.
 
 setup() {
+  load test_helper
+  isolate_git
   REPO_DIR="$(cd "$BATS_TEST_DIRNAME/.." && pwd)"
   # When the suite runs inside a git hook, git exports GIT_DIR/
   # GIT_INDEX_FILE etc.; clear them so `git -C <other repo>` is not hijacked.

@@ -30,43 +30,52 @@ jobs:
           fi
           echo "No committed local artifacts."
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
       - name: Install system validation tools
         run: |
           sudo apt-get update
-          sudo apt-get install --yes \
-            ca-certificates \
-            curl \
-            golang-go \
-            pre-commit
+          sudo apt-get install --yes ca-certificates curl python3-venv
+          python3 -m venv "$RUNNER_TEMP/pre-commit"
+          "$RUNNER_TEMP/pre-commit/bin/pip" install pre-commit==4.6.2
+          echo "$RUNNER_TEMP/pre-commit/bin" >> "$GITHUB_PATH"
+          npm install --global markdownlint-cli2@0.23.3
 
-          curl -fsSL https://deb.nodesource.com/setup_22.x \
-            | sudo -E bash -
-
-          sudo apt-get install --yes nodejs
-
-          npm install --global markdownlint-cli2
-
-          go install \
-            github.com/editorconfig-checker/editorconfig-checker/v3/cmd/editorconfig-checker@latest
-
-          curl -sSfL \
-            https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash \
-            | bash
-
-          sudo install actionlint /usr/local/bin/actionlint
-
-          curl -sSfL \
-            https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz \
-            -o /tmp/lychee.tar.gz
-
-          mkdir -p /tmp/lychee
-          tar -xzf /tmp/lychee.tar.gz -C /tmp/lychee
-
+          # v1.7.12: digest published with the GitHub release asset.
+          curl -fsSL \
+            https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz \
+            -o "$RUNNER_TEMP/actionlint.tar.gz"
+          echo "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8  $RUNNER_TEMP/actionlint.tar.gz" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/actionlint"
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP/actionlint"
           sudo install \
-            "$(find /tmp/lychee -type f -name lychee -print -quit)" \
+            "$(find "$RUNNER_TEMP/actionlint" -type f -name actionlint -print -quit)" \
+            /usr/local/bin/actionlint
+
+          # lychee-v0.24.2: digest published with the GitHub release asset.
+          curl -fsSL \
+            https://github.com/lycheeverse/lychee/releases/download/lychee-v0.24.2/lychee-x86_64-unknown-linux-gnu.tar.gz \
+            -o "$RUNNER_TEMP/lychee.tar.gz"
+          echo "1f4e0ef7f6554a6ed33dd7ac144fb2e1bbed98598e7af973042fc5cd43951c9a  $RUNNER_TEMP/lychee.tar.gz" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/lychee"
+          tar -xzf "$RUNNER_TEMP/lychee.tar.gz" -C "$RUNNER_TEMP/lychee"
+          sudo install \
+            "$(find "$RUNNER_TEMP/lychee" -type f -name lychee -print -quit)" \
             /usr/local/bin/lychee
 
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+          # v4.0.2: digest published with the GitHub release asset.
+          curl -fsSL \
+            https://github.com/editorconfig-checker/editorconfig-checker/releases/download/v4.0.2/editorconfig-checker-linux-amd64.tar.gz \
+            -o "$RUNNER_TEMP/editorconfig-checker.tar.gz"
+          echo "44efaef3ed14c6ab52eb87481d78e5e5c204796dccf26e2f4598a61ba17f8003  $RUNNER_TEMP/editorconfig-checker.tar.gz" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/editorconfig-checker"
+          tar -xzf "$RUNNER_TEMP/editorconfig-checker.tar.gz" -C "$RUNNER_TEMP/editorconfig-checker"
+          sudo install \
+            "$(find "$RUNNER_TEMP/editorconfig-checker" -type f -name editorconfig-checker -print -quit)" \
+            /usr/local/bin/editorconfig-checker
 
       - name: Install Node dependencies
         run: npm ci
@@ -76,33 +85,12 @@ jobs:
 
       - name: Lint commit messages
         env:
+          CI_EVENT: ${{ github.event_name }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PUSH_BEFORE_SHA: ${{ github.event.before }}
           PUSH_AFTER_SHA: ${{ github.sha }}
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            from="$PR_BASE_SHA"
-            to="$PR_HEAD_SHA"
-          else
-            from="$PUSH_BEFORE_SHA"
-            to="$PUSH_AFTER_SHA"
-          fi
-
-          # First push of a branch reports an all-zero "before" SHA; fall back
-          # to the repository root so the range stays valid.
-          if printf '%s' "$from" | grep -Eq '^0+$'; then
-            from="$(git rev-list --max-parents=0 "$to" | tail -1)"
-          fi
-
-          # A force-push that rewrote history reports a "before" SHA that no
-          # longer exists in the repository; lint only the pushed tip so the
-          # range stays valid.
-          if [ -n "$from" ] && ! git cat-file -e "${from}^{commit}" 2>/dev/null; then
-            from="$(git rev-parse "${to}^")"
-          fi
-
-          scripts/lint-commit-msg.sh --range "$from" "$to"
+        run: bash scripts/lint-commit-msg.sh --ci
 
       - name: Cache pre-commit environments
         uses: actions/cache@v5
